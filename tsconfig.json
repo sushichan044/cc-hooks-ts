@@ -1,0 +1,9 @@
+{
+  "extends": "@virtual-live-lab/tsconfig/base",
+  "compilerOptions": {
+    "module": "preserve",
+    "moduleResolution": "bundler",
+    "types": ["node"],
+    "erasableSyntaxOnly": true
+  }
+}
