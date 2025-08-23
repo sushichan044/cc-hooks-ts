@@ -6,7 +6,7 @@
   "plugins": {
     "release-it-pnpm": {
       "inFile": "CHANGELOG.md",
-      "publishCommand": "if [ -n \"$ACTIONS_ID_TOKEN_REQUEST_TOKEN\" ]; then echo \"OIDC Token found\"; fi && pnpm -r publish --access public --no-git-checks --tag $tag"
+      "publishCommand": "pnpm -r publish --access public --no-git-checks --tag $tag"
     }
   }
 }
