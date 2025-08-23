@@ -200,6 +200,10 @@ pnpm format
 pnpm typecheck
 ```
 
+## Documentation
+
+For more detailed information about Claude Code hooks, visit the [official documentation](https://docs.anthropic.com/en/docs/claude-code/hooks).
+
 ## License
 
 MIT
