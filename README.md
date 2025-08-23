@@ -24,11 +24,13 @@ With Bun:
 #!/usr/bin/env -S bun run --silent
 import { defineHook, runHook } from "cc-hooks-ts";
 
+// Session start hook
 const sessionHook = defineHook({
   trigger: { SessionStart: true },
   run: (context) => {
+    // do something great
     return context.success({
-      messageForUser: "Session started!"
+      messageForUser: "Welcome to your coding session!"
     });
   }
 });
@@ -46,7 +48,7 @@ import { defineHook, runHook } from "npm:cc-hooks-ts";
 const sessionHook = defineHook({
   trigger: { SessionStart: true },
   run: (context) => {
-    console.log(`Session started: ${context.input.session_id}`);
+    // do something great
     return context.success({
       messageForUser: "Welcome to your coding session!"
     });
