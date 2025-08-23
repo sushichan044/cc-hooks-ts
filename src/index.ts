@@ -31,3 +31,11 @@ export interface ToolSchema {
     response: unknown;
   };
 }
+
+export { defineHook } from "./define";
+export { runHook } from "./run";
+
+export type {
+  ExtractAllHookInputsForEvent,
+  ExtractSpecificHookInputForEvent,
+} from "./input";
