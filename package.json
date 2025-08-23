@@ -49,7 +49,6 @@
     "prepublishOnly": "pnpm run build",
     "pkg-pr-new": "pkg-pr-new publish --compact --comment=update --pnpm"
   },
-  "prepublishOnly": "pnpm run build",
   "packageManager": "pnpm@10.14.0",
   "devDependencies": {
     "@arethetypeswrong/core": "0.18.2",
