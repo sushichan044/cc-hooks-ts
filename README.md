@@ -5,7 +5,7 @@ Define Claude Code hooks with full type safety using TypeScript and Valibot vali
 ## Installation
 
 ```bash
-npx npym add cc-hooks-ts
+npx nypm add cc-hooks-ts
 ```
 
 ## Basic Usage
