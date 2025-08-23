@@ -4,6 +4,11 @@
     "module": "preserve",
     "moduleResolution": "bundler",
     "types": ["node"],
-    "erasableSyntaxOnly": true
+    "erasableSyntaxOnly": true,
+    "plugins": [
+      {
+        "name": "eslint-plugin-import-access"
+      }
+    ]
   }
 }
