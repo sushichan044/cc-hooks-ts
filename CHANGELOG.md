@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.0.3
+
+### &nbsp;&nbsp;&nbsp;Bug Fixes
+
+- Consistent hook termination on success &nbsp;-&nbsp; by **sushichan044** [<samp>(47e93)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/47e9344)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sushichan044/cc-hooks-ts/compare/0.0.2...0.0.3)
+
 ## 0.0.2
 
 ### &nbsp;&nbsp;&nbsp;Features
