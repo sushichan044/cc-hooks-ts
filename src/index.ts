@@ -1,19 +1,35 @@
 /**
  * Represents the input schema for each tool in the `PreToolUse` and `PostToolUse` hooks.
  *
- * Users can extend this interface with declaration merging
+ * This interface enables type-safe hook handling with tool-specific inputs and responses.
+ * Users can extend this interface with declaration merging to add custom tool definitions.
  *
+ * @example
  * ```ts
- * declare module "claude-kata" {
+ * // Extend with custom tools
+ * declare module "cc-hooks-ts" {
  *   interface ToolSchema {
  *     MyCustomTool: {
  *       input: {
  *         customParam: string;
  *         optionalParam?: number;
  *       };
+ *       response: {
+ *         result: string;
+ *       };
  *     };
  *   }
  * }
+ *
+ * // Use in hook definition
+ * const hook = defineHook({
+ *   trigger: { PreToolUse: { MyCustomTool: true } },
+ *   run: (context) => {
+ *     // context.input.tool_input is now typed as { customParam: string; optionalParam?: number; }
+ *     const { customParam, optionalParam } = context.input.tool_input;
+ *     return context.success();
+ *   }
+ * });
  * ```
  */
 export interface ToolSchema {
@@ -33,6 +49,7 @@ export interface ToolSchema {
 }
 
 export { defineHook } from "./define";
+
 export { runHook } from "./run";
 
 export type {

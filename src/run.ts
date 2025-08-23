@@ -11,6 +11,50 @@ import { createContext } from "./context";
 import { HookInputSchemas } from "./input";
 import { isNonEmptyString } from "./utils/string";
 
+/**
+ * Executes a Claude Code hook with runtime input validation and error handling.
+ *
+ * This function handles the complete lifecycle of hook execution including:
+ * - Reading input from stdin
+ * - Validating input against Valibot schemas
+ * - Creating typed context
+ * - Executing the hook handler
+ * - Formatting and outputting results
+ *
+ * @param definition - The hook definition to execute
+ *
+ * @example
+ * ```ts
+ * // CLI usage: echo '{"hook_event_name":"SessionStart",...}' | node hook.js
+ * const hook = defineHook({
+ *   trigger: { SessionStart: true },
+ *   run: (context) => context.success()
+ * });
+ *
+ * // Execute the hook (typically called from CLI)
+ * await runHook(hook);
+ *
+ * // Hook with error handling
+ * const validationHook = defineHook({
+ *   trigger: { PreToolUse: { Read: true } },
+ *   run: (context) => {
+ *     try {
+ *       const { file_path } = context.input.tool_input;
+ *
+ *       if (!file_path.endsWith('.ts')) {
+ *         return context.nonBlockingError('Warning: Non-TypeScript file detected');
+ *       }
+ *
+ *       return context.success();
+ *     } catch (error) {
+ *       return context.blockingError(`Validation failed: ${error.message}`);
+ *     }
+ *   }
+ * });
+ *
+ * await runHook(validationHook);
+ * ```
+ */
 export async function runHook<THookTrigger extends HookTrigger = HookTrigger>(
   def: HookDefinition<THookTrigger>,
 ) {

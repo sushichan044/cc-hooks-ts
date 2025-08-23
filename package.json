@@ -1,8 +1,8 @@
 {
-  "name": "claude-kata",
-  "version": "1.0.0",
+  "name": "cc-hooks-ts",
+  "version": "0.0.0",
   "type": "module",
-  "description": "Define claude code hooks with type safety",
+  "description": "Write claude code hooks with type safety",
   "sideEffects": false,
   "license": "MIT",
   "author": {
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sushichan044/claude-kata.git"
+    "url": "git+https://github.com/sushichan044/cc-hooks-ts.git"
   },
   "publishConfig": {
     "access": "public",
@@ -19,12 +19,19 @@
     "provenance": true
   },
   "bugs": {
-    "url": "https://github.com/sushichan044/claude-kata/issues"
+    "url": "https://github.com/sushichan044/cc-hooks-ts/issues"
   },
   "engines": {
     "node": "^20.12.0 || ^22.0.0 || >=24.0.0"
   },
-  "keywords": [],
+  "keywords": [
+    "claude",
+    "claude-code",
+    "hooks",
+    "typescript",
+    "type-safety",
+    "anthropic"
+  ],
   "files": ["dist"],
   "exports": {
     ".": {
@@ -39,14 +46,13 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest --run",
     "build": "tsdown",
+    "prepublishOnly": "pnpm run build",
     "pkg-pr-new": "pkg-pr-new publish --compact --comment=update --pnpm"
   },
   "packageManager": "pnpm@10.14.0",
   "devDependencies": {
     "@arethetypeswrong/core": "0.18.2",
     "@biomejs/biome": "2.1.2",
-    "@changesets/changelog-github": "0.5.1",
-    "@changesets/cli": "2.29.5",
     "@types/node": "24.3.0",
     "@virtual-live-lab/eslint-config": "2.2.24",
     "@virtual-live-lab/tsconfig": "2.1.21",
@@ -54,6 +60,8 @@
     "eslint-plugin-import-access": "3.0.0",
     "pkg-pr-new": "0.0.54",
     "publint": "0.3.12",
+    "release-it": "19.0.4",
+    "release-it-pnpm": "4.6.6",
     "tsdown": "0.14.1",
     "typescript": "5.9.2",
     "typescript-eslint": "8.39.0",
@@ -61,6 +69,6 @@
     "vitest": "3.2.4"
   },
   "dependencies": {
-    "valibot": "1.1.0"
+    "valibot": "^1.1.0"
   }
 }

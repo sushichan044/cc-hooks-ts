@@ -9,7 +9,7 @@ import type {
   HookInputs,
 } from "./types";
 
-declare module "claude-kata" {
+declare module "cc-hooks-ts" {
   interface ToolSchema {
     MyCustomTool: {
       input: {
