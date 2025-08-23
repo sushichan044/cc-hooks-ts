@@ -1,9 +1,10 @@
 import { describe, expectTypeOf, it } from "vitest";
 
-import type { ExtendedTools, ExtractExtendedSpecificKeys } from "../types";
+import type { ExtendedTools } from "../types";
 import type { AutoComplete } from "../utils/types";
 import type {
   ExtractAllHookInputsForEvent,
+  ExtractExtendedSpecificKeys,
   ExtractSpecificHookInputForEvent,
   HookInputs,
 } from "./types";
