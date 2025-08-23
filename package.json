@@ -69,6 +69,6 @@
     "vitest": "3.2.4"
   },
   "dependencies": {
-    "valibot": "1.1.0"
+    "valibot": "^1.1.0"
   }
 }
