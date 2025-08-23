@@ -8,7 +8,8 @@ import type {
   ExtractTriggeredHookOutput,
 } from "./types";
 
-declare module "cc-hooks-ts" {
+// Declaration merge with ToolSchema in src/index.ts
+declare module "./index" {
   interface ToolSchema {
     MyCustomTool: {
       input: {
@@ -76,8 +77,10 @@ describe("ExtractTriggeredHookInput", () => {
         | HookInputs["PostToolUse"]["default"]
         // Tool-specific types of PostToolUse
         | HookInputs["PostToolUse"]["MyCustomTool"]
+        | HookInputs["PostToolUse"]["MySecondCustomTool"]
         | HookInputs["PostToolUse"]["Read"]
         | HookInputs["PostToolUse"]["WebFetch"]
+
         // PreToolUse
         | HookInputs["PreToolUse"]["MyCustomTool"]
         // SessionStart

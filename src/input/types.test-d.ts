@@ -9,15 +9,14 @@ import type {
   HookInputs,
 } from "./types";
 
-declare module "cc-hooks-ts" {
+// Declaration merge with ToolSchema in src/index.ts
+declare module "../index" {
   interface ToolSchema {
-    MyCustomTool: {
+    MySecondCustomTool: {
       input: {
-        customParam: string;
-        optionalParam?: number;
+        param: string;
       };
       response: {
-        data: string;
         success: boolean;
       };
     };
@@ -114,6 +113,7 @@ describe("ExtractAllHookInputsForEvent", () => {
     expectTypeOf<ExtractAllHookInputsForEvent<"PreToolUse">>().toEqualTypeOf<
       | HookInputs["PreToolUse"]["default"]
       | HookInputs["PreToolUse"]["MyCustomTool"]
+      | HookInputs["PreToolUse"]["MySecondCustomTool"]
       | HookInputs["PreToolUse"]["Read"]
       | HookInputs["PreToolUse"]["WebFetch"]
     >();
@@ -121,6 +121,7 @@ describe("ExtractAllHookInputsForEvent", () => {
     expectTypeOf<ExtractAllHookInputsForEvent<"PostToolUse">>().toEqualTypeOf<
       | HookInputs["PostToolUse"]["default"]
       | HookInputs["PostToolUse"]["MyCustomTool"]
+      | HookInputs["PostToolUse"]["MySecondCustomTool"]
       | HookInputs["PostToolUse"]["Read"]
       | HookInputs["PostToolUse"]["WebFetch"]
     >();
