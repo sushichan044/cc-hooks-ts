@@ -13,32 +13,12 @@ npx npym add cc-hooks-ts
 > [!NOTE]
 > We highly recommend using Bun or Deno for automatic dependency downloading at runtime.
 >
-> - Deno: <https://docs.deno.com/runtime/fundamentals/modules/#managing-third-party-modules-and-libraries>
 > - Bun: <https://bun.com/docs/runtime/autoimport>
+> - Deno: <https://docs.deno.com/runtime/fundamentals/modules/#managing-third-party-modules-and-libraries>
 
 ### Define a Hook
 
-With Deno:
-
-```typescript
-#!/usr/bin/env -S deno run --quiet --allow-env --allow-read
-import { defineHook, runHook } from "cc-hooks-ts";
-
-// Session start hook
-const sessionHook = defineHook({
-  trigger: { SessionStart: true },
-  run: (context) => {
-    console.log(`Session started: ${context.input.session_id}`);
-    return context.success({
-      messageForUser: "Welcome to your coding session!"
-    });
-  }
-});
-
-await runHook(sessionHook);
-```
-
-Or with Bun:
+With Bun:
 
 ```typescript
 #!/usr/bin/env -S bun run --silent
@@ -49,6 +29,26 @@ const sessionHook = defineHook({
   run: (context) => {
     return context.success({
       messageForUser: "Session started!"
+    });
+  }
+});
+
+await runHook(sessionHook);
+```
+
+Or with Deno:
+
+```typescript
+#!/usr/bin/env -S deno run --quiet --allow-env --allow-read
+import { defineHook, runHook } from "npm:cc-hooks-ts";
+
+// Session start hook
+const sessionHook = defineHook({
+  trigger: { SessionStart: true },
+  run: (context) => {
+    console.log(`Session started: ${context.input.session_id}`);
+    return context.success({
+      messageForUser: "Welcome to your coding session!"
     });
   }
 });
@@ -86,6 +86,7 @@ For better type inference in PreToolUse and PostToolUse hooks, you can extend th
 Extend the `ToolSchema` interface to add custom tool definitions:
 
 ```typescript
+// Use "npm:cc-hooks-ts" for Deno
 declare module "cc-hooks-ts" {
   interface ToolSchema {
     MyCustomTool: {
