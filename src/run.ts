@@ -110,8 +110,8 @@ function handleHookResult<THookTrigger extends HookTrigger>(
       if (eventName === "UserPromptSubmit" || eventName === "SessionStart") {
         if (isNonEmptyString(hookResult.payload.additionalClaudeContext)) {
           console.log(hookResult.payload.additionalClaudeContext);
-          return process.exit(0);
         }
+        return process.exit(0);
       }
 
       if (isNonEmptyString(hookResult.payload.messageForUser)) {
