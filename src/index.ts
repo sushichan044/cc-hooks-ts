@@ -7,7 +7,7 @@
  * @example
  * ```ts
  * // Extend with custom tools
- * declare module "claude-kata" {
+ * declare module "cc-hooks-ts" {
  *   interface ToolSchema {
  *     MyCustomTool: {
  *       input: {

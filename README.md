@@ -1,11 +1,11 @@
-# claude-kata
+# cc-hooks-ts
 
 Define Claude Code hooks with full type safety using TypeScript and Valibot validation.
 
 ## Installation
 
 ```bash
-npx npym add claude-kata
+npx npym add cc-hooks-ts
 ```
 
 ## Basic Usage
@@ -22,7 +22,7 @@ With Deno:
 
 ```typescript
 #!/usr/bin/env -S deno run --quiet --allow-env --allow-read
-import { defineHook, runHook } from "claude-kata";
+import { defineHook, runHook } from "cc-hooks-ts";
 
 // Session start hook
 const sessionHook = defineHook({
@@ -42,7 +42,7 @@ Or with Bun:
 
 ```typescript
 #!/usr/bin/env -S bun run --silent
-import { defineHook, runHook } from "claude-kata";
+import { defineHook, runHook } from "cc-hooks-ts";
 
 const sessionHook = defineHook({
   trigger: { SessionStart: true },
@@ -86,7 +86,7 @@ For better type inference in PreToolUse and PostToolUse hooks, you can extend th
 Extend the `ToolSchema` interface to add custom tool definitions:
 
 ```typescript
-declare module "claude-kata" {
+declare module "cc-hooks-ts" {
   interface ToolSchema {
     MyCustomTool: {
       input: {

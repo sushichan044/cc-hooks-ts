@@ -1,8 +1,8 @@
 {
-  "name": "claude-kata",
-  "version": "1.0.0",
+  "name": "cc-hooks-ts",
+  "version": "0.0.0",
   "type": "module",
-  "description": "Define claude code hooks with type safety",
+  "description": "Write claude code hooks with type safety",
   "sideEffects": false,
   "license": "MIT",
   "author": {
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sushichan044/claude-kata.git"
+    "url": "git+https://github.com/sushichan044/cc-hooks-ts.git"
   },
   "publishConfig": {
     "access": "public",
@@ -19,12 +19,19 @@
     "provenance": true
   },
   "bugs": {
-    "url": "https://github.com/sushichan044/claude-kata/issues"
+    "url": "https://github.com/sushichan044/cc-hooks-ts/issues"
   },
   "engines": {
     "node": "^20.12.0 || ^22.0.0 || >=24.0.0"
   },
-  "keywords": [],
+  "keywords": [
+    "claude",
+    "claude-code",
+    "hooks",
+    "typescript",
+    "type-safety",
+    "anthropic"
+  ],
   "files": ["dist"],
   "exports": {
     ".": {

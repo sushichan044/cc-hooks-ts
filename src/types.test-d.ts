@@ -8,7 +8,7 @@ import type {
   ExtractTriggeredHookOutput,
 } from "./types";
 
-declare module "claude-kata" {
+declare module "cc-hooks-ts" {
   interface ToolSchema {
     MyCustomTool: {
       input: {
