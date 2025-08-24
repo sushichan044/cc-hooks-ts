@@ -140,7 +140,7 @@ function handleHookResult<THookTrigger extends HookTrigger>(
     // Advanced output: print JSON and exit with 0
     // eslint-disable-next-line perfectionist/sort-switch-case
     case "json": {
-      console.log(JSON.stringify(hookResult.payload));
+      console.log(JSON.stringify(hookResult.payload.output));
       return process.exit(0);
     }
   }
