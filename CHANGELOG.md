@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.0.4
+
+### &nbsp;&nbsp;&nbsp;Bug Fixes
+
+- Improved auto completion without validation error &nbsp;-&nbsp; by **Kentaro Suzuki** in https://github.com/sushichan044/cc-hooks-ts/issues/8 [<samp>(03a3d)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/03a3d56)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sushichan044/cc-hooks-ts/compare/0.0.3...0.0.4)
+
 ## 0.0.3
 
 ### &nbsp;&nbsp;&nbsp;Bug Fixes
