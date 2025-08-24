@@ -1,5 +1,6 @@
 import * as v from "valibot";
 
+import type { AutoComplete } from "../utils/types";
 import type { ValibotSchemaLike } from "../utils/valibot";
 
 import { SUPPORTED_HOOK_EVENTS, type SupportedHookEvent } from "../event";
@@ -32,13 +33,25 @@ function buildHookInputSchema<
  */
 export const HookInputSchemas = {
   PreToolUse: buildHookInputSchema("PreToolUse", {
+    tool_name: v.pipe(
+      // inputType should be v.string(), otherwise validation will fail
+      // instead, transform it to AutoComplete<T> after parsing to enable auto completion with outputType
+      v.string(),
+      v.transform((s) => s as AutoComplete<typeof s>),
+    ),
+
     tool_input: v.unknown(),
-    tool_name: v.intersect([v.string(), v.record(v.string(), v.never())]),
   }),
 
   PostToolUse: buildHookInputSchema("PostToolUse", {
+    tool_name: v.pipe(
+      // inputType should be v.string(), otherwise validation will fail
+      // instead, transform it to AutoComplete<T> after parsing to enable auto completion with outputType
+      v.string(),
+      v.transform((s) => s as AutoComplete<typeof s>),
+    ),
+
     tool_input: v.unknown(),
-    tool_name: v.string(),
     tool_response: v.unknown(),
   }),
 

@@ -1,7 +1,10 @@
+import type * as v from "valibot";
+
 import { describe, expectTypeOf, it } from "vitest";
 
 import type { ExtendedTools } from "../types";
 import type { AutoComplete } from "../utils/types";
+import type { HookInputSchemas } from "./schemas";
 import type {
   ExtractAllHookInputsForEvent,
   ExtractExtendedSpecificKeys,
@@ -56,7 +59,7 @@ describe("HookInputs", () => {
         hook_event_name: "PostToolUse";
         session_id: string;
         tool_input: unknown;
-        tool_name: string;
+        tool_name: AutoComplete<string>;
         tool_response: unknown;
         transcript_path: string;
       }>();
@@ -76,6 +79,40 @@ describe("HookInputs", () => {
           success: boolean;
         };
       }>();
+    });
+  });
+});
+
+describe("Auto Completion Ability", () => {
+  describe("PreToolUse", () => {
+    type PreToolUseSchema = typeof HookInputSchemas.PreToolUse;
+
+    it("should accept string as input of tool_name", () => {
+      expectTypeOf<
+        v.InferInput<PreToolUseSchema>["tool_name"]
+      >().toEqualTypeOf<string>();
+    });
+
+    it("should output tool_name as AutoComplete<T>", () => {
+      expectTypeOf<
+        v.InferOutput<PreToolUseSchema>["tool_name"]
+      >().toEqualTypeOf<AutoComplete<string>>();
+    });
+  });
+
+  describe("PostToolUse", () => {
+    type PostToolUseSchema = typeof HookInputSchemas.PostToolUse;
+
+    it("should accept string as input of tool_name", () => {
+      expectTypeOf<
+        v.InferInput<PostToolUseSchema>["tool_name"]
+      >().toEqualTypeOf<string>();
+    });
+
+    it("should output tool_name as AutoComplete<T>", () => {
+      expectTypeOf<
+        v.InferOutput<PostToolUseSchema>["tool_name"]
+      >().toEqualTypeOf<AutoComplete<string>>();
     });
   });
 });
