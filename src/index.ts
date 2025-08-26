@@ -1,3 +1,5 @@
+import type { ClaudeCodeTodo } from "./hook-types";
+
 /**
  * Represents the input schema for each tool in the `PreToolUse` and `PostToolUse` hooks.
  *
@@ -33,12 +35,56 @@
  * ```
  */
 export interface ToolSchema {
+  Bash: {
+    input: {
+      command: string;
+      description: string;
+    };
+    response: {
+      interrupted: boolean;
+      isImage: boolean;
+      stderr: string;
+      stdout: string;
+    };
+  };
+
+  Glob: {
+    input: {
+      path: string;
+      pattern: string;
+    };
+    response: {
+      durationMs: number;
+      filenames: string[];
+      numFiles: number;
+      truncated: boolean;
+    };
+  };
+
+  LS: {
+    input: {
+      path: string;
+    };
+    response: string;
+  };
+
   Read: {
     input: {
       file_path: string;
     };
     response: unknown;
   };
+
+  TodoWrite: {
+    input: {
+      todos: ClaudeCodeTodo[];
+    };
+    response: {
+      newTodos: ClaudeCodeTodo[];
+      oldTodos: ClaudeCodeTodo[];
+    };
+  };
+
   WebFetch: {
     input: {
       prompt: string;
