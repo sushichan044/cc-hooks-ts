@@ -75,10 +75,15 @@ describe("ExtractTriggeredHookInput", () => {
       >().toEqualTypeOf<
         // fallback type of PostToolUse
         | HookInputs["PostToolUse"]["default"]
+
         // Tool-specific types of PostToolUse
+        | HookInputs["PostToolUse"]["Bash"]
+        | HookInputs["PostToolUse"]["Glob"]
+        | HookInputs["PostToolUse"]["LS"]
         | HookInputs["PostToolUse"]["MyCustomTool"]
         | HookInputs["PostToolUse"]["MySecondCustomTool"]
         | HookInputs["PostToolUse"]["Read"]
+        | HookInputs["PostToolUse"]["TodoWrite"]
         | HookInputs["PostToolUse"]["WebFetch"]
 
         // PreToolUse
