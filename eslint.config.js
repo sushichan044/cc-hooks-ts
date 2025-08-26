@@ -19,6 +19,7 @@ export default defineConfig(
   {
     rules: {
       "perfectionist/sort-exports": "off",
+      "perfectionist/sort-union-types": "off",
     },
   },
 );

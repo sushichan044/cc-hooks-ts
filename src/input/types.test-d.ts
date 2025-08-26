@@ -148,7 +148,13 @@ describe("ExtractAllHookInputsForEvent", () => {
 
   it("should extract all inputs for tool-specific events including default", () => {
     expectTypeOf<ExtractAllHookInputsForEvent<"PreToolUse">>().toEqualTypeOf<
+      // fallback type of PreToolUse
       | HookInputs["PreToolUse"]["default"]
+      // Tool-specific types of PreToolUse
+      | HookInputs["PreToolUse"]["Bash"]
+      | HookInputs["PreToolUse"]["Glob"]
+      | HookInputs["PreToolUse"]["LS"]
+      | HookInputs["PreToolUse"]["TodoWrite"]
       | HookInputs["PreToolUse"]["MyCustomTool"]
       | HookInputs["PreToolUse"]["MySecondCustomTool"]
       | HookInputs["PreToolUse"]["Read"]
@@ -156,10 +162,16 @@ describe("ExtractAllHookInputsForEvent", () => {
     >();
 
     expectTypeOf<ExtractAllHookInputsForEvent<"PostToolUse">>().toEqualTypeOf<
+      // fallback type of PostToolUse
       | HookInputs["PostToolUse"]["default"]
+      // Tool-specific types of PostToolUse
+      | HookInputs["PostToolUse"]["Bash"]
+      | HookInputs["PostToolUse"]["Glob"]
+      | HookInputs["PostToolUse"]["LS"]
       | HookInputs["PostToolUse"]["MyCustomTool"]
       | HookInputs["PostToolUse"]["MySecondCustomTool"]
       | HookInputs["PostToolUse"]["Read"]
+      | HookInputs["PostToolUse"]["TodoWrite"]
       | HookInputs["PostToolUse"]["WebFetch"]
     >();
   });
