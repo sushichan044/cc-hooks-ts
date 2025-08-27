@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.0.6
+
+### &nbsp;&nbsp;&nbsp;Features
+
+- Add tool schema for Bash, Glob, LS, TodoWrite &nbsp;-&nbsp; by **Kentaro Suzuki** in https://github.com/sushichan044/cc-hooks-ts/issues/11 [<samp>(c7a60)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/c7a60ca)
+- Add schema for built in tools &nbsp;-&nbsp; by **Kentaro Suzuki** in https://github.com/sushichan044/cc-hooks-ts/issues/13 [<samp>(f223b)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/f223b87)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sushichan044/cc-hooks-ts/compare/0.0.5...0.0.6)
+
 ## 0.0.5
 
 ### &nbsp;&nbsp;&nbsp;Bug Fixes
