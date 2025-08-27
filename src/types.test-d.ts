@@ -78,13 +78,19 @@ describe("ExtractTriggeredHookInput", () => {
 
         // Tool-specific types of PostToolUse
         | HookInputs["PostToolUse"]["Bash"]
+        | HookInputs["PostToolUse"]["Edit"]
         | HookInputs["PostToolUse"]["Glob"]
+        | HookInputs["PostToolUse"]["Grep"]
         | HookInputs["PostToolUse"]["LS"]
+        | HookInputs["PostToolUse"]["MultiEdit"]
         | HookInputs["PostToolUse"]["MyCustomTool"]
         | HookInputs["PostToolUse"]["MySecondCustomTool"]
+        | HookInputs["PostToolUse"]["NotebookEdit"]
         | HookInputs["PostToolUse"]["Read"]
+        | HookInputs["PostToolUse"]["Task"]
         | HookInputs["PostToolUse"]["TodoWrite"]
         | HookInputs["PostToolUse"]["WebFetch"]
+        | HookInputs["PostToolUse"]["Write"]
 
         // PreToolUse
         | HookInputs["PreToolUse"]["MyCustomTool"]
