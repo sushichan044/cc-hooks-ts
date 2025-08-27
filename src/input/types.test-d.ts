@@ -152,13 +152,19 @@ describe("ExtractAllHookInputsForEvent", () => {
       | HookInputs["PreToolUse"]["default"]
       // Tool-specific types of PreToolUse
       | HookInputs["PreToolUse"]["Bash"]
+      | HookInputs["PreToolUse"]["Edit"]
       | HookInputs["PreToolUse"]["Glob"]
+      | HookInputs["PreToolUse"]["Grep"]
       | HookInputs["PreToolUse"]["LS"]
-      | HookInputs["PreToolUse"]["TodoWrite"]
+      | HookInputs["PreToolUse"]["MultiEdit"]
       | HookInputs["PreToolUse"]["MyCustomTool"]
       | HookInputs["PreToolUse"]["MySecondCustomTool"]
+      | HookInputs["PreToolUse"]["NotebookEdit"]
       | HookInputs["PreToolUse"]["Read"]
+      | HookInputs["PreToolUse"]["Task"]
+      | HookInputs["PreToolUse"]["TodoWrite"]
       | HookInputs["PreToolUse"]["WebFetch"]
+      | HookInputs["PreToolUse"]["Write"]
     >();
 
     expectTypeOf<ExtractAllHookInputsForEvent<"PostToolUse">>().toEqualTypeOf<
@@ -166,13 +172,19 @@ describe("ExtractAllHookInputsForEvent", () => {
       | HookInputs["PostToolUse"]["default"]
       // Tool-specific types of PostToolUse
       | HookInputs["PostToolUse"]["Bash"]
+      | HookInputs["PostToolUse"]["Edit"]
       | HookInputs["PostToolUse"]["Glob"]
+      | HookInputs["PostToolUse"]["Grep"]
       | HookInputs["PostToolUse"]["LS"]
+      | HookInputs["PostToolUse"]["MultiEdit"]
       | HookInputs["PostToolUse"]["MyCustomTool"]
       | HookInputs["PostToolUse"]["MySecondCustomTool"]
+      | HookInputs["PostToolUse"]["NotebookEdit"]
       | HookInputs["PostToolUse"]["Read"]
+      | HookInputs["PostToolUse"]["Task"]
       | HookInputs["PostToolUse"]["TodoWrite"]
       | HookInputs["PostToolUse"]["WebFetch"]
+      | HookInputs["PostToolUse"]["Write"]
     >();
   });
 });
