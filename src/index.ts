@@ -125,7 +125,6 @@ export interface ToolSchema {
 
   LS: {
     input: {
-      ignore?: string[];
       path: string;
     };
     response: string;
