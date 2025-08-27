@@ -41,6 +41,9 @@ export interface ToolSchema {
       command: string;
       description?: string;
       run_in_background?: boolean;
+      /**
+       * Timeout in milliseconds for the process (ignored if run_in_background is true).
+       */
       timeout?: number;
     };
     response: {
