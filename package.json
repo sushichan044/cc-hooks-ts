@@ -32,9 +32,7 @@
     "type-safety",
     "anthropic"
   ],
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "exports": {
     ".": {
       "types": "./dist/index.d.mts",
