@@ -1,6 +1,5 @@
 /* eslint-disable */
 /* prettier-ignore */
-// biome-ignore format: this is an auto-generated file
 
 /**
  * @fileoverview

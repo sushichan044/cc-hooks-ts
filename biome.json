@@ -41,6 +41,12 @@
     {
       "includes": ["*.json", "*.json5", "*.jsonc"],
       "javascript": { "formatter": { "trailingCommas": "none" } }
+    },
+    {
+      "includes": ["src/tools/output.ts"],
+      "formatter": {
+        "enabled": false
+      }
     }
   ]
 }
