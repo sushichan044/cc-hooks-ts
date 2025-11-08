@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.1
+
+### &nbsp;&nbsp;&nbsp;Bug Fixes
+
+- Bundle types correctly &nbsp;-&nbsp; by **sushichan044** [<samp>(44401)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/44401b7)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sushichan044/cc-hooks-ts/compare/0.1.0...0.1.1)
+
 ## 0.1.0
 
 ### &nbsp;&nbsp;&nbsp;Breaking Changes
