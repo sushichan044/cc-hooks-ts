@@ -32,6 +32,7 @@ describe("HookInputs", () => {
       expectTypeOf<HookInputs["PreToolUse"]["default"]>().toEqualTypeOf<{
         cwd: string;
         hook_event_name: "PreToolUse";
+        permission_mode?: string;
         session_id: string;
         tool_input: unknown;
         tool_name: AutoComplete<string>;
@@ -57,6 +58,7 @@ describe("HookInputs", () => {
       expectTypeOf<HookInputs["PostToolUse"]["default"]>().toEqualTypeOf<{
         cwd: string;
         hook_event_name: "PostToolUse";
+        permission_mode?: string;
         session_id: string;
         tool_input: unknown;
         tool_name: AutoComplete<string>;

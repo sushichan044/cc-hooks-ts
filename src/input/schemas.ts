@@ -7,7 +7,7 @@ import { SUPPORTED_HOOK_EVENTS, type SupportedHookEvent } from "../event";
 
 const baseHookInputSchema = v.object({
   cwd: v.string(),
-  hook_event_name: v.union(SUPPORTED_HOOK_EVENTS.map((e) => v.literal(e))),
+  permission_mode: v.exactOptional(v.string()),
   session_id: v.string(),
   transcript_path: v.string(),
 });
