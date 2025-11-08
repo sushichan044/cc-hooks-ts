@@ -3,7 +3,9 @@ import { defineConfig } from "tsdown";
 export default defineConfig({
   attw: { profile: "esmOnly" },
   clean: true,
-  dts: true,
+  dts: {
+    resolve: [/claude-code/], // we cannot specify `@anthropic-ai/claude-code`. May be a bug?
+  },
   entry: ["./src/index.ts"],
   fixedExtension: true,
   format: "esm",
