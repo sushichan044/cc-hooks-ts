@@ -4,7 +4,7 @@ export default defineConfig({
   attw: { profile: "esmOnly" },
   clean: true,
   dts: {
-    resolve: [/claude-code/], // we cannot specify `@anthropic-ai/claude-code`. May be a bug?
+    resolve: ["@anthropic-ai/claude-code/sdk-tools.d.ts"],
     tsgo: true,
   },
   entry: ["./src/index.ts"],
