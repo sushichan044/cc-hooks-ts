@@ -4,6 +4,7 @@ export default defineConfig({
   attw: { profile: "esmOnly" },
   clean: true,
   dts: {
+    resolve: ["type-fest"],
     tsgo: true,
   },
   entry: ["./src/index.ts"],

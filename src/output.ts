@@ -1,5 +1,7 @@
+import type { IsNever } from "type-fest";
+
 import type { SupportedHookEvent } from "./event";
-import type { AssertFalse, IsNever } from "./utils/types";
+import type { AssertFalse } from "./utils/types";
 
 export type HookOutput = {
   PreToolUse: PreToolUseHookOutput;
