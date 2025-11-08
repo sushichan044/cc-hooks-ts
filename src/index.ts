@@ -1,4 +1,5 @@
 import type {
+  AgentInput,
   BashInput,
   FileEditInput,
   FileReadInput,
@@ -10,8 +11,6 @@ import type {
   WebFetchInput,
   WebSearchInput,
 } from "@anthropic-ai/claude-code/sdk-tools.d.ts";
-
-import type { AutoComplete } from "./utils/types";
 
 /**
  * Represents the input schema for each tool in the `PreToolUse` and `PostToolUse` hooks.
@@ -184,13 +183,7 @@ export interface ToolSchema {
   };
 
   Task: {
-    input: {
-      description: string;
-      prompt: string;
-      subagent_type: AutoComplete<
-        "general-purpose" | "output-style-setup" | "statusline-setup"
-      >;
-    };
+    input: AgentInput;
     response: {
       content: Array<{
         text: string;
