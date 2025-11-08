@@ -90,6 +90,7 @@ describe("ExtractTriggeredHookInput", () => {
         | HookInputs["PostToolUse"]["Task"]
         | HookInputs["PostToolUse"]["TodoWrite"]
         | HookInputs["PostToolUse"]["WebFetch"]
+        | HookInputs["PostToolUse"]["WebSearch"]
         | HookInputs["PostToolUse"]["Write"]
 
         // PreToolUse

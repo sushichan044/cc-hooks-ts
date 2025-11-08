@@ -166,6 +166,7 @@ describe("ExtractAllHookInputsForEvent", () => {
       | HookInputs["PreToolUse"]["Task"]
       | HookInputs["PreToolUse"]["TodoWrite"]
       | HookInputs["PreToolUse"]["WebFetch"]
+      | HookInputs["PreToolUse"]["WebSearch"]
       | HookInputs["PreToolUse"]["Write"]
     >();
 
@@ -186,6 +187,7 @@ describe("ExtractAllHookInputsForEvent", () => {
       | HookInputs["PostToolUse"]["Task"]
       | HookInputs["PostToolUse"]["TodoWrite"]
       | HookInputs["PostToolUse"]["WebFetch"]
+      | HookInputs["PostToolUse"]["WebSearch"]
       | HookInputs["PostToolUse"]["Write"]
     >();
   });

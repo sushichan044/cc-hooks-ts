@@ -1,4 +1,16 @@
-import type { ClaudeCodeTodo } from "./hook-types";
+import type {
+  BashInput,
+  FileEditInput,
+  FileReadInput,
+  FileWriteInput,
+  GlobInput,
+  GrepInput,
+  NotebookEditInput,
+  TodoWriteInput,
+  WebFetchInput,
+  WebSearchInput,
+} from "@anthropic-ai/claude-code/sdk-tools.d.ts";
+
 import type { AutoComplete } from "./utils/types";
 
 /**
@@ -37,15 +49,7 @@ import type { AutoComplete } from "./utils/types";
  */
 export interface ToolSchema {
   Bash: {
-    input: {
-      command: string;
-      description?: string;
-      run_in_background?: boolean;
-      /**
-       * Timeout in milliseconds for the process (ignored if run_in_background is true).
-       */
-      timeout?: number;
-    };
+    input: BashInput;
     response: {
       interrupted: boolean;
       isImage: boolean;
@@ -55,15 +59,7 @@ export interface ToolSchema {
   };
 
   Edit: {
-    input: {
-      file_path: string;
-      new_string: string;
-      old_string: string;
-      /**
-       * @default false
-       */
-      replace_all?: boolean;
-    };
+    input: FileEditInput;
     response: {
       filePath: string;
       newString: string;
@@ -82,13 +78,7 @@ export interface ToolSchema {
   };
 
   Glob: {
-    input: {
-      /**
-       * @default process.cwd()
-       */
-      path?: string;
-      pattern: string;
-    };
+    input: GlobInput;
     response: {
       durationMs: number;
       filenames: string[];
@@ -98,23 +88,7 @@ export interface ToolSchema {
   };
 
   Grep: {
-    input: {
-      "-A"?: number;
-      "-B"?: number;
-      "-C"?: number;
-      "-i"?: boolean;
-      "-n"?: boolean;
-      glob?: string;
-      head_limit?: number;
-      multiline?: boolean;
-      /**
-       * @default "files_with_matches"
-       */
-      output_mode?: "content" | "count" | "files_with_matches";
-      path?: string;
-      pattern: string;
-      type?: string;
-    };
+    input: GrepInput;
     response: {
       content: string;
       mode: "content" | "count" | "files_with_matches";
@@ -165,30 +139,7 @@ export interface ToolSchema {
   };
 
   NotebookEdit: {
-    /**
-     * @default edit_mode: "replace"
-     */
-    input:
-      | {
-          cell_id: string;
-          edit_mode: "delete";
-          new_source: string;
-          notebook_path: string;
-        }
-      | {
-          cell_id: string;
-          cell_type?: "code" | "markdown";
-          edit_mode: "replace";
-          new_source: string;
-          notebook_path: string;
-        }
-      | {
-          cell_id?: string;
-          cell_type: "code" | "markdown";
-          edit_mode: "insert";
-          new_source: string;
-          notebook_path: string;
-        };
+    input: NotebookEditInput;
     response: {
       cell_type: "code" | "markdown";
       edit_mode: "delete" | "insert" | "replace";
@@ -199,11 +150,7 @@ export interface ToolSchema {
   };
 
   Read: {
-    input: {
-      file_path: string;
-      limit?: number;
-      offset?: number;
-    };
+    input: FileReadInput;
     response:
       | {
           file: {
@@ -266,24 +213,12 @@ export interface ToolSchema {
   };
 
   TodoWrite: {
-    input: {
-      todos: ClaudeCodeTodo[];
-    };
-    response: {
-      newTodos: ClaudeCodeTodo[];
-      oldTodos: ClaudeCodeTodo[];
-    };
+    input: TodoWriteInput;
+    response: unknown;
   };
 
   WebFetch: {
-    input: {
-      /**
-       * @default 100
-       */
-      charThreshold?: number;
-      prompt: string;
-      url: string;
-    };
+    input: WebFetchInput;
     response: {
       bytes: number;
       code: number;
@@ -294,11 +229,13 @@ export interface ToolSchema {
     };
   };
 
+  WebSearch: {
+    input: WebSearchInput;
+    response: unknown;
+  };
+
   Write: {
-    input: {
-      content: string;
-      file_path: string;
-    };
+    input: FileWriteInput;
     response: {
       content: string;
       filePath: string;
