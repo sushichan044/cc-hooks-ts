@@ -74,8 +74,8 @@ export type ExtractSpecificHookInputForEvent<
   TEvent extends SupportedHookEvent,
   TSpecificKey extends ExtractExtendedSpecificKeys<TEvent>,
 > = TSpecificKey extends keyof HookInputs[TEvent]
-    ? HookInputs[TEvent][TSpecificKey]
-    : never;
+  ? HookInputs[TEvent][TSpecificKey]
+  : never;
 
 /**
  * @package
