@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.1.0
+
+### &nbsp;&nbsp;&nbsp;Breaking Changes
+
+- Align tool input / response type with upstream &nbsp;-&nbsp; by **Kentaro Suzuki** in https://github.com/sushichan044/cc-hooks-ts/issues/16 [<samp>(fe968)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/fe9687d)
+
+### &nbsp;&nbsp;&nbsp;Bug Fixes
+
+- Align input / output types with upstream &nbsp;-&nbsp; by **Kentaro Suzuki** in https://github.com/sushichan044/cc-hooks-ts/issues/15 [<samp>(8452f)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/8452f70)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sushichan044/cc-hooks-ts/compare/0.0.6...0.1.0)
+
 ## 0.0.6
 
 ### &nbsp;&nbsp;&nbsp;Features
