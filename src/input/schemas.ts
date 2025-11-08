@@ -1,13 +1,12 @@
 import * as v from "valibot";
 
+import type { SupportedHookEvent } from "../event";
 import type { AutoComplete } from "../utils/types";
 import type { ValibotSchemaLike } from "../utils/valibot";
 
-import { SUPPORTED_HOOK_EVENTS, type SupportedHookEvent } from "../event";
-
 const baseHookInputSchema = v.object({
   cwd: v.string(),
-  hook_event_name: v.union(SUPPORTED_HOOK_EVENTS.map((e) => v.literal(e))),
+  permission_mode: v.exactOptional(v.string()),
   session_id: v.string(),
   transcript_path: v.string(),
 });
@@ -56,7 +55,8 @@ export const HookInputSchemas = {
   }),
 
   Notification: buildHookInputSchema("Notification", {
-    message: v.optional(v.string()),
+    message: v.string(),
+    title: v.exactOptional(v.string()),
   }),
 
   UserPromptSubmit: buildHookInputSchema("UserPromptSubmit", {
@@ -64,20 +64,25 @@ export const HookInputSchemas = {
   }),
 
   Stop: buildHookInputSchema("Stop", {
-    stop_hook_active: v.optional(v.boolean()),
+    stop_hook_active: v.boolean(),
   }),
 
   SubagentStop: buildHookInputSchema("SubagentStop", {
-    stop_hook_active: v.optional(v.boolean()),
+    stop_hook_active: v.boolean(),
   }),
 
   PreCompact: buildHookInputSchema("PreCompact", {
-    custom_instructions: v.string(),
+    custom_instructions: v.nullable(v.string()),
     trigger: v.union([v.literal("manual"), v.literal("auto")]),
   }),
 
   SessionStart: buildHookInputSchema("SessionStart", {
-    source: v.string(),
+    source: v.union([
+      v.literal("startup"),
+      v.literal("resume"),
+      v.literal("clear"),
+      v.literal("compact"),
+    ]),
   }),
 
   SessionEnd: buildHookInputSchema("SessionEnd", {

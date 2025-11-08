@@ -66,6 +66,20 @@ type CommonHookOutputs = {
    * Optional warning message shown to the user
    */
   systemMessage?: string;
+
+  /**
+   * Use `hookSpecificOutput` in appropriate hook events instead.
+   *
+   * @deprecated
+   */
+  reason?: string;
+
+  /**
+   * Use `hookSpecificOutput` in appropriate hook events instead.
+   *
+   * @deprecated
+   */
+  decision?: "approve" | "block";
 };
 
 /**
@@ -80,9 +94,9 @@ interface PreToolUseHookOutput extends CommonHookOutputs {
      * - `deny` prevents the tool call from executing. `permissionDecisionReason` is shown to Claude.
      * - `ask` asks the user to confirm the tool call in the UI. `permissionDecisionReason` is shown to the user but not to Claude.
      */
-    permissionDecision: "allow" | "ask" | "deny";
+    permissionDecision?: "allow" | "ask" | "deny";
 
-    permissionDecisionReason: string;
+    permissionDecisionReason?: string;
   };
 }
 
@@ -91,10 +105,10 @@ interface PreToolUseHookOutput extends CommonHookOutputs {
  */
 interface PostToolUseHookOutput extends CommonHookOutputs {
   /**
+   * - `approve` has no effect; the tool response is processed normally.
    * - `block` automatically prompts Claude with `reason`.
-   * - `undefined` does nothing. `reason` is ignored.
    */
-  decision: "block" | undefined;
+  decision?: "approve" | "block";
 
   hookSpecificOutput?: {
     hookEventName: "PostToolUse";
@@ -113,12 +127,11 @@ interface PostToolUseHookOutput extends CommonHookOutputs {
  */
 interface UserPromptSubmitHookOutput extends CommonHookOutputs {
   /**
+   * - `approve` has no effect; the tool response is processed normally.
    * - `block` prevents the prompt from being processed.
    *   The submitted prompt is erased from context. `reason` is shown to the user but not added to context.
-   *
-   * - `undefined` allows the prompt to proceed normally. `reason` is ignored.
    */
-  decision?: "block" | undefined;
+  decision?: "approve" | "block";
 
   hookSpecificOutput?: {
     hookEventName: "UserPromptSubmit";
@@ -137,11 +150,10 @@ interface UserPromptSubmitHookOutput extends CommonHookOutputs {
  */
 interface StopHookOutput extends CommonHookOutputs {
   /**
+   * - `approve` has no effect; the tool response is processed normally.
    * - `block` prevents Claude from stopping. You must populate `reason` for Claude to know how to proceed.
-   *
-   * - `undefined` allows Claude to stop. `reason` is ignored.
    */
-  decision: "block" | undefined;
+  decision?: "approve" | "block";
 
   /**
    * Reason for the decision.
@@ -154,11 +166,9 @@ interface StopHookOutput extends CommonHookOutputs {
  */
 interface SubagentStopHookOutput extends CommonHookOutputs {
   /**
+   * - `approve` has no effect; the tool response is processed normally.
    * - `block` prevents Claude from stopping. You must populate `reason` for Claude to know how to proceed.
-   *
-   * - `undefined` allows Claude to stop. `reason` is ignored.
    */
-  decision: "block" | undefined;
 
   /**
    * Reason for the decision.
