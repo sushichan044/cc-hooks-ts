@@ -11,7 +11,6 @@ import type {
   WebSearchInput,
 } from "@anthropic-ai/claude-code/sdk-tools.d.ts";
 
-import type { ClaudeCodeTodo } from "./hook-types";
 import type { AutoComplete } from "./utils/types";
 
 /**
