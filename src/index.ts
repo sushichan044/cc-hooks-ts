@@ -10,7 +10,21 @@ import type {
   TodoWriteInput,
   WebFetchInput,
   WebSearchInput,
-} from "@anthropic-ai/claude-code/sdk-tools.d.ts";
+} from "@anthropic-ai/claude-code/sdk-tools";
+
+import type {
+  BashOutput,
+  EditOutput,
+  GlobOutput,
+  GrepOutput,
+  NotebookEditOutput,
+  ReadOutput,
+  TaskOutput,
+  TodoWriteOutput,
+  WebFetchOutput,
+  WebSearchOutput,
+  WriteOutput,
+} from "./tools/output";
 
 /**
  * Represents the input schema for each tool in the `PreToolUse` and `PostToolUse` hooks.
@@ -49,51 +63,22 @@ import type {
 export interface ToolSchema {
   Bash: {
     input: BashInput;
-    response: {
-      interrupted: boolean;
-      isImage: boolean;
-      stderr: string;
-      stdout: string;
-    };
+    response: BashOutput;
   };
 
   Edit: {
     input: FileEditInput;
-    response: {
-      filePath: string;
-      newString: string;
-      oldString: string;
-      originalFile: string;
-      replaceAll: boolean;
-      structuredPatch: Array<{
-        lines: string[];
-        newLines: number;
-        newStart: number;
-        oldLines: number;
-        oldStart: number;
-      }>;
-      userModified: boolean;
-    };
+    response: EditOutput;
   };
 
   Glob: {
     input: GlobInput;
-    response: {
-      durationMs: number;
-      filenames: string[];
-      numFiles: number;
-      truncated: boolean;
-    };
+    response: GlobOutput;
   };
 
   Grep: {
     input: GrepInput;
-    response: {
-      content: string;
-      mode: "content" | "count" | "files_with_matches";
-      numFiles: number;
-      numLines: number;
-    };
+    response: GrepOutput;
   };
 
   LS: {
@@ -139,102 +124,37 @@ export interface ToolSchema {
 
   NotebookEdit: {
     input: NotebookEditInput;
-    response: {
-      cell_type: "code" | "markdown";
-      edit_mode: "delete" | "insert" | "replace";
-      error: string;
-      language: string;
-      new_source: string;
-    };
+    response: NotebookEditOutput;
   };
 
   Read: {
     input: FileReadInput;
-    response:
-      | {
-          file: {
-            cells: Array<
-              | {
-                  cell_id: string;
-                  cellType: "code";
-                  language: string;
-                  source: string;
-                }
-              | {
-                  cell_id: string;
-                  cellType: "markdown";
-                  source: string;
-                }
-            >;
-            filePath: string;
-          };
-          type: "notebook";
-        }
-      | {
-          file: {
-            content: string;
-            filePath: string;
-            numLines: number;
-            startLine: number;
-            totalLines: number;
-          };
-          type: "text";
-        };
+    response: ReadOutput;
   };
 
   Task: {
     input: AgentInput;
-    response: {
-      content: Array<{
-        text: string;
-        type: "text";
-      }>;
-      totalDurationMs: number;
-      totalTokens: number;
-      totalToolUseCount: number;
-      usage: {
-        cache_creation: {
-          ephemeral_1h_input_tokens: number;
-          ephemeral_5m_input_tokens: number;
-        };
-        cache_creation_input_tokens: number;
-        cache_read_input_tokens: number;
-        input_tokens: number;
-        output_tokens: number;
-      };
-    };
+    response: TaskOutput;
   };
 
   TodoWrite: {
     input: TodoWriteInput;
-    response: unknown;
+    response: TodoWriteOutput;
   };
 
   WebFetch: {
     input: WebFetchInput;
-    response: {
-      bytes: number;
-      code: number;
-      codeText: string;
-      durationMs: number;
-      result: string;
-      url: string;
-    };
+    response: WebFetchOutput;
   };
 
   WebSearch: {
     input: WebSearchInput;
-    response: unknown;
+    response: WebSearchOutput;
   };
 
   Write: {
     input: FileWriteInput;
-    response: {
-      content: string;
-      filePath: string;
-      structuredPatch: unknown[];
-      type: "create";
-    };
+    response: WriteOutput;
   };
 }
 

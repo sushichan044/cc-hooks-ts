@@ -1,0 +1,291 @@
+/* eslint-disable */
+/* prettier-ignore */
+// biome-ignore format: this is an auto-generated file
+
+/**
+ * @fileoverview
+ *
+ * @see {@link https://docs.claude.com/en/docs/agent-sdk/typescript#tool-output-types}
+ */
+
+export interface TaskOutput {
+  /**
+   * Final result message from the subagent
+   */
+  result: string;
+  /**
+   * Token usage statistics
+   */
+  usage?: {
+    input_tokens: number;
+    output_tokens: number;
+    cache_creation_input_tokens?: number;
+    cache_read_input_tokens?: number;
+  };
+  /**
+   * Total cost in USD
+   */
+  total_cost_usd?: number;
+  /**
+   * Execution duration in milliseconds
+   */
+  duration_ms?: number;
+}
+
+export interface BashOutput {
+  /**
+   * Combined stdout and stderr output
+   */
+  output: string;
+  /**
+   * Exit code of the command
+   */
+  exitCode: number;
+  /**
+   * Whether the command was killed due to timeout
+   */
+  killed?: boolean;
+  /**
+   * Shell ID for background processes
+   */
+  shellId?: string;
+}
+
+export interface EditOutput {
+  /**
+   * Confirmation message
+   */
+  message: string;
+  /**
+   * Number of replacements made
+   */
+  replacements: number;
+  /**
+   * File path that was edited
+   */
+  file_path: string;
+}
+
+export type ReadOutput =
+  | TextFileOutput
+  | ImageFileOutput
+  | PDFFileOutput
+  | NotebookFileOutput;
+
+interface TextFileOutput {
+  /**
+   * File contents with line numbers
+   */
+  content: string;
+  /**
+   * Total number of lines in file
+   */
+  total_lines: number;
+  /**
+   * Lines actually returned
+   */
+  lines_returned: number;
+}
+
+interface ImageFileOutput {
+  /**
+   * Base64 encoded image data
+   */
+  image: string;
+  /**
+   * Image MIME type
+   */
+  mime_type: string;
+  /**
+   * File size in bytes
+   */
+  file_size: number;
+}
+
+interface PDFFileOutput {
+  /**
+   * Array of page contents
+   */
+  pages: Array<{
+    page_number: number;
+    text?: string;
+    images?: Array<{
+      image: string;
+      mime_type: string;
+    }>;
+  }>;
+  /**
+   * Total number of pages
+   */
+  total_pages: number;
+}
+
+interface NotebookFileOutput {
+  /**
+   * Jupyter notebook cells
+   */
+  cells: Array<{
+    cell_type: 'code' | 'markdown';
+    source: string;
+    outputs?: any[];
+    execution_count?: number;
+  }>;
+  /**
+   * Notebook metadata
+   */
+  metadata?: Record<string, any>;
+}
+
+export interface WriteOutput {
+  /**
+   * Success message
+   */
+  message: string;
+  /**
+   * Number of bytes written
+   */
+  bytes_written: number;
+  /**
+   * File path that was written
+   */
+  file_path: string;
+}
+
+export interface GlobOutput {
+  /**
+   * Array of matching file paths
+   */
+  matches: string[];
+  /**
+   * Number of matches found
+   */
+  count: number;
+  /**
+   * Search directory used
+   */
+  search_path: string;
+}
+
+export type GrepOutput =
+  | GrepContentOutput
+  | GrepFilesOutput
+  | GrepCountOutput;
+
+interface GrepContentOutput {
+  /**
+   * Matching lines with context
+   */
+  matches: Array<{
+    file: string;
+    line_number?: number;
+    line: string;
+    before_context?: string[];
+    after_context?: string[];
+  }>;
+  /**
+   * Total number of matches
+   */
+  total_matches: number;
+}
+
+interface GrepFilesOutput {
+  /**
+   * Files containing matches
+   */
+  files: string[];
+  /**
+   * Number of files with matches
+   */
+  count: number;
+}
+
+interface GrepCountOutput {
+  /**
+   * Match counts per file
+   */
+  counts: Array<{
+    file: string;
+    count: number;
+  }>;
+  /**
+   * Total matches across all files
+   */
+  total: number;
+}
+
+export interface NotebookEditOutput {
+  /**
+   * Success message
+   */
+  message: string;
+  /**
+   * Type of edit performed
+   */
+  edit_type: 'replaced' | 'inserted' | 'deleted';
+  /**
+   * Cell ID that was affected
+   */
+  cell_id?: string;
+  /**
+   * Total cells in notebook after edit
+   */
+  total_cells: number;
+}
+
+export interface WebFetchOutput {
+  /**
+   * AI model's response to the prompt
+   */
+  response: string;
+  /**
+   * URL that was fetched
+   */
+  url: string;
+  /**
+   * Final URL after redirects
+   */
+  final_url?: string;
+  /**
+   * HTTP status code
+   */
+  status_code?: number;
+}
+
+export interface WebSearchOutput {
+  /**
+   * Search results
+   */
+  results: Array<{
+    title: string;
+    url: string;
+    snippet: string;
+    /**
+     * Additional metadata if available
+     */
+    metadata?: Record<string, any>;
+  }>;
+  /**
+   * Total number of results
+   */
+  total_results: number;
+  /**
+   * The query that was searched
+   */
+  query: string;
+}
+
+export interface TodoWriteOutput {
+  /**
+   * Success message
+   */
+  message: string;
+  /**
+   * Current todo statistics
+   */
+  stats: {
+    total: number;
+    pending: number;
+    in_progress: number;
+    completed: number;
+  };
+}
