@@ -214,10 +214,7 @@ export interface ToolSchema {
 
   TodoWrite: {
     input: TodoWriteInput;
-    response: {
-      newTodos: ClaudeCodeTodo[];
-      oldTodos: ClaudeCodeTodo[];
-    };
+    response: unknown;
   };
 
   WebFetch: {
