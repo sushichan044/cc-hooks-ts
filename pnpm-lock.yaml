@@ -8,13 +8,13 @@ importers:
 
   .:
     dependencies:
+      '@anthropic-ai/claude-code':
+        specifier: 2.0.0
+        version: 2.0.0
       valibot:
         specifier: ^1.1.0
         version: 1.1.0(typescript@5.9.3)
     devDependencies:
-      '@anthropic-ai/claude-code':
-        specifier: 2.0.0
-        version: 2.0.0
       '@arethetypeswrong/core':
         specifier: 0.18.2
         version: 0.18.2

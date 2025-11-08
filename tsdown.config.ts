@@ -4,7 +4,6 @@ export default defineConfig({
   attw: { profile: "esmOnly" },
   clean: true,
   dts: {
-    resolve: ["@anthropic-ai/claude-code/sdk-tools.d.ts"],
     tsgo: true,
   },
   entry: ["./src/index.ts"],
