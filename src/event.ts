@@ -3,11 +3,11 @@ export const SUPPORTED_HOOK_EVENTS = [
   "PostToolUse",
   "Notification",
   "UserPromptSubmit",
+  "SessionStart",
+  "SessionEnd",
   "Stop",
   "SubagentStop",
   "PreCompact",
-  "SessionStart",
-  "SessionEnd",
 ] as const;
 
 /**
