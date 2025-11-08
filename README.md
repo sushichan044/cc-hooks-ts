@@ -2,6 +2,9 @@
 
 Define Claude Code hooks with full type safety using TypeScript and Valibot validation.
 
+> [!WARNING]
+> This library is expected to be used with Claude Code v2.0.0 or higher for better compatibility.
+
 ## Installation
 
 ```bash
