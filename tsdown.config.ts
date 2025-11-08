@@ -5,6 +5,7 @@ export default defineConfig({
   clean: true,
   dts: {
     resolve: [/claude-code/], // we cannot specify `@anthropic-ai/claude-code`. May be a bug?
+    tsgo: true,
   },
   entry: ["./src/index.ts"],
   fixedExtension: true,
