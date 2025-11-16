@@ -1,11 +1,10 @@
-import type { SupportedHookEvent } from "./event";
-import type { ToolSchema } from "./index";
+import type { ExtractHookOutput, SupportedHookEvent } from "./hooks";
 import type {
   ExtractAllHookInputsForEvent,
   ExtractExtendedSpecificKeys,
   ExtractSpecificHookInputForEvent,
-} from "./input";
-import type { ExtractHookOutput } from "./output";
+} from "./hooks";
+import type { ToolSchema } from "./index";
 
 export type ExtendedTools = keyof ToolSchema;
 

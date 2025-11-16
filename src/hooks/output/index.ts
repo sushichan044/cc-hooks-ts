@@ -1,6 +1,9 @@
-import type { SupportedHookEvent } from "./event";
-import type { AssertFalse, IsNever } from "./utils/types";
+import type { AssertFalse, IsNever } from "../../utils/types";
+import type { SupportedHookEvent } from "../event";
 
+/**
+ * @package
+ */
 export type HookOutput = {
   PreToolUse: PreToolUseHookOutput;
 
@@ -29,6 +32,9 @@ type __TypeCheckExtractHookOutput = AssertFalse<
   IsNever<ExtractHookOutput<SupportedHookEvent>>
 >;
 
+/**
+ * @package
+ */
 export type ExtractHookOutput<TEvent extends SupportedHookEvent> =
   HookOutput extends Record<SupportedHookEvent, unknown>
     ? HookOutput[TEvent]

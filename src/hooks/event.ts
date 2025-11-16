@@ -1,0 +1,15 @@
+/**
+ * @see {@link https://docs.anthropic.com/en/docs/claude-code/hooks#hook-events}
+ *
+ * @package
+ */
+export type SupportedHookEvent =
+  | "PreToolUse"
+  | "PostToolUse"
+  | "Notification"
+  | "UserPromptSubmit"
+  | "SessionStart"
+  | "SessionEnd"
+  | "Stop"
+  | "SubagentStop"
+  | "PreCompact";

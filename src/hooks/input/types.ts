@@ -1,7 +1,7 @@
 import type * as v from "valibot";
 
+import type { ToolSchema } from "../../index";
 import type { SupportedHookEvent } from "../event";
-import type { ToolSchema } from "../index";
 import type { HookInputSchemas } from "./schemas";
 
 /**
@@ -15,7 +15,7 @@ import type { HookInputSchemas } from "./schemas";
  * ```
  * @package
  */
-export type HookInputs = {
+export type HookInput = {
   [EventKey in SupportedHookEvent]: EventKey extends "PreToolUse"
     ? ToolSpecificPreToolUseInput & {
         default: BaseHookInputs["PreToolUse"];
@@ -47,8 +47,8 @@ export type HookInputs = {
  * @package
  */
 export type ExtractAllHookInputsForEvent<TEvent extends SupportedHookEvent> = {
-  [K in keyof HookInputs[TEvent]]: HookInputs[TEvent][K];
-}[keyof HookInputs[TEvent]];
+  [K in keyof HookInput[TEvent]]: HookInput[TEvent][K];
+}[keyof HookInput[TEvent]];
 
 /**
  * Extracts the hook input type for a specific tool within a given event type.
@@ -73,15 +73,15 @@ export type ExtractAllHookInputsForEvent<TEvent extends SupportedHookEvent> = {
 export type ExtractSpecificHookInputForEvent<
   TEvent extends SupportedHookEvent,
   TSpecificKey extends ExtractExtendedSpecificKeys<TEvent>,
-> = TSpecificKey extends keyof HookInputs[TEvent]
-  ? HookInputs[TEvent][TSpecificKey]
+> = TSpecificKey extends keyof HookInput[TEvent]
+  ? HookInput[TEvent][TSpecificKey]
   : never;
 
 /**
  * @package
  */
 export type ExtractExtendedSpecificKeys<TEvent extends SupportedHookEvent> =
-  Exclude<keyof HookInputs[TEvent], "default">;
+  Exclude<keyof HookInput[TEvent], "default">;
 
 type BaseHookInputs = {
   [EventKey in SupportedHookEvent]: v.InferOutput<

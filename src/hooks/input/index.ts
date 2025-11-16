@@ -3,5 +3,5 @@ export type {
   ExtractAllHookInputsForEvent,
   ExtractExtendedSpecificKeys,
   ExtractSpecificHookInputForEvent,
-  HookInputs,
+  HookInput,
 } from "./types";

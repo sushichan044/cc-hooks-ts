@@ -20,8 +20,8 @@ YOU MUST RUN `pnpm run check` to run all quality checks before completing any ta
 
 ### Source Code (`src/`)
 
-- **Root files** - Core library APIs (hook definition, execution, events, outputs)
-- **`input/`** - Input validation schemas and type definitions
+- **Root files** - Core library APIs (hook definition, execution, context)
+- **`hooks/`** - Hook event definitions, input validation schemas, output types
 - **`utils/`** - Shared utility functions for strings, types, and validation
 
 ### Other Directories
@@ -33,8 +33,10 @@ YOU MUST RUN `pnpm run check` to run all quality checks before completing any ta
 
 | Goal | Where to Work |
 |------|---------------|
-| Add new hook event | Root of `src/` (event system, input schemas, output types) |
-| Modify input validation | `src/input/` |
+| Add new hook event / Backport upstream hook type change | `src/hooks/` |
+| Modify input validation | `src/hooks/input/` |
+| Change output types | `src/hooks/output/` |
+| Update tool schema definitions | `src/index.ts` |
 | Add utility functions | `src/utils/` |
 | Update documentation | `docs/` |
 
