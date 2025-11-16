@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.3
+
+### &nbsp;&nbsp;&nbsp;Features
+
+- **tools**: Add support for ExitPlanMode tool &nbsp;-&nbsp; by **sushichan044** in https://github.com/sushichan044/cc-hooks-ts/issues/19 [<samp>(e0af5)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/e0af5a9)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sushichan044/cc-hooks-ts/compare/0.1.2...0.1.3)
+
 ## 0.1.2
 
 *No significant changes*
