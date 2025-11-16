@@ -121,47 +121,6 @@ export interface ToolSchema {
     response: unknown;
   };
 
-  LS: {
-    input: {
-      path: string;
-    };
-    response: string;
-  };
-
-  MultiEdit: {
-    input: {
-      edits: Array<{
-        new_string: string;
-        old_string: string;
-        /**
-         * @default false
-         */
-        replace_all?: boolean;
-      }>;
-      file_path: string;
-    };
-    response: {
-      edits: Array<{
-        new_string: string;
-        old_string: string;
-        /**
-         * @default false
-         */
-        replace_all?: boolean;
-      }>;
-      filePath: string;
-      originalFileContents: string;
-      structuredPatch: Array<{
-        lines: string[];
-        newLines: number;
-        newStart: number;
-        oldLines: number;
-        oldStart: number;
-      }>;
-      userModified: boolean;
-    };
-  };
-
   NotebookEdit: {
     input: NotebookEditInput;
     response: {
