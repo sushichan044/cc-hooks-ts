@@ -155,6 +155,7 @@ describe("ExtractAllHookInputsForEvent", () => {
       // Tool-specific types of PreToolUse
       | HookInputs["PreToolUse"]["Bash"]
       | HookInputs["PreToolUse"]["Edit"]
+      | HookInputs["PreToolUse"]["ExitPlanMode"]
       | HookInputs["PreToolUse"]["Glob"]
       | HookInputs["PreToolUse"]["Grep"]
       | HookInputs["PreToolUse"]["LS"]
@@ -176,6 +177,7 @@ describe("ExtractAllHookInputsForEvent", () => {
       // Tool-specific types of PostToolUse
       | HookInputs["PostToolUse"]["Bash"]
       | HookInputs["PostToolUse"]["Edit"]
+      | HookInputs["PostToolUse"]["ExitPlanMode"]
       | HookInputs["PostToolUse"]["Glob"]
       | HookInputs["PostToolUse"]["Grep"]
       | HookInputs["PostToolUse"]["LS"]
