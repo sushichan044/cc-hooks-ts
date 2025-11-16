@@ -68,32 +68,13 @@ describe("ExtractTriggeredHookInput", () => {
     it("should handle both of tool-specific events and non-tool-specific events", () => {
       expectTypeOf<
         ExtractTriggeredHookInput<{
-          PostToolUse: true;
+          PostToolUse: { Read: true };
           PreToolUse: { MyCustomTool: true };
           SessionStart: true;
         }>
       >().toEqualTypeOf<
-        // fallback type of PostToolUse
-        | HookInputs["PostToolUse"]["default"]
-
         // Tool-specific types of PostToolUse
-        | HookInputs["PostToolUse"]["Bash"]
-        | HookInputs["PostToolUse"]["Edit"]
-        | HookInputs["PostToolUse"]["ExitPlanMode"]
-        | HookInputs["PostToolUse"]["Glob"]
-        | HookInputs["PostToolUse"]["Grep"]
-        | HookInputs["PostToolUse"]["LS"]
-        | HookInputs["PostToolUse"]["MultiEdit"]
-        | HookInputs["PostToolUse"]["MyCustomTool"]
-        | HookInputs["PostToolUse"]["MySecondCustomTool"]
-        | HookInputs["PostToolUse"]["NotebookEdit"]
         | HookInputs["PostToolUse"]["Read"]
-        | HookInputs["PostToolUse"]["Task"]
-        | HookInputs["PostToolUse"]["TodoWrite"]
-        | HookInputs["PostToolUse"]["WebFetch"]
-        | HookInputs["PostToolUse"]["WebSearch"]
-        | HookInputs["PostToolUse"]["Write"]
-
         // PreToolUse
         | HookInputs["PreToolUse"]["MyCustomTool"]
         // SessionStart

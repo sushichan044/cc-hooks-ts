@@ -1,4 +1,4 @@
-import type { SyncHookJSONOutput } from "@anthropic-ai/claude-code";
+import type { SyncHookJSONOutput } from "@anthropic-ai/claude-agent-sdk";
 import type { Except, Simplify } from "type-fest";
 
 import { describe, expectTypeOf, it } from "vitest";

@@ -97,6 +97,8 @@ interface PreToolUseHookOutput extends CommonHookOutputs {
     permissionDecision?: "allow" | "ask" | "deny";
 
     permissionDecisionReason?: string;
+
+    updatedInput?: Record<string, unknown>;
   };
 }
 
@@ -117,6 +119,8 @@ interface PostToolUseHookOutput extends CommonHookOutputs {
      * Adds context for Claude to consider.
      */
     additionalContext?: string;
+
+    updatedMCPToolOutput?: unknown;
   };
 
   reason?: string;

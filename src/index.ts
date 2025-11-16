@@ -1,18 +1,21 @@
 import type {
+  AgentInput,
   BashInput,
+  BashOutputInput,
   ExitPlanModeInput,
   FileEditInput,
   FileReadInput,
   FileWriteInput,
   GlobInput,
   GrepInput,
+  KillShellInput,
+  ListMcpResourcesInput,
   NotebookEditInput,
+  ReadMcpResourceInput,
   TodoWriteInput,
   WebFetchInput,
   WebSearchInput,
-} from "@anthropic-ai/claude-code/sdk-tools.d.ts";
-
-import type { AutoComplete } from "./utils/types";
+} from "@anthropic-ai/claude-agent-sdk/sdk-tools";
 
 /**
  * Represents the input schema for each tool in the `PreToolUse` and `PostToolUse` hooks.
@@ -58,6 +61,12 @@ export interface ToolSchema {
       stdout: string;
     };
   };
+
+  BashOutput: {
+    input: BashOutputInput;
+    response: unknown;
+  };
+
   Edit: {
     input: FileEditInput;
     response: {
@@ -102,45 +111,14 @@ export interface ToolSchema {
     };
   };
 
-  LS: {
-    input: {
-      path: string;
-    };
-    response: string;
+  KillBash: {
+    input: KillShellInput;
+    response: unknown;
   };
 
-  MultiEdit: {
-    input: {
-      edits: Array<{
-        new_string: string;
-        old_string: string;
-        /**
-         * @default false
-         */
-        replace_all?: boolean;
-      }>;
-      file_path: string;
-    };
-    response: {
-      edits: Array<{
-        new_string: string;
-        old_string: string;
-        /**
-         * @default false
-         */
-        replace_all?: boolean;
-      }>;
-      filePath: string;
-      originalFileContents: string;
-      structuredPatch: Array<{
-        lines: string[];
-        newLines: number;
-        newStart: number;
-        oldLines: number;
-        oldStart: number;
-      }>;
-      userModified: boolean;
-    };
+  ListMcpResources: {
+    input: ListMcpResourcesInput;
+    response: unknown;
   };
 
   NotebookEdit: {
@@ -188,14 +166,13 @@ export interface ToolSchema {
         };
   };
 
+  ReadMcpResource: {
+    input: ReadMcpResourceInput;
+    response: unknown;
+  };
+
   Task: {
-    input: {
-      description: string;
-      prompt: string;
-      subagent_type: AutoComplete<
-        "general-purpose" | "output-style-setup" | "statusline-setup"
-      >;
-    };
+    input: AgentInput;
     response: {
       content: Array<{
         text: string;

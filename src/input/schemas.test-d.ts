@@ -8,7 +8,7 @@ import type {
   StopHookInput,
   SubagentStopHookInput,
   UserPromptSubmitHookInput,
-} from "@anthropic-ai/claude-code";
+} from "@anthropic-ai/claude-agent-sdk";
 import type { Simplify } from "type-fest";
 import type * as v from "valibot";
 
