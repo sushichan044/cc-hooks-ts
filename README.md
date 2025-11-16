@@ -2,8 +2,9 @@
 
 Define Claude Code hooks with full type safety using TypeScript and Valibot validation.
 
-> [!WARNING]
-> This library is expected to be used with Claude Code v2.0.0 or higher for better compatibility.
+> [!NOTE]
+> Beginning with versions equal to 2.0.0 or 2.0.42 and above, we started releasing using the same version numbers as Claude Code.
+> This enables us to support newer type definitions while preserving maximum compatibility.
 
 ## Installation
 
