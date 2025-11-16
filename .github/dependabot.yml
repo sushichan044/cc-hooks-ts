@@ -1,0 +1,32 @@
+version: 2
+
+updates:
+  - package-ecosystem: "npm"
+    schedule:
+      interval: cron
+      cronjob: "0 0 * * *" # 9:00 AM JST daily
+    directories:
+      - "/"
+    cooldown:
+      default-days: 3
+      exclude:
+        - "@anthropic-ai/claude-agent-sdk"
+    groups:
+      claude-code-upstream:
+        dependency-type: "production"
+        patterns:
+          - "@anthropic-ai/claude-agent-sdk"
+      prod:
+        dependency-type: "production"
+
+      dev:
+        dependency-type: "development"
+
+  - package-ecosystem: "github-actions"
+    schedule:
+      interval: cron
+      cronjob: "0 0 * * *" # 9:00 AM JST daily
+    cooldown:
+      default-days: 3
+    directories:
+      - "/"
