@@ -6,7 +6,7 @@ on:
       raw-increment:
         description: "Version increment (major, minor, patch, premajor, preminor, prepatch, or specific version)"
         required: false
-        default: ""
+        default: "auto"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -52,13 +52,13 @@ jobs:
           npm install -g npm@latest
 
       - name: Release with automatic version increment
-        if: ${{ github.event.inputs.raw-increment == '' }}
+        if: ${{ github.event.inputs.raw-increment == 'auto' }}
         run: pnpm exec release-it
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Release with specified version increment
-        if: ${{ github.event.inputs.raw-increment != '' }}
+        if: ${{ github.event.inputs.raw-increment != 'auto' }}
         run: pnpm exec release-it --increment=${{ github.event.inputs.raw-increment }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
