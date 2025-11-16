@@ -2,7 +2,13 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Project Overview
+
+A TypeScript library for defining Claude Code hooks with type safety. Provides runtime validation and strongly-typed definitions for hook configurations.
+
 ## Development Commands
+
+YOU MUST RUN `pnpm run check` to run all quality checks before completing any tasks.
 
 - `pnpm test` - Run tests with Vitest
 - `pnpm build` - Build with tsdown
@@ -10,58 +16,33 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `pnpm format` - Format code with Biome
 - `pnpm typecheck` - TypeScript type checking
 
-## Project Architecture
+## Repository Structure
 
-This is a TypeScript library for defining Claude Code hooks with type safety. The core architecture consists of:
+### Source Code (`src/`)
 
-### Core Components
+- **Root files** - Core library APIs (hook definition, execution, events, outputs)
+- **`input/`** - Input validation schemas and type definitions
+- **`utils/`** - Shared utility functions for strings, types, and validation
 
-- **Hook Definition**: Main entry point providing `defineHook()` function to create type-safe hook definitions
-- **Event System**: Defines supported hook events (see `src/event.ts` for current list)
-- **Input System**: Valibot schemas for validating hook input data with event-specific validation and TypeScript type definitions
-- **Output Types**: Strongly typed output definitions for different hook types with event-specific properties
-- **Context System**: Provides HookContext interface for hook handlers with success/error response helpers
-- **Type System**: Complex type utilities for extracting input/output types based on hook trigger configuration
-- **Runtime System**: Hook execution engine that handles runtime validation and execution
-- **Utilities**: Common utility functions for strings, types, and Valibot integration
+### Other Directories
 
-For detailed file structure and specific implementations, explore the `src/` directory.
+- **`docs/`** - Documentation and guides
+- **`dist/`** - Build output (generated)
 
-### Key Design Patterns
+## When to Touch What
 
-- **Valibot Integration**: Runtime schema validation and TypeScript type inference for all hook inputs
-- **Conditional Types**: Precise typing based on hook trigger configuration with complex type utilities
-- **Tool Schema Extension**: `ToolSchema` interface supports declaration merging for custom tool definitions
-- **Event-Driven Architecture**: Multiple distinct hook events with event-specific input validation and output types
-- **Runtime Execution**: `runHook` function provides complete hook execution lifecycle with error handling
-- **Type-Safe Responses**: Hook handlers return structured responses (`success`, `blocking-error`, `non-blocking-error`)
-- **Modular Input System**: Organized input schemas with dedicated validation and type inference per event
-- **Context-Based API**: HookContext provides convenient response helpers and strongly typed input access
+| Goal | Where to Work |
+|------|---------------|
+| Add new hook event | Root of `src/` (event system, input schemas, output types) |
+| Modify input validation | `src/input/` |
+| Add utility functions | `src/utils/` |
+| Update documentation | `docs/` |
 
-### Implementation Reference
-
-- **Available Events**: Check `src/event.ts` for the current list of supported hook events
-- **Input Schemas**: See `src/input/schemas.ts` for available input validation schemas
-- **Tool Definitions**: Refer to the `ToolSchema` interface in `src/index.ts` for extendable tool definitions
-
-### Dependencies
-
-#### Runtime
-
-- **valibot**: Schema validation and type inference
-
-#### Development
-
-- **vitest**: Testing framework with type checking enabled
-- **typescript-eslint**: Linting with TypeScript support
-- **biome**: Code formatting
-- **tsdown**: Build tool for TypeScript libraries
-
-## Coding goodies
+## Coding Goodies
 
 ### Vitest
 
-- Import vitest api explicitly
+- Import vitest API explicitly
 - Prefer `describe(target) { it(behavior) }` structures over `test()`
 
 ### Type System Design Philosophy
