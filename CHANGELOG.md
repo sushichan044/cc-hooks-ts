@@ -10,7 +10,11 @@
 
 ## 2.0.0
 
-*No significant changes*
+Beginning with versions equal to 2.0.0 or 2.0.42 and above, we started releasing using the same version numbers as Claude Code.
+This enables us to support newer type definitions while preserving maximum compatibility.
+
+This version provides the same functionality as 0.1.3, but has been re-released as 2.0.0 under the new versioning policy,
+reflecting its compatibility with Claude Code 2.0.0.
 
 ##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sushichan044/cc-hooks-ts/compare/0.1.3...2.0.0)
 
