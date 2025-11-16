@@ -56,6 +56,7 @@ export const HookInputSchemas = {
 
   Notification: buildHookInputSchema("Notification", {
     message: v.string(),
+    notification_type: v.string(),
     title: v.exactOptional(v.string()),
   }),
 
@@ -68,6 +69,8 @@ export const HookInputSchemas = {
   }),
 
   SubagentStop: buildHookInputSchema("SubagentStop", {
+    agent_id: v.string(),
+    agent_transcript_path: v.string(),
     stop_hook_active: v.boolean(),
   }),
 
