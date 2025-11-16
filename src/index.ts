@@ -1,18 +1,21 @@
 import type {
+  AgentInput,
   BashInput,
+  BashOutputInput,
   ExitPlanModeInput,
   FileEditInput,
   FileReadInput,
   FileWriteInput,
   GlobInput,
   GrepInput,
+  KillShellInput,
+  ListMcpResourcesInput,
   NotebookEditInput,
+  ReadMcpResourceInput,
   TodoWriteInput,
   WebFetchInput,
   WebSearchInput,
 } from "@anthropic-ai/claude-agent-sdk/sdk-tools.d.ts";
-
-import type { AutoComplete } from "./utils/types";
 
 /**
  * Represents the input schema for each tool in the `PreToolUse` and `PostToolUse` hooks.
@@ -58,6 +61,12 @@ export interface ToolSchema {
       stdout: string;
     };
   };
+
+  BashOutput: {
+    input: BashOutputInput;
+    response: unknown;
+  };
+
   Edit: {
     input: FileEditInput;
     response: {
@@ -100,6 +109,16 @@ export interface ToolSchema {
       numFiles: number;
       numLines: number;
     };
+  };
+
+  KillBash: {
+    input: KillShellInput;
+    response: unknown;
+  };
+
+  ListMcpResources: {
+    input: ListMcpResourcesInput;
+    response: unknown;
   };
 
   LS: {
@@ -188,14 +207,13 @@ export interface ToolSchema {
         };
   };
 
+  ReadMcpResource: {
+    input: ReadMcpResourceInput;
+    response: unknown;
+  };
+
   Task: {
-    input: {
-      description: string;
-      prompt: string;
-      subagent_type: AutoComplete<
-        "general-purpose" | "output-style-setup" | "statusline-setup"
-      >;
-    };
+    input: AgentInput;
     response: {
       content: Array<{
         text: string;
