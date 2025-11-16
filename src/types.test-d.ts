@@ -1,7 +1,6 @@
 import { describe, expectTypeOf, it } from "vitest";
 
-import type { HookInputs } from "./input";
-import type { HookOutput } from "./output";
+import type { HookInput, HookOutput } from "./hooks";
 import type {
   ExtractTriggeredEvent,
   ExtractTriggeredHookInput,
@@ -28,11 +27,11 @@ describe("ExtractTriggeredHookInput", () => {
   it("should extract default input for non-tool-specific events", () => {
     expectTypeOf<
       ExtractTriggeredHookInput<{ SessionStart: true }>
-    >().toEqualTypeOf<HookInputs["SessionStart"]["default"]>();
+    >().toEqualTypeOf<HookInput["SessionStart"]["default"]>();
 
     expectTypeOf<
       ExtractTriggeredHookInput<{ Notification: true }>
-    >().toEqualTypeOf<HookInputs["Notification"]["default"]>();
+    >().toEqualTypeOf<HookInput["Notification"]["default"]>();
   });
 
   it("should return never for empty trigger", () => {
@@ -60,8 +59,8 @@ describe("ExtractTriggeredHookInput", () => {
           PreToolUse: { MyCustomTool: true; Read: true };
         }>
       >().toEqualTypeOf<
-        | HookInputs["PreToolUse"]["MyCustomTool"]
-        | HookInputs["PreToolUse"]["Read"]
+        | HookInput["PreToolUse"]["MyCustomTool"]
+        | HookInput["PreToolUse"]["Read"]
       >();
     });
 
@@ -74,11 +73,11 @@ describe("ExtractTriggeredHookInput", () => {
         }>
       >().toEqualTypeOf<
         // Tool-specific types of PostToolUse
-        | HookInputs["PostToolUse"]["Read"]
+        | HookInput["PostToolUse"]["Read"]
         // PreToolUse
-        | HookInputs["PreToolUse"]["MyCustomTool"]
+        | HookInput["PreToolUse"]["MyCustomTool"]
         // SessionStart
-        | HookInputs["SessionStart"]["default"]
+        | HookInput["SessionStart"]["default"]
       >();
     });
   });

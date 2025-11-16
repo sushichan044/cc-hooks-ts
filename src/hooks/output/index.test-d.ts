@@ -3,7 +3,7 @@ import type { Except, Simplify } from "type-fest";
 
 import { describe, expectTypeOf, it } from "vitest";
 
-import type { ExtractHookOutput } from "./output";
+import type { ExtractHookOutput } from ".";
 
 // Hooks outputs CommonHookOutputs are no need to be tested
 describe("HookOutputs", () => {

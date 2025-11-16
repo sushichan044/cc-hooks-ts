@@ -41,9 +41,9 @@
   },
   "scripts": {
     "check": "pnpm run format:check && pnpm run lint && pnpm run typecheck && pnpm run test && pnpm run build",
-    "lint": "eslint --max-warnings 0 --fix .",
-    "format": "biome format --write .",
-    "format:check": "biome format . --reporter=github",
+    "lint": "eslint --max-warnings 0",
+    "format": "biome format --write",
+    "format:check": "biome format --reporter=github",
     "typecheck": "tsgo --noEmit",
     "test": "vitest --run",
     "build": "tsdown",

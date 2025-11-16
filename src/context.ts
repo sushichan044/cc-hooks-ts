@@ -1,5 +1,4 @@
-import type { SupportedHookEvent } from "./event";
-import type { ExtractHookOutput } from "./output";
+import type { ExtractHookOutput, SupportedHookEvent } from "./hooks";
 import type { ExtractTriggeredHookInput, HookTrigger } from "./types";
 
 export interface HookContext<THookTrigger extends HookTrigger> {

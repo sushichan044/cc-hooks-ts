@@ -4,11 +4,11 @@ import * as v from "valibot";
 
 import type { HookResponse } from "./context";
 import type { HookDefinition } from "./define";
-import type { SupportedHookEvent } from "./event";
+import type { SupportedHookEvent } from "./hooks";
 import type { ExtractTriggeredHookInput, HookTrigger } from "./types";
 
 import { createContext } from "./context";
-import { HookInputSchemas } from "./input";
+import { HookInputSchemas } from "./hooks";
 import { isNonEmptyString } from "./utils/string";
 
 /**

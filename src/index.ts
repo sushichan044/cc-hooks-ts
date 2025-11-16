@@ -234,4 +234,4 @@ export { runHook } from "./run";
 export type {
   ExtractAllHookInputsForEvent,
   ExtractSpecificHookInputForEvent,
-} from "./input";
+} from "./hooks";

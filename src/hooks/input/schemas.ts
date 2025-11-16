@@ -1,8 +1,8 @@
 import * as v from "valibot";
 
+import type { AutoComplete } from "../../utils/types";
+import type { ValibotSchemaLike } from "../../utils/valibot";
 import type { SupportedHookEvent } from "../event";
-import type { AutoComplete } from "../utils/types";
-import type { ValibotSchemaLike } from "../utils/valibot";
 
 const baseHookInputSchema = v.object({
   cwd: v.string(),
@@ -10,11 +10,6 @@ const baseHookInputSchema = v.object({
   session_id: v.string(),
   transcript_path: v.string(),
 });
-
-/**
- * @package
- */
-export type HookInputLike = v.InferOutput<typeof baseHookInputSchema>;
 
 function buildHookInputSchema<
   TName extends string,
