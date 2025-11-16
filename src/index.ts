@@ -1,5 +1,6 @@
 import type {
   BashInput,
+  ExitPlanModeInput,
   FileEditInput,
   FileReadInput,
   FileWriteInput,
@@ -57,7 +58,6 @@ export interface ToolSchema {
       stdout: string;
     };
   };
-
   Edit: {
     input: FileEditInput;
     response: {
@@ -75,6 +75,11 @@ export interface ToolSchema {
       }>;
       userModified: boolean;
     };
+  };
+
+  ExitPlanMode: {
+    input: ExitPlanModeInput;
+    response: unknown;
   };
 
   Glob: {
