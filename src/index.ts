@@ -10,7 +10,7 @@ import type {
   TodoWriteInput,
   WebFetchInput,
   WebSearchInput,
-} from "@anthropic-ai/claude-code/sdk-tools.d.ts";
+} from "@anthropic-ai/claude-agent-sdk/sdk-tools.d.ts";
 
 import type { AutoComplete } from "./utils/types";
 
