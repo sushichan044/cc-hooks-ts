@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.0
+
+*No significant changes*
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sushichan044/cc-hooks-ts/compare/0.1.3...2.0.0)
+
 ## 0.1.3
 
 ### &nbsp;&nbsp;&nbsp;Features
