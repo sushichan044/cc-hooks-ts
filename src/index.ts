@@ -15,7 +15,7 @@ import type {
   TodoWriteInput,
   WebFetchInput,
   WebSearchInput,
-} from "@anthropic-ai/claude-agent-sdk/sdk-tools.d.ts";
+} from "@anthropic-ai/claude-agent-sdk/sdk-tools";
 
 /**
  * Represents the input schema for each tool in the `PreToolUse` and `PostToolUse` hooks.
