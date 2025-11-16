@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.42
+
+### &nbsp;&nbsp;&nbsp;Bug Fixes
+
+- Align to Claude Code 2.0.42 &nbsp;-&nbsp; by **Kentaro Suzuki** and **Copilot** in https://github.com/sushichan044/cc-hooks-ts/issues/22 [<samp>(fe468)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/fe4686f)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sushichan044/cc-hooks-ts/compare/2.0.0...2.0.42)
+
 ## 2.0.0
 
 *No significant changes*
