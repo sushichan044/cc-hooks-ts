@@ -14,23 +14,22 @@ npx nypm add cc-hooks-ts
 
 ## Basic Usage
 
-> [!NOTE]
-> We highly recommend using Bun or Deno for automatic dependency downloading at runtime.
->
-> - Bun: <https://bun.com/docs/runtime/autoimport>
-> - Deno: <https://docs.deno.com/runtime/fundamentals/modules/#managing-third-party-modules-and-libraries>
-
 ### Define a Hook
 
-With Bun:
+Example of running a simple SessionStart hook on Bun:
 
 ```typescript
-#!/usr/bin/env -S bun run --silent
-import { defineHook, runHook } from "cc-hooks-ts";
+import { defineHook } from "cc-hooks-ts";
 
-// Session start hook
 const sessionHook = defineHook({
-  trigger: { SessionStart: true },
+  trigger: {
+    // Specify the hook event to listen for
+    SessionStart: true,
+    PreToolUse: {
+      // PreToolUser and PostToolUse can be tool-specific. (affects type of context)
+      Read: true
+    }
+  },
   run: (context) => {
     // do something great
     return context.success({
@@ -39,27 +38,11 @@ const sessionHook = defineHook({
   }
 });
 
-await runHook(sessionHook);
-```
-
-Or with Deno:
-
-```typescript
-#!/usr/bin/env -S deno run --quiet --allow-env --allow-read
-import { defineHook, runHook } from "npm:cc-hooks-ts";
-
-// Session start hook
-const sessionHook = defineHook({
-  trigger: { SessionStart: true },
-  run: (context) => {
-    // do something great
-    return context.success({
-      messageForUser: "Welcome to your coding session!"
-    });
-  }
-});
-
-await runHook(sessionHook);
+// import.meta.main is available in Node.js 24.2+ and Bun and Deno
+if (import.meta.main) {
+  const { runHook } = await import("cc-hooks-ts");
+  await runHook(sessionHook);
+}
 ```
 
 ### Call from Claude Code
@@ -74,7 +57,7 @@ Then, load defined hooks in your Claude Code settings at `~/.claude/settings.jso
         "hooks": [
           {
             "type": "command",
-            "command": "$HOME/.claude/<name-of-your-hooks>.ts"
+            "command": "bun run --silent path/to/your/sessionHook.ts"
           }
         ]
       }
@@ -149,6 +132,7 @@ const multiEventHook = defineHook({
     PreToolUse: { Read: true, WebFetch: true },
     PostToolUse: { Read: true }
   },
+  // Optional: Define when the hook should run.
   shouldRun: () => process.env.NODE_ENV === 'development',
   run: (context) => {
     // Handle different events and tools based on context.input
