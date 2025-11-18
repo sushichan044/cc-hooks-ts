@@ -36,6 +36,7 @@ describe("HookInputs", () => {
         session_id: string;
         tool_input: unknown;
         tool_name: AutoComplete<string>;
+        tool_use_id: string;
         transcript_path: string;
       }>();
     });
@@ -63,6 +64,7 @@ describe("HookInputs", () => {
         tool_input: unknown;
         tool_name: AutoComplete<string>;
         tool_response: unknown;
+        tool_use_id: string;
         transcript_path: string;
       }>();
     });

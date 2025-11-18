@@ -35,6 +35,7 @@ export const HookInputSchemas = {
     ),
 
     tool_input: v.unknown(),
+tool_use_id: v.string(),
   }),
 
   PostToolUse: buildHookInputSchema("PostToolUse", {
@@ -47,6 +48,7 @@ export const HookInputSchemas = {
 
     tool_input: v.unknown(),
     tool_response: v.unknown(),
+tool_use_id: v.string(),
   }),
 
   Notification: buildHookInputSchema("Notification", {
