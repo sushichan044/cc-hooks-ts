@@ -35,7 +35,7 @@ export const HookInputSchemas = {
     ),
 
     tool_input: v.unknown(),
-tool_use_id: v.string(),
+    tool_use_id: v.string(),
   }),
 
   PostToolUse: buildHookInputSchema("PostToolUse", {
@@ -48,7 +48,7 @@ tool_use_id: v.string(),
 
     tool_input: v.unknown(),
     tool_response: v.unknown(),
-tool_use_id: v.string(),
+    tool_use_id: v.string(),
   }),
 
   Notification: buildHookInputSchema("Notification", {
@@ -63,6 +63,11 @@ tool_use_id: v.string(),
 
   Stop: buildHookInputSchema("Stop", {
     stop_hook_active: v.boolean(),
+  }),
+
+  SubagentStart: buildHookInputSchema("SubagentStart", {
+    agent_id: v.string(),
+    agent_type: v.string(),
   }),
 
   SubagentStop: buildHookInputSchema("SubagentStop", {

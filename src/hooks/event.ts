@@ -12,4 +12,5 @@ export type SupportedHookEvent =
   | "SessionEnd"
   | "Stop"
   | "SubagentStop"
-  | "PreCompact";
+  | "PreCompact"
+  | "SubagentStart";

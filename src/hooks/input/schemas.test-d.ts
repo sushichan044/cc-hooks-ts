@@ -6,6 +6,7 @@ import type {
   SessionEndHookInput,
   SessionStartHookInput,
   StopHookInput,
+  SubagentStartHookInput,
   SubagentStopHookInput,
   UserPromptSubmitHookInput,
 } from "@anthropic-ai/claude-agent-sdk";
@@ -90,6 +91,14 @@ describe("HookInputSchemas", () => {
     it("matches upstream type", () => {
       expectTypeOf<Simplify<InferInputSchema<"SessionEnd">>>().toEqualTypeOf<
         Simplify<SessionEndHookInput>
+      >();
+    });
+  });
+
+  describe("SubagentStart", () => {
+    it("matches upstream type", () => {
+      expectTypeOf<Simplify<InferInputSchema<"SubagentStart">>>().toEqualTypeOf<
+        Simplify<SubagentStartHookInput>
       >();
     });
   });

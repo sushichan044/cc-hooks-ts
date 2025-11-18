@@ -70,6 +70,23 @@ describe("HookOutputs", () => {
     });
   });
 
+  describe("SubagentStart", () => {
+    it("matches upstream type", () => {
+      type Upstream = Simplify<
+        Except<SyncHookJSONOutput, "hookSpecificOutput"> & {
+          hookSpecificOutput?: Extract<
+            SyncHookJSONOutput["hookSpecificOutput"],
+            { hookEventName: "SubagentStart" }
+          >;
+        }
+      >;
+
+      expectTypeOf<
+        Simplify<ExtractHookOutput<"SubagentStart">>
+      >().toEqualTypeOf<Upstream>();
+    });
+  });
+
   describe("SubagentStop", () => {
     it("matches upstream type", () => {
       type Upstream = Simplify<
