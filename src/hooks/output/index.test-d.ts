@@ -3,116 +3,38 @@ import type { Except, Simplify } from "type-fest";
 
 import { describe, expectTypeOf, it } from "vitest";
 
-import type { ExtractHookOutput } from ".";
+import type { HookOutput } from ".";
+import type { SupportedHookEvent } from "..";
 
-// Hooks outputs CommonHookOutputs are no need to be tested
+// Extract event names that have hookSpecificOutput
+type SpecificOutputEventNames = NonNullable<
+  SyncHookJSONOutput["hookSpecificOutput"]
+>["hookEventName"];
+
+// Common fields without hookSpecificOutput
+type CommonHookOutput = Except<SyncHookJSONOutput, "hookSpecificOutput">;
+
+// Extract upstream output type for each event
+type ExtractUpstreamOutput<EventName extends SupportedHookEvent> =
+  EventName extends SpecificOutputEventNames
+    ? CommonHookOutput & {
+        hookSpecificOutput?: Extract<
+          SyncHookJSONOutput["hookSpecificOutput"],
+          { hookEventName: EventName }
+        >;
+      }
+    : CommonHookOutput;
+
 describe("HookOutputs", () => {
-  describe("PreToolUse", () => {
-    it("matches upstream type", () => {
-      type Upstream = Simplify<
-        Except<SyncHookJSONOutput, "hookSpecificOutput"> & {
-          hookSpecificOutput?: Extract<
-            SyncHookJSONOutput["hookSpecificOutput"],
-            { hookEventName: "PreToolUse" }
-          >;
-        }
-      >;
+  it("matches upstream type", () => {
+    type Ours = {
+      [K in keyof HookOutput]: Simplify<HookOutput[K]>;
+    };
 
-      expectTypeOf<
-        Simplify<ExtractHookOutput<"PreToolUse">>
-      >().toEqualTypeOf<Upstream>();
-    });
-  });
+    type Upstream = {
+      [K in keyof HookOutput]: Simplify<ExtractUpstreamOutput<K>>;
+    };
 
-  describe("PostToolUse", () => {
-    it("matches upstream type", () => {
-      type Upstream = Simplify<
-        Except<SyncHookJSONOutput, "hookSpecificOutput"> & {
-          hookSpecificOutput?: Extract<
-            SyncHookJSONOutput["hookSpecificOutput"],
-            { hookEventName: "PostToolUse" }
-          >;
-        }
-      >;
-
-      expectTypeOf<
-        Simplify<ExtractHookOutput<"PostToolUse">>
-      >().toEqualTypeOf<Upstream>();
-    });
-  });
-
-  describe("UserPromptSubmit", () => {
-    it("matches upstream type", () => {
-      type Upstream = Simplify<
-        Except<SyncHookJSONOutput, "hookSpecificOutput"> & {
-          hookSpecificOutput?: Extract<
-            SyncHookJSONOutput["hookSpecificOutput"],
-            { hookEventName: "UserPromptSubmit" }
-          >;
-        }
-      >;
-
-      expectTypeOf<
-        Simplify<ExtractHookOutput<"UserPromptSubmit">>
-      >().toEqualTypeOf<Upstream>();
-    });
-  });
-
-  describe("Stop", () => {
-    it("matches upstream type", () => {
-      type Upstream = Simplify<
-        Except<SyncHookJSONOutput, "hookSpecificOutput">
-      >;
-
-      expectTypeOf<
-        Simplify<ExtractHookOutput<"Stop">>
-      >().toEqualTypeOf<Upstream>();
-    });
-  });
-
-  describe("SubagentStart", () => {
-    it("matches upstream type", () => {
-      type Upstream = Simplify<
-        Except<SyncHookJSONOutput, "hookSpecificOutput"> & {
-          hookSpecificOutput?: Extract<
-            SyncHookJSONOutput["hookSpecificOutput"],
-            { hookEventName: "SubagentStart" }
-          >;
-        }
-      >;
-
-      expectTypeOf<
-        Simplify<ExtractHookOutput<"SubagentStart">>
-      >().toEqualTypeOf<Upstream>();
-    });
-  });
-
-  describe("SubagentStop", () => {
-    it("matches upstream type", () => {
-      type Upstream = Simplify<
-        Except<SyncHookJSONOutput, "hookSpecificOutput">
-      >;
-
-      expectTypeOf<
-        Simplify<ExtractHookOutput<"SubagentStop">>
-      >().toEqualTypeOf<Upstream>();
-    });
-  });
-
-  describe("SessionStart", () => {
-    it("matches upstream type", () => {
-      type Upstream = Simplify<
-        Except<SyncHookJSONOutput, "hookSpecificOutput"> & {
-          hookSpecificOutput?: Extract<
-            SyncHookJSONOutput["hookSpecificOutput"],
-            { hookEventName: "SessionStart" }
-          >;
-        }
-      >;
-
-      expectTypeOf<
-        Simplify<ExtractHookOutput<"SessionStart">>
-      >().toEqualTypeOf<Upstream>();
-    });
+    expectTypeOf<Ours>().toEqualTypeOf<Upstream>();
   });
 });
