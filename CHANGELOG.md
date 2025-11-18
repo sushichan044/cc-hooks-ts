@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.43
+
+### &nbsp;&nbsp;&nbsp;Bug Fixes
+
+- Align with Claude Code 2.0.43 &nbsp;-&nbsp; [<samp>(4e0a0)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/4e0a06c)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sushichan044/cc-hooks-ts/compare/2.0.42...2.0.43)
+
 ## 2.0.42
 
 ### &nbsp;&nbsp;&nbsp;Bug Fixes
