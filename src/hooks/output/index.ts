@@ -13,6 +13,7 @@ export type HookOutput = {
 
   Stop: StopHookOutput;
 
+  SubagentStart: SubagentStartHookOutput;
   SubagentStop: SubagentStopHookOutput;
 
   SessionStart: SessionStartHookOutput;
@@ -169,6 +170,17 @@ interface StopHookOutput extends CommonHookOutputs {
    * Reason for the decision.
    */
   reason?: string;
+}
+
+interface SubagentStartHookOutput extends CommonHookOutputs {
+  hookSpecificOutput?: {
+    hookEventName: "SubagentStart";
+
+    /**
+     * Adds the string to the context.
+     */
+    additionalContext?: string;
+  };
 }
 
 /**
