@@ -93,4 +93,9 @@ export const HookInputSchemas = {
   SessionEnd: buildHookInputSchema("SessionEnd", {
     reason: v.string(),
   }),
+
+  PermissionRequest: buildHookInputSchema("PermissionRequest", {
+    tool_input: v.unknown(),
+    tool_name: v.string(),
+  }),
 } as const satisfies Record<SupportedHookEvent, ValibotSchemaLike>;

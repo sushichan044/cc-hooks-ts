@@ -18,6 +18,8 @@ export type HookOutput = {
 
   SessionStart: SessionStartHookOutput;
 
+  PermissionRequest: PermissionRequestHookOutput;
+
   Notification: CommonHookOutputs;
   PreCompact: CommonHookOutputs;
   SessionEnd: CommonHookOutputs;
@@ -206,5 +208,30 @@ interface SessionStartHookOutput extends CommonHookOutputs {
      * Adds the string to the context.
      */
     additionalContext?: string;
+  };
+}
+
+/**
+ * @see {@link https://code.claude.com/docs/en/hooks#permissionrequest-decision-control}
+ */
+interface PermissionRequestHookOutput extends CommonHookOutputs {
+  hookSpecificOutput?: {
+    hookEventName: "PermissionRequest";
+
+    /**
+     * For `behavior: "allow"` you can also optionally pass in an `updatedInput` that modifies the tool’s input parameters before the tool executes.
+     *
+     * For `behavior: "deny"` you can also optionally pass in a `message` string that tells the model why the permission was denied, and a boolean `interrupt` which will stop Claude.
+     */
+    decision:
+      | {
+          behavior: "allow";
+          updatedInput?: Record<string, unknown>;
+        }
+      | {
+          behavior: "deny";
+          interrupt?: boolean;
+          message?: string;
+        };
   };
 }
