@@ -1,5 +1,6 @@
 import type { AssertFalse, IsNever } from "../../utils/types";
 import type { SupportedHookEvent } from "../event";
+import type { PermissionUpdate } from "../permission";
 
 /**
  * @package
@@ -227,6 +228,7 @@ interface PermissionRequestHookOutput extends CommonHookOutputs {
       | {
           behavior: "allow";
           updatedInput?: Record<string, unknown>;
+          updatedPermissions?: PermissionUpdate[];
         }
       | {
           behavior: "deny";

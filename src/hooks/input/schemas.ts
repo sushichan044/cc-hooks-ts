@@ -4,6 +4,8 @@ import type { AutoComplete } from "../../utils/types";
 import type { ValibotSchemaLike } from "../../utils/valibot";
 import type { SupportedHookEvent } from "../event";
 
+import { permissionUpdateSchema } from "../permission";
+
 const baseHookInputSchema = v.object({
   cwd: v.string(),
   permission_mode: v.exactOptional(v.string()),
@@ -95,6 +97,7 @@ export const HookInputSchemas = {
   }),
 
   PermissionRequest: buildHookInputSchema("PermissionRequest", {
+    permission_suggestions: v.exactOptional(v.array(permissionUpdateSchema)),
     tool_input: v.unknown(),
     tool_name: v.string(),
   }),
