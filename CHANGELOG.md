@@ -4,7 +4,7 @@
 
 ### &nbsp;&nbsp;&nbsp;Bug Fixes
 
-- Updated to parity with Claude Code v2.0.45 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/44 [<samp>(c0c3c)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/c0c3c85)
+- Updated to parity with Claude Code v2.0.55 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/44 [<samp>(c0c3c)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/c0c3c85)
 
 ##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sushichan044/cc-hooks-ts/compare/2.0.45...2.0.55)
 
