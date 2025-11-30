@@ -38,11 +38,3 @@ export type ExtractTriggeredHookOutput<TTrigger extends HookTrigger> = {
     ? ExtractHookOutput<EventKey>
     : never;
 }[keyof TTrigger];
-
-export type ExtractTriggeredEvent<TTrigger extends HookTrigger> = {
-  [EventKey in keyof TTrigger]: EventKey extends SupportedHookEvent
-    ? TTrigger[EventKey] extends true | Record<PropertyKey, true>
-      ? EventKey
-      : never
-    : never;
-}[keyof TTrigger];

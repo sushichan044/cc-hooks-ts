@@ -2,7 +2,6 @@ import { describe, expectTypeOf, it } from "vitest";
 
 import type { HookInput, HookOutput } from "./hooks";
 import type {
-  ExtractTriggeredEvent,
   ExtractTriggeredHookInput,
   ExtractTriggeredHookOutput,
 } from "./types";
@@ -80,45 +79,6 @@ describe("ExtractTriggeredHookInput", () => {
         | HookInput["SessionStart"]["default"]
       >();
     });
-  });
-});
-
-describe("ExtractTriggeredEvent", () => {
-  it("should extract single event from trigger", () => {
-    expectTypeOf<
-      ExtractTriggeredEvent<{ PreToolUse: true }>
-    >().toEqualTypeOf<"PreToolUse">();
-
-    expectTypeOf<
-      ExtractTriggeredEvent<{ SessionStart: true }>
-    >().toEqualTypeOf<"SessionStart">();
-  });
-
-  it("should extract events regardless of specific tool keys", () => {
-    expectTypeOf<
-      ExtractTriggeredEvent<{ PreToolUse: { Read: true } }>
-    >().toEqualTypeOf<"PreToolUse">();
-
-    expectTypeOf<
-      ExtractTriggeredEvent<{ PostToolUse: { MyCustomTool: true } }>
-    >().toEqualTypeOf<"PostToolUse">();
-  });
-
-  it("should extract multiple events as union", () => {
-    expectTypeOf<
-      ExtractTriggeredEvent<{
-        PreToolUse: true;
-        SessionStart: true;
-      }>
-    >().toEqualTypeOf<"PreToolUse" | "SessionStart">();
-
-    expectTypeOf<
-      ExtractTriggeredEvent<{
-        Notification: true;
-        PostToolUse: { WebFetch: true };
-        PreToolUse: { Read: true };
-      }>
-    >().toEqualTypeOf<"Notification" | "PostToolUse" | "PreToolUse">();
   });
 });
 
