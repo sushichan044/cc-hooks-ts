@@ -112,14 +112,14 @@ type HookResultJSON<TTrigger extends HookTrigger> = {
           /**
            * The name of the event being triggered.
            *
-           * Required for proper TypeScript inference.
+           * This field is required for TypeScript to narrow the union type when multiple trigger events are possible.
            */
           event: EventKey;
 
           /**
            * The output data for the event.
            */
-          output: ExtractHookOutput<EventKey>;
+          output: ExtractHookOutput<NoInfer<EventKey>>;
         }
       : never
     : never;
