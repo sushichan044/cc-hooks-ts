@@ -53,6 +53,20 @@ export const HookInputSchemas = {
     tool_use_id: v.string(),
   }),
 
+  PostToolUseFailure: buildHookInputSchema("PostToolUseFailure", {
+    tool_name: v.pipe(
+      // inputType should be v.string(), otherwise validation will fail
+      // instead, transform it to AutoComplete<T> after parsing to enable auto completion with outputType
+      v.string(),
+      v.transform((s) => s as AutoComplete<typeof s>),
+    ),
+
+    error: v.string(),
+    is_interrupt: v.exactOptional(v.boolean()),
+    tool_input: v.unknown(),
+    tool_use_id: v.string(),
+  }),
+
   Notification: buildHookInputSchema("Notification", {
     message: v.string(),
     notification_type: v.string(),

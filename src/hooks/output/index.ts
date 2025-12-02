@@ -10,6 +10,8 @@ export type HookOutput = {
 
   PostToolUse: PostToolUseHookOutput;
 
+  PostToolUseFailure: PostToolUseFailureHookOutput;
+
   UserPromptSubmit: UserPromptSubmitHookOutput;
 
   Stop: StopHookOutput;
@@ -134,6 +136,17 @@ interface PostToolUseHookOutput extends CommonHookOutputs {
   };
 
   reason?: string;
+}
+
+interface PostToolUseFailureHookOutput extends CommonHookOutputs {
+  hookSpecificOutput?: {
+    hookEventName: "PostToolUseFailure";
+
+    /**
+     * Adds context for Claude to consider.
+     */
+    additionalContext?: string;
+  };
 }
 
 /**
