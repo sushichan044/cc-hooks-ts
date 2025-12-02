@@ -24,9 +24,13 @@ export type HookInput = {
       ? ToolSpecificPostToolUseInput & {
           default: BaseHookInputs["PostToolUse"];
         }
-      : {
-          default: BaseHookInputs[EventKey];
-        };
+      : EventKey extends "PostToolUseFailure"
+        ? ToolSpecificPostToolUseFailureInput & {
+            default: BaseHookInputs["PostToolUseFailure"];
+          }
+        : {
+            default: BaseHookInputs[EventKey];
+          };
 };
 
 /**
@@ -107,5 +111,15 @@ type ToolSpecificPostToolUseInput = {
     tool_input: ToolSchema[K]["input"];
     tool_name: K;
     tool_response: ToolSchema[K]["response"];
+  };
+};
+
+type ToolSpecificPostToolUseFailureInput = {
+  [K in keyof ToolSchema]: Omit<
+    BaseHookInputs["PostToolUseFailure"],
+    "tool_input" | "tool_name"
+  > & {
+    tool_input: ToolSchema[K]["input"];
+    tool_name: K;
   };
 };

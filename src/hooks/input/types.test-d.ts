@@ -85,6 +85,35 @@ describe("HookInputs", () => {
       }>();
     });
   });
+
+  describe("PostToolUseFailure", () => {
+    it("should handle normal case", () => {
+      expectTypeOf<HookInput["PostToolUseFailure"]["default"]>().toEqualTypeOf<{
+        cwd: string;
+        error: string;
+        hook_event_name: "PostToolUseFailure";
+        is_interrupt?: boolean;
+        permission_mode?: string;
+        session_id: string;
+        tool_input: unknown;
+        tool_name: AutoComplete<string>;
+        tool_use_id: string;
+        transcript_path: string;
+      }>();
+    });
+
+    it("should infer tool-specific case from ToolSchema", () => {
+      expectTypeOf<
+        HookInput["PostToolUseFailure"]["MyCustomTool"]
+      >().toMatchObjectType<{
+        tool_input: {
+          customParam: string;
+          optionalParam?: number;
+        };
+        tool_name: "MyCustomTool";
+      }>();
+    });
+  });
 });
 
 describe("Auto Completion Ability", () => {
