@@ -1,7 +1,7 @@
 import { defineConfig } from "tsdown";
 
 export default defineConfig({
-  attw: { profile: "esmOnly" },
+  attw: { profile: "esm-only" },
   clean: true,
   dts: {
     tsgo: true,
