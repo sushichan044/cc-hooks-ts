@@ -13,10 +13,10 @@ const baseHookInputSchema = v.object({
   transcript_path: v.string(),
 });
 
-function buildHookInputSchema<
-  TName extends string,
-  TEntries extends v.ObjectEntries,
->(hook_event_name: TName, entries: TEntries) {
+function buildHookInputSchema<TName extends string, TEntries extends v.ObjectEntries>(
+  hook_event_name: TName,
+  entries: TEntries,
+) {
   return v.object({
     ...baseHookInputSchema.entries,
     hook_event_name: v.literal(hook_event_name),

@@ -38,9 +38,8 @@ jobs:
       - name: Run ESLint
         run: pnpm run lint
 
-      - name: Run Biome
-        run: |
-          pnpm run format:check
+      - name: Run oxfmt
+        run: pnpm run format:check
 
       - name: Run typecheck
         run: pnpm run typecheck

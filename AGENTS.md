@@ -13,7 +13,7 @@ YOU MUST RUN `pnpm run check` to run all quality checks before completing any ta
 - `pnpm test` - Run tests with Vitest
 - `pnpm build` - Build with tsdown
 - `pnpm lint` - Run ESLint with fixes
-- `pnpm format` - Format code with Biome
+- `pnpm format` - Format code with oxfmt
 - `pnpm typecheck` - TypeScript type checking
 
 ## Repository Structure

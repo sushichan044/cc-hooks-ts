@@ -15,17 +15,13 @@ type NormalizeSchemas<T> = Readonly<{
 describe("HookInputSchemas", () => {
   it("matches upstream type", () => {
     type Ours = {
-      [K in keyof typeof HookInputSchemas]: v.InferInput<
-        (typeof HookInputSchemas)[K]
-      >;
+      [K in keyof typeof HookInputSchemas]: v.InferInput<(typeof HookInputSchemas)[K]>;
     };
 
     type Upstream = {
       [H in HookInput as H["hook_event_name"]]: H;
     };
 
-    expectTypeOf<NormalizeSchemas<Ours>>().toEqualTypeOf<
-      NormalizeSchemas<Upstream>
-    >();
+    expectTypeOf<NormalizeSchemas<Ours>>().toEqualTypeOf<NormalizeSchemas<Upstream>>();
   });
 });

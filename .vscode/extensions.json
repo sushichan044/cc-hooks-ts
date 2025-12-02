@@ -1,8 +1,8 @@
 {
   "recommendations": [
-    "biomejs.biome",
     "typescriptteam.native-preview",
     "dbaeumer.vscode-eslint",
-    "vitest.explorer"
+    "vitest.explorer",
+    "oxc.oxc-vscode"
   ]
 }

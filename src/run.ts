@@ -64,8 +64,7 @@ export async function runHook<THookTrigger extends HookTrigger = HookTrigger>(
   let eventName: SupportedHookEvent | null = null;
 
   try {
-    const proceed =
-      typeof shouldRun === "function" ? await shouldRun() : shouldRun;
+    const proceed = typeof shouldRun === "function" ? await shouldRun() : shouldRun;
 
     if (!proceed) {
       // do nothing
@@ -81,9 +80,7 @@ export async function runHook<THookTrigger extends HookTrigger = HookTrigger>(
     const parsed = v.parse(inputSchema, JSON.parse(rawInput));
     eventName = parsed.hook_event_name;
 
-    const context = createContext(
-      parsed as ExtractTriggeredHookInput<THookTrigger>,
-    );
+    const context = createContext(parsed as ExtractTriggeredHookInput<THookTrigger>);
 
     const result = await run(context);
 
@@ -91,9 +88,7 @@ export async function runHook<THookTrigger extends HookTrigger = HookTrigger>(
   } catch (error) {
     handleHookResult(eventName, {
       kind: "non-blocking-error",
-      payload: `Error in hook: ${
-        error instanceof Error ? error.message : String(error)
-      }`,
+      payload: `Error in hook: ${error instanceof Error ? error.message : String(error)}`,
     });
   }
 }

@@ -1,10 +1,7 @@
 import { describe, expectTypeOf, it } from "vitest";
 
 import type { HookInput, HookOutput } from "./hooks";
-import type {
-  ExtractTriggeredHookInput,
-  ExtractTriggeredHookOutput,
-} from "./types";
+import type { ExtractTriggeredHookInput, ExtractTriggeredHookOutput } from "./types";
 
 // Declaration merge with ToolSchema in src/index.ts
 declare module "./index" {
@@ -24,19 +21,17 @@ declare module "./index" {
 
 describe("ExtractTriggeredHookInput", () => {
   it("should extract default input for non-tool-specific events", () => {
-    expectTypeOf<
-      ExtractTriggeredHookInput<{ SessionStart: true }>
-    >().toEqualTypeOf<HookInput["SessionStart"]["default"]>();
+    expectTypeOf<ExtractTriggeredHookInput<{ SessionStart: true }>>().toEqualTypeOf<
+      HookInput["SessionStart"]["default"]
+    >();
 
-    expectTypeOf<
-      ExtractTriggeredHookInput<{ Notification: true }>
-    >().toEqualTypeOf<HookInput["Notification"]["default"]>();
+    expectTypeOf<ExtractTriggeredHookInput<{ Notification: true }>>().toEqualTypeOf<
+      HookInput["Notification"]["default"]
+    >();
   });
 
   it("should return never for empty trigger", () => {
-    expectTypeOf<
-      ExtractTriggeredHookInput<Record<string, never>>
-    >().toEqualTypeOf<never>();
+    expectTypeOf<ExtractTriggeredHookInput<Record<string, never>>>().toEqualTypeOf<never>();
   });
 
   describe("tool-specific events", () => {
@@ -58,8 +53,7 @@ describe("ExtractTriggeredHookInput", () => {
           PreToolUse: { MyCustomTool: true; Read: true };
         }>
       >().toEqualTypeOf<
-        | HookInput["PreToolUse"]["MyCustomTool"]
-        | HookInput["PreToolUse"]["Read"]
+        HookInput["PreToolUse"]["MyCustomTool"] | HookInput["PreToolUse"]["Read"]
       >();
     });
 
@@ -71,12 +65,12 @@ describe("ExtractTriggeredHookInput", () => {
           SessionStart: true;
         }>
       >().toEqualTypeOf<
-        // Tool-specific types of PostToolUse
-        | HookInput["PostToolUse"]["Read"]
-        // PreToolUse
-        | HookInput["PreToolUse"]["MyCustomTool"]
-        // SessionStart
-        | HookInput["SessionStart"]["default"]
+          // Tool-specific types of PostToolUse
+          | HookInput["PostToolUse"]["Read"]
+          // PreToolUse
+          | HookInput["PreToolUse"]["MyCustomTool"]
+          // SessionStart
+          | HookInput["SessionStart"]["default"]
       >();
     });
   });
@@ -84,19 +78,17 @@ describe("ExtractTriggeredHookInput", () => {
 
 describe("ExtractTriggeredHookOutput", () => {
   it("should extract single event output", () => {
-    expectTypeOf<
-      ExtractTriggeredHookOutput<{ PreToolUse: true }>
-    >().toEqualTypeOf<HookOutput["PreToolUse"]>();
+    expectTypeOf<ExtractTriggeredHookOutput<{ PreToolUse: true }>>().toEqualTypeOf<
+      HookOutput["PreToolUse"]
+    >();
 
-    expectTypeOf<
-      ExtractTriggeredHookOutput<{ SessionStart: true }>
-    >().toEqualTypeOf<HookOutput["SessionStart"]>();
+    expectTypeOf<ExtractTriggeredHookOutput<{ SessionStart: true }>>().toEqualTypeOf<
+      HookOutput["SessionStart"]
+    >();
   });
 
   it("should return never for empty trigger", () => {
-    expectTypeOf<
-      ExtractTriggeredHookOutput<Record<string, never>>
-    >().toEqualTypeOf<never>();
+    expectTypeOf<ExtractTriggeredHookOutput<Record<string, never>>>().toEqualTypeOf<never>();
   });
 
   it("should extract multiple events as union", () => {
@@ -114,22 +106,16 @@ describe("ExtractTriggeredHookOutput", () => {
         UserPromptSubmit: true;
       }>
     >().toEqualTypeOf<
-      | HookOutput["Notification"]
-      | HookOutput["PostToolUse"]
-      | HookOutput["UserPromptSubmit"]
+      HookOutput["Notification"] | HookOutput["PostToolUse"] | HookOutput["UserPromptSubmit"]
     >();
   });
 
   it("should handle tool-specific events consistently", () => {
-    expectTypeOf<
-      ExtractTriggeredHookOutput<{ PreToolUse: true }>
-    >().toEqualTypeOf<
+    expectTypeOf<ExtractTriggeredHookOutput<{ PreToolUse: true }>>().toEqualTypeOf<
       ExtractTriggeredHookOutput<{ PreToolUse: { MyCustomTool: true } }>
     >();
 
-    expectTypeOf<
-      ExtractTriggeredHookOutput<{ PostToolUse: true }>
-    >().toEqualTypeOf<
+    expectTypeOf<ExtractTriggeredHookOutput<{ PostToolUse: true }>>().toEqualTypeOf<
       ExtractTriggeredHookOutput<{ PostToolUse: { Read: true } }>
     >();
   });

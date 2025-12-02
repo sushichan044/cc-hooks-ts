@@ -16,9 +16,7 @@ export interface HookContext<THookTrigger extends HookTrigger> {
    *
    * @see {@link https://docs.anthropic.com/en/docs/claude-code/hooks#advanced%3A-json-output}
    */
-  json: (
-    payload: HookResultJSON<THookTrigger>,
-  ) => HookResponseJSON<THookTrigger>;
+  json: (payload: HookResultJSON<THookTrigger>) => HookResponseJSON<THookTrigger>;
 
   /**
    * Cause a non-blocking error.

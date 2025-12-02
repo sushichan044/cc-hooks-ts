@@ -77,27 +77,22 @@ export type ExtractAllHookInputsForEvent<TEvent extends SupportedHookEvent> = {
 export type ExtractSpecificHookInputForEvent<
   TEvent extends SupportedHookEvent,
   TSpecificKey extends ExtractExtendedSpecificKeys<TEvent>,
-> = TSpecificKey extends keyof HookInput[TEvent]
-  ? HookInput[TEvent][TSpecificKey]
-  : never;
+> = TSpecificKey extends keyof HookInput[TEvent] ? HookInput[TEvent][TSpecificKey] : never;
 
 /**
  * @package
  */
-export type ExtractExtendedSpecificKeys<TEvent extends SupportedHookEvent> =
-  Exclude<keyof HookInput[TEvent], "default">;
+export type ExtractExtendedSpecificKeys<TEvent extends SupportedHookEvent> = Exclude<
+  keyof HookInput[TEvent],
+  "default"
+>;
 
 type BaseHookInputs = {
-  [EventKey in SupportedHookEvent]: v.InferOutput<
-    (typeof HookInputSchemas)[EventKey]
-  >;
+  [EventKey in SupportedHookEvent]: v.InferOutput<(typeof HookInputSchemas)[EventKey]>;
 };
 
 type ToolSpecificPreToolUseInput = {
-  [K in keyof ToolSchema]: Omit<
-    BaseHookInputs["PreToolUse"],
-    "tool_input" | "tool_name"
-  > & {
+  [K in keyof ToolSchema]: Omit<BaseHookInputs["PreToolUse"], "tool_input" | "tool_name"> & {
     tool_input: ToolSchema[K]["input"];
     tool_name: K;
   };

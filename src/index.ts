@@ -231,7 +231,4 @@ export { defineHook } from "./define";
 
 export { runHook } from "./run";
 
-export type {
-  ExtractAllHookInputsForEvent,
-  ExtractSpecificHookInputForEvent,
-} from "./hooks";
+export type { ExtractAllHookInputsForEvent, ExtractSpecificHookInputForEvent } from "./hooks";

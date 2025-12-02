@@ -1,10 +1,6 @@
 import * as v from "valibot";
 
-const permissionBehaviorSchema = v.union([
-  v.literal("allow"),
-  v.literal("deny"),
-  v.literal("ask"),
-]);
+const permissionBehaviorSchema = v.union([v.literal("allow"), v.literal("deny"), v.literal("ask")]);
 
 const permissionUpdateDestinationSchema = v.union([
   v.literal("userSettings"),
