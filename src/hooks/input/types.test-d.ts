@@ -85,6 +85,35 @@ describe("HookInputs", () => {
       }>();
     });
   });
+
+  describe("PostToolUseFailure", () => {
+    it("should handle normal case", () => {
+      expectTypeOf<HookInput["PostToolUseFailure"]["default"]>().toEqualTypeOf<{
+        cwd: string;
+        error: string;
+        hook_event_name: "PostToolUseFailure";
+        is_interrupt?: boolean;
+        permission_mode?: string;
+        session_id: string;
+        tool_input: unknown;
+        tool_name: AutoComplete<string>;
+        tool_use_id: string;
+        transcript_path: string;
+      }>();
+    });
+
+    it("should infer tool-specific case from ToolSchema", () => {
+      expectTypeOf<
+        HookInput["PostToolUseFailure"]["MyCustomTool"]
+      >().toMatchObjectType<{
+        tool_input: {
+          customParam: string;
+          optionalParam?: number;
+        };
+        tool_name: "MyCustomTool";
+      }>();
+    });
+  });
 });
 
 describe("Auto Completion Ability", () => {
@@ -119,6 +148,22 @@ describe("Auto Completion Ability", () => {
       >().toEqualTypeOf<AutoComplete<string>>();
     });
   });
+
+  describe("PostToolUseFailure", () => {
+    type PostToolUseFailureSchema = typeof HookInputSchemas.PostToolUseFailure;
+
+    it("should accept string as input of tool_name", () => {
+      expectTypeOf<
+        v.InferInput<PostToolUseFailureSchema>["tool_name"]
+      >().toEqualTypeOf<string>();
+    });
+
+    it("should output tool_name as AutoComplete<T>", () => {
+      expectTypeOf<
+        v.InferOutput<PostToolUseFailureSchema>["tool_name"]
+      >().toEqualTypeOf<AutoComplete<string>>();
+    });
+  });
 });
 
 describe("ExtractExtendedSpecificKeys", () => {
@@ -131,6 +176,12 @@ describe("ExtractExtendedSpecificKeys", () => {
   it("should extract valid specific keys for PostToolUse", () => {
     expectTypeOf<
       ExtractExtendedSpecificKeys<"PostToolUse">
+    >().toEqualTypeOf<ExtendedTools>();
+  });
+
+  it("should extract valid specific keys for PostToolUseFailure", () => {
+    expectTypeOf<
+      ExtractExtendedSpecificKeys<"PostToolUseFailure">
     >().toEqualTypeOf<ExtendedTools>();
   });
 });
@@ -197,6 +248,32 @@ describe("ExtractAllHookInputsForEvent", () => {
       | HookInput["PostToolUse"]["WebFetch"]
       | HookInput["PostToolUse"]["WebSearch"]
       | HookInput["PostToolUse"]["Write"]
+    >();
+
+    expectTypeOf<
+      ExtractAllHookInputsForEvent<"PostToolUseFailure">
+    >().toEqualTypeOf<
+      // fallback type of PostToolUseFailure
+      | HookInput["PostToolUseFailure"]["default"]
+      // Tool-specific types of PostToolUseFailure
+      | HookInput["PostToolUseFailure"]["Bash"]
+      | HookInput["PostToolUseFailure"]["BashOutput"]
+      | HookInput["PostToolUseFailure"]["Edit"]
+      | HookInput["PostToolUseFailure"]["ExitPlanMode"]
+      | HookInput["PostToolUseFailure"]["Glob"]
+      | HookInput["PostToolUseFailure"]["Grep"]
+      | HookInput["PostToolUseFailure"]["KillBash"]
+      | HookInput["PostToolUseFailure"]["ListMcpResources"]
+      | HookInput["PostToolUseFailure"]["MyCustomTool"]
+      | HookInput["PostToolUseFailure"]["MySecondCustomTool"]
+      | HookInput["PostToolUseFailure"]["NotebookEdit"]
+      | HookInput["PostToolUseFailure"]["Read"]
+      | HookInput["PostToolUseFailure"]["ReadMcpResource"]
+      | HookInput["PostToolUseFailure"]["Task"]
+      | HookInput["PostToolUseFailure"]["TodoWrite"]
+      | HookInput["PostToolUseFailure"]["WebFetch"]
+      | HookInput["PostToolUseFailure"]["WebSearch"]
+      | HookInput["PostToolUseFailure"]["Write"]
     >();
   });
 });

@@ -6,6 +6,7 @@
 export type SupportedHookEvent =
   | "PreToolUse"
   | "PostToolUse"
+  | "PostToolUseFailure"
   | "Notification"
   | "UserPromptSubmit"
   | "SessionStart"
