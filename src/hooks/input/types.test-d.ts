@@ -148,6 +148,22 @@ describe("Auto Completion Ability", () => {
       >().toEqualTypeOf<AutoComplete<string>>();
     });
   });
+
+  describe("PostToolUseFailure", () => {
+    type PostToolUseFailureSchema = typeof HookInputSchemas.PostToolUseFailure;
+
+    it("should accept string as input of tool_name", () => {
+      expectTypeOf<
+        v.InferInput<PostToolUseFailureSchema>["tool_name"]
+      >().toEqualTypeOf<string>();
+    });
+
+    it("should output tool_name as AutoComplete<T>", () => {
+      expectTypeOf<
+        v.InferOutput<PostToolUseFailureSchema>["tool_name"]
+      >().toEqualTypeOf<AutoComplete<string>>();
+    });
+  });
 });
 
 describe("ExtractExtendedSpecificKeys", () => {
@@ -160,6 +176,12 @@ describe("ExtractExtendedSpecificKeys", () => {
   it("should extract valid specific keys for PostToolUse", () => {
     expectTypeOf<
       ExtractExtendedSpecificKeys<"PostToolUse">
+    >().toEqualTypeOf<ExtendedTools>();
+  });
+
+  it("should extract valid specific keys for PostToolUseFailure", () => {
+    expectTypeOf<
+      ExtractExtendedSpecificKeys<"PostToolUseFailure">
     >().toEqualTypeOf<ExtendedTools>();
   });
 });
@@ -226,6 +248,32 @@ describe("ExtractAllHookInputsForEvent", () => {
       | HookInput["PostToolUse"]["WebFetch"]
       | HookInput["PostToolUse"]["WebSearch"]
       | HookInput["PostToolUse"]["Write"]
+    >();
+
+    expectTypeOf<
+      ExtractAllHookInputsForEvent<"PostToolUseFailure">
+    >().toEqualTypeOf<
+      // fallback type of PostToolUseFailure
+      | HookInput["PostToolUseFailure"]["default"]
+      // Tool-specific types of PostToolUseFailure
+      | HookInput["PostToolUseFailure"]["Bash"]
+      | HookInput["PostToolUseFailure"]["BashOutput"]
+      | HookInput["PostToolUseFailure"]["Edit"]
+      | HookInput["PostToolUseFailure"]["ExitPlanMode"]
+      | HookInput["PostToolUseFailure"]["Glob"]
+      | HookInput["PostToolUseFailure"]["Grep"]
+      | HookInput["PostToolUseFailure"]["KillBash"]
+      | HookInput["PostToolUseFailure"]["ListMcpResources"]
+      | HookInput["PostToolUseFailure"]["MyCustomTool"]
+      | HookInput["PostToolUseFailure"]["MySecondCustomTool"]
+      | HookInput["PostToolUseFailure"]["NotebookEdit"]
+      | HookInput["PostToolUseFailure"]["Read"]
+      | HookInput["PostToolUseFailure"]["ReadMcpResource"]
+      | HookInput["PostToolUseFailure"]["Task"]
+      | HookInput["PostToolUseFailure"]["TodoWrite"]
+      | HookInput["PostToolUseFailure"]["WebFetch"]
+      | HookInput["PostToolUseFailure"]["WebSearch"]
+      | HookInput["PostToolUseFailure"]["Write"]
     >();
   });
 });
