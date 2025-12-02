@@ -70,6 +70,12 @@ importers:
         specifier: 4.0.14
         version: 4.0.14(@types/node@24.10.1)(jiti@2.6.1)(yaml@2.8.2)
 
+  examples:
+    dependencies:
+      cc-hooks-ts:
+        specifier: workspace:*
+        version: link:..
+
 packages:
 
   '@actions/core@1.11.1':

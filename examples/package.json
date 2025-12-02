@@ -1,0 +1,7 @@
+{
+  "name": "@repo/examples",
+  "private": true,
+  "dependencies": {
+    "cc-hooks-ts": "workspace:*"
+  }
+}
