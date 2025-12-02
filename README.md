@@ -1,37 +1,48 @@
 # cc-hooks-ts
 
-Define Claude Code hooks with full type safety using TypeScript and Valibot validation.
+Define Claude Code hooks with full type safety using TypeScript.
+
+See [examples](./examples) for more usage examples.
 
 > [!NOTE]
-> Beginning with versions equal to 2.0.0 or 2.0.42 and above, we started releasing using the same version numbers as Claude Code.
-> This enables us to support newer type definitions while preserving maximum compatibility.
+> Starting with versions 2.0.42, we will raise our version number to match Claude Code whenever Hook-related changes occur.
+>
+> This ensures we can adopt newer type definitions while maintaining compatibility.
 
 ## Installation
 
 ```bash
-npx nypm add cc-hooks-ts
+# npm
+npm i cc-hooks-ts
+
+# yarn
+yarn add cc-hooks-ts
+
+# pnpm
+pnpm add cc-hooks-ts
+
+# Bun
+bun add cc-hooks-ts
+
+# Deno
+deno add npm:cc-hooks-ts
 ```
 
 ## Basic Usage
 
 ### Define a Hook
 
-Example of running a simple SessionStart hook on Bun:
-
 ```typescript
 import { defineHook } from "cc-hooks-ts";
 
-const sessionHook = defineHook({
+const hook = defineHook({
+  // Specify the event(s) that trigger this hook.
   trigger: {
-    // Specify the hook event to listen for
-    SessionStart: true,
-    PreToolUse: {
-      // PreToolUser and PostToolUse can be tool-specific. (affects type of context)
-      Read: true
-    }
+    SessionStart: true
   },
+  // Implement what you want to do.
   run: (context) => {
-    // do something great
+    // Do something great here
     return context.success({
       messageForUser: "Welcome to your coding session!"
     });
@@ -41,11 +52,11 @@ const sessionHook = defineHook({
 // import.meta.main is available in Node.js 24.2+ and Bun and Deno
 if (import.meta.main) {
   const { runHook } = await import("cc-hooks-ts");
-  await runHook(sessionHook);
+  await runHook(hook);
 }
 ```
 
-### Call from Claude Code
+### Configure Claude Code
 
 Then, load defined hooks in your Claude Code settings at `~/.claude/settings.json`.
 
@@ -57,7 +68,7 @@ Then, load defined hooks in your Claude Code settings at `~/.claude/settings.jso
         "hooks": [
           {
             "type": "command",
-            "command": "bun run --silent path/to/your/sessionHook.ts"
+            "command": "bun run -i --silent path/to/your/sessionHook.ts"
           }
         ]
       }
@@ -66,56 +77,17 @@ Then, load defined hooks in your Claude Code settings at `~/.claude/settings.jso
 }
 ```
 
-## Custom Tool Type Support
+## Tool Specific Hooks
 
-For better type inference in PreToolUse and PostToolUse hooks, you can extend the `ToolSchema` interface to define your own tool types:
+In `PreToolUse`, `PostToolUse`, and `PostToolUseFailure` events, you can define hooks specific to tools by specifying tool names in the trigger configuration.
 
-### Adding Custom Tool Definitions
-
-Extend the `ToolSchema` interface to add custom tool definitions:
+For example, you can create a hook that only runs before the `Read` tool is used:
 
 ```typescript
-// Use "npm:cc-hooks-ts" for Deno
-declare module "cc-hooks-ts" {
-  interface ToolSchema {
-    MyCustomTool: {
-      input: {
-        customParam: string;
-        optionalParam?: number;
-      };
-      response: {
-        result: string;
-      };
-    };
-  }
-}
-```
-
-Now you can use your custom tool with full type safety:
-
-```typescript
-const customToolHook = defineHook({
-  trigger: { PreToolUse: { MyCustomTool: true } },
-  run: (context) => {
-    // context.input.tool_input is typed as { customParam: string; optionalParam?: number; }
-    const { customParam, optionalParam } = context.input.tool_input;
-    return context.success();
-  }
-});
-```
-
-## API Reference
-
-### defineHook Function
-
-Creates type-safe hook definitions with full TypeScript inference:
-
-```typescript
-// Tool-specific PreToolUse hook
-const readHook = defineHook({
+const preReadHook = defineHook({
   trigger: { PreToolUse: { Read: true } },
   run: (context) => {
-    // context.input.tool_input is typed as { file_path: string }
+    // context.input.tool_input is typed as { file_path: string; limit?: number; offset?: number; }
     const { file_path } = context.input.tool_input;
 
     if (file_path.includes('.env')) {
@@ -126,51 +98,101 @@ const readHook = defineHook({
   }
 });
 
-// Multiple event triggers
-const multiEventHook = defineHook({
-  trigger: {
-    PreToolUse: { Read: true, WebFetch: true },
-    PostToolUse: { Read: true }
-  },
-  // Optional: Define when the hook should run.
-  shouldRun: () => process.env.NODE_ENV === 'development',
+if (import.meta.main) {
+  const { runHook } = await import("cc-hooks-ts");
+  await runHook(preReadHook);
+}
+```
+
+Then configure it in Claude Code settings:
+
+```json
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Read",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bun run -i --silent path/to/your/preReadHook.ts"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+### Custom Tool Types Support
+
+You can add support for custom tools by extending the tool type definitions.
+
+This is useful when you want to your MCP-defined tools to have type-safe hook inputs.
+
+```typescript
+import { defineHook } from "cc-hooks-ts";
+
+// Example: type-safe hooks for DeepWiki MCP Server tools
+declare module "cc-hooks-ts" {
+  interface ToolSchema {
+    mcp__deepwiki__ask_question: {
+      input: {
+        question: string;
+        repoName: string;
+      };
+      response: unknown;
+    };
+  }
+}
+
+const deepWikiHook = defineHook({
+  trigger: { PreToolUse: { mcp__deepwiki__ask_question: true } },
   run: (context) => {
-    // Handle different events and tools based on context.input
+    // context.input.tool_input is typed as { question: string; repoName: string; }
+    const { question, repoName } = context.input.tool_input;
+
+    if (question.length > 500) {
+      return context.blockingError('Question is too long');
+    }
+
     return context.success();
   }
 });
 ```
 
-### runHook Function
+## Advanced Usage
 
-Executes hooks with complete lifecycle management:
+### Conditional Hook Execution
 
-- Reads input from stdin
-- Validates input using Valibot schemas
-- Creates typed context
-- Executes hook handler
-- Formats and outputs results
+You can conditionally execute hooks based on runtime logic using the `shouldRun` function.
+If `shouldRun` returns `false`, the hook will be skipped.
 
-```typescript
-await runHook(hook);
+```ts
+import { defineHook } from "cc-hooks-ts";
+
+const hook = defineHook({
+  trigger: {
+    Notification: true
+  },
+  // Only run this hook on macOS
+  shouldRun: () => process.platform === "darwin",
+  run: (context) => {
+    // Some macOS-specific logic like sending a notification using AppleScript
+    return context.success()
+  }
+});
 ```
 
-### Hook Context
+### Advanced JSON Output
 
-The context provides strongly typed input access and response helpers:
+Use `context.json()` to return structured JSON output with advanced control over hook behavior.
 
-```typescript
-run: (context) => {
-  // Typed input based on trigger configuration
-  const input = context.input;
+For detailed information about available JSON fields and their behavior, see the [official documentation](https://docs.anthropic.com/en/docs/claude-code/hooks#advanced:-json-output).
 
-  // Response helpers
-  return context.success({ messageForUser: "Success!" });
-  // or context.blockingError("Error occurred");
-  // or context.nonBlockingError("Warning message");
-  // or context.json({ event: "EventName", output: {...} });
-}
-```
+## Documentation
+
+For more detailed information about Claude Code hooks, visit the [official documentation](https://docs.anthropic.com/en/docs/claude-code/hooks).
 
 ## Development
 
@@ -190,10 +212,6 @@ pnpm format
 # Type check
 pnpm typecheck
 ```
-
-## Documentation
-
-For more detailed information about Claude Code hooks, visit the [official documentation](https://docs.anthropic.com/en/docs/claude-code/hooks).
 
 ## License
 
