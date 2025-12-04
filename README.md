@@ -4,6 +4,25 @@ Define Claude Code hooks with full type safety using TypeScript.
 
 See [examples](./examples) for more usage examples.
 
+<!-- TOC -->
+
+- [cc-hooks-ts](#cc-hooks-ts)
+  - [Installation](#installation)
+  - [Basic Usage](#basic-usage)
+    - [Define a Hook](#define-a-hook)
+    - [Configure Claude Code](#configure-claude-code)
+  - [Tool Specific Hooks](#tool-specific-hooks)
+    - [Custom Tool Types Support](#custom-tool-types-support)
+  - [Advanced Usage](#advanced-usage)
+    - [Conditional Hook Execution](#conditional-hook-execution)
+    - [Advanced JSON Output](#advanced-json-output)
+  - [Documentation](#documentation)
+  - [Development](#development)
+  - [License](#license)
+  - [Contributing](#contributing)
+
+<!-- /TOC -->
+
 > [!NOTE]
 > Starting with versions 2.0.42, we will raise our version number to match Claude Code whenever Hook-related changes occur.
 >
