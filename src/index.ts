@@ -1,7 +1,6 @@
 import type {
   AgentInput,
   BashInput,
-  BashOutputInput,
   ExitPlanModeInput,
   FileEditInput,
   FileReadInput,
@@ -12,6 +11,7 @@ import type {
   ListMcpResourcesInput,
   NotebookEditInput,
   ReadMcpResourceInput,
+  TaskOutputInput,
   TodoWriteInput,
   WebFetchInput,
   WebSearchInput,
@@ -63,7 +63,7 @@ export interface ToolSchema {
   };
 
   BashOutput: {
-    input: BashOutputInput;
+    input: TaskOutputInput;
     response: unknown;
   };
 
