@@ -7,8 +7,8 @@
     "erasableSyntaxOnly": true,
     "plugins": [
       {
-        "name": "eslint-plugin-import-access"
-      }
-    ]
-  }
+        "name": "eslint-plugin-import-access",
+      },
+    ],
+  },
 }

@@ -31,14 +31,14 @@ YOU MUST RUN `pnpm run check` to run all quality checks before completing any ta
 
 ## When to Touch What
 
-| Goal | Where to Work |
-|------|---------------|
-| Add new hook event / Backport upstream hook type change | `src/hooks/` |
-| Modify input validation | `src/hooks/input/` |
-| Change output types | `src/hooks/output/` |
-| Update tool schema definitions | `src/index.ts` |
-| Add utility functions | `src/utils/` |
-| Update documentation | `docs/` |
+| Goal                                                    | Where to Work       |
+| ------------------------------------------------------- | ------------------- |
+| Add new hook event / Backport upstream hook type change | `src/hooks/`        |
+| Modify input validation                                 | `src/hooks/input/`  |
+| Change output types                                     | `src/hooks/output/` |
+| Update tool schema definitions                          | `src/index.ts`      |
+| Add utility functions                                   | `src/utils/`        |
+| Update documentation                                    | `docs/`             |
 
 ## Coding Goodies
 
