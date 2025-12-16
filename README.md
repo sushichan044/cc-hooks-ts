@@ -18,6 +18,7 @@ See [examples](./examples) for more usage examples.
     - [Advanced JSON Output](#advanced-json-output)
   - [Documentation](#documentation)
   - [Development](#development)
+    - [How to follow the upstream changes](#how-to-follow-the-upstream-changes)
   - [License](#license)
   - [Contributing](#contributing)
 
@@ -231,6 +232,29 @@ pnpm format
 # Type check
 pnpm typecheck
 ```
+
+### How to follow the upstream changes
+
+1. Install the latest version of `@anthropic-ai/claude-agent-sdk` and run `pnpm run check`.
+   - If the command passes without errors, there are no type changes.
+
+2. Get diff of the types. This example gets the diff between Claude Code 2.0.69 and 2.0.70:
+
+   ```bash
+   npm diff --diff=@anthropic-ai/claude-agent-sdk@0.1.69 --diff=@anthropic-ai/claude-agent-sdk@0.1.70 '**/*.d.ts'
+
+   # You can use dandavison/delta for better diff visualization
+   npm diff --diff=@anthropic-ai/claude-agent-sdk@0.1.69 --diff=@anthropic-ai/claude-agent-sdk@0.1.70 '**/*.d.ts' | delta --side-by-side
+   ```
+
+3. Reflect the changes.
+   - Edit `src/hooks/` for changed hook input / output types.
+     - No need for adding tests in most cases since we are testing the whole type definitions in these files:
+       - `src/hooks/input/schemas.test-d.ts`
+       - `src/hooks/output/index.test-d.ts`
+       - `src/hooks/event.test-d.ts`
+       - `src/hooks/permission.test-d.ts`
+   - Edit `src/index.ts` for changed tool input / output types.
 
 ## License
 

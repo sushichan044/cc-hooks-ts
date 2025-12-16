@@ -44,6 +44,7 @@ export const permissionUpdateSchema = v.variant("type", [
       v.literal("bypassPermissions"),
       v.literal("default"),
       v.literal("dontAsk"),
+      v.literal("delegate"),
       v.literal("plan"),
     ]),
     type: v.literal("setMode"),
