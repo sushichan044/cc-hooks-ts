@@ -16,6 +16,10 @@ YOU MUST RUN `pnpm run check` to run all quality checks before completing any ta
 - `pnpm format` - Format code with oxfmt
 - `pnpm typecheck` - TypeScript type checking
 
+### How to follow the upstream changes
+
+See the same section in README.md to follow upstream changes from `@anthropic-ai/claude-agent-sdk`.
+
 ## Repository Structure
 
 ### Source Code (`src/`)

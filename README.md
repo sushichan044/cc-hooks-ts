@@ -243,7 +243,7 @@ pnpm typecheck
    ```bash
    npm diff --diff=@anthropic-ai/claude-agent-sdk@0.1.69 --diff=@anthropic-ai/claude-agent-sdk@0.1.70 '**/*.d.ts'
 
-   # You can use dandavison/delta for better diff visualization
+   # Only for humans, You can use dandavison/delta for better diff visualization
    npm diff --diff=@anthropic-ai/claude-agent-sdk@0.1.69 --diff=@anthropic-ai/claude-agent-sdk@0.1.70 '**/*.d.ts' | delta --side-by-side
    ```
 
