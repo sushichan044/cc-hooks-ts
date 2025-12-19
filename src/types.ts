@@ -1,4 +1,4 @@
-import type { ExtractHookOutput, SupportedHookEvent } from "./hooks";
+import type { ExtractSyncHookOutput, SupportedHookEvent } from "./hooks";
 import type {
   ExtractAllHookInputsForEvent,
   ExtractExtendedSpecificKeys,
@@ -35,6 +35,6 @@ export type ExtractTriggeredHookInput<TTrigger extends HookTrigger> = {
 
 export type ExtractTriggeredHookOutput<TTrigger extends HookTrigger> = {
   [EventKey in keyof TTrigger]: EventKey extends SupportedHookEvent
-    ? ExtractHookOutput<EventKey>
+    ? ExtractSyncHookOutput<EventKey>
     : never;
 }[keyof TTrigger];

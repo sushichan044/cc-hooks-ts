@@ -34,12 +34,12 @@ export type HookOutput = {
 // We must implement the missing keys.
 //
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-type __TypeCheckExtractHookOutput = AssertFalse<IsNever<ExtractHookOutput<SupportedHookEvent>>>;
+type __TypeCheckExtractHookOutput = AssertFalse<IsNever<ExtractSyncHookOutput<SupportedHookEvent>>>;
 
 /**
  * @package
  */
-export type ExtractHookOutput<TEvent extends SupportedHookEvent> =
+export type ExtractSyncHookOutput<TEvent extends SupportedHookEvent> =
   HookOutput extends Record<SupportedHookEvent, unknown> ? HookOutput[TEvent] : never;
 
 /**

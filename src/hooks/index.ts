@@ -5,5 +5,5 @@ export type {
   ExtractSpecificHookInputForEvent,
   HookInput,
 } from "./input";
-export type { ExtractHookOutput, HookOutput } from "./output";
+export type { ExtractSyncHookOutput, HookOutput } from "./output";
 export type { SupportedHookEvent } from "./event";

@@ -1,4 +1,4 @@
-import type { ExtractHookOutput, SupportedHookEvent } from "./hooks";
+import type { ExtractSyncHookOutput, SupportedHookEvent } from "./hooks";
 import type { ExtractTriggeredHookInput, HookTrigger } from "./types";
 
 export interface HookContext<THookTrigger extends HookTrigger> {
@@ -59,7 +59,7 @@ export interface HookContext<THookTrigger extends HookTrigger> {
    *   }
    * });
    */
-  json: (payload: HookResultJSON<THookTrigger>) => HookResponseJSON<THookTrigger>;
+  json: (payload: SyncHookResultJSON<THookTrigger>) => HookResponseSyncJSON<THookTrigger>;
 
   /**
    * Cause a non-blocking error.
@@ -137,7 +137,7 @@ export function createContext<THookTrigger extends HookTrigger>(
 
 export type HookResponse<THookTrigger extends HookTrigger> =
   | HookResponseBlockingError
-  | HookResponseJSON<THookTrigger>
+  | HookResponseSyncJSON<THookTrigger>
   | HookResponseNonBlockingError
   | HookResponseSuccess;
 
@@ -171,12 +171,12 @@ type HookSuccessPayload = {
   additionalClaudeContext?: string | undefined;
 };
 
-type HookResponseJSON<TTrigger extends HookTrigger> = {
+type HookResponseSyncJSON<TTrigger extends HookTrigger> = {
   kind: "json";
-  payload: HookResultJSON<TTrigger>;
+  payload: SyncHookResultJSON<TTrigger>;
 };
 
-type HookResultJSON<TTrigger extends HookTrigger> = {
+type SyncHookResultJSON<TTrigger extends HookTrigger> = {
   [EventKey in keyof TTrigger]: EventKey extends SupportedHookEvent
     ? TTrigger[EventKey] extends true | Record<PropertyKey, true>
       ? {
@@ -190,7 +190,7 @@ type HookResultJSON<TTrigger extends HookTrigger> = {
           /**
            * The output data for the event.
            */
-          output: ExtractHookOutput<EventKey>;
+          output: ExtractSyncHookOutput<EventKey>;
         }
       : never
     : never;
