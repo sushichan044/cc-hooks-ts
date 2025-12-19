@@ -111,13 +111,48 @@ async function handleHookResult<THookTrigger extends HookTrigger>(
       const startAsync: AsyncHookJSONOutput = {
         async: true,
       };
-      if (hookResult.timeoutMs !== undefined) {
-        startAsync.asyncTimeout = hookResult.timeoutMs;
+      const userTimeout = hookResult.timeoutMs;
+      if (userTimeout != null) {
+        startAsync.asyncTimeout = userTimeout;
       }
       console.log(JSON.stringify(startAsync));
 
-      const deferredResult = await hookResult.run();
-      console.log(JSON.stringify(deferredResult.output));
+      const invokeDeferredHook = async () => await hookResult.run();
+      const safeInvokeDeferredHook = async () => {
+        try {
+          return await invokeDeferredHook().then(
+            (res) => ({ isError: false, output: res }) as const,
+          );
+        } catch (error) {
+          return {
+            isError: true,
+            reason: error instanceof Error ? error.message : String(error),
+          } as const;
+        }
+      };
+
+      let result: Awaited<ReturnType<typeof safeInvokeDeferredHook>>;
+      if (userTimeout == null) {
+        result = await safeInvokeDeferredHook();
+      } else {
+        // In case of Claude does not respect timeout and keeps running forever,
+        // we add a hard timeout 5s after user timeout to exit the process.
+        result = await Promise.race([
+          safeInvokeDeferredHook(),
+          new Promise<{ isError: true; reason: "timeout" }>((resolve) =>
+            setTimeout(() => resolve({ isError: true, reason: "timeout" }), userTimeout + 5000),
+          ),
+        ]);
+      }
+
+      if (result.isError) {
+        if (isNonEmptyString(result.reason)) {
+          console.error(result.reason);
+        }
+        return process.exit(1);
+      }
+
+      console.log(JSON.stringify(result.output));
       return process.exit(0);
     }
 
