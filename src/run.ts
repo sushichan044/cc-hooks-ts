@@ -84,19 +84,19 @@ export async function runHook<THookTrigger extends HookTrigger = HookTrigger>(
 
     const result = await run(context);
 
-    handleHookResult(eventName, result);
+await handleHookResult(eventName, result);
   } catch (error) {
-    handleHookResult(eventName, {
+await handleHookResult(eventName, {
       kind: "non-blocking-error",
       payload: `Error in hook: ${error instanceof Error ? error.message : String(error)}`,
     });
   }
 }
 
-function handleHookResult<THookTrigger extends HookTrigger>(
+async function handleHookResult<THookTrigger extends HookTrigger>(
   eventName: SupportedHookEvent | null,
   hookResult: HookResponse<THookTrigger>,
-): void {
+): Promise<void> {
   switch (hookResult.kind) {
     // Simple case with exit code
     // https://docs.anthropic.com/en/docs/claude-code/hooks#simple%3A-exit-code
