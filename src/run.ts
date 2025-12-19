@@ -138,6 +138,10 @@ function handleHookResult<THookTrigger extends HookTrigger>(
       console.log(JSON.stringify(hookResult.payload.output));
       return process.exit(0);
     }
+
+    default: {
+      throw new Error(`Unknown hook result kind: ${hookResult.kind satisfies never}`);
+    }
   }
 }
 
