@@ -131,13 +131,13 @@ async function handleHookResult<THookTrigger extends HookTrigger>(
         }
       };
 
-      let result: Awaited<ReturnType<typeof safeInvokeDeferredHook>>;
+      let deferredResult: Awaited<ReturnType<typeof safeInvokeDeferredHook>>;
       if (userTimeout == null) {
-        result = await safeInvokeDeferredHook();
+        deferredResult = await safeInvokeDeferredHook();
       } else {
         // In case of Claude does not respect timeout and keeps running forever,
         // we add a hard timeout 5s after user timeout to exit the process.
-        result = await Promise.race([
+        deferredResult = await Promise.race([
           safeInvokeDeferredHook(),
           new Promise<{ isError: true; reason: "timeout" }>((resolve) =>
             setTimeout(() => resolve({ isError: true, reason: "timeout" }), userTimeout + 5000),
@@ -145,14 +145,14 @@ async function handleHookResult<THookTrigger extends HookTrigger>(
         ]);
       }
 
-      if (result.isError) {
-        if (isNonEmptyString(result.reason)) {
-          console.error(result.reason);
+      if (deferredResult.isError) {
+        if (isNonEmptyString(deferredResult.reason)) {
+          console.error(deferredResult.reason);
         }
         return process.exit(1);
       }
 
-      console.log(JSON.stringify(result.output));
+      console.log(JSON.stringify(deferredResult.output));
       return process.exit(0);
     }
 
