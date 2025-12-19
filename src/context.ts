@@ -129,7 +129,7 @@ export function createContext<THookTrigger extends HookTrigger>(
     }),
 
     json: (payload) => ({
-      kind: "json",
+      kind: "json-sync",
       payload,
     }),
   };
@@ -172,7 +172,7 @@ type HookSuccessPayload = {
 };
 
 type HookResponseSyncJSON<TTrigger extends HookTrigger> = {
-  kind: "json";
+  kind: "json-sync";
   payload: SyncHookResultJSON<TTrigger>;
 };
 

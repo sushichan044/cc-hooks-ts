@@ -98,6 +98,28 @@ async function handleHookResult<THookTrigger extends HookTrigger>(
   hookResult: HookResponse<THookTrigger>,
 ): Promise<void> {
   switch (hookResult.kind) {
+case "blocking-error": {
+      if (hookResult.payload) {
+        console.error(hookResult.payload);
+      }
+      return process.exit(2);
+    }
+
+    // https://docs.anthropic.com/en/docs/claude-code/hooks#advanced%3A-json-output
+    // https://docs.anthropic.com/en/docs/claude-code/hooks#json-output-example%3A-pretooluse-with-approval
+    // Advanced output: print JSON and exit with 0
+    case "json-sync": {
+      console.log(JSON.stringify(hookResult.payload.output));
+      return process.exit(0);
+    }
+
+    case "non-blocking-error": {
+      if (isNonEmptyString(hookResult.payload)) {
+        console.error(hookResult.payload);
+      }
+      return process.exit(1);
+    }
+
     // Simple case with exit code
     // https://docs.anthropic.com/en/docs/claude-code/hooks#simple%3A-exit-code
     case "success": {
@@ -112,30 +134,6 @@ async function handleHookResult<THookTrigger extends HookTrigger>(
       if (isNonEmptyString(hookResult.payload.messageForUser)) {
         console.log(hookResult.payload.messageForUser);
       }
-      return process.exit(0);
-    }
-
-    // eslint-disable-next-line perfectionist/sort-switch-case
-    case "blocking-error": {
-      if (hookResult.payload) {
-        console.error(hookResult.payload);
-      }
-      return process.exit(2);
-    }
-
-    case "non-blocking-error": {
-      if (isNonEmptyString(hookResult.payload)) {
-        console.error(hookResult.payload);
-      }
-      return process.exit(1);
-    }
-
-    // https://docs.anthropic.com/en/docs/claude-code/hooks#advanced%3A-json-output
-    // https://docs.anthropic.com/en/docs/claude-code/hooks#json-output-example%3A-pretooluse-with-approval
-    // Advanced output: print JSON and exit with 0
-    // eslint-disable-next-line perfectionist/sort-switch-case
-    case "json": {
-      console.log(JSON.stringify(hookResult.payload.output));
       return process.exit(0);
     }
 
