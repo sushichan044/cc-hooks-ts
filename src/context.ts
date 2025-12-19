@@ -26,21 +26,6 @@ export interface HookContext<THookTrigger extends HookTrigger> {
    */
   blockingError: (error: string) => HookResponseBlockingError;
 
-  /**
-   * Defer hook execution asynchronously.
-   */
-  defer: (payload: {
-    /**
-     * Function that runs the hook and returns the async JSON output.
-     */
-    run: () => Awaitable<AsyncHookResultJSON<THookTrigger>>;
-
-    /**
-     * Optional timeout in milliseconds.
-     */
-    timeoutMs?: number | undefined;
-  }) => HookResponseAsyncJSON<THookTrigger>;
-
   input: ExtractTriggeredHookInput<THookTrigger>;
 
   /**
@@ -76,6 +61,23 @@ export interface HookContext<THookTrigger extends HookTrigger> {
    * });
    */
   json: (payload: SyncHookResultJSON<THookTrigger>) => HookResponseSyncJSON<THookTrigger>;
+
+  /**
+   * Return async JSON output.
+   *
+   * @experimental
+   */
+  jsonAsync: (payload: {
+    /**
+     * Function that runs the hook and returns the async JSON output payload.
+     */
+    run: () => Awaitable<AsyncHookResultJSON<THookTrigger>>;
+
+    /**
+     * Optional timeout in milliseconds.
+     */
+    timeoutMs?: number | undefined;
+  }) => HookResponseAsyncJSON<THookTrigger>;
 
   /**
    * Cause a non-blocking error.
@@ -124,8 +126,8 @@ export function createContext<THookTrigger extends HookTrigger>(
   input: ExtractTriggeredHookInput<THookTrigger>,
 ): HookContext<THookTrigger> {
   return {
-    defer: (params) => ({
-      kind: "async-json",
+    jsonAsync: (params) => ({
+      kind: "json-async",
       run: params.run,
       timeoutMs: params.timeoutMs,
     }),
@@ -200,7 +202,7 @@ type HookResponseSyncJSON<TTrigger extends HookTrigger> = {
 };
 
 type HookResponseAsyncJSON<TTrigger extends HookTrigger> = {
-  kind: "async-json";
+  kind: "json-async";
 
   timeoutMs?: number | undefined;
 

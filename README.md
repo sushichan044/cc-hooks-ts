@@ -16,6 +16,7 @@ See [examples](./examples) for more usage examples.
   - [Advanced Usage](#advanced-usage)
     - [Conditional Hook Execution](#conditional-hook-execution)
     - [Advanced JSON Output](#advanced-json-output)
+    - [Async JSON Output (Experimental)](#async-json-output-experimental)
   - [Documentation](#documentation)
   - [Development](#development)
     - [How to follow the upstream changes](#how-to-follow-the-upstream-changes)
@@ -209,6 +210,36 @@ const hook = defineHook({
 Use `context.json()` to return structured JSON output with advanced control over hook behavior.
 
 For detailed information about available JSON fields and their behavior, see the [official documentation](https://docs.anthropic.com/en/docs/claude-code/hooks#advanced:-json-output).
+
+### Async JSON Output (Experimental)
+
+> [!WARNING]
+> This behavior is undocumented by Anthropic and may change.
+
+Claude Code also accepts async hook responses.
+
+Use `context.jsonAsync()` when you need extra time to compute hook output.
+
+```ts
+import { defineHook } from "cc-hooks-ts";
+
+const hook = defineHook({
+  trigger: { PostToolUse: { Read: true } },
+  run: (context) =>
+    context.jsonAsync({
+      timeoutMs: 15000,
+      run: async () => ({
+        event: "PostToolUse",
+        output: {
+          systemMessage: "Running async hook...",
+          hookSpecificOutput: {
+            additionalContext: "Extra context computed asynchronously."
+          }
+        }
+      })
+    })
+});
+```
 
 ## Documentation
 

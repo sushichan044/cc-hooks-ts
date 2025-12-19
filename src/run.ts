@@ -100,24 +100,25 @@ async function handleHookResult<THookTrigger extends HookTrigger>(
   hookResult: HookResponse<THookTrigger>,
 ): Promise<void> {
   switch (hookResult.kind) {
-    case "async-json": {
-      console.log(
-        JSON.stringify({
-          async: true,
-          asyncTimeout: hookResult.timeoutMs,
-        } satisfies AsyncHookJSONOutput),
-      );
-
-      const result = await hookResult.run();
-      console.log(JSON.stringify(result.output));
-      return process.exit(0);
-    }
-
     case "blocking-error": {
       if (hookResult.payload) {
         console.error(hookResult.payload);
       }
       return process.exit(2);
+    }
+
+    case "json-async": {
+      const startAsync: AsyncHookJSONOutput = {
+        async: true,
+      };
+      if (hookResult.timeoutMs !== undefined) {
+        startAsync.asyncTimeout = hookResult.timeoutMs;
+      }
+      console.log(JSON.stringify(startAsync));
+
+      const deferredResult = await hookResult.run();
+      console.log(JSON.stringify(deferredResult.output));
+      return process.exit(0);
     }
 
     // https://docs.anthropic.com/en/docs/claude-code/hooks#advanced%3A-json-output

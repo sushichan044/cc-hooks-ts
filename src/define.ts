@@ -94,21 +94,3 @@ export type HookDefinition<THookTrigger extends HookTrigger = HookTrigger> = {
 type HookHandler<THookTrigger extends HookTrigger> = (
   context: HookContext<THookTrigger>,
 ) => Awaitable<HookResponse<THookTrigger>>;
-
-const h = defineHook({
-  run: (c) => {
-    return c.defer({
-      run: () => {
-        return {
-          event: "PostToolUse",
-          output: {
-            systemMessage: "This is an async hook output",
-          },
-        };
-      },
-    });
-  },
-  trigger: {
-    PostToolUse: { Read: true },
-  },
-});
