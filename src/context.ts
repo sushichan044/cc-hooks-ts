@@ -63,13 +63,42 @@ export interface HookContext<THookTrigger extends HookTrigger> {
   json: (payload: SyncHookResultJSON<THookTrigger>) => HookResponseSyncJSON<THookTrigger>;
 
   /**
-   * Return async JSON output.
+   * Return async JSON output when hook computation requires asynchronous operations.
    *
-   * @experimental
+   * Use this when your hook needs to:
+   * - Make API calls or HTTP requests
+   * - Read large files asynchronously
+   *
+   * @experimental This behavior is undocumented by Anthropic and may change in future versions
+   *
+   * @example
+   * // Compute analysis with timeout protection
+   * const hook = defineHook({
+   *   trigger: { PostToolUse: { Grep: true } },
+   *   run: (context) => {
+   *     return context.jsonAsync({
+   *       timeoutMs: 5000, // Fail fast if analysis takes too long
+   *       run: async () => {
+   *         const analysis = await analyzeGrepResults(context.input.tool_response);
+   *
+   *         return {
+   *           event: "PostToolUse",
+   *           output: {
+   *             systemMessage: `Found ${analysis.matchCount} matches`,
+   *             hookSpecificOutput: {
+   *               additionalContext: analysis.summary
+   *             }
+   *           }
+   *         };
+   *       }
+   *     });
+   *   }
+   * });
    */
+
   jsonAsync: (payload: {
     /**
-     * Function that runs the hook and returns the async JSON output payload.
+     * Long-running computation to produce JSON output.
      */
     run: () => Awaitable<AsyncHookResultJSON<THookTrigger>>;
 
