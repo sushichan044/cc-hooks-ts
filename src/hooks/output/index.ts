@@ -43,6 +43,32 @@ export type ExtractSyncHookOutput<TEvent extends SupportedHookEvent> =
   HookOutput extends Record<SupportedHookEvent, unknown> ? HookOutput[TEvent] : never;
 
 /**
+ * @package
+ */
+export type ExtractAsyncHookOutput<TEvent extends SupportedHookEvent> =
+  _InternalExtractAsyncHookOutput<ExtractSyncHookOutput<TEvent>>;
+
+/**
+ * Compute ExtractSyncHookOutput<TEvent> only once for better performance.
+ *
+ * Only `systemMessage` and `hookSpecificOutput.additionalContext` are read by Claude Code if we are using async hook.
+ * (This feature is not documented)
+ *
+ * @internal
+ */
+type _InternalExtractAsyncHookOutput<Output extends CommonHookOutputs> = Output extends {
+  hookSpecificOutput?: {
+    additionalContext?: infer TAdditionalContext;
+  };
+}
+  ? Pick<Output, "systemMessage"> & {
+      hookSpecificOutput?: {
+        additionalContext?: TAdditionalContext;
+      };
+    }
+  : Pick<Output, "systemMessage">;
+
+/**
  * Common fields of hook outputs
  *
  * @see {@link https://docs.anthropic.com/en/docs/claude-code/hooks#common-json-fields}

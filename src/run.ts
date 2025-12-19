@@ -1,3 +1,5 @@
+import type { AsyncHookJSONOutput } from "@anthropic-ai/claude-agent-sdk";
+
 import { readFileSync } from "node:fs";
 import process from "node:process";
 import * as v from "valibot";
@@ -84,9 +86,9 @@ export async function runHook<THookTrigger extends HookTrigger = HookTrigger>(
 
     const result = await run(context);
 
-await handleHookResult(eventName, result);
+    await handleHookResult(eventName, result);
   } catch (error) {
-await handleHookResult(eventName, {
+    await handleHookResult(eventName, {
       kind: "non-blocking-error",
       payload: `Error in hook: ${error instanceof Error ? error.message : String(error)}`,
     });
@@ -98,7 +100,20 @@ async function handleHookResult<THookTrigger extends HookTrigger>(
   hookResult: HookResponse<THookTrigger>,
 ): Promise<void> {
   switch (hookResult.kind) {
-case "blocking-error": {
+    case "async-json": {
+      console.log(
+        JSON.stringify({
+          async: true,
+          asyncTimeout: hookResult.timeoutMs,
+        } satisfies AsyncHookJSONOutput),
+      );
+
+      const result = await hookResult.run();
+      console.log(JSON.stringify(result.output));
+      return process.exit(0);
+    }
+
+    case "blocking-error": {
       if (hookResult.payload) {
         console.error(hookResult.payload);
       }
@@ -138,7 +153,7 @@ case "blocking-error": {
     }
 
     default: {
-      throw new Error(`Unknown hook result kind: ${hookResult.kind satisfies never}`);
+      throw new Error(`Unknown hook result kind: ${JSON.stringify(hookResult satisfies never)}`);
     }
   }
 }

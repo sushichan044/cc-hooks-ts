@@ -3,6 +3,7 @@ import type { Except, Simplify } from "type-fest";
 
 import { describe, expectTypeOf, it } from "vitest";
 
+import type { ExtractAsyncHookOutput } from ".";
 import type { HookOutput } from ".";
 import type { SupportedHookEvent } from "..";
 
@@ -36,5 +37,26 @@ describe("HookOutputs", () => {
     };
 
     expectTypeOf<Ours>().toEqualTypeOf<Upstream>();
+  });
+});
+
+describe("ExtractAsyncHookOutput", () => {
+  it("extracts only `systemMessage` for events without specific output", () => {
+    type Extracted = ExtractAsyncHookOutput<"Stop">;
+
+    expectTypeOf<Extracted>().toEqualTypeOf<{
+      systemMessage?: string | undefined;
+    }>();
+  });
+
+  it("extracts `systemMessage` and `hookSpecificOutput.additionalContext` for events with specific output", () => {
+    type Extracted = Simplify<ExtractAsyncHookOutput<"PostToolUse">>;
+
+    expectTypeOf<Extracted>().toEqualTypeOf<{
+      hookSpecificOutput?: {
+        additionalContext?: string | undefined;
+      };
+      systemMessage?: string | undefined;
+    }>();
   });
 });

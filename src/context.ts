@@ -1,5 +1,6 @@
-import type { ExtractSyncHookOutput, SupportedHookEvent } from "./hooks";
+import type { ExtractAsyncHookOutput, ExtractSyncHookOutput, SupportedHookEvent } from "./hooks";
 import type { ExtractTriggeredHookInput, HookTrigger } from "./types";
+import type { Awaitable } from "./utils/types";
 
 export interface HookContext<THookTrigger extends HookTrigger> {
   /**
@@ -24,6 +25,21 @@ export interface HookContext<THookTrigger extends HookTrigger> {
    * });
    */
   blockingError: (error: string) => HookResponseBlockingError;
+
+  /**
+   * Defer hook execution asynchronously.
+   */
+  defer: (payload: {
+    /**
+     * Function that runs the hook and returns the async JSON output.
+     */
+    run: () => Awaitable<AsyncHookResultJSON<THookTrigger>>;
+
+    /**
+     * Optional timeout in milliseconds.
+     */
+    timeoutMs?: number | undefined;
+  }) => HookResponseAsyncJSON<THookTrigger>;
 
   input: ExtractTriggeredHookInput<THookTrigger>;
 
@@ -108,6 +124,12 @@ export function createContext<THookTrigger extends HookTrigger>(
   input: ExtractTriggeredHookInput<THookTrigger>,
 ): HookContext<THookTrigger> {
   return {
+    defer: (params) => ({
+      kind: "async-json",
+      run: params.run,
+      timeoutMs: params.timeoutMs,
+    }),
+
     blockingError: (error) => ({
       kind: "blocking-error",
       payload: error,
@@ -138,6 +160,7 @@ export function createContext<THookTrigger extends HookTrigger>(
 export type HookResponse<THookTrigger extends HookTrigger> =
   | HookResponseBlockingError
   | HookResponseSyncJSON<THookTrigger>
+  | HookResponseAsyncJSON<THookTrigger>
   | HookResponseNonBlockingError
   | HookResponseSuccess;
 
@@ -176,6 +199,14 @@ type HookResponseSyncJSON<TTrigger extends HookTrigger> = {
   payload: SyncHookResultJSON<TTrigger>;
 };
 
+type HookResponseAsyncJSON<TTrigger extends HookTrigger> = {
+  kind: "async-json";
+
+  timeoutMs?: number | undefined;
+
+  run: () => Awaitable<AsyncHookResultJSON<TTrigger>>;
+};
+
 type SyncHookResultJSON<TTrigger extends HookTrigger> = {
   [EventKey in keyof TTrigger]: EventKey extends SupportedHookEvent
     ? TTrigger[EventKey] extends true | Record<PropertyKey, true>
@@ -191,6 +222,26 @@ type SyncHookResultJSON<TTrigger extends HookTrigger> = {
            * The output data for the event.
            */
           output: ExtractSyncHookOutput<EventKey>;
+        }
+      : never
+    : never;
+}[keyof TTrigger];
+
+type AsyncHookResultJSON<TTrigger extends HookTrigger> = {
+  [EventKey in keyof TTrigger]: EventKey extends SupportedHookEvent
+    ? TTrigger[EventKey] extends true | Record<PropertyKey, true>
+      ? {
+          /**
+           * The name of the event being triggered.
+           *
+           * Required for proper TypeScript inference.
+           */
+          event: EventKey;
+
+          /**
+           * The output data for the event.
+           */
+          output: ExtractAsyncHookOutput<EventKey>;
         }
       : never
     : never;
