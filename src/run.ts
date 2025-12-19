@@ -139,15 +139,15 @@ async function handleHookResult<THookTrigger extends HookTrigger>(
         // we add a hard timeout 5s after user timeout to exit the process.
         deferredResult = await Promise.race([
           safeInvokeDeferredHook(),
-          new Promise<{ isError: true; reason: "timeout" }>((resolve) =>
-            setTimeout(() => resolve({ isError: true, reason: "timeout" }), userTimeout + 5000),
+          new Promise<{ isError: true; reason: string }>((resolve) =>
+            setTimeout(() => resolve({ isError: true, reason: `Exceeded user specified timeout: ${userTimeout}ms` }), userTimeout + 5000),
           ),
         ]);
       }
 
       if (deferredResult.isError) {
         if (isNonEmptyString(deferredResult.reason)) {
-          console.error(deferredResult.reason);
+          console.error(`Async hook execution failed: ${deferredResult.reason}`);
         }
         return process.exit(1);
       }
