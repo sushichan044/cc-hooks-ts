@@ -117,12 +117,10 @@ async function handleHookResult<THookTrigger extends HookTrigger>(
       }
       console.log(JSON.stringify(startAsync));
 
-      const invokeDeferredHook = async () => await hookResult.run();
       const safeInvokeDeferredHook = async () => {
         try {
-          return await invokeDeferredHook().then(
-            (res) => ({ isError: false, output: res }) as const,
-          );
+          const res = await hookResult.run();
+          return { isError: false, output: res } as const;
         } catch (error) {
           return {
             isError: true,
