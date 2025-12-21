@@ -108,13 +108,12 @@ async function handleHookResult<THookTrigger extends HookTrigger>(
     }
 
     case "json-async": {
+      const userTimeout = hookResult.timeoutMs;
       const startAsync: AsyncHookJSONOutput = {
         async: true,
+        // omit from serialization if undefined
+        asyncTimeout: userTimeout ?? undefined,
       };
-      const userTimeout = hookResult.timeoutMs;
-      if (userTimeout != null) {
-        startAsync.asyncTimeout = userTimeout;
-      }
       console.log(JSON.stringify(startAsync));
 
       const safeInvokeDeferredHook = async () => {
