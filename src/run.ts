@@ -120,7 +120,7 @@ async function handleHookResult<THookTrigger extends HookTrigger>(
       const safeInvokeDeferredHook = async () => {
         try {
           const res = await hookResult.run();
-          return { isError: false, output: res } as const;
+          return { isError: false, payload: res } as const;
         } catch (error) {
           return {
             isError: true,
@@ -157,7 +157,7 @@ async function handleHookResult<THookTrigger extends HookTrigger>(
         return process.exit(1);
       }
 
-      console.log(JSON.stringify(deferredResult.output));
+      console.log(JSON.stringify(deferredResult.payload.output));
       return process.exit(0);
     }
 
