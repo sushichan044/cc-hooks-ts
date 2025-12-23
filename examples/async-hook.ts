@@ -5,8 +5,8 @@ const hook = defineHook({
     Stop: true,
   },
 
-  run: (context) =>
-    context.jsonAsync({
+  run: (c) =>
+    c.jsonAsync({
       run: () => ({
         event: "Stop",
         output: {
