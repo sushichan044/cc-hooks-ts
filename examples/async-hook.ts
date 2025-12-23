@@ -6,14 +6,14 @@ const hook = defineHook({
   },
 
   run: (c) =>
-    c.jsonAsync({
-      run: () => ({
+    c.defer(async () => {
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      return {
         event: "Stop",
         output: {
-          systemMessage: "Stopped successfully!",
+          systemMessage: "Stop hook executed after async processing!",
         },
-      }),
-      timeoutMs: 5000,
+      };
     }),
 });
 
