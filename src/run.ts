@@ -156,6 +156,9 @@ async function handleHookResult<THookTrigger extends HookTrigger>(
         return process.exit(1);
       }
 
+      // For debugging:
+      // You should enable verbose output in Claude Code by
+      // `/config` → Set "verbose" to true
       console.log(JSON.stringify(deferredResult.payload.output));
       return process.exit(0);
     }
