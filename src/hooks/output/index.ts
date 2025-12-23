@@ -34,13 +34,39 @@ export type HookOutput = {
 // We must implement the missing keys.
 //
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-type __TypeCheckExtractHookOutput = AssertFalse<IsNever<ExtractHookOutput<SupportedHookEvent>>>;
+type __TypeCheckExtractHookOutput = AssertFalse<IsNever<ExtractSyncHookOutput<SupportedHookEvent>>>;
 
 /**
  * @package
  */
-export type ExtractHookOutput<TEvent extends SupportedHookEvent> =
+export type ExtractSyncHookOutput<TEvent extends SupportedHookEvent> =
   HookOutput extends Record<SupportedHookEvent, unknown> ? HookOutput[TEvent] : never;
+
+/**
+ * @package
+ */
+export type ExtractAsyncHookOutput<TEvent extends SupportedHookEvent> =
+  _InternalExtractAsyncHookOutput<ExtractSyncHookOutput<TEvent>>;
+
+/**
+ * Compute ExtractSyncHookOutput<TEvent> only once for better performance.
+ *
+ * Only `systemMessage` and `hookSpecificOutput.additionalContext` are read by Claude Code if we are using async hook.
+ * (This feature is not documented)
+ *
+ * @internal
+ */
+type _InternalExtractAsyncHookOutput<Output extends CommonHookOutputs> = Output extends {
+  hookSpecificOutput?: {
+    additionalContext?: infer TAdditionalContext;
+  };
+}
+  ? Pick<Output, "systemMessage"> & {
+      hookSpecificOutput?: {
+        additionalContext?: TAdditionalContext;
+      };
+    }
+  : Pick<Output, "systemMessage">;
 
 /**
  * Common fields of hook outputs

@@ -1,5 +1,6 @@
-import type { ExtractHookOutput, SupportedHookEvent } from "./hooks";
+import type { ExtractAsyncHookOutput, ExtractSyncHookOutput, SupportedHookEvent } from "./hooks";
 import type { ExtractTriggeredHookInput, HookTrigger } from "./types";
+import type { Awaitable } from "./utils/types";
 
 export interface HookContext<THookTrigger extends HookTrigger> {
   /**
@@ -24,6 +25,51 @@ export interface HookContext<THookTrigger extends HookTrigger> {
    * });
    */
   blockingError: (error: string) => HookResponseBlockingError;
+
+  /**
+   * Defer processing and produce JSON output after long-running computation.
+   *
+   * @experimental This behavior is undocumented by Anthropic and may change in future versions
+   *
+   * @example
+   * // Compute analysis with timeout protection
+   * const hook = defineHook({
+   *   trigger: { PostToolUse: { Grep: true } },
+   *   run: (context) => {
+   *    return context.defer(
+   *      async () => {
+   *        const analysis = await analyzeGrepResults(context.input.tool_response);
+   *
+   *        return {
+   *          event: "PostToolUse",
+   *          output: {
+   *            systemMessage: `Found ${analysis.matchCount} matches`,
+   *            hookSpecificOutput: {
+   *              additionalContext: analysis.summary
+   *            }
+   *          }
+   *        };
+   *      },
+   *      { timeoutMs: 5000 } // Fail fast if analysis takes too long
+   *    );
+   *   }
+   * });
+   */
+  defer: (
+    handler: () => Awaitable<AsyncHookResultJSON<THookTrigger>>,
+    options?: {
+      /**
+       * Optional timeout in milliseconds.
+       *
+       * Claude Code has its own internal timeouts; this setting allows you to specify a shorter timeout
+       * and cc-hooks-ts will abort the operation as circuit breaker.
+       *
+       * @default
+       * Claude Code has its own internal timeouts.
+       */
+      timeoutMs?: number | undefined;
+    },
+  ) => HookResponseAsyncJSON<THookTrigger>;
 
   input: ExtractTriggeredHookInput<THookTrigger>;
 
@@ -59,7 +105,7 @@ export interface HookContext<THookTrigger extends HookTrigger> {
    *   }
    * });
    */
-  json: (payload: HookResultJSON<THookTrigger>) => HookResponseJSON<THookTrigger>;
+  json: (payload: SyncHookResultJSON<THookTrigger>) => HookResponseSyncJSON<THookTrigger>;
 
   /**
    * Cause a non-blocking error.
@@ -108,6 +154,12 @@ export function createContext<THookTrigger extends HookTrigger>(
   input: ExtractTriggeredHookInput<THookTrigger>,
 ): HookContext<THookTrigger> {
   return {
+    defer: (handler, options) => ({
+      kind: "json-async",
+      run: handler,
+      timeoutMs: options?.timeoutMs,
+    }),
+
     blockingError: (error) => ({
       kind: "blocking-error",
       payload: error,
@@ -129,7 +181,7 @@ export function createContext<THookTrigger extends HookTrigger>(
     }),
 
     json: (payload) => ({
-      kind: "json",
+      kind: "json-sync",
       payload,
     }),
   };
@@ -137,7 +189,8 @@ export function createContext<THookTrigger extends HookTrigger>(
 
 export type HookResponse<THookTrigger extends HookTrigger> =
   | HookResponseBlockingError
-  | HookResponseJSON<THookTrigger>
+  | HookResponseSyncJSON<THookTrigger>
+  | HookResponseAsyncJSON<THookTrigger>
   | HookResponseNonBlockingError
   | HookResponseSuccess;
 
@@ -171,12 +224,20 @@ type HookSuccessPayload = {
   additionalClaudeContext?: string | undefined;
 };
 
-type HookResponseJSON<TTrigger extends HookTrigger> = {
-  kind: "json";
-  payload: HookResultJSON<TTrigger>;
+type HookResponseSyncJSON<TTrigger extends HookTrigger> = {
+  kind: "json-sync";
+  payload: SyncHookResultJSON<TTrigger>;
 };
 
-type HookResultJSON<TTrigger extends HookTrigger> = {
+type HookResponseAsyncJSON<TTrigger extends HookTrigger> = {
+  kind: "json-async";
+
+  timeoutMs?: number | undefined;
+
+  run: () => Awaitable<AsyncHookResultJSON<TTrigger>>;
+};
+
+type SyncHookResultJSON<TTrigger extends HookTrigger> = {
   [EventKey in keyof TTrigger]: EventKey extends SupportedHookEvent
     ? TTrigger[EventKey] extends true | Record<PropertyKey, true>
       ? {
@@ -190,7 +251,27 @@ type HookResultJSON<TTrigger extends HookTrigger> = {
           /**
            * The output data for the event.
            */
-          output: ExtractHookOutput<EventKey>;
+          output: ExtractSyncHookOutput<EventKey>;
+        }
+      : never
+    : never;
+}[keyof TTrigger];
+
+type AsyncHookResultJSON<TTrigger extends HookTrigger> = {
+  [EventKey in keyof TTrigger]: EventKey extends SupportedHookEvent
+    ? TTrigger[EventKey] extends true | Record<PropertyKey, true>
+      ? {
+          /**
+           * The name of the event being triggered.
+           *
+           * Required for proper TypeScript inference.
+           */
+          event: EventKey;
+
+          /**
+           * The output data for the event.
+           */
+          output: ExtractAsyncHookOutput<EventKey>;
         }
       : never
     : never;

@@ -16,6 +16,7 @@ See [examples](./examples) for more usage examples.
   - [Advanced Usage](#advanced-usage)
     - [Conditional Hook Execution](#conditional-hook-execution)
     - [Advanced JSON Output](#advanced-json-output)
+    - [Async JSON Output (Experimental)](#async-json-output-experimental)
   - [Documentation](#documentation)
   - [Development](#development)
     - [How to follow the upstream changes](#how-to-follow-the-upstream-changes)
@@ -209,6 +210,45 @@ const hook = defineHook({
 Use `context.json()` to return structured JSON output with advanced control over hook behavior.
 
 For detailed information about available JSON fields and their behavior, see the [official documentation](https://docs.anthropic.com/en/docs/claude-code/hooks#advanced:-json-output).
+
+### Async JSON Output (Experimental)
+
+> [!WARNING]
+> This behavior is undocumented by Anthropic and may change.
+
+> [!CAUTION]
+> You must enable verbose output if you want to see async hook outputs like `systemMessage` or `hookSpecificOutput.additionalContext`.
+>
+> You can enable it in Claude Code by going to `/config` and setting "verbose" to true.
+
+Claude Code also accepts async hook responses.
+
+Use `context.jsonAsync()` when you need extra time to compute hook output.
+
+```ts
+import { defineHook } from "cc-hooks-ts";
+
+const hook = defineHook({
+  trigger: { PostToolUse: { Read: true } },
+  run: (context) =>
+    context.defer(
+      async () => {
+        // Simulate long-running computation
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+
+        return {
+          event: "PostToolUse",
+          output: {
+            systemMessage: "Read tool used successfully after async processing!"
+          }
+        };
+      },
+      {
+        timeoutMs: 5000 // Optional timeout for the async operation.
+      }
+    )
+});
+```
 
 ## Documentation
 

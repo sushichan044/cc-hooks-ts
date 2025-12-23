@@ -1,3 +1,5 @@
+import type { AsyncHookJSONOutput } from "@anthropic-ai/claude-agent-sdk";
+
 import { readFileSync } from "node:fs";
 import process from "node:process";
 import * as v from "valibot";
@@ -84,20 +86,98 @@ export async function runHook<THookTrigger extends HookTrigger = HookTrigger>(
 
     const result = await run(context);
 
-    handleHookResult(eventName, result);
+    await handleHookResult(eventName, result);
   } catch (error) {
-    handleHookResult(eventName, {
+    await handleHookResult(eventName, {
       kind: "non-blocking-error",
       payload: `Error in hook: ${error instanceof Error ? error.message : String(error)}`,
     });
   }
 }
 
-function handleHookResult<THookTrigger extends HookTrigger>(
+async function handleHookResult<THookTrigger extends HookTrigger>(
   eventName: SupportedHookEvent | null,
   hookResult: HookResponse<THookTrigger>,
-): void {
+): Promise<void> {
   switch (hookResult.kind) {
+    case "blocking-error": {
+      if (hookResult.payload) {
+        console.error(hookResult.payload);
+      }
+      return process.exit(2);
+    }
+
+    case "json-async": {
+      const userTimeout = hookResult.timeoutMs;
+      const startAsync: AsyncHookJSONOutput = {
+        async: true,
+        // omit from serialization if undefined
+        asyncTimeout: userTimeout ?? undefined,
+      };
+      console.log(JSON.stringify(startAsync));
+
+      const safeInvokeDeferredHook = async () => {
+        try {
+          const res = await hookResult.run();
+          return { isError: false, payload: res } as const;
+        } catch (error) {
+          return {
+            isError: true,
+            reason: error instanceof Error ? error.message : String(error),
+          } as const;
+        }
+      };
+
+      let deferredResult: Awaited<ReturnType<typeof safeInvokeDeferredHook>>;
+      if (userTimeout == null) {
+        deferredResult = await safeInvokeDeferredHook();
+      } else {
+        // In case of Claude does not respect timeout and keeps running forever,
+        // we add a hard timeout 5s after user timeout to exit the process.
+        deferredResult = await Promise.race([
+          safeInvokeDeferredHook(),
+          new Promise<Extract<typeof deferredResult, { isError: true }>>((resolve) =>
+            setTimeout(
+              () =>
+                resolve({
+                  isError: true,
+                  reason: `Exceeded user specified timeout: ${userTimeout}ms`,
+                }),
+              userTimeout + 5000,
+            ),
+          ),
+        ]);
+      }
+
+      if (deferredResult.isError) {
+        if (isNonEmptyString(deferredResult.reason)) {
+          console.error(`Async hook execution failed: ${deferredResult.reason}`);
+        }
+        return process.exit(1);
+      }
+
+      // For debugging:
+      // You should enable verbose output in Claude Code by
+      // `/config` → Set "verbose" to true
+      console.log(JSON.stringify(deferredResult.payload.output));
+      return process.exit(0);
+    }
+
+    // https://docs.anthropic.com/en/docs/claude-code/hooks#advanced%3A-json-output
+    // https://docs.anthropic.com/en/docs/claude-code/hooks#json-output-example%3A-pretooluse-with-approval
+    // Advanced output: print JSON and exit with 0
+    case "json-sync": {
+      console.log(JSON.stringify(hookResult.payload.output));
+      return process.exit(0);
+    }
+
+    case "non-blocking-error": {
+      if (isNonEmptyString(hookResult.payload)) {
+        console.error(hookResult.payload);
+      }
+      return process.exit(1);
+    }
+
     // Simple case with exit code
     // https://docs.anthropic.com/en/docs/claude-code/hooks#simple%3A-exit-code
     case "success": {
@@ -115,28 +195,8 @@ function handleHookResult<THookTrigger extends HookTrigger>(
       return process.exit(0);
     }
 
-    // eslint-disable-next-line perfectionist/sort-switch-case
-    case "blocking-error": {
-      if (hookResult.payload) {
-        console.error(hookResult.payload);
-      }
-      return process.exit(2);
-    }
-
-    case "non-blocking-error": {
-      if (isNonEmptyString(hookResult.payload)) {
-        console.error(hookResult.payload);
-      }
-      return process.exit(1);
-    }
-
-    // https://docs.anthropic.com/en/docs/claude-code/hooks#advanced%3A-json-output
-    // https://docs.anthropic.com/en/docs/claude-code/hooks#json-output-example%3A-pretooluse-with-approval
-    // Advanced output: print JSON and exit with 0
-    // eslint-disable-next-line perfectionist/sort-switch-case
-    case "json": {
-      console.log(JSON.stringify(hookResult.payload.output));
-      return process.exit(0);
+    default: {
+      throw new Error(`Unknown hook result kind: ${JSON.stringify(hookResult satisfies never)}`);
     }
   }
 }
