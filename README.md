@@ -216,6 +216,11 @@ For detailed information about available JSON fields and their behavior, see the
 > [!WARNING]
 > This behavior is undocumented by Anthropic and may change.
 
+> [!CAUTION]
+> You must enable verbose output if you want to see async hook outputs like `systemMessage` or `hookSpecificOutput.additionalContext`.
+>
+> You can enable it in Claude Code by going to `/config` and setting "verbose" to true.
+
 Claude Code also accepts async hook responses.
 
 Use `context.jsonAsync()` when you need extra time to compute hook output.
