@@ -13,7 +13,7 @@ describe("HookContext", () => {
 
   describe("#jsonAsync", () => {
     it("correctly infers the return type of run function", () => {
-      type AsyncHookRunFn = ReturnType<typeof ctx.jsonAsync>["run"];
+      type AsyncHookRunFn = ReturnType<typeof ctx.defer>["run"];
       type AsyncHookReturn = SimplifyDeep<Awaited<ReturnType<AsyncHookRunFn>>>;
 
       expectTypeOf<AsyncHookReturn>().toEqualTypeOf<{

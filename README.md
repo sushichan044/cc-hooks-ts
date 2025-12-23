@@ -231,18 +231,22 @@ import { defineHook } from "cc-hooks-ts";
 const hook = defineHook({
   trigger: { PostToolUse: { Read: true } },
   run: (context) =>
-    context.jsonAsync({
-      timeoutMs: 15000,
-      run: async () => ({
-        event: "PostToolUse",
-        output: {
-          systemMessage: "Running async hook...",
-          hookSpecificOutput: {
-            additionalContext: "Extra context computed asynchronously."
+    context.defer(
+      async () => {
+        // Simulate long-running computation
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+
+        return {
+          event: "PostToolUse",
+          output: {
+            systemMessage: "Read tool used successfully after async processing!"
           }
-        }
-      })
-    })
+        };
+      },
+      {
+        timeoutMs: 5000 // Optional timeout for the async operation.
+      }
+    )
 });
 ```
 

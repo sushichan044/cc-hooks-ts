@@ -63,11 +63,7 @@ export interface HookContext<THookTrigger extends HookTrigger> {
   json: (payload: SyncHookResultJSON<THookTrigger>) => HookResponseSyncJSON<THookTrigger>;
 
   /**
-   * Return async JSON output when hook computation requires asynchronous operations.
-   *
-   * Use this when your hook needs to:
-   * - Make API calls or HTTP requests
-   * - Read large files asynchronously
+   * Defer processing and produce JSON output after long-running computation.
    *
    * @experimental This behavior is undocumented by Anthropic and may change in future versions
    *
@@ -76,37 +72,40 @@ export interface HookContext<THookTrigger extends HookTrigger> {
    * const hook = defineHook({
    *   trigger: { PostToolUse: { Grep: true } },
    *   run: (context) => {
-   *     return context.jsonAsync({
-   *       timeoutMs: 5000, // Fail fast if analysis takes too long
-   *       run: async () => {
-   *         const analysis = await analyzeGrepResults(context.input.tool_response);
+   *    return context.defer(
+   *      async () => {
+   *        const analysis = await analyzeGrepResults(context.input.tool_response);
    *
-   *         return {
-   *           event: "PostToolUse",
-   *           output: {
-   *             systemMessage: `Found ${analysis.matchCount} matches`,
-   *             hookSpecificOutput: {
-   *               additionalContext: analysis.summary
-   *             }
-   *           }
-   *         };
-   *       }
-   *     });
+   *        return {
+   *          event: "PostToolUse",
+   *          output: {
+   *            systemMessage: `Found ${analysis.matchCount} matches`,
+   *            hookSpecificOutput: {
+   *              additionalContext: analysis.summary
+   *            }
+   *          }
+   *        };
+   *      },
+   *      { timeoutMs: 5000 } // Fail fast if analysis takes too long
+   *    );
    *   }
    * });
    */
-
-  jsonAsync: (payload: {
-    /**
-     * Long-running computation to produce JSON output.
-     */
-    run: () => Awaitable<AsyncHookResultJSON<THookTrigger>>;
-
-    /**
-     * Optional timeout in milliseconds.
-     */
-    timeoutMs?: number | undefined;
-  }) => HookResponseAsyncJSON<THookTrigger>;
+  defer: (
+    handler: () => Awaitable<AsyncHookResultJSON<THookTrigger>>,
+    options?: {
+      /**
+       * Optional timeout in milliseconds.
+       *
+       * Claude Code has its own internal timeouts; this setting allows you to specify a shorter timeout
+       * and cc-hooks-ts will abort the operation as circuit breaker.
+       *
+       * @default
+       * Claude Code has its own internal timeouts.
+       */
+      timeoutMs?: number | undefined;
+    },
+  ) => HookResponseAsyncJSON<THookTrigger>;
 
   /**
    * Cause a non-blocking error.
@@ -155,10 +154,10 @@ export function createContext<THookTrigger extends HookTrigger>(
   input: ExtractTriggeredHookInput<THookTrigger>,
 ): HookContext<THookTrigger> {
   return {
-    jsonAsync: (params) => ({
+    defer: (handler, options) => ({
       kind: "json-async",
-      run: params.run,
-      timeoutMs: params.timeoutMs,
+      run: handler,
+      timeoutMs: options?.timeoutMs,
     }),
 
     blockingError: (error) => ({
