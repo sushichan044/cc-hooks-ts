@@ -223,7 +223,7 @@ For detailed information about available JSON fields and their behavior, see the
 
 Claude Code also accepts async hook responses.
 
-Use `context.jsonAsync()` when you need extra time to compute hook output.
+Use `context.defer()` when you need extra time to compute hook output.
 
 ```ts
 import { defineHook } from "cc-hooks-ts";
