@@ -26,42 +26,6 @@ export interface HookContext<THookTrigger extends HookTrigger> {
    */
   blockingError: (error: string) => HookResponseBlockingError;
 
-  input: ExtractTriggeredHookInput<THookTrigger>;
-
-  /**
-   * Direct access to advanced JSON output.
-   *
-   * Provides fine-grained control over hook behavior through structured JSON output.
-   * This is the most powerful way to control Claude Code's behavior, including
-   * permission decisions, input modifications, and additional context.
-   *
-   * @see {@link https://docs.anthropic.com/en/docs/claude-code/hooks#advanced%3A-json-output}
-   *
-   * @example
-   * // PreToolUse: Deny access with reason
-   * const hook = defineHook({
-   *   trigger: { PreToolUse: { Read: true } },
-   *   run: (context) => {
-   *     const { file_path } = context.input.tool_input;
-   *
-   *     if (file_path.includes('.env')) {
-   *       return context.json({
-   *         event: "PreToolUse",
-   *         output: {
-   *           hookSpecificOutput: {
-   *             permissionDecision: "deny",
-   *             permissionDecisionReason: "Access to .env files is restricted for security."
-   *           }
-   *         }
-   *       });
-   *     }
-   *
-   *     return context.success();
-   *   }
-   * });
-   */
-  json: (payload: SyncHookResultJSON<THookTrigger>) => HookResponseSyncJSON<THookTrigger>;
-
   /**
    * Defer processing and produce JSON output after long-running computation.
    *
@@ -106,6 +70,42 @@ export interface HookContext<THookTrigger extends HookTrigger> {
       timeoutMs?: number | undefined;
     },
   ) => HookResponseAsyncJSON<THookTrigger>;
+
+  input: ExtractTriggeredHookInput<THookTrigger>;
+
+  /**
+   * Direct access to advanced JSON output.
+   *
+   * Provides fine-grained control over hook behavior through structured JSON output.
+   * This is the most powerful way to control Claude Code's behavior, including
+   * permission decisions, input modifications, and additional context.
+   *
+   * @see {@link https://docs.anthropic.com/en/docs/claude-code/hooks#advanced%3A-json-output}
+   *
+   * @example
+   * // PreToolUse: Deny access with reason
+   * const hook = defineHook({
+   *   trigger: { PreToolUse: { Read: true } },
+   *   run: (context) => {
+   *     const { file_path } = context.input.tool_input;
+   *
+   *     if (file_path.includes('.env')) {
+   *       return context.json({
+   *         event: "PreToolUse",
+   *         output: {
+   *           hookSpecificOutput: {
+   *             permissionDecision: "deny",
+   *             permissionDecisionReason: "Access to .env files is restricted for security."
+   *           }
+   *         }
+   *       });
+   *     }
+   *
+   *     return context.success();
+   *   }
+   * });
+   */
+  json: (payload: SyncHookResultJSON<THookTrigger>) => HookResponseSyncJSON<THookTrigger>;
 
   /**
    * Cause a non-blocking error.
