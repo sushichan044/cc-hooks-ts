@@ -75,6 +75,10 @@ importers:
       cc-hooks-ts:
         specifier: workspace:*
         version: link:..
+    devDependencies:
+      tinyexec:
+        specifier: 1.0.2
+        version: 1.0.2
 
 packages:
 

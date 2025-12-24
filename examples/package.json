@@ -3,5 +3,8 @@
   "private": true,
   "dependencies": {
     "cc-hooks-ts": "workspace:*"
+  },
+  "devDependencies": {
+    "tinyexec": "1.0.2"
   }
 }
