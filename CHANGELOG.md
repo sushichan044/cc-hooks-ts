@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.76
+
+### &nbsp;&nbsp;&nbsp;Features
+
+- Support async hooks &nbsp;-&nbsp; by **Kentaro Suzuki** in https://github.com/sushichan044/cc-hooks-ts/issues/82 [<samp>(768a8)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/768a87f)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sushichan044/cc-hooks-ts/compare/2.0.70...2.0.76)
+
 ## 2.0.70
 
 ### &nbsp;&nbsp;&nbsp;Bug Fixes
