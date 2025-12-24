@@ -221,9 +221,11 @@ For detailed information about available JSON fields and their behavior, see the
 >
 > You can enable it in Claude Code by going to `/config` and setting "verbose" to true.
 
-Claude Code also accepts async hook responses.
+Async JSON output allows hooks to perform longer computations without blocking the Claude Code TUI.
 
-Use `context.defer()` when you need extra time to compute hook output.
+You can use `context.defer()` to respond Claude Code immediately while performing longer computations in the background.
+
+You should complete the async operation within a reasonable time (e.g. 15 seconds).
 
 ```ts
 import { defineHook } from "cc-hooks-ts";
