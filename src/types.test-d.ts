@@ -65,12 +65,12 @@ describe("ExtractTriggeredHookInput", () => {
           SessionStart: true;
         }>
       >().toEqualTypeOf<
-          // Tool-specific types of PostToolUse
-          | HookInput["PostToolUse"]["Read"]
-          // PreToolUse
-          | HookInput["PreToolUse"]["MyCustomTool"]
-          // SessionStart
-          | HookInput["SessionStart"]["default"]
+        // Tool-specific types of PostToolUse
+        | HookInput["PostToolUse"]["Read"]
+        // PreToolUse
+        | HookInput["PreToolUse"]["MyCustomTool"]
+        // SessionStart
+        | HookInput["SessionStart"]["default"]
       >();
     });
   });
