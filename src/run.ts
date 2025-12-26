@@ -109,12 +109,15 @@ async function handleHookResult<THookTrigger extends HookTrigger>(
 
     case "json-async": {
       const userTimeout = hookResult.timeoutMs;
-      const startAsync: AsyncHookJSONOutput = {
-        async: true,
-        // omit from serialization if undefined
-        asyncTimeout: userTimeout ?? undefined,
-      };
-      console.log(JSON.stringify(startAsync));
+      // This JSON tells Claude Code that the hook is running asynchronously.
+      // Claude Code proceeds to the next step without waiting for this hook to finish,
+      // while the hook continues running in the background.
+      console.log(
+        JSON.stringify({
+          async: true,
+          asyncTimeout: userTimeout ?? undefined,
+        } satisfies AsyncHookJSONOutput),
+      );
 
       const safeInvokeDeferredHook = async () => {
         try {
