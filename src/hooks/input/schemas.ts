@@ -94,20 +94,21 @@ export const HookInputSchemas = {
 
   PreCompact: buildHookInputSchema("PreCompact", {
     custom_instructions: v.nullable(v.string()),
-    trigger: v.union([v.literal("manual"), v.literal("auto")]),
+    trigger: v.picklist(["manual", "auto"]),
   }),
 
   SessionStart: buildHookInputSchema("SessionStart", {
-    source: v.union([
-      v.literal("startup"),
-      v.literal("resume"),
-      v.literal("clear"),
-      v.literal("compact"),
-    ]),
+    source: v.picklist(["startup", "resume", "clear", "compact"]),
   }),
 
   SessionEnd: buildHookInputSchema("SessionEnd", {
-    reason: v.string(),
+    reason: v.picklist([
+      "clear",
+      "logout",
+      "prompt_input_exit",
+      "other",
+      "bypass_permissions_disabled",
+    ]),
   }),
 
   PermissionRequest: buildHookInputSchema("PermissionRequest", {

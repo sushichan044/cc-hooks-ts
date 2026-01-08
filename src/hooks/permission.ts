@@ -1,13 +1,13 @@
 import * as v from "valibot";
 
-const permissionBehaviorSchema = v.union([v.literal("allow"), v.literal("deny"), v.literal("ask")]);
+const permissionBehaviorSchema = v.picklist(["allow", "deny", "ask"]);
 
-const permissionUpdateDestinationSchema = v.union([
-  v.literal("userSettings"),
-  v.literal("projectSettings"),
-  v.literal("localSettings"),
-  v.literal("session"),
-  v.literal("cliArg"),
+const permissionUpdateDestinationSchema = v.picklist([
+  "userSettings",
+  "projectSettings",
+  "localSettings",
+  "session",
+  "cliArg",
 ]);
 
 const permissionRuleValueSchema = v.object({
@@ -39,13 +39,13 @@ export const permissionUpdateSchema = v.variant("type", [
   }),
   v.object({
     destination: permissionUpdateDestinationSchema,
-    mode: v.union([
-      v.literal("acceptEdits"),
-      v.literal("bypassPermissions"),
-      v.literal("default"),
-      v.literal("dontAsk"),
-      v.literal("delegate"),
-      v.literal("plan"),
+    mode: v.picklist([
+      "acceptEdits",
+      "bypassPermissions",
+      "default",
+      "dontAsk",
+      "delegate",
+      "plan",
     ]),
     type: v.literal("setMode"),
   }),
