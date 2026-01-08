@@ -107,7 +107,13 @@ export const HookInputSchemas = {
   }),
 
   SessionEnd: buildHookInputSchema("SessionEnd", {
-    reason: v.string(),
+    reason: v.union([
+      v.literal("clear"),
+      v.literal("logout"),
+      v.literal("prompt_input_exit"),
+      v.literal("other"),
+      v.literal("bypass_permissions_disabled"),
+    ]),
   }),
 
   PermissionRequest: buildHookInputSchema("PermissionRequest", {
