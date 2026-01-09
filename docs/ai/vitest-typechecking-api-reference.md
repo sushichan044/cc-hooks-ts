@@ -13,10 +13,10 @@ The `expectTypeOf` function provides a fluent, chainable interface for making as
 **Basic Usage:**
 
 ```typescript
-import { expectTypeOf } from 'vitest';
-import { someFunction } from './my-code';
+import { expectTypeOf } from "vitest";
+import { someFunction } from "./my-code";
 
-test('my types work correctly', () => {
+test("my types work correctly", () => {
   // Assert that a value is a specific type
   expectTypeOf(someFunction).toBeFunction();
 
@@ -44,11 +44,11 @@ The `assertType` function provides a simpler, more direct way to check types. It
 **Basic Usage:**
 
 ```typescript
-import { assertType } from 'vitest';
-import { createUser } from './user-service';
+import { assertType } from "vitest";
+import { createUser } from "./user-service";
 
-test('type assertions', () => {
-  const user = { name: 'test' };
+test("type assertions", () => {
+  const user = { name: "test" };
 
   // This passes because the type is correct.
   assertType<{ name: string }>(user);
