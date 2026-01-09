@@ -59,15 +59,15 @@ import { defineHook } from "cc-hooks-ts";
 const hook = defineHook({
   // Specify the event(s) that trigger this hook.
   trigger: {
-    SessionStart: true
+    SessionStart: true,
   },
   // Implement what you want to do.
   run: (context) => {
     // Do something great here
     return context.success({
-      messageForUser: "Welcome to your coding session!"
+      messageForUser: "Welcome to your coding session!",
     });
-  }
+  },
 });
 
 // import.meta.main is available in Node.js 24.2+ and Bun and Deno
@@ -111,12 +111,12 @@ const preReadHook = defineHook({
     // context.input.tool_input is typed as { file_path: string; limit?: number; offset?: number; }
     const { file_path } = context.input.tool_input;
 
-    if (file_path.includes('.env')) {
-      return context.blockingError('Cannot read environment files');
+    if (file_path.includes(".env")) {
+      return context.blockingError("Cannot read environment files");
     }
 
     return context.success();
-  }
+  },
 });
 
 if (import.meta.main) {
@@ -174,11 +174,11 @@ const deepWikiHook = defineHook({
     const { question, repoName } = context.input.tool_input;
 
     if (question.length > 500) {
-      return context.blockingError('Question is too long');
+      return context.blockingError("Question is too long");
     }
 
     return context.success();
-  }
+  },
 });
 ```
 
@@ -194,14 +194,14 @@ import { defineHook } from "cc-hooks-ts";
 
 const hook = defineHook({
   trigger: {
-    Notification: true
+    Notification: true,
   },
   // Only run this hook on macOS
   shouldRun: () => process.platform === "darwin",
   run: (context) => {
     // Some macOS-specific logic like sending a notification using AppleScript
-    return context.success()
-  }
+    return context.success();
+  },
 });
 ```
 
@@ -241,14 +241,14 @@ const hook = defineHook({
         return {
           event: "PostToolUse",
           output: {
-            systemMessage: "Read tool used successfully after async processing!"
-          }
+            systemMessage: "Read tool used successfully after async processing!",
+          },
         };
       },
       {
-        timeoutMs: 5000 // Optional timeout for the async operation.
-      }
-    )
+        timeoutMs: 5000, // Optional timeout for the async operation.
+      },
+    ),
 });
 ```
 
