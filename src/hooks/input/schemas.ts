@@ -99,6 +99,7 @@ export const HookInputSchemas = {
 
   SessionStart: buildHookInputSchema("SessionStart", {
     agent_type: v.exactOptional(v.string()),
+    model: v.exactOptional(v.string()),
     source: v.picklist(["startup", "resume", "clear", "compact"]),
   }),
 

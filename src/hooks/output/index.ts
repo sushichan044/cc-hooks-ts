@@ -133,6 +133,8 @@ interface PreToolUseHookOutput extends CommonHookOutputs {
     permissionDecisionReason?: string;
 
     updatedInput?: Record<string, unknown>;
+
+    additionalContext?: string;
   };
 }
 
