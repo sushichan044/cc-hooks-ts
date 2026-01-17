@@ -31,7 +31,6 @@ jobs:
     steps:
       - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
-          persist-credentials: false
           fetch-depth: 1
 
       - name: Setup Node.js and pnpm
@@ -43,7 +42,7 @@ jobs:
         with:
           branch_prefix: "claude-"
           claude_args: |
-            --allowed-tools Bash,Edit,Glob,Grep,LS,MultiEdit,Read,Task,TodoWrite,WebSearch,WebFetch,Write
+            --allowedTools Bash,Edit,Glob,Grep,LS,Read,Task,TodoWrite,WebSearch,WebFetch,Write
           use_commit_signing: "true"
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           trigger_phrase: "@claude"
@@ -55,7 +54,7 @@ jobs:
         with:
           branch_prefix: "claude-"
           claude_args: |
-            --allowed-tools Bash,Edit,Glob,Grep,LS,MultiEdit,Read,Task,TodoWrite,WebSearch,WebFetch,Write
+            --allowedTools Bash,Edit,Glob,Grep,LS,Read,Task,TodoWrite,WebSearch,WebFetch,Write
           prompt: ${{ inputs.prompt }}
           use_commit_signing: "true"
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
