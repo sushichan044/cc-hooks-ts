@@ -118,4 +118,8 @@ export const HookInputSchemas = {
     tool_input: v.unknown(),
     tool_name: v.string(),
   }),
+
+  Setup: buildHookInputSchema("Setup", {
+    trigger: v.picklist(["init", "maintenance"]),
+  }),
 } as const satisfies Record<SupportedHookEvent, ValibotSchemaLike>;

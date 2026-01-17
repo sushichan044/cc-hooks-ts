@@ -23,6 +23,8 @@ export type HookOutput = {
 
   PermissionRequest: PermissionRequestHookOutput;
 
+  Setup: SetupHookOutput;
+
   Notification: CommonHookOutputs;
   PreCompact: CommonHookOutputs;
   SessionEnd: CommonHookOutputs;
@@ -244,6 +246,17 @@ interface SessionStartHookOutput extends CommonHookOutputs {
 
     /**
      * Adds the string to the context.
+     */
+    additionalContext?: string;
+  };
+}
+
+interface SetupHookOutput extends CommonHookOutputs {
+  hookSpecificOutput?: {
+    hookEventName: "Setup";
+
+    /**
+     * Adds context for Claude to consider.
      */
     additionalContext?: string;
   };
