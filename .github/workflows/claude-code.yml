@@ -1,0 +1,61 @@
+name: Claude Code Action
+
+on:
+  workflow_call:
+    inputs:
+      prompt:
+        required: false
+        description: "Prompt to send to Claude. If not set, starts with interactive mode. (@claude mode)"
+        type: string
+    secrets:
+      CLAUDE_CODE_OAUTH_TOKEN:
+        required: true
+        description: "OAuth token for Claude Code GitHub App"
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+  id-token: write
+  actions: read # Required for Claude to read CI results on PRs
+
+jobs:
+  run-claude-code:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    env:
+      DISABLE_BUG_COMMAND: "1"
+      DISABLE_ERROR_REPORTING: "1"
+      DISABLE_TELEMETRY: "1"
+
+    steps:
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+
+      - name: Setup Node.js and pnpm
+        uses: ./.github/actions/setup-node-pnpm
+
+      - name: Start Claude Code with interactive mode
+        uses: anthropics/claude-code-action@v1
+        if: ${{ inputs.prompt == '' }}
+        with:
+          claude_args: |
+            --allowed-tools Bash,Edit,Glob,Grep,LS,MultiEdit,Read,Task,TodoWrite,WebSearch,WebFetch,Write
+          use_commit_signing: "true"
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          trigger_phrase: "@claude"
+          settings: .claude/settings.json
+
+      - name: Start Claude Code with automated mode
+        uses: anthropics/claude-code-action@v1
+        if: ${{ inputs.prompt != '' }}
+        with:
+          claude_args: |
+            --allowed-tools Bash,Edit,Glob,Grep,LS,MultiEdit,Read,Task,TodoWrite,WebSearch,WebFetch,Write
+          prompt: ${{ inputs.prompt }}
+          use_commit_signing: "true"
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          trigger_phrase: "@claude"
+          settings: .claude/settings.json
