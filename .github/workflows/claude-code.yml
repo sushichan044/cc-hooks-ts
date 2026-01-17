@@ -41,6 +41,7 @@ jobs:
         uses: anthropics/claude-code-action@v1
         if: ${{ inputs.prompt == '' }}
         with:
+          branch_prefix: "claude-"
           claude_args: |
             --allowed-tools Bash,Edit,Glob,Grep,LS,MultiEdit,Read,Task,TodoWrite,WebSearch,WebFetch,Write
           use_commit_signing: "true"
@@ -52,6 +53,7 @@ jobs:
         uses: anthropics/claude-code-action@v1
         if: ${{ inputs.prompt != '' }}
         with:
+          branch_prefix: "claude-"
           claude_args: |
             --allowed-tools Bash,Edit,Glob,Grep,LS,MultiEdit,Read,Task,TodoWrite,WebSearch,WebFetch,Write
           prompt: ${{ inputs.prompt }}
