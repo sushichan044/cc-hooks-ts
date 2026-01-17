@@ -15,4 +15,5 @@ export type SupportedHookEvent =
   | "SubagentStart"
   | "SubagentStop"
   | "PreCompact"
-  | "PermissionRequest";
+  | "PermissionRequest"
+  | "Setup";
