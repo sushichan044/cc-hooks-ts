@@ -41,22 +41,20 @@ jobs:
         if: ${{ inputs.prompt == '' }}
         with:
           branch_prefix: "claude-"
-          claude_args: |
-            --allowedTools Bash,Edit,Glob,Grep,LS,Read,Task,TodoWrite,WebSearch,WebFetch,Write
-          use_commit_signing: "true"
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          trigger_phrase: "@claude"
-          settings: .claude/settings.json
+          additional_permissions: |
+            actions: read
+          claude_args: |
+            --allowedTools WebSearch
 
       - name: Start Claude Code with automated mode
         uses: anthropics/claude-code-action@v1
         if: ${{ inputs.prompt != '' }}
         with:
           branch_prefix: "claude-"
-          claude_args: |
-            --allowedTools Bash,Edit,Glob,Grep,LS,Read,Task,TodoWrite,WebSearch,WebFetch,Write
           prompt: ${{ inputs.prompt }}
-          use_commit_signing: "true"
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          trigger_phrase: "@claude"
-          settings: .claude/settings.json
+          additional_permissions: |
+            actions: read
+          claude_args: |
+            --allowedTools WebSearch
