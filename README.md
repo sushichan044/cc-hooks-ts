@@ -98,6 +98,25 @@ Then, load defined hooks in your Claude Code settings at `~/.claude/settings.jso
 }
 ```
 
+If you are using native install, you can run hooks with Bun via `BUN_BE_BUN=1 claude`.
+
+```json
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "BUN_BE_BUN=1 claude run -i --silent path/to/your/sessionHook.ts"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
 ## Tool Specific Hooks
 
 In `PreToolUse`, `PostToolUse`, and `PostToolUseFailure` events, you can define hooks specific to tools by specifying tool names in the trigger configuration.
