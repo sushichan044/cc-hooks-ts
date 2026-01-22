@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@anthropic-ai/claude-agent-sdk':
-        specifier: 0.2.14
-        version: 0.2.14(zod@3.25.76)
+        specifier: 0.2.15
+        version: 0.2.15(zod@3.25.76)
       valibot:
         specifier: ^1.1.0
         version: 1.2.0(typescript@5.9.3)
@@ -101,8 +101,8 @@ packages:
   '@andrewbranch/untar.js@1.0.3':
     resolution: {integrity: sha512-Jh15/qVmrLGhkKJBdXlK1+9tY4lZruYjsgkDFj08ZmDiWVBLJcqkok7Z0/R0In+i1rScBpJlSvrTS2Lm41Pbnw==}
 
-  '@anthropic-ai/claude-agent-sdk@0.2.14':
-    resolution: {integrity: sha512-mkjWCT2N3IMMH27AWFm+PWBjreUbBrOnrXs2ffSoq3mZjRZFQk529z5ZYLzJa/NJzgpnyxWe7+cbQiN2h1BCag==}
+  '@anthropic-ai/claude-agent-sdk@0.2.15':
+    resolution: {integrity: sha512-KN3jrHR5tIcAfLbplK5xHqNyUS3XnG8DMnImGeVEv64Z8NxfxIWtJTxtuBRWjyYzo36PEhK4r2SkX97A2iG+ng==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       zod: ^4.0.0
@@ -3777,7 +3777,7 @@ snapshots:
 
   '@andrewbranch/untar.js@1.0.3': {}
 
-  '@anthropic-ai/claude-agent-sdk@0.2.14(zod@3.25.76)':
+  '@anthropic-ai/claude-agent-sdk@0.2.15(zod@3.25.76)':
     dependencies:
       zod: 3.25.76
     optionalDependencies:
