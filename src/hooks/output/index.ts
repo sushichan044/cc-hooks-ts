@@ -25,7 +25,8 @@ export type HookOutput = {
 
   Setup: SetupHookOutput;
 
-  Notification: CommonHookOutputs;
+  Notification: NotificationHookOutput;
+
   PreCompact: CommonHookOutputs;
   SessionEnd: CommonHookOutputs;
 };
@@ -196,6 +197,17 @@ interface UserPromptSubmitHookOutput extends CommonHookOutputs {
   };
 
   reason?: string;
+}
+
+interface NotificationHookOutput extends CommonHookOutputs {
+  hookSpecificOutput?: {
+    hookEventName: "Notification";
+
+    /**
+     * Adds the string to the context.
+     */
+    additionalContext?: string;
+  };
 }
 
 /**
