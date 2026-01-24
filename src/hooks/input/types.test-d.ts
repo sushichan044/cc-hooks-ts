@@ -191,7 +191,7 @@ describe("ExtractAllHookInputsForEvent", () => {
       | HookInput["PreToolUse"]["default"]
       // Tool-specific types of PreToolUse
       | HookInput["PreToolUse"]["Bash"]
-      | HookInput["PreToolUse"]["BashOutput"]
+      | HookInput["PreToolUse"]["TaskOutput"]
       | HookInput["PreToolUse"]["Edit"]
       | HookInput["PreToolUse"]["ExitPlanMode"]
       | HookInput["PreToolUse"]["Glob"]
@@ -215,7 +215,7 @@ describe("ExtractAllHookInputsForEvent", () => {
       | HookInput["PostToolUse"]["default"]
       // Tool-specific types of PostToolUse
       | HookInput["PostToolUse"]["Bash"]
-      | HookInput["PostToolUse"]["BashOutput"]
+      | HookInput["PostToolUse"]["TaskOutput"]
       | HookInput["PostToolUse"]["Edit"]
       | HookInput["PostToolUse"]["ExitPlanMode"]
       | HookInput["PostToolUse"]["Glob"]
@@ -239,7 +239,7 @@ describe("ExtractAllHookInputsForEvent", () => {
       | HookInput["PostToolUseFailure"]["default"]
       // Tool-specific types of PostToolUseFailure
       | HookInput["PostToolUseFailure"]["Bash"]
-      | HookInput["PostToolUseFailure"]["BashOutput"]
+      | HookInput["PostToolUseFailure"]["TaskOutput"]
       | HookInput["PostToolUseFailure"]["Edit"]
       | HookInput["PostToolUseFailure"]["ExitPlanMode"]
       | HookInput["PostToolUseFailure"]["Glob"]
