@@ -7,11 +7,11 @@ import type {
   FileWriteInput,
   GlobInput,
   GrepInput,
-  KillShellInput,
   ListMcpResourcesInput,
   NotebookEditInput,
   ReadMcpResourceInput,
   TaskOutputInput,
+  TaskStopInput,
   TodoWriteInput,
   WebFetchInput,
   WebSearchInput,
@@ -111,11 +111,6 @@ export interface ToolSchema {
     };
   };
 
-  KillBash: {
-    input: KillShellInput;
-    response: unknown;
-  };
-
   ListMcpResources: {
     input: ListMcpResourcesInput;
     response: unknown;
@@ -192,6 +187,11 @@ export interface ToolSchema {
         output_tokens: number;
       };
     };
+  };
+
+  TaskStop: {
+    input: TaskStopInput;
+    response: unknown;
   };
 
   TodoWrite: {
