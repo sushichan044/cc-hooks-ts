@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.1.19
+
+### &nbsp;&nbsp;&nbsp;Bug Fixes
+
+- Updated to parity with Claude Code v2.1.15 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/130 [<samp>(3cd77)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/3cd776c)
+- Updated to parity with Claude Code v2.1.19 &nbsp;-&nbsp; by **sushichan044** in https://github.com/sushichan044/cc-hooks-ts/issues/137 [<samp>(16df9)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/16df993)
+- Rename BashOutput to TaskOutput &nbsp;-&nbsp; by **sushichan044** [<samp>(c1c6c)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/c1c6c91)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sushichan044/cc-hooks-ts/compare/2.1.11...2.1.19)
+
 ## 2.1.11
 
 ### &nbsp;&nbsp;&nbsp;Bug Fixes
