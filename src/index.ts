@@ -62,11 +62,6 @@ export interface ToolSchema {
     };
   };
 
-  BashOutput: {
-    input: TaskOutputInput;
-    response: unknown;
-  };
-
   Edit: {
     input: FileEditInput;
     response: {
@@ -187,6 +182,11 @@ export interface ToolSchema {
         output_tokens: number;
       };
     };
+  };
+
+  TaskOutput: {
+    input: TaskOutputInput;
+    response: unknown;
   };
 
   TaskStop: {
