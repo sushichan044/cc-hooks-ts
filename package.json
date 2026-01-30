@@ -59,7 +59,7 @@
     "@virtual-live-lab/tsconfig": "2.1.21",
     "eslint": "9.39.2",
     "eslint-plugin-import-access": "3.1.0",
-    "oxfmt": "0.26.0",
+    "oxfmt": "0.27.0",
     "pkg-pr-new": "0.0.62",
     "publint": "0.3.17",
     "release-it": "19.2.4",
@@ -67,7 +67,7 @@
     "tsdown": "0.20.1",
     "type-fest": "5.4.1",
     "typescript": "5.9.3",
-    "typescript-eslint": "8.53.1",
+    "typescript-eslint": "8.54.0",
     "unplugin-unused": "0.5.7",
     "vitest": "4.0.18"
   },
