@@ -89,6 +89,7 @@ export const HookInputSchemas = {
   SubagentStop: buildHookInputSchema("SubagentStop", {
     agent_id: v.string(),
     agent_transcript_path: v.string(),
+    agent_type: v.string(),
     stop_hook_active: v.boolean(),
   }),
 
