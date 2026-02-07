@@ -29,6 +29,8 @@ export type HookOutput = {
 
   PreCompact: CommonHookOutputs;
   SessionEnd: CommonHookOutputs;
+  TaskCompleted: CommonHookOutputs;
+  TeammateIdle: CommonHookOutputs;
 };
 
 // Internal type checker.

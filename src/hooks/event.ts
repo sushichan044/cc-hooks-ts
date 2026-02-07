@@ -16,4 +16,6 @@ export type SupportedHookEvent =
   | "SubagentStop"
   | "PreCompact"
   | "PermissionRequest"
-  | "Setup";
+  | "Setup"
+  | "TeammateIdle"
+  | "TaskCompleted";

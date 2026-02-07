@@ -123,4 +123,17 @@ export const HookInputSchemas = {
   Setup: buildHookInputSchema("Setup", {
     trigger: v.picklist(["init", "maintenance"]),
   }),
+
+  TeammateIdle: buildHookInputSchema("TeammateIdle", {
+    team_name: v.string(),
+    teammate_name: v.string(),
+  }),
+
+  TaskCompleted: buildHookInputSchema("TaskCompleted", {
+    task_description: v.exactOptional(v.string()),
+    task_id: v.string(),
+    task_subject: v.string(),
+    team_name: v.exactOptional(v.string()),
+    teammate_name: v.exactOptional(v.string()),
+  }),
 } as const satisfies Record<SupportedHookEvent, ValibotSchemaLike>;
