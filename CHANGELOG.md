@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.1.34
+
+### &nbsp;&nbsp;&nbsp;Bug Fixes
+
+- Updated to parity with Claude Code v2.1.34 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/158 [<samp>(aac7c)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/aac7c03)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sushichan044/cc-hooks-ts/compare/2.1.27...2.1.34)
+
 ## 2.1.27
 
 ### &nbsp;&nbsp;&nbsp;Bug Fixes
