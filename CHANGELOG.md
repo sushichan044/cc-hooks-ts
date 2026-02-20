@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.1.47
+
+*No significant changes*
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sushichan044/cc-hooks-ts/compare/2.1.34...2.1.47)
+
 ## 2.1.34
 
 ### &nbsp;&nbsp;&nbsp;Bug Fixes
