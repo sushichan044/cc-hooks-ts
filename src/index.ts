@@ -1,20 +1,37 @@
 import type {
   AgentInput,
+  AgentOutput,
+  AskUserQuestionInput,
+  AskUserQuestionOutput,
   BashInput,
+  BashOutput,
   ExitPlanModeInput,
+  ExitPlanModeOutput,
   FileEditInput,
+  FileEditOutput,
   FileReadInput,
+  FileReadOutput,
   FileWriteInput,
+  FileWriteOutput,
   GlobInput,
+  GlobOutput,
   GrepInput,
+  GrepOutput,
   ListMcpResourcesInput,
+  ListMcpResourcesOutput,
   NotebookEditInput,
+  NotebookEditOutput,
   ReadMcpResourceInput,
+  ReadMcpResourceOutput,
   TaskOutputInput,
   TaskStopInput,
+  TaskStopOutput,
   TodoWriteInput,
+  TodoWriteOutput,
   WebFetchInput,
+  WebFetchOutput,
   WebSearchInput,
+  WebSearchOutput,
 } from "@anthropic-ai/claude-agent-sdk/sdk-tools";
 
 /**
@@ -52,136 +69,59 @@ import type {
  * ```
  */
 export interface ToolSchema {
+  AskUserQuestion: {
+    input: AskUserQuestionInput;
+    response: AskUserQuestionOutput;
+  };
+
   Bash: {
     input: BashInput;
-    response: {
-      interrupted: boolean;
-      isImage: boolean;
-      stderr: string;
-      stdout: string;
-    };
+    response: BashOutput;
   };
 
   Edit: {
     input: FileEditInput;
-    response: {
-      filePath: string;
-      newString: string;
-      oldString: string;
-      originalFile: string;
-      replaceAll: boolean;
-      structuredPatch: Array<{
-        lines: string[];
-        newLines: number;
-        newStart: number;
-        oldLines: number;
-        oldStart: number;
-      }>;
-      userModified: boolean;
-    };
+    response: FileEditOutput;
   };
 
   ExitPlanMode: {
     input: ExitPlanModeInput;
-    response: unknown;
+    response: ExitPlanModeOutput;
   };
 
   Glob: {
     input: GlobInput;
-    response: {
-      durationMs: number;
-      filenames: string[];
-      numFiles: number;
-      truncated: boolean;
-    };
+    response: GlobOutput;
   };
 
   Grep: {
     input: GrepInput;
-    response: {
-      content: string;
-      mode: "content" | "count" | "files_with_matches";
-      numFiles: number;
-      numLines: number;
-    };
+    response: GrepOutput;
   };
 
   ListMcpResources: {
     input: ListMcpResourcesInput;
-    response: unknown;
+    response: ListMcpResourcesOutput;
   };
 
   NotebookEdit: {
     input: NotebookEditInput;
-    response: {
-      cell_type: "code" | "markdown";
-      edit_mode: "delete" | "insert" | "replace";
-      error: string;
-      language: string;
-      new_source: string;
-    };
+    response: NotebookEditOutput;
   };
 
   Read: {
     input: FileReadInput;
-    response:
-      | {
-          file: {
-            cells: Array<
-              | {
-                  cell_id: string;
-                  cellType: "code";
-                  language: string;
-                  source: string;
-                }
-              | {
-                  cell_id: string;
-                  cellType: "markdown";
-                  source: string;
-                }
-            >;
-            filePath: string;
-          };
-          type: "notebook";
-        }
-      | {
-          file: {
-            content: string;
-            filePath: string;
-            numLines: number;
-            startLine: number;
-            totalLines: number;
-          };
-          type: "text";
-        };
+    response: FileReadOutput;
   };
 
   ReadMcpResource: {
     input: ReadMcpResourceInput;
-    response: unknown;
+    response: ReadMcpResourceOutput;
   };
 
   Task: {
     input: AgentInput;
-    response: {
-      content: Array<{
-        text: string;
-        type: "text";
-      }>;
-      totalDurationMs: number;
-      totalTokens: number;
-      totalToolUseCount: number;
-      usage: {
-        cache_creation: {
-          ephemeral_1h_input_tokens: number;
-          ephemeral_5m_input_tokens: number;
-        };
-        cache_creation_input_tokens: number;
-        cache_read_input_tokens: number;
-        input_tokens: number;
-        output_tokens: number;
-      };
-    };
+    response: AgentOutput;
   };
 
   TaskOutput: {
@@ -191,39 +131,27 @@ export interface ToolSchema {
 
   TaskStop: {
     input: TaskStopInput;
-    response: unknown;
+    response: TaskStopOutput;
   };
 
   TodoWrite: {
     input: TodoWriteInput;
-    response: unknown;
+    response: TodoWriteOutput;
   };
 
   WebFetch: {
     input: WebFetchInput;
-    response: {
-      bytes: number;
-      code: number;
-      codeText: string;
-      durationMs: number;
-      result: string;
-      url: string;
-    };
+    response: WebFetchOutput;
   };
 
   WebSearch: {
     input: WebSearchInput;
-    response: unknown;
+    response: WebSearchOutput;
   };
 
   Write: {
     input: FileWriteInput;
-    response: {
-      content: string;
-      filePath: string;
-      structuredPatch: unknown[];
-      type: "create";
-    };
+    response: FileWriteOutput;
   };
 }
 
