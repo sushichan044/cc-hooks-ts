@@ -190,6 +190,7 @@ describe("ExtractAllHookInputsForEvent", () => {
       // fallback type of PreToolUse
       | HookInput["PreToolUse"]["default"]
       // Tool-specific types of PreToolUse
+      | HookInput["PreToolUse"]["AskUserQuestion"]
       | HookInput["PreToolUse"]["Bash"]
       | HookInput["PreToolUse"]["TaskOutput"]
       | HookInput["PreToolUse"]["Edit"]
@@ -214,6 +215,7 @@ describe("ExtractAllHookInputsForEvent", () => {
       // fallback type of PostToolUse
       | HookInput["PostToolUse"]["default"]
       // Tool-specific types of PostToolUse
+      | HookInput["PostToolUse"]["AskUserQuestion"]
       | HookInput["PostToolUse"]["Bash"]
       | HookInput["PostToolUse"]["TaskOutput"]
       | HookInput["PostToolUse"]["Edit"]
@@ -238,6 +240,7 @@ describe("ExtractAllHookInputsForEvent", () => {
       // fallback type of PostToolUseFailure
       | HookInput["PostToolUseFailure"]["default"]
       // Tool-specific types of PostToolUseFailure
+      | HookInput["PostToolUseFailure"]["AskUserQuestion"]
       | HookInput["PostToolUseFailure"]["Bash"]
       | HookInput["PostToolUseFailure"]["TaskOutput"]
       | HookInput["PostToolUseFailure"]["Edit"]
