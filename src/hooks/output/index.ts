@@ -27,6 +27,7 @@ export type HookOutput = {
 
   Notification: NotificationHookOutput;
 
+  ConfigChange: CommonHookOutputs;
   PreCompact: CommonHookOutputs;
   SessionEnd: CommonHookOutputs;
   TaskCompleted: CommonHookOutputs;
