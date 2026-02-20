@@ -78,6 +78,7 @@ export const HookInputSchemas = {
   }),
 
   Stop: buildHookInputSchema("Stop", {
+    last_assistant_message: v.exactOptional(v.string()),
     stop_hook_active: v.boolean(),
   }),
 
@@ -90,6 +91,7 @@ export const HookInputSchemas = {
     agent_id: v.string(),
     agent_transcript_path: v.string(),
     agent_type: v.string(),
+    last_assistant_message: v.exactOptional(v.string()),
     stop_hook_active: v.boolean(),
   }),
 
