@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.1.49
+
+### &nbsp;&nbsp;&nbsp;Features
+
+- Type tool responses with upstream types &nbsp;-&nbsp; by **Kentaro Suzuki** in https://github.com/sushichan044/cc-hooks-ts/issues/176 [<samp>(971f8)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/971f84a)
+
+### &nbsp;&nbsp;&nbsp;Bug Fixes
+
+- Updated to parity with Claude Code v2.1.49 &nbsp;-&nbsp; by **Kentaro Suzuki** in https://github.com/sushichan044/cc-hooks-ts/issues/175 [<samp>(e09eb)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/e09eb2d)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sushichan044/cc-hooks-ts/compare/2.1.47...2.1.49)
+
 ## 2.1.47
 
 *No significant changes*

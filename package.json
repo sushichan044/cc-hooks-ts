@@ -1,6 +1,6 @@
 {
   "name": "cc-hooks-ts",
-  "version": "2.1.47",
+  "version": "2.1.49",
   "type": "module",
   "description": "Write claude code hooks with type safety",
   "sideEffects": false,
