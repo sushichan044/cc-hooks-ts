@@ -138,4 +138,15 @@ export const HookInputSchemas = {
     team_name: v.exactOptional(v.string()),
     teammate_name: v.exactOptional(v.string()),
   }),
+
+  ConfigChange: buildHookInputSchema("ConfigChange", {
+    file_path: v.exactOptional(v.string()),
+    source: v.picklist([
+      "local_settings",
+      "policy_settings",
+      "project_settings",
+      "skills",
+      "user_settings",
+    ]),
+  }),
 } as const satisfies Record<SupportedHookEvent, ValibotSchemaLike>;

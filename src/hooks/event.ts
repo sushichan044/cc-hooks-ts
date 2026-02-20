@@ -18,4 +18,5 @@ export type SupportedHookEvent =
   | "PermissionRequest"
   | "Setup"
   | "TeammateIdle"
-  | "TaskCompleted";
+  | "TaskCompleted"
+  | "ConfigChange";
