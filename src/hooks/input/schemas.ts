@@ -149,4 +149,12 @@ export const HookInputSchemas = {
       "user_settings",
     ]),
   }),
+
+  WorktreeCreate: buildHookInputSchema("WorktreeCreate", {
+    name: v.string(),
+  }),
+
+  WorktreeRemove: buildHookInputSchema("WorktreeRemove", {
+    worktree_path: v.string(),
+  }),
 } as const satisfies Record<SupportedHookEvent, ValibotSchemaLike>;
