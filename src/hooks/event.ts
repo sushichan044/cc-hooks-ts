@@ -19,4 +19,6 @@ export type SupportedHookEvent =
   | "Setup"
   | "TeammateIdle"
   | "TaskCompleted"
-  | "ConfigChange";
+  | "ConfigChange"
+  | "WorktreeCreate"
+  | "WorktreeRemove";

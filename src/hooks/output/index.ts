@@ -32,6 +32,8 @@ export type HookOutput = {
   SessionEnd: CommonHookOutputs;
   TaskCompleted: CommonHookOutputs;
   TeammateIdle: CommonHookOutputs;
+  WorktreeCreate: CommonHookOutputs;
+  WorktreeRemove: CommonHookOutputs;
 };
 
 // Internal type checker.
