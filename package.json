@@ -32,7 +32,9 @@
     "type-safety",
     "anthropic"
   ],
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.mts",
@@ -73,6 +75,7 @@
   },
   "dependencies": {
     "@anthropic-ai/claude-agent-sdk": "0.2.50",
+    "get-stdin": "10.0.0",
     "valibot": "^1.1.0"
   }
 }

@@ -1,6 +1,6 @@
 import type { AsyncHookJSONOutput } from "@anthropic-ai/claude-agent-sdk";
 
-import { readFileSync } from "node:fs";
+import getStdin from "get-stdin";
 import process from "node:process";
 import * as v from "valibot";
 
@@ -76,10 +76,10 @@ export async function runHook<THookTrigger extends HookTrigger = HookTrigger>(
       });
     }
 
-    const inputSchema = extractInputSchemaFromTrigger(trigger);
+    const stdin = await getStdin();
 
-    const rawInput = readFileSync(process.stdin.fd, "utf-8");
-    const parsed = v.parse(inputSchema, JSON.parse(rawInput));
+    const inputSchema = extractInputSchemaFromTrigger(trigger);
+    const parsed = v.parse(inputSchema, JSON.parse(stdin));
     eventName = parsed.hook_event_name;
 
     const context = createContext(parsed as ExtractTriggeredHookInput<THookTrigger>);
