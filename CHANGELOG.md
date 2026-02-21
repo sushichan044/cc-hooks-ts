@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.1.50
+
+### &nbsp;&nbsp;&nbsp;Bug Fixes
+
+- Updated to parity with Claude Code v2.1.50 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/177 [<samp>(198d8)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/198d80a)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sushichan044/cc-hooks-ts/compare/2.1.49...2.1.50)
+
 ## 2.1.49
 
 ### &nbsp;&nbsp;&nbsp;Features
