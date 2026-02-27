@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@anthropic-ai/claude-agent-sdk':
-        specifier: 0.2.58
-        version: 0.2.58(zod@3.25.76)
+        specifier: 0.2.61
+        version: 0.2.61(zod@3.25.76)
       get-stdin:
         specifier: 10.0.0
         version: 10.0.0
@@ -104,8 +104,8 @@ packages:
   '@andrewbranch/untar.js@1.0.3':
     resolution: {integrity: sha512-Jh15/qVmrLGhkKJBdXlK1+9tY4lZruYjsgkDFj08ZmDiWVBLJcqkok7Z0/R0In+i1rScBpJlSvrTS2Lm41Pbnw==}
 
-  '@anthropic-ai/claude-agent-sdk@0.2.58':
-    resolution: {integrity: sha512-IMAB4uCEG9bOVuCFTMsBauBpWK6npP9rcrAeqJ+mJP/i8rBhlTbWw/WYb0oVGUEEyrDUtzkzQJMiGvE80wBqtQ==}
+  '@anthropic-ai/claude-agent-sdk@0.2.61':
+    resolution: {integrity: sha512-cFVHPzmOgmUs5IWkXPoAiJBLkuJW/qLGb7NH0llxUF1WEUlEieJYJp+bg8HSdxsdiTM9vuRIkEWfGb0VJ7ZgOg==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       zod: ^4.0.0
@@ -1562,6 +1562,7 @@ packages:
   basic-ftp@5.1.0:
     resolution: {integrity: sha512-RkaJzeJKDbaDWTIPiJwubyljaEPwpVWkm9Rt5h9Nd6h7tEXTJ3VB4qxdZBioV7JO5yLUaOKwz7vDOzlncUsegw==}
     engines: {node: '>=10.0.0'}
+    deprecated: Security vulnerability fixed in 5.2.0, please upgrade
 
   before-after-hook@2.2.3:
     resolution: {integrity: sha512-NzUnlZexiaH/46WDhANlyR2bXRopNg4F/zuSA3OpZnllCUgRaOF2znDioDWrmbNVsuZk6l9pMquQB38cfBZwkQ==}
@@ -3766,7 +3767,7 @@ snapshots:
 
   '@andrewbranch/untar.js@1.0.3': {}
 
-  '@anthropic-ai/claude-agent-sdk@0.2.58(zod@3.25.76)':
+  '@anthropic-ai/claude-agent-sdk@0.2.61(zod@3.25.76)':
     dependencies:
       zod: 3.25.76
     optionalDependencies:
