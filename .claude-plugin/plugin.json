@@ -1,0 +1,19 @@
+{
+  "name": "cc-hooks-ts",
+  "description": "Type-safe Claude Code hooks library. Provides TypeScript definitions and runtime validation for defining Claude Code hooks.",
+  "version": "1.0.0",
+  "author": {
+    "name": "sushichan044",
+    "url": "https://github.com/sushichan044"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sushichan044/cc-hooks-ts"
+  },
+  "keywords": [
+    "claude-code",
+    "hooks",
+    "typescript",
+    "type-safety"
+  ]
+}
