@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@anthropic-ai/claude-agent-sdk':
-        specifier: 0.2.61
-        version: 0.2.61(zod@3.25.76)
+        specifier: 0.2.62
+        version: 0.2.62(zod@3.25.76)
       get-stdin:
         specifier: 10.0.0
         version: 10.0.0
@@ -104,8 +104,8 @@ packages:
   '@andrewbranch/untar.js@1.0.3':
     resolution: {integrity: sha512-Jh15/qVmrLGhkKJBdXlK1+9tY4lZruYjsgkDFj08ZmDiWVBLJcqkok7Z0/R0In+i1rScBpJlSvrTS2Lm41Pbnw==}
 
-  '@anthropic-ai/claude-agent-sdk@0.2.61':
-    resolution: {integrity: sha512-cFVHPzmOgmUs5IWkXPoAiJBLkuJW/qLGb7NH0llxUF1WEUlEieJYJp+bg8HSdxsdiTM9vuRIkEWfGb0VJ7ZgOg==}
+  '@anthropic-ai/claude-agent-sdk@0.2.62':
+    resolution: {integrity: sha512-exRJ2djKP6erRpUrtnVf5iXzqeS9dAie9d1ghODZVVXdLqieSqCpaAhZhe0hL1yvP33OL0J5CgT9RAyPzhYY9A==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       zod: ^4.0.0
@@ -3767,7 +3767,7 @@ snapshots:
 
   '@andrewbranch/untar.js@1.0.3': {}
 
-  '@anthropic-ai/claude-agent-sdk@0.2.61(zod@3.25.76)':
+  '@anthropic-ai/claude-agent-sdk@0.2.62(zod@3.25.76)':
     dependencies:
       zod: 3.25.76
     optionalDependencies:
