@@ -27,6 +27,9 @@ export type HookOutput = {
 
   Notification: NotificationHookOutput;
 
+  Elicitation: ElicitationHookOutput;
+  ElicitationResult: ElicitationResultHookOutput;
+
   ConfigChange: CommonHookOutputs;
   PreCompact: CommonHookOutputs;
   SessionEnd: CommonHookOutputs;
@@ -302,5 +305,21 @@ interface PermissionRequestHookOutput extends CommonHookOutputs {
           interrupt?: boolean;
           message?: string;
         };
+  };
+}
+
+interface ElicitationHookOutput extends CommonHookOutputs {
+  hookSpecificOutput?: {
+    action?: "accept" | "decline" | "cancel";
+    content?: Record<string, unknown>;
+    hookEventName: "Elicitation";
+  };
+}
+
+interface ElicitationResultHookOutput extends CommonHookOutputs {
+  hookSpecificOutput?: {
+    action?: "accept" | "decline" | "cancel";
+    content?: Record<string, unknown>;
+    hookEventName: "ElicitationResult";
   };
 }
