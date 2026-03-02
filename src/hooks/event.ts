@@ -21,4 +21,6 @@ export type SupportedHookEvent =
   | "TaskCompleted"
   | "ConfigChange"
   | "WorktreeCreate"
-  | "WorktreeRemove";
+  | "WorktreeRemove"
+  | "Elicitation"
+  | "ElicitationResult";
