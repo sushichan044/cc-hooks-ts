@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.1.63
+
+### &nbsp;&nbsp;&nbsp;Bug Fixes
+
+- Updated to parity with Claude Code v2.1.63 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/182 [<samp>(f2bbc)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/f2bbcbe)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sushichan044/cc-hooks-ts/compare/2.1.50...2.1.63)
+
 ## 2.1.50
 
 ### &nbsp;&nbsp;&nbsp;Bug Fixes
