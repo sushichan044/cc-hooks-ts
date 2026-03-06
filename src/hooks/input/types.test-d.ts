@@ -30,6 +30,8 @@ describe("HookInputs", () => {
   describe("PreToolUse", () => {
     it("should handle normal case", () => {
       expectTypeOf<HookInput["PreToolUse"]["default"]>().toEqualTypeOf<{
+        agent_id?: string;
+        agent_type?: string;
         cwd: string;
         hook_event_name: "PreToolUse";
         permission_mode?: string;
@@ -55,6 +57,8 @@ describe("HookInputs", () => {
   describe("PostToolUse", () => {
     it("should handle normal case", () => {
       expectTypeOf<HookInput["PostToolUse"]["default"]>().toEqualTypeOf<{
+        agent_id?: string;
+        agent_type?: string;
         cwd: string;
         hook_event_name: "PostToolUse";
         permission_mode?: string;
@@ -85,6 +89,8 @@ describe("HookInputs", () => {
   describe("PostToolUseFailure", () => {
     it("should handle normal case", () => {
       expectTypeOf<HookInput["PostToolUseFailure"]["default"]>().toEqualTypeOf<{
+        agent_id?: string;
+        agent_type?: string;
         cwd: string;
         error: string;
         hook_event_name: "PostToolUseFailure";

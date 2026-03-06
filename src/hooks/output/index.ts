@@ -31,6 +31,7 @@ export type HookOutput = {
   ElicitationResult: ElicitationResultHookOutput;
 
   ConfigChange: CommonHookOutputs;
+  InstructionsLoaded: CommonHookOutputs;
   PreCompact: CommonHookOutputs;
   SessionEnd: CommonHookOutputs;
   TaskCompleted: CommonHookOutputs;
