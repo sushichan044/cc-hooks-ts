@@ -5,11 +5,6 @@
     "moduleResolution": "bundler",
     "types": ["node"],
     "erasableSyntaxOnly": true,
-    "paths": {
-      "@anthropic-ai/claude-agent-sdk/sdk-tools": [
-        "./node_modules/@anthropic-ai/claude-agent-sdk/sdk-tools.d.ts"
-      ]
-    },
     "plugins": [
       {
         "name": "eslint-plugin-import-access"
