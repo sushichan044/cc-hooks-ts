@@ -7,6 +7,8 @@ import type {
   BashOutput,
   ExitPlanModeInput,
   ExitPlanModeOutput,
+  ExitWorktreeInput,
+  ExitWorktreeOutput,
   FileEditInput,
   FileEditOutput,
   FileReadInput,
@@ -87,6 +89,11 @@ export interface ToolSchema {
   ExitPlanMode: {
     input: ExitPlanModeInput;
     response: ExitPlanModeOutput;
+  };
+
+  ExitWorktree: {
+    input: ExitWorktreeInput;
+    response: ExitWorktreeOutput;
   };
 
   Glob: {

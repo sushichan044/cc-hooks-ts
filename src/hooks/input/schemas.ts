@@ -7,6 +7,8 @@ import type { SupportedHookEvent } from "../event";
 import { permissionUpdateSchema } from "../permission";
 
 const baseHookInputSchema = v.object({
+  agent_id: v.exactOptional(v.string()),
+  agent_type: v.exactOptional(v.string()),
   cwd: v.string(),
   permission_mode: v.exactOptional(v.string()),
   session_id: v.string(),
@@ -21,6 +23,20 @@ function buildHookInputSchema<TName extends string, TEntries extends v.ObjectEnt
     ...baseHookInputSchema.entries,
     hook_event_name: v.literal(hook_event_name),
     ...entries,
+  });
+}
+
+function buildSubagentInputSchema<TName extends string, TEntries extends v.ObjectEntries>(
+  hook_event_name: TName,
+  entries: TEntries,
+) {
+  const base = buildHookInputSchema(hook_event_name, entries);
+
+  return v.object({
+    ...v.omit(base, ["agent_id", "agent_type"]).entries,
+    // agent_id and agent_type are required for subagent hooks
+    agent_id: v.string(),
+    agent_type: v.string(),
   });
 }
 
@@ -82,15 +98,10 @@ export const HookInputSchemas = {
     stop_hook_active: v.boolean(),
   }),
 
-  SubagentStart: buildHookInputSchema("SubagentStart", {
-    agent_id: v.string(),
-    agent_type: v.string(),
-  }),
+  SubagentStart: buildSubagentInputSchema("SubagentStart", {}),
 
-  SubagentStop: buildHookInputSchema("SubagentStop", {
-    agent_id: v.string(),
+  SubagentStop: buildSubagentInputSchema("SubagentStop", {
     agent_transcript_path: v.string(),
-    agent_type: v.string(),
     last_assistant_message: v.exactOptional(v.string()),
     stop_hook_active: v.boolean(),
   }),
@@ -173,5 +184,14 @@ export const HookInputSchemas = {
     elicitation_id: v.exactOptional(v.string()),
     mcp_server_name: v.string(),
     mode: v.exactOptional(v.picklist(["form", "url"])),
+  }),
+
+  InstructionsLoaded: buildHookInputSchema("InstructionsLoaded", {
+    file_path: v.string(),
+    globs: v.exactOptional(v.array(v.string())),
+    load_reason: v.picklist(["session_start", "nested_traversal", "path_glob_match", "include"]),
+    memory_type: v.picklist(["User", "Project", "Local", "Managed"]),
+    parent_file_path: v.exactOptional(v.string()),
+    trigger_file_path: v.exactOptional(v.string()),
   }),
 } as const satisfies Record<SupportedHookEvent, ValibotSchemaLike>;
