@@ -30,6 +30,8 @@ describe("HookInputs", () => {
   describe("PreToolUse", () => {
     it("should handle normal case", () => {
       expectTypeOf<HookInput["PreToolUse"]["default"]>().toEqualTypeOf<{
+        agent_id?: string;
+        agent_type?: string;
         cwd: string;
         hook_event_name: "PreToolUse";
         permission_mode?: string;
@@ -55,6 +57,8 @@ describe("HookInputs", () => {
   describe("PostToolUse", () => {
     it("should handle normal case", () => {
       expectTypeOf<HookInput["PostToolUse"]["default"]>().toEqualTypeOf<{
+        agent_id?: string;
+        agent_type?: string;
         cwd: string;
         hook_event_name: "PostToolUse";
         permission_mode?: string;
@@ -85,6 +89,8 @@ describe("HookInputs", () => {
   describe("PostToolUseFailure", () => {
     it("should handle normal case", () => {
       expectTypeOf<HookInput["PostToolUseFailure"]["default"]>().toEqualTypeOf<{
+        agent_id?: string;
+        agent_type?: string;
         cwd: string;
         error: string;
         hook_event_name: "PostToolUseFailure";
@@ -195,6 +201,7 @@ describe("ExtractAllHookInputsForEvent", () => {
       | HookInput["PreToolUse"]["TaskOutput"]
       | HookInput["PreToolUse"]["Edit"]
       | HookInput["PreToolUse"]["ExitPlanMode"]
+      | HookInput["PreToolUse"]["ExitWorktree"]
       | HookInput["PreToolUse"]["Glob"]
       | HookInput["PreToolUse"]["Grep"]
       | HookInput["PreToolUse"]["TaskStop"]
@@ -220,6 +227,7 @@ describe("ExtractAllHookInputsForEvent", () => {
       | HookInput["PostToolUse"]["TaskOutput"]
       | HookInput["PostToolUse"]["Edit"]
       | HookInput["PostToolUse"]["ExitPlanMode"]
+      | HookInput["PostToolUse"]["ExitWorktree"]
       | HookInput["PostToolUse"]["Glob"]
       | HookInput["PostToolUse"]["Grep"]
       | HookInput["PostToolUse"]["TaskStop"]
@@ -245,6 +253,7 @@ describe("ExtractAllHookInputsForEvent", () => {
       | HookInput["PostToolUseFailure"]["TaskOutput"]
       | HookInput["PostToolUseFailure"]["Edit"]
       | HookInput["PostToolUseFailure"]["ExitPlanMode"]
+      | HookInput["PostToolUseFailure"]["ExitWorktree"]
       | HookInput["PostToolUseFailure"]["Glob"]
       | HookInput["PostToolUseFailure"]["Grep"]
       | HookInput["PostToolUseFailure"]["TaskStop"]
