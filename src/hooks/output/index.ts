@@ -32,6 +32,7 @@ export type HookOutput = {
 
   ConfigChange: CommonHookOutputs;
   InstructionsLoaded: CommonHookOutputs;
+  PostCompact: CommonHookOutputs;
   PreCompact: CommonHookOutputs;
   SessionEnd: CommonHookOutputs;
   TaskCompleted: CommonHookOutputs;
