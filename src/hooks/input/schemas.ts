@@ -111,6 +111,11 @@ export const HookInputSchemas = {
     trigger: v.picklist(["manual", "auto"]),
   }),
 
+  PostCompact: buildHookInputSchema("PostCompact", {
+    compact_summary: v.string(),
+    trigger: v.picklist(["manual", "auto"]),
+  }),
+
   SessionStart: buildHookInputSchema("SessionStart", {
     agent_type: v.exactOptional(v.string()),
     model: v.exactOptional(v.string()),
