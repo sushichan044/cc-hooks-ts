@@ -5,6 +5,10 @@ import type {
   AskUserQuestionOutput,
   BashInput,
   BashOutput,
+  ConfigInput,
+  ConfigOutput,
+  EnterWorktreeInput,
+  EnterWorktreeOutput,
   ExitPlanModeInput,
   ExitPlanModeOutput,
   ExitWorktreeInput,
@@ -21,15 +25,25 @@ import type {
   GrepOutput,
   ListMcpResourcesInput,
   ListMcpResourcesOutput,
+  McpInput,
+  McpOutput,
   NotebookEditInput,
   NotebookEditOutput,
   ReadMcpResourceInput,
   ReadMcpResourceOutput,
+  SubscribeMcpResourceInput,
+  SubscribeMcpResourceOutput,
+  SubscribePollingInput,
+  SubscribePollingOutput,
   TaskOutputInput,
   TaskStopInput,
   TaskStopOutput,
   TodoWriteInput,
   TodoWriteOutput,
+  UnsubscribeMcpResourceInput,
+  UnsubscribeMcpResourceOutput,
+  UnsubscribePollingInput,
+  UnsubscribePollingOutput,
   WebFetchInput,
   WebFetchOutput,
   WebSearchInput,
@@ -81,9 +95,19 @@ export interface ToolSchema {
     response: BashOutput;
   };
 
+  Config: {
+    input: ConfigInput;
+    response: ConfigOutput;
+  };
+
   Edit: {
     input: FileEditInput;
     response: FileEditOutput;
+  };
+
+  EnterWorktree: {
+    input: EnterWorktreeInput;
+    response: EnterWorktreeOutput;
   };
 
   ExitPlanMode: {
@@ -111,6 +135,11 @@ export interface ToolSchema {
     response: ListMcpResourcesOutput;
   };
 
+  Mcp: {
+    input: McpInput;
+    response: McpOutput;
+  };
+
   NotebookEdit: {
     input: NotebookEditInput;
     response: NotebookEditOutput;
@@ -124,6 +153,16 @@ export interface ToolSchema {
   ReadMcpResource: {
     input: ReadMcpResourceInput;
     response: ReadMcpResourceOutput;
+  };
+
+  SubscribeMcpResource: {
+    input: SubscribeMcpResourceInput;
+    response: SubscribeMcpResourceOutput;
+  };
+
+  SubscribePolling: {
+    input: SubscribePollingInput;
+    response: SubscribePollingOutput;
   };
 
   Task: {
@@ -144,6 +183,16 @@ export interface ToolSchema {
   TodoWrite: {
     input: TodoWriteInput;
     response: TodoWriteOutput;
+  };
+
+  UnsubscribeMcpResource: {
+    input: UnsubscribeMcpResourceInput;
+    response: UnsubscribeMcpResourceOutput;
+  };
+
+  UnsubscribePolling: {
+    input: UnsubscribePollingInput;
+    response: UnsubscribePollingOutput;
   };
 
   WebFetch: {
