@@ -55,14 +55,14 @@
   "packageManager": "pnpm@10.28.2",
   "devDependencies": {
     "@arethetypeswrong/core": "0.18.2",
-    "@types/node": "25.4.0",
+    "@types/node": "25.5.0",
     "@typescript/native-preview": "7.0.0-dev.20260311.1",
     "@virtual-live-lab/eslint-config": "2.3.1",
     "@virtual-live-lab/tsconfig": "2.1.21",
     "eslint": "9.39.2",
     "eslint-plugin-import-access": "3.1.0",
     "oxfmt": "0.28.0",
-    "pkg-pr-new": "0.0.65",
+    "pkg-pr-new": "0.0.66",
     "publint": "0.3.18",
     "release-it": "19.2.4",
     "release-it-pnpm": "4.6.6",
@@ -71,7 +71,7 @@
     "typescript": "5.9.3",
     "typescript-eslint": "8.57.0",
     "unplugin-unused": "0.5.7",
-    "vitest": "4.0.18"
+    "vitest": "4.1.0"
   },
   "dependencies": {
     "@anthropic-ai/claude-agent-sdk": "0.2.76",
