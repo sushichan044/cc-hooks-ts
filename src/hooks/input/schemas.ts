@@ -194,7 +194,13 @@ export const HookInputSchemas = {
   InstructionsLoaded: buildHookInputSchema("InstructionsLoaded", {
     file_path: v.string(),
     globs: v.exactOptional(v.array(v.string())),
-    load_reason: v.picklist(["session_start", "nested_traversal", "path_glob_match", "include"]),
+    load_reason: v.picklist([
+      "session_start",
+      "nested_traversal",
+      "path_glob_match",
+      "include",
+      "compact",
+    ]),
     memory_type: v.picklist(["User", "Project", "Local", "Managed"]),
     parent_file_path: v.exactOptional(v.string()),
     trigger_file_path: v.exactOptional(v.string()),
