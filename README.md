@@ -277,19 +277,30 @@ pnpm typecheck
 
 ### How to follow the upstream changes
 
-1. Install the latest version of `@anthropic-ai/claude-agent-sdk` and run `pnpm run check`.
-   - If the command passes without errors, there are no type changes.
-
-2. Get diff of the types. This example gets the diff between Claude Code 2.0.69 and 2.0.70:
+1. Check installed version of `@anthropic-ai/claude-agent-sdk`:
 
    ```bash
-   npm diff --diff=@anthropic-ai/claude-agent-sdk@0.1.69 --diff=@anthropic-ai/claude-agent-sdk@0.1.70 '**/*.d.ts'
-
-   # Only for humans, You can use dandavison/delta for better diff visualization
-   npm diff --diff=@anthropic-ai/claude-agent-sdk@0.1.69 --diff=@anthropic-ai/claude-agent-sdk@0.1.70 '**/*.d.ts' | delta --side-by-side
+   npm list @anthropic-ai/claude-agent-sdk
    ```
 
-3. Reflect the changes.
+2. Check the latest version of `@anthropic-ai/claude-agent-sdk`:
+
+   ```bash
+   npm view @anthropic-ai/claude-agent-sdk version
+   ```
+
+   - If the latest version is the same as your installed version, then there is no upstream change and you are good to go!
+
+3. Get diff of the types.
+
+   ```bash
+   npm diff --diff=@anthropic-ai/claude-agent-sdk@<old_version> --diff=@anthropic-ai/claude-agent-sdk@<new_version> '**/*.d.ts'
+
+   # Only for humans, You can use dandavison/delta for better diff visualization
+   npm diff --diff=@anthropic-ai/claude-agent-sdk@<old_version> --diff=@anthropic-ai/claude-agent-sdk@<new_version> '**/*.d.ts' | delta --side-by-side
+   ```
+
+4. Reflect the changes.
    - Edit `src/hooks/` for changed hook input / output types.
      - No need for adding tests in most cases since we are testing the whole type definitions in these files:
        - `src/hooks/input/schemas.test-d.ts`
