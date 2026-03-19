@@ -12,6 +12,7 @@ export type SupportedHookEvent =
   | "SessionStart"
   | "SessionEnd"
   | "Stop"
+  | "StopFailure"
   | "SubagentStart"
   | "SubagentStop"
   | "PreCompact"

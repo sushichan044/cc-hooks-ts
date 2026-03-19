@@ -98,6 +98,20 @@ export const HookInputSchemas = {
     stop_hook_active: v.boolean(),
   }),
 
+  StopFailure: buildHookInputSchema("StopFailure", {
+    error: v.picklist([
+      "authentication_failed",
+      "billing_error",
+      "rate_limit",
+      "invalid_request",
+      "server_error",
+      "unknown",
+      "max_output_tokens",
+    ]),
+    error_details: v.exactOptional(v.string()),
+    last_assistant_message: v.exactOptional(v.string()),
+  }),
+
   SubagentStart: buildSubagentInputSchema("SubagentStart", {}),
 
   SubagentStop: buildSubagentInputSchema("SubagentStop", {
@@ -125,6 +139,7 @@ export const HookInputSchemas = {
   SessionEnd: buildHookInputSchema("SessionEnd", {
     reason: v.picklist([
       "clear",
+      "resume",
       "logout",
       "prompt_input_exit",
       "other",

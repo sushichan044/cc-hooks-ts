@@ -15,6 +15,7 @@ export type HookOutput = {
   UserPromptSubmit: UserPromptSubmitHookOutput;
 
   Stop: StopHookOutput;
+  StopFailure: CommonHookOutputs;
 
   SubagentStart: SubagentStartHookOutput;
   SubagentStop: SubagentStopHookOutput;
