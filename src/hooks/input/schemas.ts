@@ -46,10 +46,9 @@ function buildSubagentInputSchema<TName extends string, TEntries extends v.Objec
 export const HookInputSchemas = {
   PreToolUse: buildHookInputSchema("PreToolUse", {
     tool_name: v.pipe(
-      // inputType should be v.string(), otherwise validation will fail
-      // instead, transform it to AutoComplete<T> after parsing to enable auto completion with outputType
+      // parse as string, then type as AutoComplete<string>
       v.string(),
-      v.transform((s) => s as AutoComplete<typeof s>),
+      v.guard((s): s is AutoComplete<string> => true),
     ),
 
     tool_input: v.unknown(),
@@ -58,10 +57,9 @@ export const HookInputSchemas = {
 
   PostToolUse: buildHookInputSchema("PostToolUse", {
     tool_name: v.pipe(
-      // inputType should be v.string(), otherwise validation will fail
-      // instead, transform it to AutoComplete<T> after parsing to enable auto completion with outputType
+      // parse as string, then type as AutoComplete<string>
       v.string(),
-      v.transform((s) => s as AutoComplete<typeof s>),
+      v.guard((s): s is AutoComplete<string> => true),
     ),
 
     tool_input: v.unknown(),
@@ -71,10 +69,9 @@ export const HookInputSchemas = {
 
   PostToolUseFailure: buildHookInputSchema("PostToolUseFailure", {
     tool_name: v.pipe(
-      // inputType should be v.string(), otherwise validation will fail
-      // instead, transform it to AutoComplete<T> after parsing to enable auto completion with outputType
+      // parse as string, then type as AutoComplete<string>
       v.string(),
-      v.transform((s) => s as AutoComplete<typeof s>),
+      v.guard((s): s is AutoComplete<string> => true),
     ),
 
     error: v.string(),
