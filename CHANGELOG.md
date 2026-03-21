@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.1.81
+
+### &nbsp;&nbsp;&nbsp;Bug Fixes
+
+- Update to parity with Claude Code v2.1.81 &nbsp;-&nbsp; by **Claude Sonnet 4.6** in https://github.com/sushichan044/cc-hooks-ts/issues/203 [<samp>(47d99)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/47d99da)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sushichan044/cc-hooks-ts/compare/2.1.79...2.1.81)
+
 ## 2.1.79
 
 ### &nbsp;&nbsp;&nbsp;Bug Fixes
