@@ -271,6 +271,8 @@ interface SessionStartHookOutput extends CommonHookOutputs {
      * Adds the string to the context.
      */
     additionalContext?: string;
+
+    initialUserMessage?: string;
   };
 }
 
