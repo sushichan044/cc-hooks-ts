@@ -1,8 +1,8 @@
 import type * as v from "valibot";
 
-import type { ToolSchema } from "../../index";
-import type { SupportedHookEvent } from "../event";
-import type { HookInputSchemas } from "./schemas";
+import type { ToolSchema } from "../../index.ts";
+import type { SupportedHookEvent } from "../event.ts";
+import type { HookInputSchemas } from "./schemas.ts";
 
 /**
  * Internal type that combines base hook inputs with tool-specific inputs for PreToolUse events.

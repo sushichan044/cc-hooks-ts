@@ -2,15 +2,15 @@ import type * as v from "valibot";
 
 import { describe, expectTypeOf, it } from "vitest";
 
-import type { ExtendedTools } from "../../types";
-import type { AutoComplete } from "../../utils/types";
-import type { HookInputSchemas } from "./schemas";
+import type { ExtendedTools } from "../../types.ts";
+import type { AutoComplete } from "../../utils/types.ts";
+import type { HookInputSchemas } from "./schemas.ts";
 import type {
   ExtractAllHookInputsForEvent,
   ExtractExtendedSpecificKeys,
   ExtractSpecificHookInputForEvent,
   HookInput,
-} from "./types";
+} from "./types.ts";
 
 // Declaration merge with ToolSchema in src/index.ts
 declare module "../../index" {

@@ -3,9 +3,9 @@ import type { Except, Simplify } from "type-fest";
 
 import { describe, expectTypeOf, it } from "vitest";
 
-import type { ExtractAsyncHookOutput } from ".";
-import type { HookOutput } from ".";
-import type { SupportedHookEvent } from "..";
+import type { SupportedHookEvent } from "../index.ts";
+import type { ExtractAsyncHookOutput } from "./index.ts";
+import type { HookOutput } from "./index.ts";
 
 // Extract event names that have hookSpecificOutput
 type SpecificOutputEventNames = NonNullable<

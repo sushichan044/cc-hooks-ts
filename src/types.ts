@@ -1,10 +1,11 @@
-import type { ExtractSyncHookOutput, SupportedHookEvent } from "./hooks";
 import type {
   ExtractAllHookInputsForEvent,
   ExtractExtendedSpecificKeys,
   ExtractSpecificHookInputForEvent,
-} from "./hooks";
-import type { ToolSchema } from "./index";
+  ExtractSyncHookOutput,
+  SupportedHookEvent,
+} from "./hooks/index.ts";
+import type { ToolSchema } from "./index.ts";
 
 export type ExtendedTools = keyof ToolSchema;
 

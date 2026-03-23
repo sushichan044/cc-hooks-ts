@@ -9,6 +9,8 @@
       {
         "name": "eslint-plugin-import-access"
       }
-    ]
+    ],
+    "allowImportingTsExtensions": true,
+    "noEmit": true
   }
 }

@@ -2,7 +2,7 @@ import type { SimplifyDeep } from "type-fest";
 
 import { describe, expectTypeOf, it } from "vitest";
 
-import { createContext } from "./context";
+import { createContext } from "./context.ts";
 
 describe("HookContext", () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

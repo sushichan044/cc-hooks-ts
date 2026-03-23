@@ -1,7 +1,7 @@
 import { describe, expectTypeOf, it } from "vitest";
 
-import type { HookInput, HookOutput } from "./hooks";
-import type { ExtractTriggeredHookInput, ExtractTriggeredHookOutput } from "./types";
+import type { HookInput, HookOutput } from "./hooks/index.ts";
+import type { ExtractTriggeredHookInput, ExtractTriggeredHookOutput } from "./types.ts";
 
 // Declaration merge with ToolSchema in src/index.ts
 declare module "./index" {

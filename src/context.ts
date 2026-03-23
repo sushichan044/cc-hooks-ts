@@ -1,6 +1,10 @@
-import type { ExtractAsyncHookOutput, ExtractSyncHookOutput, SupportedHookEvent } from "./hooks";
-import type { ExtractTriggeredHookInput, HookTrigger } from "./types";
-import type { Awaitable } from "./utils/types";
+import type {
+  ExtractAsyncHookOutput,
+  ExtractSyncHookOutput,
+  SupportedHookEvent,
+} from "./hooks/index.ts";
+import type { ExtractTriggeredHookInput, HookTrigger } from "./types.ts";
+import type { Awaitable } from "./utils/types.ts";
 
 export interface HookContext<THookTrigger extends HookTrigger> {
   /**

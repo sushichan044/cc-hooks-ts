@@ -211,8 +211,11 @@ export interface ToolSchema {
   };
 }
 
-export { defineHook } from "./define";
+export { defineHook } from "./define.ts";
 
-export { runHook } from "./run";
+export { runHook } from "./run.ts";
 
-export type { ExtractAllHookInputsForEvent, ExtractSpecificHookInputForEvent } from "./hooks";
+export type {
+  ExtractAllHookInputsForEvent,
+  ExtractSpecificHookInputForEvent,
+} from "./hooks/index.ts";

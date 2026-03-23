@@ -1,10 +1,10 @@
 import * as v from "valibot";
 
-import type { AutoComplete } from "../../utils/types";
-import type { ValibotSchemaLike } from "../../utils/valibot";
-import type { SupportedHookEvent } from "../event";
+import type { AutoComplete } from "../../utils/types.ts";
+import type { ValibotSchemaLike } from "../../utils/valibot.ts";
+import type { SupportedHookEvent } from "../event.ts";
 
-import { permissionUpdateSchema } from "../permission";
+import { permissionUpdateSchema } from "../permission.ts";
 
 const baseHookInputSchema = v.object({
   agent_id: v.exactOptional(v.string()),

@@ -1,6 +1,6 @@
-import type { AssertFalse, IsNever } from "../../utils/types";
-import type { SupportedHookEvent } from "../event";
-import type { PermissionUpdate } from "../permission";
+import type { AssertFalse, IsNever } from "../../utils/types.ts";
+import type { SupportedHookEvent } from "../event.ts";
+import type { PermissionUpdate } from "../permission.ts";
 
 /**
  * @package

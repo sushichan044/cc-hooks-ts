@@ -1,6 +1,6 @@
-import type { HookContext, HookResponse } from "./context";
-import type { HookTrigger } from "./types";
-import type { Awaitable } from "./utils/types";
+import type { HookContext, HookResponse } from "./context.ts";
+import type { HookTrigger } from "./types.ts";
+import type { Awaitable } from "./utils/types.ts";
 
 /**
  * Creates a type-safe Claude Code hook definition.

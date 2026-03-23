@@ -1,9 +1,9 @@
-export { HookInputSchemas } from "./input";
+export { HookInputSchemas } from "./input/index.ts";
 export type {
   ExtractAllHookInputsForEvent,
   ExtractExtendedSpecificKeys,
   ExtractSpecificHookInputForEvent,
   HookInput,
-} from "./input";
-export type { ExtractAsyncHookOutput, ExtractSyncHookOutput, HookOutput } from "./output";
-export type { SupportedHookEvent } from "./event";
+} from "./input/index.ts";
+export type { ExtractAsyncHookOutput, ExtractSyncHookOutput, HookOutput } from "./output/index.ts";
+export type { SupportedHookEvent } from "./event.ts";

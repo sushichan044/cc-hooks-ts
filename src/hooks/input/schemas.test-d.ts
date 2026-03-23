@@ -4,7 +4,7 @@ import type * as v from "valibot";
 
 import { describe, expectTypeOf, it } from "vitest";
 
-import type { HookInputSchemas } from "./schemas";
+import type { HookInputSchemas } from "./schemas.ts";
 
 // HookInputSchemas is marked as readonly since it annotated with `as const`, so normalize into readonly types
 type NormalizeSchemas<T> = Readonly<{

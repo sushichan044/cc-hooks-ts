@@ -4,14 +4,14 @@ import getStdin from "get-stdin";
 import process from "node:process";
 import * as v from "valibot";
 
-import type { HookResponse } from "./context";
-import type { HookDefinition } from "./define";
-import type { SupportedHookEvent } from "./hooks";
-import type { ExtractTriggeredHookInput, HookTrigger } from "./types";
+import type { HookResponse } from "./context.ts";
+import type { HookDefinition } from "./define.ts";
+import type { SupportedHookEvent } from "./hooks/index.ts";
+import type { ExtractTriggeredHookInput, HookTrigger } from "./types.ts";
 
-import { createContext } from "./context";
-import { HookInputSchemas } from "./hooks";
-import { isNonEmptyString } from "./utils/string";
+import { createContext } from "./context.ts";
+import { HookInputSchemas } from "./hooks/index.ts";
+import { isNonEmptyString } from "./utils/string.ts";
 
 /**
  * Executes a Claude Code hook with runtime input validation and error handling.
