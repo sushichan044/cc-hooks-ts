@@ -10,5 +10,27 @@
     "DISABLE_TELEMETRY": "1",
     "ENABLE_BACKGROUND_TASKS": "1",
     "ENABLE_TOOL_SEARCH": "1"
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node hooks/dump-tool-call.ts"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node hooks/dump-tool-call.ts"
+          }
+        ]
+      }
+    ]
   }
 }
