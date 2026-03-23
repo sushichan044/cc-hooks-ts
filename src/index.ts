@@ -155,6 +155,14 @@ export interface ToolSchema {
     response: ReadMcpResourceOutput;
   };
 
+  Skill: {
+    input: {
+      args?: string;
+      skill: string;
+    };
+    response: unknown;
+  };
+
   SubscribeMcpResource: {
     input: SubscribeMcpResourceInput;
     response: SubscribeMcpResourceOutput;
@@ -183,6 +191,17 @@ export interface ToolSchema {
   TodoWrite: {
     input: TodoWriteInput;
     response: TodoWriteOutput;
+  };
+
+  ToolSearch: {
+    input: {
+      /**
+       * @default 5
+       */
+      max_results?: number;
+      query: string;
+    };
+    response: unknown;
   };
 
   UnsubscribeMcpResource: {
