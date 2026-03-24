@@ -2,6 +2,7 @@ import type * as v from "valibot";
 
 import { describe, expectTypeOf, it } from "vitest";
 
+import type { ToolSchema } from "../../index.ts";
 import type { ExtendedTools } from "../../types.ts";
 import type { AutoComplete } from "../../utils/types.ts";
 import type { HookInputSchemas } from "./schemas.ts";
@@ -177,6 +178,8 @@ describe("ExtractExtendedSpecificKeys", () => {
 });
 
 describe("ExtractAllHookInputsForEvent", () => {
+  type TypedTools = keyof ToolSchema;
+
   it("should extract all inputs for non-tool-specific events", () => {
     expectTypeOf<ExtractAllHookInputsForEvent<"SessionStart">>().toEqualTypeOf<
       HookInput["SessionStart"]["default"]
@@ -196,105 +199,21 @@ describe("ExtractAllHookInputsForEvent", () => {
       // fallback type of PreToolUse
       | HookInput["PreToolUse"]["default"]
       // Tool-specific types of PreToolUse
-      | HookInput["PreToolUse"]["AskUserQuestion"]
-      | HookInput["PreToolUse"]["Bash"]
-      | HookInput["PreToolUse"]["Config"]
-      | HookInput["PreToolUse"]["EnterWorktree"]
-      | HookInput["PreToolUse"]["TaskOutput"]
-      | HookInput["PreToolUse"]["Edit"]
-      | HookInput["PreToolUse"]["ExitPlanMode"]
-      | HookInput["PreToolUse"]["ExitWorktree"]
-      | HookInput["PreToolUse"]["Glob"]
-      | HookInput["PreToolUse"]["Grep"]
-      | HookInput["PreToolUse"]["TaskStop"]
-      | HookInput["PreToolUse"]["ListMcpResources"]
-      | HookInput["PreToolUse"]["Mcp"]
-      | HookInput["PreToolUse"]["MyCustomTool"]
-      | HookInput["PreToolUse"]["MySecondCustomTool"]
-      | HookInput["PreToolUse"]["NotebookEdit"]
-      | HookInput["PreToolUse"]["Read"]
-      | HookInput["PreToolUse"]["ReadMcpResource"]
-      | HookInput["PreToolUse"]["Skill"]
-      | HookInput["PreToolUse"]["SubscribeMcpResource"]
-      | HookInput["PreToolUse"]["SubscribePolling"]
-      | HookInput["PreToolUse"]["Task"]
-      | HookInput["PreToolUse"]["TodoWrite"]
-      | HookInput["PreToolUse"]["ToolSearch"]
-      | HookInput["PreToolUse"]["UnsubscribeMcpResource"]
-      | HookInput["PreToolUse"]["UnsubscribePolling"]
-      | HookInput["PreToolUse"]["WebFetch"]
-      | HookInput["PreToolUse"]["WebSearch"]
-      | HookInput["PreToolUse"]["Write"]
+      | HookInput["PreToolUse"][TypedTools]
     >();
 
     expectTypeOf<ExtractAllHookInputsForEvent<"PostToolUse">>().toEqualTypeOf<
       // fallback type of PostToolUse
       | HookInput["PostToolUse"]["default"]
       // Tool-specific types of PostToolUse
-      | HookInput["PostToolUse"]["AskUserQuestion"]
-      | HookInput["PostToolUse"]["Bash"]
-      | HookInput["PostToolUse"]["Config"]
-      | HookInput["PostToolUse"]["EnterWorktree"]
-      | HookInput["PostToolUse"]["TaskOutput"]
-      | HookInput["PostToolUse"]["Edit"]
-      | HookInput["PostToolUse"]["ExitPlanMode"]
-      | HookInput["PostToolUse"]["ExitWorktree"]
-      | HookInput["PostToolUse"]["Glob"]
-      | HookInput["PostToolUse"]["Grep"]
-      | HookInput["PostToolUse"]["TaskStop"]
-      | HookInput["PostToolUse"]["ListMcpResources"]
-      | HookInput["PostToolUse"]["Mcp"]
-      | HookInput["PostToolUse"]["MyCustomTool"]
-      | HookInput["PostToolUse"]["MySecondCustomTool"]
-      | HookInput["PostToolUse"]["NotebookEdit"]
-      | HookInput["PostToolUse"]["Read"]
-      | HookInput["PostToolUse"]["ReadMcpResource"]
-      | HookInput["PostToolUse"]["Skill"]
-      | HookInput["PostToolUse"]["SubscribeMcpResource"]
-      | HookInput["PostToolUse"]["SubscribePolling"]
-      | HookInput["PostToolUse"]["Task"]
-      | HookInput["PostToolUse"]["TodoWrite"]
-      | HookInput["PostToolUse"]["ToolSearch"]
-      | HookInput["PostToolUse"]["UnsubscribeMcpResource"]
-      | HookInput["PostToolUse"]["UnsubscribePolling"]
-      | HookInput["PostToolUse"]["WebFetch"]
-      | HookInput["PostToolUse"]["WebSearch"]
-      | HookInput["PostToolUse"]["Write"]
+      | HookInput["PostToolUse"][TypedTools]
     >();
 
     expectTypeOf<ExtractAllHookInputsForEvent<"PostToolUseFailure">>().toEqualTypeOf<
       // fallback type of PostToolUseFailure
       | HookInput["PostToolUseFailure"]["default"]
       // Tool-specific types of PostToolUseFailure
-      | HookInput["PostToolUseFailure"]["AskUserQuestion"]
-      | HookInput["PostToolUseFailure"]["Bash"]
-      | HookInput["PostToolUseFailure"]["Config"]
-      | HookInput["PostToolUseFailure"]["EnterWorktree"]
-      | HookInput["PostToolUseFailure"]["TaskOutput"]
-      | HookInput["PostToolUseFailure"]["Edit"]
-      | HookInput["PostToolUseFailure"]["ExitPlanMode"]
-      | HookInput["PostToolUseFailure"]["ExitWorktree"]
-      | HookInput["PostToolUseFailure"]["Glob"]
-      | HookInput["PostToolUseFailure"]["Grep"]
-      | HookInput["PostToolUseFailure"]["TaskStop"]
-      | HookInput["PostToolUseFailure"]["ListMcpResources"]
-      | HookInput["PostToolUseFailure"]["Mcp"]
-      | HookInput["PostToolUseFailure"]["MyCustomTool"]
-      | HookInput["PostToolUseFailure"]["MySecondCustomTool"]
-      | HookInput["PostToolUseFailure"]["NotebookEdit"]
-      | HookInput["PostToolUseFailure"]["Read"]
-      | HookInput["PostToolUseFailure"]["ReadMcpResource"]
-      | HookInput["PostToolUseFailure"]["SubscribeMcpResource"]
-      | HookInput["PostToolUseFailure"]["SubscribePolling"]
-      | HookInput["PostToolUseFailure"]["Skill"]
-      | HookInput["PostToolUseFailure"]["Task"]
-      | HookInput["PostToolUseFailure"]["TodoWrite"]
-      | HookInput["PostToolUseFailure"]["ToolSearch"]
-      | HookInput["PostToolUseFailure"]["UnsubscribeMcpResource"]
-      | HookInput["PostToolUseFailure"]["UnsubscribePolling"]
-      | HookInput["PostToolUseFailure"]["WebFetch"]
-      | HookInput["PostToolUseFailure"]["WebSearch"]
-      | HookInput["PostToolUseFailure"]["Write"]
+      | HookInput["PostToolUseFailure"][TypedTools]
     >();
   });
 });
