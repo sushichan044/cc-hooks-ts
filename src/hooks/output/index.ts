@@ -31,6 +31,9 @@ export type HookOutput = {
   Elicitation: ElicitationHookOutput;
   ElicitationResult: ElicitationResultHookOutput;
 
+  CwdChanged: CwdChangedHookOutput;
+  FileChanged: FileChangedHookOutput;
+
   ConfigChange: CommonHookOutputs;
   InstructionsLoaded: CommonHookOutputs;
   PostCompact: CommonHookOutputs;
@@ -273,6 +276,8 @@ interface SessionStartHookOutput extends CommonHookOutputs {
     additionalContext?: string;
 
     initialUserMessage?: string;
+
+    watchPaths?: string[];
   };
 }
 
@@ -326,5 +331,19 @@ interface ElicitationResultHookOutput extends CommonHookOutputs {
     action?: "accept" | "decline" | "cancel";
     content?: Record<string, unknown>;
     hookEventName: "ElicitationResult";
+  };
+}
+
+interface CwdChangedHookOutput extends CommonHookOutputs {
+  hookSpecificOutput?: {
+    hookEventName: "CwdChanged";
+    watchPaths?: string[];
+  };
+}
+
+interface FileChangedHookOutput extends CommonHookOutputs {
+  hookSpecificOutput?: {
+    hookEventName: "FileChanged";
+    watchPaths?: string[];
   };
 }

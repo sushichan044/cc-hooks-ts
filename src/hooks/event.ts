@@ -26,4 +26,6 @@ export type SupportedHookEvent =
   | "WorktreeRemove"
   | "Elicitation"
   | "ElicitationResult"
-  | "InstructionsLoaded";
+  | "InstructionsLoaded"
+  | "CwdChanged"
+  | "FileChanged";
