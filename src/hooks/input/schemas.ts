@@ -217,4 +217,14 @@ export const HookInputSchemas = {
     parent_file_path: v.exactOptional(v.string()),
     trigger_file_path: v.exactOptional(v.string()),
   }),
+
+  CwdChanged: buildHookInputSchema("CwdChanged", {
+    new_cwd: v.string(),
+    old_cwd: v.string(),
+  }),
+
+  FileChanged: buildHookInputSchema("FileChanged", {
+    event: v.picklist(["change", "add", "unlink"]),
+    file_path: v.string(),
+  }),
 } as const satisfies Record<SupportedHookEvent, ValibotSchemaLike>;
