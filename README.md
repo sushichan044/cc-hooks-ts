@@ -308,6 +308,7 @@ pnpm typecheck
        - `src/hooks/event.test-d.ts`
        - `src/hooks/permission.test-d.ts`
    - Edit `src/index.ts` for changed tool input / output types.
+   - YOU SHOULD NOT MODIFY `version` in `package.json` manually.
 
 ## License
 
