@@ -60,3 +60,18 @@ describe("ExtractAsyncHookOutput", () => {
     }>();
   });
 });
+
+describe("WorktreeCreate output", () => {
+  it("includes the created worktree path in hookSpecificOutput", () => {
+    type WorktreeSpecificOutput = HookOutput["WorktreeCreate"] extends {
+      hookSpecificOutput?: infer TSpecificOutput;
+    }
+      ? TSpecificOutput
+      : never;
+
+    expectTypeOf<WorktreeSpecificOutput>().toEqualTypeOf<{
+      hookEventName: "WorktreeCreate";
+      worktreePath: string;
+    }>();
+  });
+});

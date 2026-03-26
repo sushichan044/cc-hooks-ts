@@ -8,4 +8,8 @@ describe("SupportedHookEvent", () => {
   it("matches upstream type", () => {
     expectTypeOf<SupportedHookEvent>().toEqualTypeOf<HookEvent>();
   });
+
+  it("includes TaskCreated", () => {
+    expectTypeOf<Extract<SupportedHookEvent, "TaskCreated">>().toEqualTypeOf<"TaskCreated">();
+  });
 });

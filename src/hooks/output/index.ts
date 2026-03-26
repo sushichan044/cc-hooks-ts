@@ -40,8 +40,9 @@ export type HookOutput = {
   PreCompact: CommonHookOutputs;
   SessionEnd: CommonHookOutputs;
   TaskCompleted: CommonHookOutputs;
+  TaskCreated: CommonHookOutputs;
   TeammateIdle: CommonHookOutputs;
-  WorktreeCreate: CommonHookOutputs;
+  WorktreeCreate: WorktreeCreateHookOutput;
   WorktreeRemove: CommonHookOutputs;
 };
 
@@ -221,6 +222,13 @@ interface NotificationHookOutput extends CommonHookOutputs {
      * Adds the string to the context.
      */
     additionalContext?: string;
+  };
+}
+
+interface WorktreeCreateHookOutput extends CommonHookOutputs {
+  hookSpecificOutput?: {
+    hookEventName: "WorktreeCreate";
+    worktreePath: string;
   };
 }
 
