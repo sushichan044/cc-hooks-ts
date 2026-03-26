@@ -20,6 +20,7 @@ export type SupportedHookEvent =
   | "PermissionRequest"
   | "Setup"
   | "TeammateIdle"
+  | "TaskCreated"
   | "TaskCompleted"
   | "ConfigChange"
   | "WorktreeCreate"

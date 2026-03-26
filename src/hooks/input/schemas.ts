@@ -159,6 +159,14 @@ export const HookInputSchemas = {
     teammate_name: v.string(),
   }),
 
+  TaskCreated: buildHookInputSchema("TaskCreated", {
+    task_description: v.exactOptional(v.string()),
+    task_id: v.string(),
+    task_subject: v.string(),
+    team_name: v.exactOptional(v.string()),
+    teammate_name: v.exactOptional(v.string()),
+  }),
+
   TaskCompleted: buildHookInputSchema("TaskCompleted", {
     task_description: v.exactOptional(v.string()),
     task_id: v.string(),
