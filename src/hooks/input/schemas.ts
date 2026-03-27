@@ -175,6 +175,23 @@ export const HookInputSchemas = {
     teammate_name: v.exactOptional(v.string()),
   }),
 
+  Elicitation: buildHookInputSchema("Elicitation", {
+    elicitation_id: v.exactOptional(v.string()),
+    mcp_server_name: v.string(),
+    message: v.string(),
+    mode: v.exactOptional(v.picklist(["form", "url"])),
+    requested_schema: v.exactOptional(v.record(v.string(), v.unknown())),
+    url: v.exactOptional(v.string()),
+  }),
+
+  ElicitationResult: buildHookInputSchema("ElicitationResult", {
+    action: v.picklist(["accept", "decline", "cancel"]),
+    content: v.exactOptional(v.record(v.string(), v.unknown())),
+    elicitation_id: v.exactOptional(v.string()),
+    mcp_server_name: v.string(),
+    mode: v.exactOptional(v.picklist(["form", "url"])),
+  }),
+
   ConfigChange: buildHookInputSchema("ConfigChange", {
     file_path: v.exactOptional(v.string()),
     source: v.picklist([
@@ -192,23 +209,6 @@ export const HookInputSchemas = {
 
   WorktreeRemove: buildHookInputSchema("WorktreeRemove", {
     worktree_path: v.string(),
-  }),
-
-  Elicitation: buildHookInputSchema("Elicitation", {
-    elicitation_id: v.exactOptional(v.string()),
-    mcp_server_name: v.string(),
-    message: v.string(),
-    mode: v.exactOptional(v.picklist(["form", "url"])),
-    requested_schema: v.exactOptional(v.record(v.string(), v.unknown())),
-    url: v.exactOptional(v.string()),
-  }),
-
-  ElicitationResult: buildHookInputSchema("ElicitationResult", {
-    action: v.picklist(["accept", "decline", "cancel"]),
-    content: v.exactOptional(v.record(v.string(), v.unknown())),
-    elicitation_id: v.exactOptional(v.string()),
-    mcp_server_name: v.string(),
-    mode: v.exactOptional(v.picklist(["form", "url"])),
   }),
 
   InstructionsLoaded: buildHookInputSchema("InstructionsLoaded", {

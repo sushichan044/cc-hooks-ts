@@ -22,11 +22,11 @@ export type SupportedHookEvent =
   | "TeammateIdle"
   | "TaskCreated"
   | "TaskCompleted"
+  | "Elicitation"
+  | "ElicitationResult"
   | "ConfigChange"
   | "WorktreeCreate"
   | "WorktreeRemove"
-  | "Elicitation"
-  | "ElicitationResult"
   | "InstructionsLoaded"
   | "CwdChanged"
   | "FileChanged";

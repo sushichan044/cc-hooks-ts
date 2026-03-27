@@ -280,13 +280,13 @@ pnpm typecheck
 1. Check installed version of `@anthropic-ai/claude-agent-sdk`:
 
    ```bash
-   npm list @anthropic-ai/claude-agent-sdk
+   pnpm list @anthropic-ai/claude-agent-sdk --depth=0
    ```
 
 2. Check the latest version of `@anthropic-ai/claude-agent-sdk`:
 
    ```bash
-   npm view @anthropic-ai/claude-agent-sdk version
+   pnpm view @anthropic-ai/claude-agent-sdk version
    ```
 
    - If the latest version is the same as your installed version, then there is no upstream change and you are good to go!
@@ -294,10 +294,10 @@ pnpm typecheck
 3. Get diff of the types.
 
    ```bash
-   npm diff --diff=@anthropic-ai/claude-agent-sdk@<old_version> --diff=@anthropic-ai/claude-agent-sdk@<new_version> '**/*.d.ts'
+   pnpm dlx npm@latest diff --diff=@anthropic-ai/claude-agent-sdk@<old_version> --diff=@anthropic-ai/claude-agent-sdk@<new_version> '**/*.d.ts'
 
    # Only for humans, You can use dandavison/delta for better diff visualization
-   npm diff --diff=@anthropic-ai/claude-agent-sdk@<old_version> --diff=@anthropic-ai/claude-agent-sdk@<new_version> '**/*.d.ts' | delta --side-by-side
+   pnpm dlx npm@latest diff --diff=@anthropic-ai/claude-agent-sdk@<old_version> --diff=@anthropic-ai/claude-agent-sdk@<new_version> '**/*.d.ts' | delta --side-by-side
    ```
 
 4. Reflect the changes.
