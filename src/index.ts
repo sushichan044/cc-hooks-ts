@@ -31,19 +31,11 @@ import type {
   NotebookEditOutput,
   ReadMcpResourceInput,
   ReadMcpResourceOutput,
-  SubscribeMcpResourceInput,
-  SubscribeMcpResourceOutput,
-  SubscribePollingInput,
-  SubscribePollingOutput,
   TaskOutputInput,
   TaskStopInput,
   TaskStopOutput,
   TodoWriteInput,
   TodoWriteOutput,
-  UnsubscribeMcpResourceInput,
-  UnsubscribeMcpResourceOutput,
-  UnsubscribePollingInput,
-  UnsubscribePollingOutput,
   WebFetchInput,
   WebFetchOutput,
   WebSearchInput,
@@ -163,16 +155,6 @@ export interface ToolSchema {
     response: unknown;
   };
 
-  SubscribeMcpResource: {
-    input: SubscribeMcpResourceInput;
-    response: SubscribeMcpResourceOutput;
-  };
-
-  SubscribePolling: {
-    input: SubscribePollingInput;
-    response: SubscribePollingOutput;
-  };
-
   Task: {
     input: AgentInput;
     response: AgentOutput;
@@ -202,16 +184,6 @@ export interface ToolSchema {
       query: string;
     };
     response: unknown;
-  };
-
-  UnsubscribeMcpResource: {
-    input: UnsubscribeMcpResourceInput;
-    response: UnsubscribeMcpResourceOutput;
-  };
-
-  UnsubscribePolling: {
-    input: UnsubscribePollingInput;
-    response: UnsubscribePollingOutput;
   };
 
   WebFetch: {
