@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.1.86
+
+*No significant changes*
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sushichan044/cc-hooks-ts/compare/2.1.85...2.1.86)
+
 ## 2.1.85
 
 ### &nbsp;&nbsp;&nbsp;Bug Fixes
