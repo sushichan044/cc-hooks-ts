@@ -1,0 +1,117 @@
+name: Comment Claude Agent SDK Type Diff
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  comment-types-diff:
+    name: Comment type definition diff for Claude Agent SDK bump
+    if: github.repository == 'sushichan044/cc-hooks-ts' && github.actor == 'dependabot[bot]'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Fetch Dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@d7267f607e9d3fb96fc2fbe83e0af444713e90b7 # v2.4.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        if: contains(steps.metadata.outputs.dependency-names, '@anthropic-ai/claude-agent-sdk')
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version-file: .node-version
+
+      - name: Build PR comment body
+        id: comment-body
+        if: contains(steps.metadata.outputs.dependency-names, '@anthropic-ai/claude-agent-sdk')
+        env:
+          PACKAGE_NAME: "@anthropic-ai/claude-agent-sdk"
+          PREVIOUS_VERSION: ${{ steps.metadata.outputs.previous-version }}
+          NEW_VERSION: ${{ steps.metadata.outputs.new-version }}
+        run: |
+          diff_file="$(mktemp)"
+
+          npm --loglevel=error diff \
+            "--diff=${PACKAGE_NAME}@${PREVIOUS_VERSION}" \
+            "--diff=${PACKAGE_NAME}@${NEW_VERSION}" \
+            "**/*.d.ts" \
+            > "${diff_file}"
+
+          COMMENT_FILE="$(mktemp)"
+          export COMMENT_FILE
+          export DIFF_FILE="${diff_file}"
+
+          node --input-type=module <<'EOF'
+          import fs from "node:fs";
+
+          const packageName = process.env.PACKAGE_NAME;
+          const previousVersion = process.env.PREVIOUS_VERSION;
+          const newVersion = process.env.NEW_VERSION;
+          const diffFile = process.env.DIFF_FILE;
+          const commentFile = process.env.COMMENT_FILE;
+          const maxDiffChars = 50000;
+
+          let diff = fs.readFileSync(diffFile, "utf8").trim();
+          let truncated = false;
+
+          if (diff.length > maxDiffChars) {
+            diff = `${diff.slice(0, maxDiffChars)}\n... (truncated)`;
+            truncated = true;
+          }
+
+          const lines = [
+            `Type definition diff for \`${packageName}\` from \`${previousVersion}\` to \`${newVersion}\`.`,
+            "",
+          ];
+
+          if (diff.length === 0) {
+            lines.push("No `*.d.ts` changes were returned by `npm diff`.");
+          } else {
+            lines.push("<details>");
+            lines.push(
+              `<summary>npm diff ${packageName}@${previousVersion} -> ${packageName}@${newVersion} (${truncated ? "truncated" : "full"})</summary>`,
+            );
+            lines.push("");
+            lines.push("```diff");
+            lines.push(diff);
+            lines.push("```");
+            lines.push("</details>");
+          }
+
+          fs.writeFileSync(commentFile, `${lines.join("\n")}\n`);
+          EOF
+
+          {
+            echo "body<<EOF"
+            cat "${COMMENT_FILE}"
+            echo "EOF"
+          } >> "${GITHUB_OUTPUT}"
+
+      - name: Upsert PR comment
+        if: contains(steps.metadata.outputs.dependency-names, '@anthropic-ai/claude-agent-sdk')
+        uses: thollander/actions-comment-pull-request@65f9e5c9a1f2cd378bd74b2e057c9736982a8e74 # v3
+        with:
+          comment-tag: anthropic-agent-sdk-types-diff
+          message: ${{ steps.comment-body.outputs.body }}
