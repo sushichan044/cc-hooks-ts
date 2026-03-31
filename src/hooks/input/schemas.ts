@@ -150,6 +150,13 @@ export const HookInputSchemas = {
     tool_name: v.string(),
   }),
 
+  PermissionDenied: buildHookInputSchema("PermissionDenied", {
+    reason: v.string(),
+    tool_input: v.unknown(),
+    tool_name: v.string(),
+    tool_use_id: v.string(),
+  }),
+
   Setup: buildHookInputSchema("Setup", {
     trigger: v.picklist(["init", "maintenance"]),
   }),

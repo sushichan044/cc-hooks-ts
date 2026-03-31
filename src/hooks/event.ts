@@ -18,6 +18,7 @@ export type SupportedHookEvent =
   | "PreCompact"
   | "PostCompact"
   | "PermissionRequest"
+  | "PermissionDenied"
   | "Setup"
   | "TeammateIdle"
   | "TaskCreated"
