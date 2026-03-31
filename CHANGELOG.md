@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.1.87
+
+### &nbsp;&nbsp;&nbsp;Bug Fixes
+
+- Update to parity with Claude Code v2.1.88 &nbsp;-&nbsp; by **Claude Sonnet 4.6** in https://github.com/sushichan044/cc-hooks-ts/issues/220 [<samp>(c6da6)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/c6da6fd)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sushichan044/cc-hooks-ts/compare/2.1.86...2.1.87)
+
 ## 2.1.86
 
 *No significant changes*
