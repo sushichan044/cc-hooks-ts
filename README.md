@@ -20,6 +20,8 @@ See [examples](./examples) for more usage examples.
   - [Documentation](#documentation)
   - [Development](#development)
     - [How to follow the upstream changes](#how-to-follow-the-upstream-changes)
+      - [If a Dependabot PR already exists](#if-a-dependabot-pr-already-exists)
+      - [If no Dependabot PR exists](#if-no-dependabot-pr-exists)
   - [License](#license)
   - [Contributing](#contributing)
 
@@ -297,7 +299,7 @@ Dependabot automatically creates PRs to bump `@anthropic-ai/claude-agent-sdk`. T
 
 4. Update the PR title to:
 
-   ```
+   ```plaintext
    fix: update to parity with Claude Code v$(npm info @anthropic-ai/claude-agent-sdk claudeCodeVersion)
    ```
 
@@ -306,7 +308,7 @@ Dependabot automatically creates PRs to bump `@anthropic-ai/claude-agent-sdk`. T
 1. Create a new branch and bump `@anthropic-ai/claude-agent-sdk` to the latest version:
 
    ```bash
-   git checkout -b fix/bump-claude-agent-sdk
+   git switch -c bump-claude-agent-sdk
    pnpm add @anthropic-ai/claude-agent-sdk@latest
    ```
 
@@ -320,7 +322,7 @@ Dependabot automatically creates PRs to bump `@anthropic-ai/claude-agent-sdk`. T
 
 4. Commit, push, and create a PR with the title:
 
-   ```
+   ```plaintext
    fix: update to parity with Claude Code v$(npm info @anthropic-ai/claude-agent-sdk claudeCodeVersion)
    ```
 
