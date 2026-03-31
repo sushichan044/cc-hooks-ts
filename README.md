@@ -277,30 +277,13 @@ pnpm typecheck
 
 ### How to follow the upstream changes
 
-1. Check installed version of `@anthropic-ai/claude-agent-sdk`:
+Dependabot automatically creates PRs to bump `@anthropic-ai/claude-agent-sdk`. The CI bot posts a type diff comment on each PR.
 
-   ```bash
-   npm list @anthropic-ai/claude-agent-sdk
-   ```
+#### If a Dependabot PR already exists
 
-2. Check the latest version of `@anthropic-ai/claude-agent-sdk`:
+1. Find the Dependabot PR that bumps `@anthropic-ai/claude-agent-sdk` and check out its branch.
 
-   ```bash
-   npm view @anthropic-ai/claude-agent-sdk version
-   ```
-
-   - If the latest version is the same as your installed version, then there is no upstream change and you are good to go!
-
-3. Get diff of the types.
-
-   ```bash
-   npm diff --diff=@anthropic-ai/claude-agent-sdk@<old_version> --diff=@anthropic-ai/claude-agent-sdk@<new_version> '**/*.d.ts'
-
-   # Only for humans, You can use dandavison/delta for better diff visualization
-   npm diff --diff=@anthropic-ai/claude-agent-sdk@<old_version> --diff=@anthropic-ai/claude-agent-sdk@<new_version> '**/*.d.ts' | delta --side-by-side
-   ```
-
-4. Reflect the changes.
+2. Read the type diff posted as a PR comment, then reflect the changes.
    - Edit `src/hooks/` for changed hook input / output types.
      - No need for adding tests in most cases since we are testing the whole type definitions in these files:
        - `src/hooks/input/schemas.test-d.ts`
@@ -309,6 +292,37 @@ pnpm typecheck
        - `src/hooks/permission.test-d.ts`
    - Edit `src/index.ts` for changed tool input / output types.
    - YOU SHOULD NOT MODIFY `version` in `package.json` manually.
+
+3. Push to the Dependabot PR branch.
+
+4. Update the PR title to:
+
+   ```
+   fix: update to parity with Claude Code v$(npm info @anthropic-ai/claude-agent-sdk claudeCodeVersion)
+   ```
+
+#### If no Dependabot PR exists
+
+1. Create a new branch and bump `@anthropic-ai/claude-agent-sdk` to the latest version:
+
+   ```bash
+   git checkout -b fix/bump-claude-agent-sdk
+   pnpm add @anthropic-ai/claude-agent-sdk@latest
+   ```
+
+2. Get the type diff between the old and new versions:
+
+   ```bash
+   npm diff --diff=@anthropic-ai/claude-agent-sdk@<old_version> --diff=@anthropic-ai/claude-agent-sdk@<new_version> '**/*.d.ts'
+   ```
+
+3. Reflect the changes (same as step 2 above).
+
+4. Commit, push, and create a PR with the title:
+
+   ```
+   fix: update to parity with Claude Code v$(npm info @anthropic-ai/claude-agent-sdk claudeCodeVersion)
+   ```
 
 ## License
 
