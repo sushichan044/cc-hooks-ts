@@ -22,6 +22,7 @@ export type HookOutput = {
 
   SessionStart: SessionStartHookOutput;
 
+  PermissionDenied: PermissionDeniedHookOutput;
   PermissionRequest: PermissionRequestHookOutput;
 
   Setup: SetupHookOutput;
@@ -323,6 +324,13 @@ interface PermissionRequestHookOutput extends CommonHookOutputs {
           interrupt?: boolean;
           message?: string;
         };
+  };
+}
+
+interface PermissionDeniedHookOutput extends CommonHookOutputs {
+  hookSpecificOutput?: {
+    hookEventName: "PermissionDenied";
+    retry?: boolean;
   };
 }
 
