@@ -12,12 +12,10 @@ updates:
       exclude:
         - "@anthropic-ai/claude-agent-sdk"
     groups:
-      claude-code-upstream:
-        dependency-type: "production"
-        patterns:
-          - "@anthropic-ai/claude-agent-sdk"
       prod:
         dependency-type: "production"
+        exclude-patterns:
+          - "@anthropic-ai/claude-agent-sdk"
 
       dev:
         dependency-type: "development"
