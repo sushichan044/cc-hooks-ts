@@ -75,6 +75,18 @@ describe("ExtractTriggeredHookInput", () => {
         | HookInput["SessionStart"]["default"]
       >();
     });
+
+    it("should extract specific tool input for PermissionRequest and PermissionDenied", () => {
+      expectTypeOf<
+        ExtractTriggeredHookInput<{
+          PermissionDenied: { MyCustomTool: true };
+          PermissionRequest: { MyCustomTool: true };
+        }>
+      >().toEqualTypeOf<
+        | HookInput["PermissionRequest"]["MyCustomTool"]
+        | HookInput["PermissionDenied"]["MyCustomTool"]
+      >();
+    });
   });
 });
 

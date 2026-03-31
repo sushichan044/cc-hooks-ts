@@ -5,8 +5,8 @@ import type { SupportedHookEvent } from "../event.ts";
 import type { HookInputSchemas } from "./schemas.ts";
 
 /**
- * Internal type that combines base hook inputs with tool-specific inputs for PreToolUse events.
- * For non-PreToolUse events, this is equivalent to BaseHookInputs.
+ * Internal type that combines base hook inputs with tool-specific inputs for tool-aware events.
+ * For all other events, this is equivalent to BaseHookInputs.
  *
  * @example
  * ```ts
@@ -28,15 +28,23 @@ export type HookInput = {
         ? ToolSpecificPostToolUseFailureInput & {
             default: BaseHookInputs["PostToolUseFailure"];
           }
-        : {
-            default: BaseHookInputs[EventKey];
-          };
+        : EventKey extends "PermissionRequest"
+          ? ToolSpecificPermissionRequestInput & {
+              default: BaseHookInputs["PermissionRequest"];
+            }
+          : EventKey extends "PermissionDenied"
+            ? ToolSpecificPermissionDeniedInput & {
+                default: BaseHookInputs["PermissionDenied"];
+              }
+            : {
+                default: BaseHookInputs[EventKey];
+              };
 };
 
 /**
  * Extracts all possible hook input types for a specific event type.
  * For non-tool-specific events, this returns only the default input type.
- * For tool-specific events (PreToolUse/PostToolUse), this returns a union of all possible inputs including default and tool-specific variants.
+ * For tool-specific events, this returns a union of all possible inputs including default and tool-specific variants.
  *
  * @example
  * ```ts
@@ -114,6 +122,20 @@ type ToolSpecificPostToolUseFailureInput = {
     BaseHookInputs["PostToolUseFailure"],
     "tool_input" | "tool_name"
   > & {
+    tool_input: ToolSchema[K]["input"];
+    tool_name: K;
+  };
+};
+
+type ToolSpecificPermissionRequestInput = {
+  [K in keyof ToolSchema]: Omit<BaseHookInputs["PermissionRequest"], "tool_input" | "tool_name"> & {
+    tool_input: ToolSchema[K]["input"];
+    tool_name: K;
+  };
+};
+
+type ToolSpecificPermissionDeniedInput = {
+  [K in keyof ToolSchema]: Omit<BaseHookInputs["PermissionDenied"], "tool_input" | "tool_name"> & {
     tool_input: ToolSchema[K]["input"];
     tool_name: K;
   };

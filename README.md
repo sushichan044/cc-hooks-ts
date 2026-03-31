@@ -102,7 +102,7 @@ Then, load defined hooks in your Claude Code settings at `~/.claude/settings.jso
 
 ## Tool Specific Hooks
 
-In `PreToolUse`, `PostToolUse`, and `PostToolUseFailure` events, you can define hooks specific to tools by specifying tool names in the trigger configuration.
+In `PreToolUse`, `PostToolUse`, `PostToolUseFailure`, `PermissionRequest`, and `PermissionDenied` events, you can define hooks specific to tools by specifying tool names in the trigger configuration.
 
 For example, you can create a hook that only runs before the `Read` tool is used:
 
@@ -145,6 +145,24 @@ Then configure it in Claude Code settings:
     ]
   }
 }
+```
+
+The same trigger shape also works for permission hooks:
+
+```typescript
+const permissionRequestHook = defineHook({
+  trigger: { PermissionRequest: { Bash: true } },
+  run: (context) => {
+    // context.input.tool_input is typed as BashInput
+    const { command } = context.input.tool_input;
+
+    if (command.includes("rm -rf")) {
+      return context.blockingError("Refusing destructive command");
+    }
+
+    return context.success();
+  },
+});
 ```
 
 ### Custom Tool Types Support

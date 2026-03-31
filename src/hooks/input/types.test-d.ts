@@ -5,6 +5,7 @@ import { describe, expectTypeOf, it } from "vitest";
 import type { ToolSchema } from "../../index.ts";
 import type { ExtendedTools } from "../../types.ts";
 import type { AutoComplete } from "../../utils/types.ts";
+import type { PermissionUpdate } from "../permission.ts";
 import type { HookInputSchemas } from "./schemas.ts";
 import type {
   ExtractAllHookInputsForEvent,
@@ -115,6 +116,61 @@ describe("HookInputs", () => {
       }>();
     });
   });
+
+  describe("PermissionRequest", () => {
+    it("should handle normal case", () => {
+      expectTypeOf<HookInput["PermissionRequest"]["default"]>().toEqualTypeOf<{
+        agent_id?: string;
+        agent_type?: string;
+        cwd: string;
+        hook_event_name: "PermissionRequest";
+        permission_mode?: string;
+        permission_suggestions?: PermissionUpdate[];
+        session_id: string;
+        tool_input: unknown;
+        tool_name: string;
+        transcript_path: string;
+      }>();
+    });
+
+    it("should infer tool-specific case from ToolSchema", () => {
+      expectTypeOf<HookInput["PermissionRequest"]["MyCustomTool"]>().toMatchObjectType<{
+        tool_input: {
+          customParam: string;
+          optionalParam?: number;
+        };
+        tool_name: "MyCustomTool";
+      }>();
+    });
+  });
+
+  describe("PermissionDenied", () => {
+    it("should handle normal case", () => {
+      expectTypeOf<HookInput["PermissionDenied"]["default"]>().toEqualTypeOf<{
+        agent_id?: string;
+        agent_type?: string;
+        cwd: string;
+        hook_event_name: "PermissionDenied";
+        permission_mode?: string;
+        reason: string;
+        session_id: string;
+        tool_input: unknown;
+        tool_name: string;
+        tool_use_id: string;
+        transcript_path: string;
+      }>();
+    });
+
+    it("should infer tool-specific case from ToolSchema", () => {
+      expectTypeOf<HookInput["PermissionDenied"]["MyCustomTool"]>().toMatchObjectType<{
+        tool_input: {
+          customParam: string;
+          optionalParam?: number;
+        };
+        tool_name: "MyCustomTool";
+      }>();
+    });
+  });
 });
 
 describe("Auto Completion Ability", () => {
@@ -175,6 +231,14 @@ describe("ExtractExtendedSpecificKeys", () => {
       ExtractExtendedSpecificKeys<"PostToolUseFailure">
     >().toEqualTypeOf<ExtendedTools>();
   });
+
+  it("should extract valid specific keys for PermissionRequest", () => {
+    expectTypeOf<ExtractExtendedSpecificKeys<"PermissionRequest">>().toEqualTypeOf<ExtendedTools>();
+  });
+
+  it("should extract valid specific keys for PermissionDenied", () => {
+    expectTypeOf<ExtractExtendedSpecificKeys<"PermissionDenied">>().toEqualTypeOf<ExtendedTools>();
+  });
 });
 
 describe("ExtractAllHookInputsForEvent", () => {
@@ -215,6 +279,20 @@ describe("ExtractAllHookInputsForEvent", () => {
       // Tool-specific types of PostToolUseFailure
       | HookInput["PostToolUseFailure"][TypedTools]
     >();
+
+    expectTypeOf<ExtractAllHookInputsForEvent<"PermissionRequest">>().toEqualTypeOf<
+      // fallback type of PermissionRequest
+      | HookInput["PermissionRequest"]["default"]
+      // Tool-specific types of PermissionRequest
+      | HookInput["PermissionRequest"][TypedTools]
+    >();
+
+    expectTypeOf<ExtractAllHookInputsForEvent<"PermissionDenied">>().toEqualTypeOf<
+      // fallback type of PermissionDenied
+      | HookInput["PermissionDenied"]["default"]
+      // Tool-specific types of PermissionDenied
+      | HookInput["PermissionDenied"][TypedTools]
+    >();
   });
 });
 
@@ -231,6 +309,14 @@ describe("ExtractSpecificHookInputForEvent", () => {
     expectTypeOf<ExtractSpecificHookInputForEvent<"PostToolUse", "WebFetch">>().toEqualTypeOf<
       HookInput["PostToolUse"]["WebFetch"]
     >();
+
+    expectTypeOf<
+      ExtractSpecificHookInputForEvent<"PermissionRequest", "MyCustomTool">
+    >().toEqualTypeOf<HookInput["PermissionRequest"]["MyCustomTool"]>();
+
+    expectTypeOf<
+      ExtractSpecificHookInputForEvent<"PermissionDenied", "MyCustomTool">
+    >().toEqualTypeOf<HookInput["PermissionDenied"]["MyCustomTool"]>();
   });
 
   it("should extract specific tool input with proper tool_input and tool_name typing", () => {
@@ -256,6 +342,26 @@ describe("ExtractSpecificHookInputForEvent", () => {
         data: string;
         success: boolean;
       };
+    }>();
+
+    expectTypeOf<
+      ExtractSpecificHookInputForEvent<"PermissionRequest", "MyCustomTool">
+    >().toMatchObjectType<{
+      tool_input: {
+        customParam: string;
+        optionalParam?: number;
+      };
+      tool_name: "MyCustomTool";
+    }>();
+
+    expectTypeOf<
+      ExtractSpecificHookInputForEvent<"PermissionDenied", "MyCustomTool">
+    >().toMatchObjectType<{
+      tool_input: {
+        customParam: string;
+        optionalParam?: number;
+      };
+      tool_name: "MyCustomTool";
     }>();
   });
 });
