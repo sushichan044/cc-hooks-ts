@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.1.90
+
+### &nbsp;&nbsp;&nbsp;Features
+
+- Support making tool specific hook in PermissionRequest, PermissionDenied &nbsp;-&nbsp; by **Kentaro Suzuki** in https://github.com/sushichan044/cc-hooks-ts/issues/221 [<samp>(0cbc5)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/0cbc529)
+
+### &nbsp;&nbsp;&nbsp;Bug Fixes
+
+- Update to parity with Claude Code v2.1.90 &nbsp;-&nbsp; by **Kentaro Suzuki** in https://github.com/sushichan044/cc-hooks-ts/issues/222 [<samp>(7bb10)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/7bb100c)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sushichan044/cc-hooks-ts/compare/2.1.87...2.1.90)
+
 ## 2.1.87
 
 ### &nbsp;&nbsp;&nbsp;Bug Fixes
