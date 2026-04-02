@@ -147,7 +147,7 @@ interface PreToolUseHookOutput extends CommonHookOutputs {
      * - `deny` prevents the tool call from executing. `permissionDecisionReason` is shown to Claude.
      * - `ask` asks the user to confirm the tool call in the UI. `permissionDecisionReason` is shown to the user but not to Claude.
      */
-    permissionDecision?: "allow" | "ask" | "deny";
+    permissionDecision?: "allow" | "ask" | "deny" | "defer";
 
     permissionDecisionReason?: string;
 
