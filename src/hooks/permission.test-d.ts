@@ -8,4 +8,12 @@ describe("PermissionUpdate", () => {
   it("matches upstream type", () => {
     expectTypeOf<OurPermissionUpdate>().toEqualTypeOf<PermissionUpdate>();
   });
+
+  it("supports the auto mode for setMode updates", () => {
+    expectTypeOf<Extract<OurPermissionUpdate, { type: "setMode" }>>().toEqualTypeOf<{
+      destination: "userSettings" | "projectSettings" | "localSettings" | "session" | "cliArg";
+      mode: "acceptEdits" | "bypassPermissions" | "default" | "dontAsk" | "plan" | "auto";
+      type: "setMode";
+    }>();
+  });
 });
