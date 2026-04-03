@@ -39,7 +39,7 @@ export const permissionUpdateSchema = v.variant("type", [
   }),
   v.object({
     destination: permissionUpdateDestinationSchema,
-    mode: v.picklist(["acceptEdits", "bypassPermissions", "default", "dontAsk", "plan"]),
+    mode: v.picklist(["acceptEdits", "bypassPermissions", "default", "dontAsk", "plan", "auto"]),
     type: v.literal("setMode"),
   }),
   v.object({
