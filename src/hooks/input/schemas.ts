@@ -88,6 +88,7 @@ export const HookInputSchemas = {
 
   UserPromptSubmit: buildHookInputSchema("UserPromptSubmit", {
     prompt: v.string(),
+    session_title: v.exactOptional(v.string()),
   }),
 
   Stop: buildHookInputSchema("Stop", {

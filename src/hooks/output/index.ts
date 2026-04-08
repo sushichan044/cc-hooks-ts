@@ -211,6 +211,8 @@ interface UserPromptSubmitHookOutput extends CommonHookOutputs {
      * Adds the string to the context if not blocked.
      */
     additionalContext?: string;
+
+    sessionTitle?: string;
   };
 
   reason?: string;
