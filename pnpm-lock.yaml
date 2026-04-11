@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@anthropic-ai/claude-agent-sdk':
-        specifier: 0.2.98
-        version: 0.2.98(zod@3.25.76)
+        specifier: 0.2.101
+        version: 0.2.101(zod@3.25.76)
       get-stdin:
         specifier: 10.0.0
         version: 10.0.0
@@ -104,14 +104,14 @@ packages:
   '@andrewbranch/untar.js@1.0.3':
     resolution: {integrity: sha512-Jh15/qVmrLGhkKJBdXlK1+9tY4lZruYjsgkDFj08ZmDiWVBLJcqkok7Z0/R0In+i1rScBpJlSvrTS2Lm41Pbnw==}
 
-  '@anthropic-ai/claude-agent-sdk@0.2.98':
-    resolution: {integrity: sha512-pWUx+xY21rKy5wvX0eBZja7p8J5ykOYaHsykvdj9nkTbAVXmP1WusI1mP6jbBByJ8uBJeBc4beAPSZIFcdIpTA==}
+  '@anthropic-ai/claude-agent-sdk@0.2.101':
+    resolution: {integrity: sha512-LwDQ6ueXnd1EVJbP0XICUO5en4FYJ8Cv/98/+RofoRr4l1cdAdYn1/n758DrTeGkMvTqb4lbdyMNs0RnT7mtoA==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       zod: ^4.0.0
 
-  '@anthropic-ai/sdk@0.80.0':
-    resolution: {integrity: sha512-WeXLn7zNVk3yjeshn+xZHvld6AoFUOR3Sep6pSoHho5YbSi6HwcirqgPA5ccFuW8QTVJAAU7N8uQQC6Wa9TG+g==}
+  '@anthropic-ai/sdk@0.81.0':
+    resolution: {integrity: sha512-D4K5PvEV6wPiRtVlVsJHIUhHAmOZ6IT/I9rKlTf84gR7GyyAurPJK7z9BOf/AZqC5d1DhYQGJNKRmV+q8dGhgw==}
     hasBin: true
     peerDependencies:
       zod: ^3.25.0 || ^4.0.0
@@ -4124,9 +4124,9 @@ snapshots:
 
   '@andrewbranch/untar.js@1.0.3': {}
 
-  '@anthropic-ai/claude-agent-sdk@0.2.98(zod@3.25.76)':
+  '@anthropic-ai/claude-agent-sdk@0.2.101(zod@3.25.76)':
     dependencies:
-      '@anthropic-ai/sdk': 0.80.0(zod@3.25.76)
+      '@anthropic-ai/sdk': 0.81.0(zod@3.25.76)
       '@modelcontextprotocol/sdk': 1.29.0(zod@3.25.76)
       zod: 3.25.76
     optionalDependencies:
@@ -4143,7 +4143,7 @@ snapshots:
       - '@cfworker/json-schema'
       - supports-color
 
-  '@anthropic-ai/sdk@0.80.0(zod@3.25.76)':
+  '@anthropic-ai/sdk@0.81.0(zod@3.25.76)':
     dependencies:
       json-schema-to-ts: 3.1.1
     optionalDependencies:
