@@ -12,6 +12,7 @@ export type HookOutput = {
 
   PostToolUseFailure: PostToolUseFailureHookOutput;
 
+  UserPromptExpansion: UserPromptExpansionHookOutput;
   UserPromptSubmit: UserPromptSubmitHookOutput;
 
   Stop: StopHookOutput;
@@ -188,6 +189,20 @@ interface PostToolUseFailureHookOutput extends CommonHookOutputs {
 
     /**
      * Adds context for Claude to consider.
+     */
+    additionalContext?: string;
+  };
+}
+
+/**
+ * @see {@link https://docs.anthropic.com/en/docs/claude-code/hooks#userpromptsubmit-decision-control}
+ */
+interface UserPromptExpansionHookOutput extends CommonHookOutputs {
+  hookSpecificOutput?: {
+    hookEventName: "UserPromptExpansion";
+
+    /**
+     * Adds the string to the context.
      */
     additionalContext?: string;
   };
