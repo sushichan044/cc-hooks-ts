@@ -9,6 +9,7 @@ export type SupportedHookEvent =
   | "PostToolUseFailure"
   | "Notification"
   | "UserPromptSubmit"
+  | "UserPromptExpansion"
   | "SessionStart"
   | "SessionEnd"
   | "Stop"

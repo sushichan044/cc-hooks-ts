@@ -91,6 +91,14 @@ export const HookInputSchemas = {
     session_title: v.exactOptional(v.string()),
   }),
 
+  UserPromptExpansion: buildHookInputSchema("UserPromptExpansion", {
+    command_args: v.string(),
+    command_name: v.string(),
+    command_source: v.exactOptional(v.string()),
+    expansion_type: v.picklist(["slash_command", "mcp_prompt"]),
+    prompt: v.string(),
+  }),
+
   Stop: buildHookInputSchema("Stop", {
     last_assistant_message: v.exactOptional(v.string()),
     stop_hook_active: v.boolean(),
