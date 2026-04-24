@@ -62,6 +62,7 @@ describe("HookInputs", () => {
         agent_id?: string;
         agent_type?: string;
         cwd: string;
+        duration_ms?: number;
         hook_event_name: "PostToolUse";
         permission_mode?: string;
         session_id: string;
@@ -94,6 +95,7 @@ describe("HookInputs", () => {
         agent_id?: string;
         agent_type?: string;
         cwd: string;
+        duration_ms?: number;
         error: string;
         hook_event_name: "PostToolUseFailure";
         is_interrupt?: boolean;

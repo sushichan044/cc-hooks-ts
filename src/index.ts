@@ -5,8 +5,6 @@ import type {
   AskUserQuestionOutput,
   BashInput,
   BashOutput,
-  ConfigInput,
-  ConfigOutput,
   EnterWorktreeInput,
   EnterWorktreeOutput,
   ExitPlanModeInput,
@@ -85,11 +83,6 @@ export interface ToolSchema {
   Bash: {
     input: BashInput;
     response: BashOutput;
-  };
-
-  Config: {
-    input: ConfigInput;
-    response: ConfigOutput;
   };
 
   Edit: {

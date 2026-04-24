@@ -1,6 +1,6 @@
 {
   "name": "cc-hooks-ts",
-  "version": "2.1.116",
+  "version": "2.1.119",
   "type": "module",
   "description": "Write claude code hooks with type safety",
   "sideEffects": false,
@@ -74,7 +74,7 @@
     "vitest": "4.1.2"
   },
   "dependencies": {
-    "@anthropic-ai/claude-agent-sdk": "0.2.116",
+    "@anthropic-ai/claude-agent-sdk": "0.2.119",
     "get-stdin": "10.0.0",
     "valibot": "^1.1.0"
   }
