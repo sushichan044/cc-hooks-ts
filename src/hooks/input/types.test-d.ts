@@ -173,6 +173,25 @@ describe("HookInputs", () => {
       }>();
     });
   });
+
+  describe("PostToolBatch", () => {
+    type ToolCallItem = HookInput["PostToolBatch"]["default"]["tool_calls"][number];
+    type MySecondCustomToolCall = Extract<ToolCallItem, { tool_name: "MySecondCustomTool" }>;
+
+    it("should narrow tool_name and tool_input by tool_name discriminant", () => {
+      expectTypeOf<MySecondCustomToolCall>().toMatchObjectType<{
+        tool_input: { param: string };
+        tool_name: "MySecondCustomTool";
+        tool_use_id: string;
+      }>();
+    });
+
+    it("should infer optional tool_response by tool_name", () => {
+      expectTypeOf<MySecondCustomToolCall["tool_response"]>().toEqualTypeOf<
+        { success: boolean } | undefined
+      >();
+    });
+  });
 });
 
 describe("Auto Completion Ability", () => {

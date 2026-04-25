@@ -86,7 +86,11 @@ export const HookInputSchemas = {
     tool_calls: v.array(
       v.object({
         tool_input: v.unknown(),
-        tool_name: v.string(),
+        tool_name: v.pipe(
+          // parse as string, then type as AutoComplete<string>
+          v.string(),
+          v.guard((s): s is AutoComplete<string> => true),
+        ),
         tool_response: v.exactOptional(v.unknown()),
         tool_use_id: v.string(),
       }),

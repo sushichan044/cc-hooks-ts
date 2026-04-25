@@ -36,9 +36,13 @@ export type HookInput = {
             ? ToolSpecificPermissionDeniedInput & {
                 default: BaseHookInputs["PermissionDenied"];
               }
-            : {
-                default: BaseHookInputs[EventKey];
-              };
+            : EventKey extends "PostToolBatch"
+              ? {
+                  default: PostToolBatchInput;
+                }
+              : {
+                  default: BaseHookInputs[EventKey];
+                };
 };
 
 /**
@@ -139,4 +143,17 @@ type ToolSpecificPermissionDeniedInput = {
     tool_input: ToolSchema[K]["input"];
     tool_name: K;
   };
+};
+
+type BatchedToolCall = {
+  [K in keyof ToolSchema]: {
+    tool_input: ToolSchema[K]["input"];
+    tool_name: K;
+    tool_response?: ToolSchema[K]["response"];
+    tool_use_id: string;
+  };
+}[keyof ToolSchema];
+
+type PostToolBatchInput = Omit<BaseHookInputs["PostToolBatch"], "tool_calls"> & {
+  tool_calls: BatchedToolCall[];
 };
