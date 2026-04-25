@@ -62,6 +62,7 @@ export const HookInputSchemas = {
       v.guard((s): s is AutoComplete<string> => true),
     ),
 
+    duration_ms: v.exactOptional(v.number()),
     tool_input: v.unknown(),
     tool_response: v.unknown(),
     tool_use_id: v.string(),
@@ -74,10 +75,26 @@ export const HookInputSchemas = {
       v.guard((s): s is AutoComplete<string> => true),
     ),
 
+    duration_ms: v.exactOptional(v.number()),
     error: v.string(),
     is_interrupt: v.exactOptional(v.boolean()),
     tool_input: v.unknown(),
     tool_use_id: v.string(),
+  }),
+
+  PostToolBatch: buildHookInputSchema("PostToolBatch", {
+    tool_calls: v.array(
+      v.object({
+        tool_input: v.unknown(),
+        tool_name: v.pipe(
+          // parse as string, then type as AutoComplete<string>
+          v.string(),
+          v.guard((s): s is AutoComplete<string> => true),
+        ),
+        tool_response: v.exactOptional(v.unknown()),
+        tool_use_id: v.string(),
+      }),
+    ),
   }),
 
   Notification: buildHookInputSchema("Notification", {

@@ -62,6 +62,7 @@ describe("HookInputs", () => {
         agent_id?: string;
         agent_type?: string;
         cwd: string;
+        duration_ms?: number;
         hook_event_name: "PostToolUse";
         permission_mode?: string;
         session_id: string;
@@ -94,6 +95,7 @@ describe("HookInputs", () => {
         agent_id?: string;
         agent_type?: string;
         cwd: string;
+        duration_ms?: number;
         error: string;
         hook_event_name: "PostToolUseFailure";
         is_interrupt?: boolean;
@@ -169,6 +171,25 @@ describe("HookInputs", () => {
         };
         tool_name: "MyCustomTool";
       }>();
+    });
+  });
+
+  describe("PostToolBatch", () => {
+    type ToolCallItem = HookInput["PostToolBatch"]["default"]["tool_calls"][number];
+    type MySecondCustomToolCall = Extract<ToolCallItem, { tool_name: "MySecondCustomTool" }>;
+
+    it("should narrow tool_name and tool_input by tool_name discriminant", () => {
+      expectTypeOf<MySecondCustomToolCall>().toMatchObjectType<{
+        tool_input: { param: string };
+        tool_name: "MySecondCustomTool";
+        tool_use_id: string;
+      }>();
+    });
+
+    it("should infer optional tool_response by tool_name", () => {
+      expectTypeOf<MySecondCustomToolCall["tool_response"]>().toEqualTypeOf<
+        { success: boolean } | undefined
+      >();
     });
   });
 });
