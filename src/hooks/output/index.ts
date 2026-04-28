@@ -179,6 +179,14 @@ interface PostToolUseHookOutput extends CommonHookOutputs {
      */
     additionalContext?: string;
 
+    /**
+     * Replaces the tool output before it is sent to the model.
+     */
+    updatedToolOutput?: unknown;
+
+    /**
+     * Replaces the output for MCP tools only. Prefer `updatedToolOutput`, which works for all tools.
+     */
     updatedMCPToolOutput?: unknown;
   };
 
