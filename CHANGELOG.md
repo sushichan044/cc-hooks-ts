@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.1.121
+
+### &nbsp;&nbsp;&nbsp;Bug Fixes
+
+- Update to parity with Claude Code v2.1.121 &nbsp;-&nbsp; by **Copilot** in https://github.com/sushichan044/cc-hooks-ts/issues/254 [<samp>(7432a)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/7432a49)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sushichan044/cc-hooks-ts/compare/2.1.119...2.1.121)
+
 ## 2.1.116
 
 ### &nbsp;&nbsp;&nbsp;Bug Fixes
