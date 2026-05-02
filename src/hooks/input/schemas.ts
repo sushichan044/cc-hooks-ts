@@ -124,6 +124,7 @@ export const HookInputSchemas = {
   StopFailure: buildHookInputSchema("StopFailure", {
     error: v.picklist([
       "authentication_failed",
+      "oauth_org_not_allowed",
       "billing_error",
       "rate_limit",
       "invalid_request",
