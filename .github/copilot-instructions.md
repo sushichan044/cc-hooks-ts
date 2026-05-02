@@ -12,12 +12,14 @@ Action: ask the author to verify the declared range covers the version that intr
 
 ## 2. Hook contract parity with upstream and test coverage
 
-Trigger: the diff modifies any of:
+Trigger: the diff makes a semantic change (added, removed, renamed, or restructured field, type, schema entry, or event key) in any of:
 
 - an input schema in `src/hooks/input/schemas.ts`
 - the hook event listing in `src/hooks/event.ts`
 - an output type under `src/hooks/output/`
 - the `ToolSchema` interface or input/output re-exports in `src/index.ts`
+
+Comment-only, JSDoc-only, or formatting-only edits to these files do not trigger this check.
 
 Action: confirm BOTH —
 
@@ -39,7 +41,7 @@ Tests describe and assert WHAT the code does (observable contract), not HOW (pri
 
 ## 6. Public API stability
 
-`dist/` ships only what `src/index.ts` exports plus its type re-exports. Renaming, removing, or changing the shape of an exported symbol is breaking. Flag such diffs unless the PR description explicitly calls out the break. Adding `@package` to a previously public export is also breaking.
+`dist/` ships only what `src/index.ts` exports plus its type re-exports. Renaming, removing, or changing the shape of an exported symbol — or removing an export entirely — is breaking. Flag such diffs unless the PR description explicitly calls out the break.
 
 ## Out of scope
 
