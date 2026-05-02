@@ -8,7 +8,7 @@ When reviewing PRs, prioritize the checks below. Cite file paths and approximate
 
 Trigger: the diff adds a call, named import, or member access for a symbol from a package listed under `dependencies` in `package.json` (NOT `devDependencies`, NOT JS / TS built-ins, NOT Node.js core), AND `package.json` is NOT modified in the same diff.
 
-Action: ask the author to verify the declared range covers the version that introduced the symbol. The lockfile (`pnpm-lock.yaml`) may resolve a newer version locally so tests pass, but consumers can resolve any in-range older version and hit `TypeError: <symbol> is not a function` at import time. Adding `v.guard(...)` (valibot 1.3.0+) without bumping `valibot` was the actual regression that prompted this rule. Surface the question even when the symbol looks old — verifying the introduction version is the author's job.
+Action: ask the author to verify the declared range covers the version that introduced the symbol. The lockfile (`pnpm-lock.yaml`) may resolve a newer version locally so tests pass, but consumers can resolve any in-range older version and hit `TypeError: <symbol> is not a function` at import time.
 
 ## 2. Hook contract parity with upstream and test coverage
 
