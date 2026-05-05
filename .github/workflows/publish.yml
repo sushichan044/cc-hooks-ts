@@ -67,10 +67,10 @@ jobs:
         if: ${{ github.event.inputs.raw-increment == 'auto' }}
         run: pnpm exec release-it
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
 
       - name: Release with specified version increment
         if: ${{ github.event.inputs.raw-increment != 'auto' }}
         run: pnpm exec release-it --increment=${{ github.event.inputs.raw-increment }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
