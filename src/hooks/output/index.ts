@@ -249,6 +249,11 @@ interface UserPromptSubmitHookOutput extends CommonHookOutputs {
     additionalContext?: string;
 
     sessionTitle?: string;
+
+    /**
+     * When decision is "block", omit the original prompt from the block message.
+     */
+    suppressOriginalPrompt?: boolean;
   };
 
   reason?: string;
