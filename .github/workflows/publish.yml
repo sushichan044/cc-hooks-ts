@@ -36,6 +36,7 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           fetch-depth: 0
+          persist-credentials: false
 
       - uses: actions/create-github-app-token@1b10c78c7865c340bc4f6099eb2f838309f1e8c3 # v3.1.1
         id: app-token
@@ -62,6 +63,11 @@ jobs:
       - name: Setup latest npm to use trusted publish
         run: |
           npm install -g npm@latest
+
+      - name: Configure git remote with app token
+        run: git remote set-url origin "https://x-access-token:${GH_APP_TOKEN}@github.com/${{ github.repository }}"
+        env:
+          GH_APP_TOKEN: ${{ steps.app-token.outputs.token }}
 
       - name: Release with automatic version increment
         if: ${{ github.event.inputs.raw-increment == 'auto' }}
