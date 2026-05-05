@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.1.128
+
+### &nbsp;&nbsp;&nbsp;Bug Fixes
+
+- Update to parity with Claude Code v2.1.128 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/265 [<samp>(086c1)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/086c1d5)
+- **deps**: Bump valibot minimum to ^1.3.0 &nbsp;-&nbsp; by **sushichan044** in https://github.com/sushichan044/cc-hooks-ts/issues/262 [<samp>(84ade)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/84ade69)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sushichan044/cc-hooks-ts/compare/2.1.126...2.1.128)
+
 ## 2.1.126
 
 ### &nbsp;&nbsp;&nbsp;Bug Fixes
