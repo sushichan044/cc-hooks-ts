@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.1.132
+
+### &nbsp;&nbsp;&nbsp;Bug Fixes
+
+- Bump @anthropic-ai/claude-agent-sdk from 0.2.128 to 0.2.132 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/268 [<samp>(091b2)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/091b296)
+- Bump anthropics/claude-code-action from 1.0.111 to 1.0.112 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/267 [<samp>(014f5)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/014f504)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sushichan044/cc-hooks-ts/compare/2.1.128...2.1.132)
+
 ## 2.1.128
 
 ### &nbsp;&nbsp;&nbsp;Bug Fixes
