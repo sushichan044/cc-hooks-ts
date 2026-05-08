@@ -10,6 +10,11 @@ const baseHookInputSchema = v.object({
   agent_id: v.exactOptional(v.string()),
   agent_type: v.exactOptional(v.string()),
   cwd: v.string(),
+  effort: v.exactOptional(
+    v.object({
+      level: v.string(),
+    }),
+  ),
   permission_mode: v.exactOptional(v.string()),
   session_id: v.string(),
   transcript_path: v.string(),
