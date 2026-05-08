@@ -35,7 +35,7 @@ describe("HookInputs", () => {
         agent_id?: string;
         agent_type?: string;
         cwd: string;
-        effort?: { level: string };
+        effort?: { level: AutoComplete<"low" | "medium" | "high" | "xhigh" | "max"> };
         hook_event_name: "PreToolUse";
         permission_mode?: string;
         session_id: string;
@@ -64,7 +64,7 @@ describe("HookInputs", () => {
         agent_type?: string;
         cwd: string;
         duration_ms?: number;
-        effort?: { level: string };
+        effort?: { level: AutoComplete<"low" | "medium" | "high" | "xhigh" | "max"> };
         hook_event_name: "PostToolUse";
         permission_mode?: string;
         session_id: string;
@@ -98,7 +98,7 @@ describe("HookInputs", () => {
         agent_type?: string;
         cwd: string;
         duration_ms?: number;
-        effort?: { level: string };
+        effort?: { level: AutoComplete<"low" | "medium" | "high" | "xhigh" | "max"> };
         error: string;
         hook_event_name: "PostToolUseFailure";
         is_interrupt?: boolean;
@@ -128,7 +128,7 @@ describe("HookInputs", () => {
         agent_id?: string;
         agent_type?: string;
         cwd: string;
-        effort?: { level: string };
+        effort?: { level: AutoComplete<"low" | "medium" | "high" | "xhigh" | "max"> };
         hook_event_name: "PermissionRequest";
         permission_mode?: string;
         permission_suggestions?: PermissionUpdate[];
@@ -156,7 +156,7 @@ describe("HookInputs", () => {
         agent_id?: string;
         agent_type?: string;
         cwd: string;
-        effort?: { level: string };
+        effort?: { level: AutoComplete<"low" | "medium" | "high" | "xhigh" | "max"> };
         hook_event_name: "PermissionDenied";
         permission_mode?: string;
         reason: string;

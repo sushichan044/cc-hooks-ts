@@ -12,7 +12,10 @@ const baseHookInputSchema = v.object({
   cwd: v.string(),
   effort: v.exactOptional(
     v.object({
-      level: v.string(),
+      level: v.pipe(
+        v.string(),
+        v.guard((s): s is AutoComplete<"low" | "medium" | "high" | "xhigh" | "max"> => true),
+      ),
     }),
   ),
   permission_mode: v.exactOptional(v.string()),
