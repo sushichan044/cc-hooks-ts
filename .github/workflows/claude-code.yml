@@ -37,7 +37,7 @@ jobs:
         uses: ./.github/actions/setup-node-pnpm
 
       - name: Start Claude Code with interactive mode
-        uses: anthropics/claude-code-action@2cc1ac1331eac7a6a96d716dd204dd2888d0fcd2 # v1.0.112
+        uses: anthropics/claude-code-action@9db782c3a17ef2bfc274cd17411bc3e0a5ba1345 # v1.0.115
         if: ${{ inputs.prompt == '' }}
         with:
           branch_prefix: "claude-"
@@ -48,7 +48,7 @@ jobs:
             --allowedTools WebSearch
 
       - name: Start Claude Code with automated mode
-        uses: anthropics/claude-code-action@2cc1ac1331eac7a6a96d716dd204dd2888d0fcd2 # v1.0.112
+        uses: anthropics/claude-code-action@9db782c3a17ef2bfc274cd17411bc3e0a5ba1345 # v1.0.115
         if: ${{ inputs.prompt != '' }}
         with:
           branch_prefix: "claude-"
