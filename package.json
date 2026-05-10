@@ -74,7 +74,7 @@
     "vitest": "4.1.2"
   },
   "dependencies": {
-    "@anthropic-ai/claude-agent-sdk": "0.2.136",
+    "@anthropic-ai/claude-agent-sdk": "0.2.138",
     "get-stdin": "10.0.0",
     "valibot": "^1.3.0"
   }
