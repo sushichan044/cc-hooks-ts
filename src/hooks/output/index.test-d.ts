@@ -27,6 +27,10 @@ type ExtractUpstreamOutput<EventName extends SupportedHookEvent> =
     : CommonHookOutput;
 
 describe("HookOutputs", () => {
+  it("covers all supported events", () => {
+    expectTypeOf<keyof HookOutput>().toEqualTypeOf<SupportedHookEvent>();
+  });
+
   it("matches upstream type", () => {
     type Ours = {
       [K in keyof HookOutput]: Simplify<HookOutput[K]>;

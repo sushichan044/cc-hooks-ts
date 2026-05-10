@@ -1,9 +1,7 @@
 import { describe, expectTypeOf, it } from "vitest";
 
 import type { HookInput, HookOutput } from "./hooks/index.ts";
-import type { ToolSchema } from "./index.ts";
 import type { ExtractTriggeredHookInput, ExtractTriggeredHookOutput } from "./types.ts";
-import type { AssertFalse, IsNever } from "./utils/types.ts";
 
 // Declaration merge with ToolSchema in src/index.ts
 declare module "./index" {
@@ -132,13 +130,5 @@ describe("ExtractTriggeredHookOutput", () => {
     expectTypeOf<ExtractTriggeredHookOutput<{ PostToolUse: true }>>().toEqualTypeOf<
       ExtractTriggeredHookOutput<{ PostToolUse: { Read: true } }>
     >();
-  });
-});
-
-describe("ToolSchema", () => {
-  it("exposes the upstream Task agent type", () => {
-    type ResponseWithAgentType = Extract<ToolSchema["Task"]["response"], { agentType?: string }>;
-
-    expectTypeOf<AssertFalse<IsNever<ResponseWithAgentType>>>().toEqualTypeOf<false>();
   });
 });

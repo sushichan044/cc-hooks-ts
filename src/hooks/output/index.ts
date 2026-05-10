@@ -1,4 +1,3 @@
-import type { AssertFalse, IsNever } from "../../utils/types.ts";
 import type { SupportedHookEvent } from "../event.ts";
 import type { PermissionUpdate } from "../permission.ts";
 
@@ -49,14 +48,6 @@ export type HookOutput = {
   WorktreeCreate: WorktreeCreateHookOutput;
   WorktreeRemove: CommonHookOutputs;
 };
-
-// Internal type checker.
-// If "Type 'true' does not satisfy the constraint 'false'" is shown,
-// it means `HookOutput` is missing required keys for `SupportedHookEvent`.
-// We must implement the missing keys.
-//
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-type __TypeCheckExtractHookOutput = AssertFalse<IsNever<ExtractSyncHookOutput<SupportedHookEvent>>>;
 
 /**
  * @package
