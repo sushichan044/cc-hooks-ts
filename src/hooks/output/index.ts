@@ -122,6 +122,12 @@ type CommonHookOutputs = {
   reason?: string;
 
   /**
+   * A terminal escape sequence (e.g. OSC 9 / OSC 777 desktop-notification) for Claude Code to emit on your behalf.
+   * Only notification/title OSCs (0, 1, 2, 9, 99, 777) and BEL are permitted; anything else is dropped.
+   */
+  terminalSequence?: string;
+
+  /**
    * Use `hookSpecificOutput` in appropriate hook events instead.
    *
    * @deprecated
