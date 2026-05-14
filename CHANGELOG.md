@@ -1,5 +1,23 @@
 # Changelog
 
+## 2.1.141
+
+### &nbsp;&nbsp;&nbsp;Bug Fixes
+
+- Bump @anthropic-ai/claude-agent-sdk from 0.2.133 to 0.2.136 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/272 [<samp>(bbab4)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/bbab4fc)
+- Bump valibot in the prod group across 1 directory &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/271 [<samp>(3dd41)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/3dd4111)
+- Bump anthropics/claude-code-action from 1.0.112 to 1.0.115 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/270 [<samp>(22432)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/22432c6)
+- Bump @anthropic-ai/claude-agent-sdk from 0.2.136 to 0.2.138 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/275 [<samp>(2958e)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/2958e7b)
+- Bump anthropics/claude-code-action from 1.0.115 to 1.0.116 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/274 [<samp>(e04a6)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/e04a63b)
+- Bump anthropics/claude-code-action from 1.0.116 to 1.0.117 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/276 [<samp>(0a4f6)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/0a4f61b)
+- Bump @anthropic-ai/claude-agent-sdk from 0.2.138 to 0.2.139 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/278 [<samp>(84211)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/8421121)
+- Bump anthropics/claude-code-action from 1.0.117 to 1.0.119 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/277 [<samp>(b9198)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/b91982d)
+- Bump @anthropic-ai/claude-agent-sdk from 0.2.139 to 0.2.140 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/279 [<samp>(13b65)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/13b651c)
+- Bump anthropics/claude-code-action from 1.0.119 to 1.0.120 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/281 [<samp>(872c0)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/872c0ef)
+- Update to parity with Claude Code v2.1.141 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/282 [<samp>(f7d0c)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/f7d0ca1)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sushichan044/cc-hooks-ts/compare/2.1.133...2.1.141)
+
 ## 2.1.133
 
 ### &nbsp;&nbsp;&nbsp;Bug Fixes
