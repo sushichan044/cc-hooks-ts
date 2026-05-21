@@ -48,6 +48,25 @@ function buildSubagentInputSchema<TName extends string, TEntries extends v.Objec
   });
 }
 
+const backgroundTaskSummarySchema = v.object({
+  agent_type: v.exactOptional(v.string()),
+  command: v.exactOptional(v.string()),
+  description: v.string(),
+  id: v.string(),
+  name: v.exactOptional(v.string()),
+  server: v.exactOptional(v.string()),
+  status: v.string(),
+  tool: v.exactOptional(v.string()),
+  type: v.string(),
+});
+
+const sessionCronSummarySchema = v.object({
+  id: v.string(),
+  prompt: v.string(),
+  recurring: v.boolean(),
+  schedule: v.string(),
+});
+
 /**
  * @package
  */
@@ -125,7 +144,9 @@ export const HookInputSchemas = {
   }),
 
   Stop: buildHookInputSchema("Stop", {
+    background_tasks: v.exactOptional(v.array(backgroundTaskSummarySchema)),
     last_assistant_message: v.exactOptional(v.string()),
+    session_crons: v.exactOptional(v.array(sessionCronSummarySchema)),
     stop_hook_active: v.boolean(),
   }),
 
@@ -136,6 +157,7 @@ export const HookInputSchemas = {
       "billing_error",
       "rate_limit",
       "invalid_request",
+      "model_not_found",
       "server_error",
       "unknown",
       "max_output_tokens",
@@ -148,7 +170,9 @@ export const HookInputSchemas = {
 
   SubagentStop: buildSubagentInputSchema("SubagentStop", {
     agent_transcript_path: v.string(),
+    background_tasks: v.exactOptional(v.array(backgroundTaskSummarySchema)),
     last_assistant_message: v.exactOptional(v.string()),
+    session_crons: v.exactOptional(v.array(sessionCronSummarySchema)),
     stop_hook_active: v.boolean(),
   }),
 
