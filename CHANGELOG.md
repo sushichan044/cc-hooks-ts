@@ -1,5 +1,19 @@
 # Changelog
 
+## 2.1.145
+
+### &nbsp;&nbsp;&nbsp;Bug Fixes
+
+- Bump @anthropic-ai/claude-agent-sdk from 0.2.141 to 0.3.142 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/285 [<samp>(a2c43)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/a2c4300)
+- Bump anthropics/claude-code-action from 1.0.120 to 1.0.121 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/284 [<samp>(733da)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/733dae0)
+- Bump actions/create-github-app-token from 3.1.1 to 3.2.0 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/283 [<samp>(1d6e7)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/1d6e7f1)
+- Bump @anthropic-ai/claude-agent-sdk from 0.3.142 to 0.3.143 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/287 [<samp>(9ab5b)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/9ab5b0c)
+- Bump anthropics/claude-code-action from 1.0.121 to 1.0.122 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/286 [<samp>(8393c)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/8393c16)
+- Bump anthropics/claude-code-action from 1.0.122 to 1.0.123 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/288 [<samp>(d2c52)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/d2c521f)
+- Update to parity with Claude Code v2.1.145 &nbsp;-&nbsp; by **Kentaro Suzuki** in https://github.com/sushichan044/cc-hooks-ts/issues/292 [<samp>(73bc5)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/73bc5c2)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sushichan044/cc-hooks-ts/compare/2.1.141...2.1.145)
+
 ## 2.1.141
 
 ### &nbsp;&nbsp;&nbsp;Bug Fixes
