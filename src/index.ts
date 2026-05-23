@@ -5,6 +5,14 @@ import type {
   AskUserQuestionOutput,
   BashInput,
   BashOutput,
+  CronCreateInput,
+  CronCreateOutput,
+  CronDeleteInput,
+  CronDeleteOutput,
+  CronListInput,
+  CronListOutput,
+  EnterPlanModeInput,
+  EnterPlanModeOutput,
   EnterWorktreeInput,
   EnterWorktreeOutput,
   ExitPlanModeInput,
@@ -25,10 +33,20 @@ import type {
   ListMcpResourcesOutput,
   McpInput,
   McpOutput,
+  MonitorInput,
+  MonitorOutput,
   NotebookEditInput,
   NotebookEditOutput,
+  PushNotificationInput,
+  PushNotificationOutput,
   ReadMcpResourceInput,
   ReadMcpResourceOutput,
+  RemoteTriggerInput,
+  RemoteTriggerOutput,
+  REPLInput,
+  REPLOutput,
+  ScheduleWakeupInput,
+  ScheduleWakeupOutput,
   TaskOutputInput,
   TaskStopInput,
   TaskStopOutput,
@@ -38,6 +56,8 @@ import type {
   WebFetchOutput,
   WebSearchInput,
   WebSearchOutput,
+  WorkflowInput,
+  WorkflowOutput,
 } from "@anthropic-ai/claude-agent-sdk/sdk-tools";
 
 /**
@@ -85,9 +105,29 @@ export interface ToolSchema {
     response: BashOutput;
   };
 
+  CronCreate: {
+    input: CronCreateInput;
+    response: CronCreateOutput;
+  };
+
+  CronDelete: {
+    input: CronDeleteInput;
+    response: CronDeleteOutput;
+  };
+
+  CronList: {
+    input: CronListInput;
+    response: CronListOutput;
+  };
+
   Edit: {
     input: FileEditInput;
     response: FileEditOutput;
+  };
+
+  EnterPlanMode: {
+    input: EnterPlanModeInput;
+    response: EnterPlanModeOutput;
   };
 
   EnterWorktree: {
@@ -125,9 +165,19 @@ export interface ToolSchema {
     response: McpOutput;
   };
 
+  Monitor: {
+    input: MonitorInput;
+    response: MonitorOutput;
+  };
+
   NotebookEdit: {
     input: NotebookEditInput;
     response: NotebookEditOutput;
+  };
+
+  PushNotification: {
+    input: PushNotificationInput;
+    response: PushNotificationOutput;
   };
 
   Read: {
@@ -138,6 +188,21 @@ export interface ToolSchema {
   ReadMcpResource: {
     input: ReadMcpResourceInput;
     response: ReadMcpResourceOutput;
+  };
+
+  RemoteTrigger: {
+    input: RemoteTriggerInput;
+    response: RemoteTriggerOutput;
+  };
+
+  REPL: {
+    input: REPLInput;
+    response: REPLOutput;
+  };
+
+  ScheduleWakeup: {
+    input: ScheduleWakeupInput;
+    response: ScheduleWakeupOutput;
   };
 
   Skill: {
@@ -187,6 +252,11 @@ export interface ToolSchema {
   WebSearch: {
     input: WebSearchInput;
     response: WebSearchOutput;
+  };
+
+  Workflow: {
+    input: WorkflowInput;
+    response: WorkflowOutput;
   };
 
   Write: {
