@@ -36,6 +36,7 @@ export type HookOutput = {
 
   CwdChanged: CwdChangedHookOutput;
   FileChanged: FileChangedHookOutput;
+  MessageDisplay: MessageDisplayHookOutput;
 
   ConfigChange: CommonHookOutputs;
   InstructionsLoaded: CommonHookOutputs;
@@ -327,6 +328,13 @@ interface SessionStartHookOutput extends CommonHookOutputs {
 
     initialUserMessage?: string;
 
+    /**
+     * Re-scan skill and command directories after SessionStart hooks complete, so skills installed by the hook are available in the same session.
+     */
+    reloadSkills?: boolean;
+
+    sessionTitle?: string;
+
     watchPaths?: string[];
   };
 }
@@ -402,5 +410,16 @@ interface FileChangedHookOutput extends CommonHookOutputs {
   hookSpecificOutput?: {
     hookEventName: "FileChanged";
     watchPaths?: string[];
+  };
+}
+
+interface MessageDisplayHookOutput extends CommonHookOutputs {
+  hookSpecificOutput?: {
+    hookEventName: "MessageDisplay";
+
+    /**
+     * Text displayed in place of the delta. Omit (or return the delta unchanged) to display the original.
+     */
+    displayContent?: string;
   };
 }

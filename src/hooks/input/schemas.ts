@@ -189,6 +189,7 @@ export const HookInputSchemas = {
   SessionStart: buildHookInputSchema("SessionStart", {
     agent_type: v.exactOptional(v.string()),
     model: v.exactOptional(v.string()),
+    session_title: v.exactOptional(v.string()),
     source: v.picklist(["startup", "resume", "clear", "compact"]),
   }),
 
@@ -300,5 +301,13 @@ export const HookInputSchemas = {
   FileChanged: buildHookInputSchema("FileChanged", {
     event: v.picklist(["change", "add", "unlink"]),
     file_path: v.string(),
+  }),
+
+  MessageDisplay: buildHookInputSchema("MessageDisplay", {
+    delta: v.string(),
+    final: v.boolean(),
+    index: v.number(),
+    message_id: v.string(),
+    turn_id: v.string(),
   }),
 } as const satisfies Record<SupportedHookEvent, ValibotSchemaLike>;
