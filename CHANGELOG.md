@@ -1,5 +1,21 @@
 # Changelog
 
+## 2.1.152
+
+### &nbsp;&nbsp;&nbsp;Bug Fixes
+
+- Bump @anthropic-ai/claude-agent-sdk from 0.3.149 to 0.3.150 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/296 [<samp>(657da)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/657da62)
+- Bump anthropics/claude-code-action from 1.0.123 to 1.0.127 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/293 [<samp>(515be)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/515bec7)
+- Bump anthropics/claude-code-action from 1.0.127 to 1.0.130 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/298 [<samp>(9aef1)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/9aef1f4)
+- Bump the dev group across 1 directory with 15 updates &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/294 [<samp>(aee7d)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/aee7dd4)
+- Bump anthropics/claude-code-action from 1.0.130 to 1.0.132 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/299 [<samp>(c5cce)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/c5cce60)
+- Bump @typescript/native-preview in the dev group across 1 directory &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/301 [<samp>(38388)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/38388fc)
+- Bump the dev group across 1 directory with 2 updates &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/302 [<samp>(37bd1)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/37bd126)
+- Bump anthropics/claude-code-action from 1.0.132 to 1.0.133 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/300 [<samp>(4a981)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/4a98128)
+- Update to parity with Claude Code v2.1.152 &nbsp;-&nbsp; by **Kentaro Suzuki** in https://github.com/sushichan044/cc-hooks-ts/issues/304 [<samp>(b27bc)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/b27bc6d)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sushichan044/cc-hooks-ts/compare/2.1.149...2.1.152)
+
 ## 2.1.149
 
 ### &nbsp;&nbsp;&nbsp;Bug Fixes
