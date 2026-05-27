@@ -32,4 +32,5 @@ export type SupportedHookEvent =
   | "ElicitationResult"
   | "InstructionsLoaded"
   | "CwdChanged"
-  | "FileChanged";
+  | "FileChanged"
+  | "MessageDisplay";
