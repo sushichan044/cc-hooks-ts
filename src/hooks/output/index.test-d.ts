@@ -1,7 +1,7 @@
 import type { SyncHookJSONOutput } from "@anthropic-ai/claude-agent-sdk";
 import type { Except, Simplify } from "type-fest";
 
-import { describe, expectTypeOf, it } from "vitest";
+import { describe, expectTypeOf, it } from "vite-plus/test";
 
 import type { SupportedHookEvent } from "../index.ts";
 import type { ExtractAsyncHookOutput } from "./index.ts";

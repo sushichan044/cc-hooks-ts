@@ -29,20 +29,10 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Setup Node.js and pnpm
-        uses: ./.github/actions/setup-node-pnpm
+      - uses: ./.github/actions/setup-env
 
-      - name: Build
-        run: pnpm run build
+      - run: pnpm run build
 
-      - name: Run ESLint
-        run: pnpm run lint
+      - run: pnpm run check
 
-      - name: Run oxfmt
-        run: pnpm run format:check
-
-      - name: Run typecheck
-        run: pnpm run typecheck
-
-      - name: Run test
-        run: pnpm run test
+      - run: pnpm run test

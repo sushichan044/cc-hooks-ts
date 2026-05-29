@@ -1,6 +1,6 @@
 import type { SimplifyDeep } from "type-fest";
 
-import { describe, expectTypeOf, it } from "vitest";
+import { describe, expectTypeOf, it } from "vite-plus/test";
 
 import { createContext } from "./context.ts";
 

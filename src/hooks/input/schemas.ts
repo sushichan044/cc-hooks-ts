@@ -14,7 +14,7 @@ const baseHookInputSchema = v.object({
     v.object({
       level: v.pipe(
         v.string(),
-        v.guard((s): s is AutoComplete<"low" | "medium" | "high" | "xhigh" | "max"> => true),
+        v.guard((_s): _s is AutoComplete<"low" | "medium" | "high" | "xhigh" | "max"> => true),
       ),
     }),
   ),
@@ -75,7 +75,7 @@ export const HookInputSchemas = {
     tool_name: v.pipe(
       // parse as string, then type as AutoComplete<string>
       v.string(),
-      v.guard((s): s is AutoComplete<string> => true),
+      v.guard((_s): _s is AutoComplete<string> => true),
     ),
 
     tool_input: v.unknown(),
@@ -86,7 +86,7 @@ export const HookInputSchemas = {
     tool_name: v.pipe(
       // parse as string, then type as AutoComplete<string>
       v.string(),
-      v.guard((s): s is AutoComplete<string> => true),
+      v.guard((_s): _s is AutoComplete<string> => true),
     ),
 
     duration_ms: v.exactOptional(v.number()),
@@ -99,7 +99,7 @@ export const HookInputSchemas = {
     tool_name: v.pipe(
       // parse as string, then type as AutoComplete<string>
       v.string(),
-      v.guard((s): s is AutoComplete<string> => true),
+      v.guard((_s): _s is AutoComplete<string> => true),
     ),
 
     duration_ms: v.exactOptional(v.number()),
@@ -116,7 +116,7 @@ export const HookInputSchemas = {
         tool_name: v.pipe(
           // parse as string, then type as AutoComplete<string>
           v.string(),
-          v.guard((s): s is AutoComplete<string> => true),
+          v.guard((_s): _s is AutoComplete<string> => true),
         ),
         tool_response: v.exactOptional(v.unknown()),
         tool_use_id: v.string(),

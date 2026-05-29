@@ -55,10 +55,12 @@ jobs:
           git config --global user.name '${{ steps.app-token.outputs.app-slug }}[bot]'
           git config --global user.email '${{ steps.get-user-id.outputs.user-id }}+${{ steps.app-token.outputs.app-slug }}[bot]@users.noreply.github.com'
 
-      - name: Setup Node.js and pnpm
-        uses: ./.github/actions/setup-node-pnpm
+      - uses: ./.github/actions/setup-env
         with:
           registry-url: "https://registry.npmjs.org"
+
+      - name: Build
+        run: pnpm run build
 
       - name: Setup latest npm to use trusted publish
         run: |

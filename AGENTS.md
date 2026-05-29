@@ -8,13 +8,12 @@ A TypeScript library for defining Claude Code hooks with type safety. Provides r
 
 ## Development Commands
 
-YOU MUST RUN `pnpm run check` to run all quality checks before completing any tasks.
+YOU MUST RUN `vp check && vp test --run && vp pack` to run all quality checks before completing any tasks.
 
-- `pnpm test` - Run tests with Vitest
-- `pnpm build` - Build with tsdown
-- `pnpm lint` - Run ESLint with fixes
-- `pnpm format` - Format code with oxfmt
-- `pnpm typecheck` - TypeScript type checking
+- `vp check` - Run all checks (lint, format, typecheck)
+- `vp check --fix` - Auto-fix lint and format issues
+- `vp test --run` - Run tests
+- `vp pack` - Build
 
 ### How to follow the upstream changes
 
