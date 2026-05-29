@@ -2,7 +2,7 @@ import type { HookInput } from "@anthropic-ai/claude-agent-sdk";
 import type { Simplify } from "type-fest";
 import type * as v from "valibot";
 
-import { describe, expectTypeOf, it } from "vitest";
+import { describe, expectTypeOf, it } from "vite-plus/test";
 
 import type { HookInputSchemas } from "./schemas.ts";
 

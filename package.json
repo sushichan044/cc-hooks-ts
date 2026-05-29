@@ -1,9 +1,18 @@
 {
   "name": "cc-hooks-ts",
   "version": "2.1.152",
-  "type": "module",
   "description": "Write claude code hooks with type safety",
-  "sideEffects": false,
+  "keywords": [
+    "anthropic",
+    "claude",
+    "claude-code",
+    "hooks",
+    "type-safety",
+    "typescript"
+  ],
+  "bugs": {
+    "url": "https://github.com/sushichan044/cc-hooks-ts/issues"
+  },
   "license": "MIT",
   "author": {
     "name": "sushichan044",
@@ -13,69 +22,50 @@
     "type": "git",
     "url": "git+https://github.com/sushichan044/cc-hooks-ts.git"
   },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org/",
-    "provenance": true
-  },
-  "bugs": {
-    "url": "https://github.com/sushichan044/cc-hooks-ts/issues"
-  },
-  "engines": {
-    "node": "^20.12.0 || ^22.0.0 || >=24.0.0"
-  },
-  "keywords": [
-    "claude",
-    "claude-code",
-    "hooks",
-    "typescript",
-    "type-safety",
-    "anthropic"
-  ],
   "files": [
     "dist"
   ],
+  "type": "module",
+  "sideEffects": false,
   "exports": {
     ".": {
       "types": "./dist/index.d.mts",
       "import": "./dist/index.mjs"
     }
   },
-  "scripts": {
-    "check": "pnpm run format:check && pnpm run lint && pnpm run typecheck && pnpm run test && pnpm run build",
-    "lint": "eslint --max-warnings 0",
-    "format": "oxfmt",
-    "format:check": "oxfmt --check",
-    "typecheck": "tsgo --noEmit",
-    "test": "vitest --run",
-    "build": "tsdown",
-    "prepublishOnly": "pnpm run build",
-    "pkg-pr-new": "pkg-pr-new publish --compact --comment=update --pnpm"
+  "publishConfig": {
+    "access": "public",
+    "provenance": true,
+    "registry": "https://registry.npmjs.org/"
   },
-  "packageManager": "pnpm@10.28.2",
-  "devDependencies": {
-    "@arethetypeswrong/core": "0.18.2",
-    "@types/node": "25.9.1",
-    "@typescript/native-preview": "7.0.0-dev.20260527.2",
-    "@virtual-live-lab/eslint-config": "2.4.4",
-    "@virtual-live-lab/tsconfig": "2.1.23",
-    "eslint": "10.4.0",
-    "eslint-plugin-import-access": "3.1.0",
-    "oxfmt": "0.52.0",
-    "pkg-pr-new": "0.0.75",
-    "publint": "0.3.21",
-    "release-it": "20.0.1",
-    "release-it-pnpm": "4.6.6",
-    "tsdown": "0.22.1",
-    "type-fest": "5.6.0",
-    "typescript": "6.0.3",
-    "typescript-eslint": "8.60.0",
-    "unplugin-unused": "0.5.7",
-    "vitest": "4.1.7"
+  "scripts": {
+    "check": "vp check",
+    "tidy": "vp check --fix",
+    "test": "vp test --run",
+    "build": "vp pack",
+    "pkg-pr-new": "pkg-pr-new publish --compact --comment=update --pnpm"
   },
   "dependencies": {
     "@anthropic-ai/claude-agent-sdk": "0.3.154",
     "get-stdin": "10.0.0",
     "valibot": "1.4.1"
-  }
+  },
+  "devDependencies": {
+    "@arethetypeswrong/core": "0.18.2",
+    "@types/node": "25.9.1",
+    "@typescript/native-preview": "7.0.0-dev.20260527.2",
+    "@virtual-live-lab/tsconfig": "2.1.23",
+    "pkg-pr-new": "0.0.75",
+    "publint": "0.3.21",
+    "release-it": "20.0.1",
+    "release-it-pnpm": "4.6.6",
+    "type-fest": "5.6.0",
+    "typescript": "6.0.3",
+    "unplugin-unused": "0.5.7",
+    "vite-plus": "0.1.23"
+  },
+  "engines": {
+    "node": "^20.12.0 || ^22.0.0 || >=24.0.0"
+  },
+  "packageManager": "pnpm@10.28.2"
 }
