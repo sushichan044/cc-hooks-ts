@@ -156,6 +156,7 @@ export const HookInputSchemas = {
       "oauth_org_not_allowed",
       "billing_error",
       "rate_limit",
+      "overloaded",
       "invalid_request",
       "model_not_found",
       "server_error",
