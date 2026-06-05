@@ -289,6 +289,11 @@ interface StopHookOutput extends CommonHookOutputs {
    * Reason for the decision.
    */
   reason?: string;
+
+  hookSpecificOutput?: {
+    hookEventName: "Stop";
+    additionalContext?: string;
+  };
 }
 
 interface SubagentStartHookOutput extends CommonHookOutputs {
@@ -315,6 +320,11 @@ interface SubagentStopHookOutput extends CommonHookOutputs {
    * Reason for the decision.
    */
   reason?: string;
+
+  hookSpecificOutput?: {
+    hookEventName: "SubagentStop";
+    additionalContext?: string;
+  };
 }
 
 interface SessionStartHookOutput extends CommonHookOutputs {

@@ -46,7 +46,7 @@ describe("HookOutputs", () => {
 
 describe("ExtractAsyncHookOutput", () => {
   it("extracts only `systemMessage` for events without specific output", () => {
-    type Extracted = ExtractAsyncHookOutput<"Stop">;
+    type Extracted = ExtractAsyncHookOutput<"StopFailure">;
 
     expectTypeOf<Extracted>().toEqualTypeOf<{
       systemMessage?: string | undefined;
