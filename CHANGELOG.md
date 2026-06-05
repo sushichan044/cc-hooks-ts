@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.1.163
+
+### &nbsp;&nbsp;&nbsp;Bug Fixes
+
+- Bump the dev group across 1 directory with 3 updates &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/322 [<samp>(ebcf2)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/ebcf205)
+- Bump anthropics/claude-code-action from 1.0.133 to 1.0.134 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/319 [<samp>(5c56e)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/5c56ea5)
+- Bump actions/checkout from 6.0.2 to 6.0.3 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/320 [<samp>(60ded)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/60deda3)
+- Update to parity with Claude Code v2.1.163 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/321 [<samp>(00f75)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/00f7586)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sushichan044/cc-hooks-ts/compare/2.1.161...2.1.163)
+
 ## 2.1.161
 
 ### &nbsp;&nbsp;&nbsp;Bug Fixes
