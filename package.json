@@ -53,7 +53,7 @@
   "devDependencies": {
     "@arethetypeswrong/core": "0.18.3",
     "@types/node": "25.9.1",
-    "@typescript/native-preview": "7.0.0-dev.20260603.1",
+    "@typescript/native-preview": "7.0.0-dev.20260604.1",
     "@virtual-live-lab/tsconfig": "2.1.23",
     "pkg-pr-new": "0.0.75",
     "publint": "0.3.21",
