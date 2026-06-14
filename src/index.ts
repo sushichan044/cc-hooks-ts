@@ -1,6 +1,8 @@
 import type {
   AgentInput,
   AgentOutput,
+  ArtifactInput,
+  ArtifactOutput,
   AskUserQuestionInput,
   AskUserQuestionOutput,
   BashInput,
@@ -37,6 +39,8 @@ import type {
   MonitorOutput,
   NotebookEditInput,
   NotebookEditOutput,
+  ProjectsInput,
+  ProjectsOutput,
   PushNotificationInput,
   PushNotificationOutput,
   ReadMcpResourceInput,
@@ -47,6 +51,8 @@ import type {
   REPLOutput,
   ScheduleWakeupInput,
   ScheduleWakeupOutput,
+  ShowOnboardingRolePickerInput,
+  ShowOnboardingRolePickerOutput,
   TaskOutputInput,
   TaskStopInput,
   TaskStopOutput,
@@ -95,6 +101,11 @@ import type {
  * ```
  */
 export interface ToolSchema {
+  Artifact: {
+    input: ArtifactInput;
+    response: ArtifactOutput;
+  };
+
   AskUserQuestion: {
     input: AskUserQuestionInput;
     response: AskUserQuestionOutput;
@@ -175,6 +186,11 @@ export interface ToolSchema {
     response: NotebookEditOutput;
   };
 
+  Projects: {
+    input: ProjectsInput;
+    response: ProjectsOutput;
+  };
+
   PushNotification: {
     input: PushNotificationInput;
     response: PushNotificationOutput;
@@ -203,6 +219,11 @@ export interface ToolSchema {
   ScheduleWakeup: {
     input: ScheduleWakeupInput;
     response: ScheduleWakeupOutput;
+  };
+
+  ShowOnboardingRolePicker: {
+    input: ShowOnboardingRolePickerInput;
+    response: ShowOnboardingRolePickerOutput;
   };
 
   Skill: {
