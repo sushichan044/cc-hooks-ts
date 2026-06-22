@@ -53,9 +53,16 @@ import type {
   ScheduleWakeupOutput,
   ShowOnboardingRolePickerInput,
   ShowOnboardingRolePickerOutput,
+  TaskCreateInput,
+  TaskCreateOutput,
+  TaskGetInput,
+  TaskGetOutput,
+  TaskListInput,
   TaskOutputInput,
   TaskStopInput,
   TaskStopOutput,
+  TaskUpdateInput,
+  TaskUpdateOutput,
   TodoWriteInput,
   TodoWriteOutput,
   WebFetchInput,
@@ -101,6 +108,11 @@ import type {
  * ```
  */
 export interface ToolSchema {
+  Agent: {
+    input: AgentInput;
+    response: AgentOutput;
+  };
+
   Artifact: {
     input: ArtifactInput;
     response: ArtifactOutput;
@@ -234,9 +246,19 @@ export interface ToolSchema {
     response: unknown;
   };
 
-  Task: {
-    input: AgentInput;
-    response: AgentOutput;
+  TaskCreate: {
+    input: TaskCreateInput;
+    response: TaskCreateOutput;
+  };
+
+  TaskGet: {
+    input: TaskGetInput;
+    response: TaskGetOutput;
+  };
+
+  TaskList: {
+    input: TaskListInput;
+    response: TaskOutputInput;
   };
 
   TaskOutput: {
@@ -247,6 +269,11 @@ export interface ToolSchema {
   TaskStop: {
     input: TaskStopInput;
     response: TaskStopOutput;
+  };
+
+  TaskUpdate: {
+    input: TaskUpdateInput;
+    response: TaskUpdateOutput;
   };
 
   TodoWrite: {

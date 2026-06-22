@@ -21,6 +21,23 @@ export default defineConfig({
     rules: {
       "vite-plus/prefer-vite-plus-imports": "error",
     },
+    overrides: [
+      {
+        files: ["src/index.ts"],
+        jsPlugins: ["eslint-plugin-perfectionist"],
+        rules: {
+          "perfectionist/sort-interfaces": [
+            "error",
+            {
+              type: "alphabetical",
+              order: "asc",
+              fallbackSort: { type: "unsorted" },
+              ignoreCase: true,
+            },
+          ],
+        },
+      },
+    ],
   },
   pack: {
     attw: { profile: "esm-only" },
