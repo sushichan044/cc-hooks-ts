@@ -1,5 +1,23 @@
 # Changelog
 
+## 2.1.185
+
+### &nbsp;&nbsp;&nbsp;Bug Fixes
+
+- Bump @anthropic-ai/claude-agent-sdk from 0.3.176 to 0.3.177 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/341 [<samp>(224b6)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/224b671)
+- Bump the dev group across 1 directory with 2 updates &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/342 [<samp>(6a7e3)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/6a7e3bb)
+- Bump @anthropic-ai/claude-agent-sdk from 0.3.177 to 0.3.178 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/344 [<samp>(81857)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/81857d2)
+- Bump @typescript/native-preview in the dev group across 1 directory &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/343 [<samp>(65f8e)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/65f8e4c)
+- Bump @anthropic-ai/claude-agent-sdk from 0.3.178 to 0.3.181 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/347 [<samp>(f6662)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/f6662b5)
+- Bump @anthropic-ai/claude-agent-sdk from 0.3.181 to 0.3.183 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/349 [<samp>(3ccd1)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/3ccd1f4)
+- Bump actions/checkout from 6.0.3 to 7.0.0 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/348 [<samp>(18e9e)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/18e9ef1)
+- Bump @anthropic-ai/claude-agent-sdk from 0.3.183 to 0.3.185 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/350 [<samp>(09654)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/0965475)
+- Bump the dev group across 1 directory with 2 updates &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/351 [<samp>(bb212)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/bb21226)
+- Bump the dev group across 1 directory with 2 updates &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/352 [<samp>(5ee2d)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/5ee2db2)
+- Add missing types &nbsp;-&nbsp; by **Kentaro Suzuki** in https://github.com/sushichan044/cc-hooks-ts/issues/353 [<samp>(c324c)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/c324cc2)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sushichan044/cc-hooks-ts/compare/2.1.176...2.1.185)
+
 ## 2.1.176
 
 ### &nbsp;&nbsp;&nbsp;Bug Fixes
