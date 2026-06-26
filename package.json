@@ -51,9 +51,9 @@
     "valibot": "1.4.1"
   },
   "devDependencies": {
-    "@arethetypeswrong/core": "0.18.3",
+    "@arethetypeswrong/core": "0.18.4",
     "@types/node": "25.9.3",
-    "@typescript/native-preview": "7.0.0-dev.20260618.1",
+    "@typescript/native-preview": "7.0.0-dev.20260624.1",
     "@virtual-live-lab/tsconfig": "2.1.23",
     "eslint-plugin-perfectionist": "5.9.1",
     "pkg-pr-new": "0.0.75",
