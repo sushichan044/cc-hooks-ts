@@ -61,6 +61,11 @@ export interface HookContext<THookTrigger extends HookTrigger> {
    */
   defer: (
     handler: () => Awaitable<AsyncHookResultJSON<THookTrigger>>,
+    /**
+     * @deprecated
+     *
+     * Async Hook is now stable and there is no need to specify these options.
+     */
     options?: {
       /**
        * Optional timeout in milliseconds.
@@ -70,6 +75,11 @@ export interface HookContext<THookTrigger extends HookTrigger> {
        *
        * @default
        * Claude Code has its own internal timeouts.
+       *
+       * @deprecated
+       * Async Hook is now stable and there is no need to specify timeoutMs.
+       * Just set `timeout` in settings.json.
+       * https://code.claude.com/docs/en/hooks#example-run-tests-after-file-changes
        */
       timeoutMs?: number | undefined;
     },
@@ -158,10 +168,9 @@ export function createContext<THookTrigger extends HookTrigger>(
   input: ExtractTriggeredHookInput<THookTrigger>,
 ): HookContext<THookTrigger> {
   return {
-    defer: (handler, options) => ({
+    defer: (handler) => ({
       kind: "json-async",
       run: handler,
-      timeoutMs: options?.timeoutMs,
     }),
 
     blockingError: (error) => ({
@@ -235,8 +244,6 @@ type HookResponseSyncJSON<TTrigger extends HookTrigger> = {
 
 type HookResponseAsyncJSON<TTrigger extends HookTrigger> = {
   kind: "json-async";
-
-  timeoutMs?: number | undefined;
 
   run: () => Awaitable<AsyncHookResultJSON<TTrigger>>;
 };

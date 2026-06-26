@@ -1,5 +1,3 @@
-import type { AsyncHookJSONOutput } from "@anthropic-ai/claude-agent-sdk";
-
 import getStdin from "get-stdin";
 import process from "node:process";
 import * as v from "valibot";
@@ -108,61 +106,8 @@ async function handleHookResult<THookTrigger extends HookTrigger>(
     }
 
     case "json-async": {
-      const userTimeout = hookResult.timeoutMs;
-      // This JSON tells Claude Code that the hook is running asynchronously.
-      // Claude Code proceeds to the next step without waiting for this hook to finish,
-      // while the hook continues running in the background.
-      console.log(
-        JSON.stringify({
-          async: true,
-          asyncTimeout: userTimeout ?? undefined,
-        } satisfies AsyncHookJSONOutput),
-      );
-
-      const safeInvokeDeferredHook = async () => {
-        try {
-          const res = await hookResult.run();
-          return { isError: false, payload: res } as const;
-        } catch (error) {
-          return {
-            isError: true,
-            reason: error instanceof Error ? error.message : String(error),
-          } as const;
-        }
-      };
-
-      let deferredResult: Awaited<ReturnType<typeof safeInvokeDeferredHook>>;
-      if (userTimeout == null) {
-        deferredResult = await safeInvokeDeferredHook();
-      } else {
-        // In case of Claude does not respect timeout and keeps running forever,
-        // we add a hard timeout 5s after user timeout to exit the process.
-        deferredResult = await Promise.race([
-          safeInvokeDeferredHook(),
-          new Promise<Extract<typeof deferredResult, { isError: true }>>((resolve) =>
-            setTimeout(
-              () =>
-                resolve({
-                  isError: true,
-                  reason: `Exceeded user specified timeout: ${userTimeout}ms`,
-                }),
-              userTimeout + 5000,
-            ),
-          ),
-        ]);
-      }
-
-      if (deferredResult.isError) {
-        if (isNonEmptyString(deferredResult.reason)) {
-          console.error(`Async hook execution failed: ${deferredResult.reason}`);
-        }
-        return process.exit(1);
-      }
-
-      // For debugging:
-      // You should enable verbose output in Claude Code by
-      // `/config` → Set "verbose" to true
-      console.log(JSON.stringify(deferredResult.payload.output));
+      const res = await hookResult.run();
+      console.log(JSON.stringify(res.output));
       return process.exit(0);
     }
 
