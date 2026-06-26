@@ -1,5 +1,6 @@
 [tools]
 vite-plus = { version = "latest", postinstall = "vp env off" } # do not manage nodejs with vite-plus
+jq = "latest"
 
 [plugins]
 vite-plus = "https://github.com/markmals/mise-vite-plus"

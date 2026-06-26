@@ -55,6 +55,7 @@
     "@types/node": "25.9.3",
     "@typescript/native-preview": "7.0.0-dev.20260624.1",
     "@virtual-live-lab/tsconfig": "2.1.23",
+    "defu": "6.1.7",
     "eslint-plugin-perfectionist": "5.9.1",
     "pkg-pr-new": "0.0.75",
     "publint": "0.3.21",
