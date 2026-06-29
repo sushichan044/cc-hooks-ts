@@ -43,6 +43,8 @@ import type {
   ProjectsOutput,
   PushNotificationInput,
   PushNotificationOutput,
+  ReadMcpResourceDirInput,
+  ReadMcpResourceDirOutput,
   ReadMcpResourceInput,
   ReadMcpResourceOutput,
   RemoteTriggerInput,
@@ -216,6 +218,11 @@ export interface ToolSchema {
   ReadMcpResource: {
     input: ReadMcpResourceInput;
     response: ReadMcpResourceOutput;
+  };
+
+  ReadMcpResourceDir: {
+    input: ReadMcpResourceDirInput;
+    response: ReadMcpResourceDirOutput;
   };
 
   RemoteTrigger: {
