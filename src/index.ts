@@ -48,6 +48,8 @@ import type {
   ReadMcpResourceInput,
   ReadMcpResourceOutput,
   RemoteTriggerInput,
+  ReportFindingsInput,
+  ReportFindingsOutput,
   RemoteTriggerOutput,
   REPLInput,
   REPLOutput,
@@ -233,6 +235,11 @@ export interface ToolSchema {
   REPL: {
     input: REPLInput;
     response: REPLOutput;
+  };
+
+  ReportFindings: {
+    input: ReportFindingsInput;
+    response: ReportFindingsOutput;
   };
 
   ScheduleWakeup: {
