@@ -38,6 +38,7 @@ describe("HookInputs", () => {
         effort?: { level: AutoComplete<"low" | "medium" | "high" | "xhigh" | "max"> };
         hook_event_name: "PreToolUse";
         permission_mode?: string;
+        prompt_id?: string;
         session_id: string;
         tool_input: unknown;
         tool_name: AutoComplete<string>;
@@ -67,6 +68,7 @@ describe("HookInputs", () => {
         effort?: { level: AutoComplete<"low" | "medium" | "high" | "xhigh" | "max"> };
         hook_event_name: "PostToolUse";
         permission_mode?: string;
+        prompt_id?: string;
         session_id: string;
         tool_input: unknown;
         tool_name: AutoComplete<string>;
@@ -103,6 +105,7 @@ describe("HookInputs", () => {
         hook_event_name: "PostToolUseFailure";
         is_interrupt?: boolean;
         permission_mode?: string;
+        prompt_id?: string;
         session_id: string;
         tool_input: unknown;
         tool_name: AutoComplete<string>;
@@ -132,6 +135,7 @@ describe("HookInputs", () => {
         hook_event_name: "PermissionRequest";
         permission_mode?: string;
         permission_suggestions?: PermissionUpdate[];
+        prompt_id?: string;
         session_id: string;
         tool_input: unknown;
         tool_name: string;
@@ -159,6 +163,7 @@ describe("HookInputs", () => {
         effort?: { level: AutoComplete<"low" | "medium" | "high" | "xhigh" | "max"> };
         hook_event_name: "PermissionDenied";
         permission_mode?: string;
+        prompt_id?: string;
         reason: string;
         session_id: string;
         tool_input: unknown;

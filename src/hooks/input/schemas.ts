@@ -19,6 +19,7 @@ const baseHookInputSchema = v.object({
     }),
   ),
   permission_mode: v.exactOptional(v.string()),
+  prompt_id: v.exactOptional(v.string()),
   session_id: v.string(),
   transcript_path: v.string(),
 });

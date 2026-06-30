@@ -43,4 +43,4 @@ const resolvedSettings = defu(
   base,
 );
 
-await writeFile(".claude/settings.json", JSON.stringify(resolvedSettings, null, 2));
+await writeFile(".claude/settings.json", JSON.stringify(resolvedSettings, null, 2) + "\n");
