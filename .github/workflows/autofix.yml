@@ -29,6 +29,8 @@ jobs:
 
       - uses: ./.github/actions/setup-env
 
+      - run: vp pack
+
       - run: vp check --fix
 
       - run: node scripts/generate-settings.ts

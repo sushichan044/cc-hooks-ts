@@ -31,8 +31,8 @@ jobs:
 
       - uses: ./.github/actions/setup-env
 
-      - run: pnpm run build
+      - run: vp pack
 
-      - run: pnpm run check
+      - run: vp check
 
-      - run: pnpm run test
+      - run: vp test

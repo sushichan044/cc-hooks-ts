@@ -39,10 +39,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
-    "check": "vp check",
-    "tidy": "vp check --fix",
-    "test": "vp test --run",
-    "build": "vp pack",
     "pkg-pr-new": "pkg-pr-new publish --compact --comment=update --pnpm"
   },
   "dependencies": {
