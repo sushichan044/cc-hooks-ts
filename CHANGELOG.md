@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.1.199
+
+### &nbsp;&nbsp;&nbsp;Bug Fixes
+
+- Bump @anthropic-ai/claude-agent-sdk from 0.3.196 to 0.3.197 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/360 [<samp>(28bdd)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/28bdd2a)
+- Bump @anthropic-ai/claude-agent-sdk from 0.3.197 to 0.3.198 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/362 [<samp>(cc3b2)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/cc3b2cc)
+- Bump valibot in the prod group across 1 directory &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/361 [<samp>(38d36)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/38d360f)
+- Update to parity with Claude Code v2.1.199 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/363 [<samp>(1de3a)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/1de3ac8)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sushichan044/cc-hooks-ts/compare/2.1.196...2.1.199)
+
 ## 2.1.196
 
 ### &nbsp;&nbsp;&nbsp;Bug Fixes
