@@ -7,6 +7,8 @@ import type {
   AskUserQuestionOutput,
   BashInput,
   BashOutput,
+  ClaudeDesignInput,
+  ClaudeDesignOutput,
   CronCreateInput,
   CronCreateOutput,
   CronDeleteInput,
@@ -130,6 +132,11 @@ export interface ToolSchema {
   Bash: {
     input: BashInput;
     response: BashOutput;
+  };
+
+  ClaudeDesign: {
+    input: ClaudeDesignInput;
+    response: ClaudeDesignOutput;
   };
 
   CronCreate: {
