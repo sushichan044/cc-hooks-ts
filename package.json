@@ -49,7 +49,7 @@
   "devDependencies": {
     "@arethetypeswrong/core": "0.18.4",
     "@types/node": "26.0.1",
-    "@typescript/native-preview": "7.0.0-dev.20260629.1",
+    "@typescript/native-preview": "7.0.0-dev.20260630.1",
     "@virtual-live-lab/tsconfig": "2.1.23",
     "defu": "6.1.7",
     "eslint-plugin-perfectionist": "5.9.1",
