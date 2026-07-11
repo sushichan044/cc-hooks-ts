@@ -49,10 +49,10 @@
   "devDependencies": {
     "@arethetypeswrong/core": "0.18.4",
     "@types/node": "26.1.0",
-    "@typescript/native-preview": "7.0.0-dev.20260704.1",
+    "@typescript/native-preview": "7.0.0-dev.20260707.2",
     "@virtual-live-lab/tsconfig": "2.1.23",
     "defu": "6.1.7",
-    "eslint-plugin-perfectionist": "5.9.1",
+    "eslint-plugin-perfectionist": "5.10.0",
     "pkg-pr-new": "0.0.75",
     "publint": "0.3.21",
     "release-it": "20.2.1",
@@ -60,7 +60,7 @@
     "type-fest": "5.8.0",
     "typescript": "6.0.3",
     "unplugin-unused": "0.5.7",
-    "vite-plus": "0.2.2"
+    "vite-plus": "0.2.3"
   },
   "engines": {
     "node": "^20.12.0 || ^22.0.0 || >=24.0.0"
