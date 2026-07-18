@@ -43,12 +43,16 @@ import type {
   NotebookEditOutput,
   ProjectsInput,
   ProjectsOutput,
+  ProposeSkillsInput,
+  ProposeSkillsOutput,
   PushNotificationInput,
   PushNotificationOutput,
   ReadMcpResourceDirInput,
   ReadMcpResourceDirOutput,
   ReadMcpResourceInput,
   ReadMcpResourceOutput,
+  RefreshMcpToolsInput,
+  RefreshMcpToolsOutput,
   RemoteTriggerInput,
   ReportFindingsInput,
   ReportFindingsOutput,
@@ -57,6 +61,8 @@ import type {
   REPLOutput,
   ScheduleWakeupInput,
   ScheduleWakeupOutput,
+  SendFeedbackInput,
+  SendFeedbackOutput,
   ShowOnboardingRolePickerInput,
   ShowOnboardingRolePickerOutput,
   TaskCreateInput,
@@ -214,6 +220,11 @@ export interface ToolSchema {
     response: ProjectsOutput;
   };
 
+  ProposeSkills: {
+    input: ProposeSkillsInput;
+    response: ProposeSkillsOutput;
+  };
+
   PushNotification: {
     input: PushNotificationInput;
     response: PushNotificationOutput;
@@ -234,6 +245,11 @@ export interface ToolSchema {
     response: ReadMcpResourceDirOutput;
   };
 
+  RefreshMcpTools: {
+    input: RefreshMcpToolsInput;
+    response: RefreshMcpToolsOutput;
+  };
+
   RemoteTrigger: {
     input: RemoteTriggerInput;
     response: RemoteTriggerOutput;
@@ -252,6 +268,11 @@ export interface ToolSchema {
   ScheduleWakeup: {
     input: ScheduleWakeupInput;
     response: ScheduleWakeupOutput;
+  };
+
+  SendFeedback: {
+    input: SendFeedbackInput;
+    response: SendFeedbackOutput;
   };
 
   ShowOnboardingRolePicker: {
