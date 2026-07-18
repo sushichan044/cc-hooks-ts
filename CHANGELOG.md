@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.1.212
+
+### &nbsp;&nbsp;&nbsp;Bug Fixes
+
+- Bump @anthropic-ai/claude-agent-sdk from 0.3.203 to 0.3.205 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/372 [<samp>(39cfd)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/39cfdcc)
+- Update to parity with Claude Code v2.1.212 &nbsp;-&nbsp; by **Claude Sonnet 5** in https://github.com/sushichan044/cc-hooks-ts/issues/382 [<samp>(b52b7)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/b52b7e4)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sushichan044/cc-hooks-ts/compare/2.1.203...2.1.212)
+
 ## 2.1.203
 
 ### &nbsp;&nbsp;&nbsp;Bug Fixes

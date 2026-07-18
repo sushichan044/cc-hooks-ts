@@ -1,6 +1,6 @@
 {
   "name": "cc-hooks-ts",
-  "version": "2.1.203",
+  "version": "2.1.212",
   "description": "Write claude code hooks with type safety",
   "keywords": [
     "anthropic",
