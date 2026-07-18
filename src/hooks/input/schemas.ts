@@ -134,6 +134,9 @@ export const HookInputSchemas = {
   UserPromptSubmit: buildHookInputSchema("UserPromptSubmit", {
     prompt: v.string(),
     session_title: v.exactOptional(v.string()),
+    source: v.exactOptional(
+      v.picklist(["user", "sdk", "system", "loop_wakeup", "schedule_wakeup"]),
+    ),
   }),
 
   UserPromptExpansion: buildHookInputSchema("UserPromptExpansion", {
