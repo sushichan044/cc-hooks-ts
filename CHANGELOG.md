@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.1.214
+
+### &nbsp;&nbsp;&nbsp;Bug Fixes
+
+- Bump actions/setup-node from 6.4.0 to 7.0.0 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/379 [<samp>(488d5)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/488d501)
+- Bump the dev group across 1 directory with 7 updates &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/381 [<samp>(6b02a)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/6b02a41)
+- Update to parity with Claude Code v2.1.214 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/383 [<samp>(c235f)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/c235f08)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sushichan044/cc-hooks-ts/compare/2.1.212...2.1.214)
+
 ## 2.1.212
 
 ### &nbsp;&nbsp;&nbsp;Bug Fixes
