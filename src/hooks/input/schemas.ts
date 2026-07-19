@@ -195,7 +195,7 @@ export const HookInputSchemas = {
     agent_type: v.exactOptional(v.string()),
     model: v.exactOptional(v.string()),
     session_title: v.exactOptional(v.string()),
-    source: v.picklist(["startup", "resume", "clear", "compact"]),
+    source: v.picklist(["startup", "resume", "clear", "compact", "fork"]),
   }),
 
   SessionEnd: buildHookInputSchema("SessionEnd", {
