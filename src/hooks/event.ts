@@ -35,5 +35,6 @@ export const SUPPORTED_HOOK_EVENTS = [
   "InstructionsLoaded",
   "CwdChanged",
   "FileChanged",
+  "DirectoryAdded",
   "MessageDisplay",
 ] as const satisfies string[];

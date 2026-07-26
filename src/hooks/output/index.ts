@@ -36,6 +36,7 @@ export type HookOutput = {
 
   CwdChanged: CwdChangedHookOutput;
   FileChanged: FileChangedHookOutput;
+  DirectoryAdded: CommonHookOutputs;
   MessageDisplay: MessageDisplayHookOutput;
 
   ConfigChange: CommonHookOutputs;

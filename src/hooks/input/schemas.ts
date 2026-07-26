@@ -308,6 +308,11 @@ export const HookInputSchemas = {
     file_path: v.string(),
   }),
 
+  DirectoryAdded: buildHookInputSchema("DirectoryAdded", {
+    directory: v.string(),
+    source: v.picklist(["slash_command", "register_repo_root"]),
+  }),
+
   MessageDisplay: buildHookInputSchema("MessageDisplay", {
     delta: v.string(),
     final: v.boolean(),
