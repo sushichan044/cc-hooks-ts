@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.1.220
+
+### &nbsp;&nbsp;&nbsp;Bug Fixes
+
+- Bump @anthropic-ai/claude-agent-sdk from 0.3.214 to 0.3.215 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/384 [<samp>(003f9)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/003f9bb)
+- Bump actions/checkout from 7.0.0 to 7.0.1 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/385 [<samp>(5f03c)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/5f03c5e)
+- Bump @anthropic-ai/claude-agent-sdk from 0.3.215 to 0.3.217 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/388 [<samp>(2be6c)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/2be6c9a)
+- Bump @anthropic-ai/claude-agent-sdk from 0.3.217 to 0.3.218 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/389 [<samp>(2e152)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/2e152b3)
+- Update to parity with Claude Code v2.1.220 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/392 [<samp>(a67e2)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/a67e2fd)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sushichan044/cc-hooks-ts/compare/2.1.214...2.1.220)
+
 ## 2.1.214
 
 ### &nbsp;&nbsp;&nbsp;Bug Fixes
