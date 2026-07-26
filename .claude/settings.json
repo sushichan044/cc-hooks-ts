@@ -302,6 +302,16 @@
         ]
       }
     ],
+    "DirectoryAdded": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node scripts/log-hook-event.ts DirectoryAdded"
+          }
+        ]
+      }
+    ],
     "MessageDisplay": [
       {
         "hooks": [
