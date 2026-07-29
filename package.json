@@ -55,7 +55,7 @@
     "eslint-plugin-perfectionist": "5.10.0",
     "pkg-pr-new": "0.0.80",
     "publint": "0.3.22",
-    "release-it": "20.2.1",
+    "release-it": "21.0.0",
     "release-it-pnpm": "4.6.6",
     "type-fest": "5.8.0",
     "typescript": "7.0.2",
