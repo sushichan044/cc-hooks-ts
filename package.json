@@ -53,7 +53,7 @@
     "@virtual-live-lab/tsconfig": "2.1.23",
     "defu": "6.1.7",
     "eslint-plugin-perfectionist": "5.10.0",
-    "pkg-pr-new": "0.0.80",
+    "pkg-pr-new": "0.0.82",
     "publint": "0.3.22",
     "release-it": "21.0.0",
     "release-it-pnpm": "4.6.6",
