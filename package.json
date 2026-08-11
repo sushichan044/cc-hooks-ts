@@ -48,19 +48,19 @@
   },
   "devDependencies": {
     "@arethetypeswrong/core": "0.18.5",
-    "@types/node": "26.1.2",
+    "@types/node": "26.2.0",
     "@typescript/native-preview": "7.0.0-dev.20260707.2",
     "@virtual-live-lab/tsconfig": "2.1.23",
     "defu": "6.1.7",
     "eslint-plugin-perfectionist": "5.10.1",
-    "pkg-pr-new": "0.0.86",
+    "pkg-pr-new": "0.0.87",
     "publint": "0.3.23",
     "release-it": "21.0.1",
     "release-it-pnpm": "4.6.6",
     "type-fest": "5.8.0",
     "typescript": "7.0.2",
     "unplugin-unused": "0.6.0",
-    "vite-plus": "0.2.7"
+    "vite-plus": "0.2.8"
   },
   "engines": {
     "node": "^20.12.0 || ^22.0.0 || >=24.0.0"
