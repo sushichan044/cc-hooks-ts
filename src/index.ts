@@ -51,6 +51,8 @@ import type {
   ReadMcpResourceDirOutput,
   ReadMcpResourceInput,
   ReadMcpResourceOutput,
+  ReadNotificationsInput,
+  ReadNotificationsOutput,
   RefreshMcpToolsInput,
   RefreshMcpToolsOutput,
   RemoteTriggerInput,
@@ -243,6 +245,11 @@ export interface ToolSchema {
   ReadMcpResourceDir: {
     input: ReadMcpResourceDirInput;
     response: ReadMcpResourceDirOutput;
+  };
+
+  ReadNotifications: {
+    input: ReadNotificationsInput;
+    response: ReadNotificationsOutput;
   };
 
   RefreshMcpTools: {
