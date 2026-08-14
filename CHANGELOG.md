@@ -1,5 +1,29 @@
 # Changelog
 
+## 2.1.229
+
+### &nbsp;&nbsp;&nbsp;Bug Fixes
+
+- Bump the dev group across 1 directory with 3 updates &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/393 [<samp>(4146e)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/4146e67)
+- Bump pkg-pr-new in the dev group across 1 directory &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/394 [<samp>(919d4)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/919d4e6)
+- Bump release-it in the dev group across 1 directory &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/395 [<samp>(d4a63)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/d4a6341)
+- Bump the dev group across 1 directory with 2 updates &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/396 [<samp>(4b0ca)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/4b0caad)
+- Bump pkg-pr-new in the dev group across 1 directory &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/397 [<samp>(8f8b1)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/8f8b18c)
+- Bump pkg-pr-new in the dev group across 1 directory &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/398 [<samp>(90adb)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/90adbfa)
+- Bump the dev group across 1 directory with 2 updates &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/399 [<samp>(e04aa)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/e04aa26)
+- Bump @anthropic-ai/claude-agent-sdk from 0.3.220 to 0.3.222 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/401 [<samp>(2bfe0)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/2bfe05e)
+- Bump tinyexec in the dev group across 1 directory &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/400 [<samp>(35846)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/358467b)
+- Bump @anthropic-ai/claude-agent-sdk from 0.3.222 to 0.3.224 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/404 [<samp>(2e584)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/2e5848b)
+- Bump the dev group across 1 directory with 2 updates &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/403 [<samp>(18474)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/18474c2)
+- Bump @anthropic-ai/claude-agent-sdk from 0.3.224 to 0.3.226 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/406 [<samp>(c9c23)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/c9c231a)
+- Bump @anthropic-ai/claude-agent-sdk from 0.3.226 to 0.3.227 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/407 [<samp>(04e99)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/04e9993)
+- Bump the dev group across 1 directory with 3 updates &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/408 [<samp>(2e155)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/2e15594)
+- Bump @anthropic-ai/claude-agent-sdk from 0.3.227 to 0.3.228 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/409 [<samp>(78dee)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/78deed3)
+- Update to parity with Claude Code v2.1.229 &nbsp;-&nbsp; by **Claude Sonnet 5** in https://github.com/sushichan044/cc-hooks-ts/issues/411 [<samp>(7fc23)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/7fc2392)
+- Bump release-it in the dev group across 1 directory &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/410 [<samp>(c204c)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/c204c21)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sushichan044/cc-hooks-ts/compare/2.1.220...2.1.229)
+
 ## 2.1.220
 
 ### &nbsp;&nbsp;&nbsp;Bug Fixes
