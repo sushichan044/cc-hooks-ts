@@ -135,7 +135,7 @@ export const HookInputSchemas = {
     prompt: v.string(),
     session_title: v.exactOptional(v.string()),
     source: v.exactOptional(
-      v.picklist(["user", "sdk", "system", "loop_wakeup", "schedule_wakeup"]),
+      v.picklist(["user", "sdk", "system", "loop_wakeup", "schedule_wakeup", "poll_event"]),
     ),
   }),
 
@@ -199,14 +199,7 @@ export const HookInputSchemas = {
   }),
 
   SessionEnd: buildHookInputSchema("SessionEnd", {
-    reason: v.picklist([
-      "clear",
-      "resume",
-      "logout",
-      "prompt_input_exit",
-      "other",
-      "bypass_permissions_disabled",
-    ]),
+    reason: v.picklist(["clear", "resume", "logout", "prompt_input_exit", "other"]),
   }),
 
   PermissionRequest: buildHookInputSchema("PermissionRequest", {
