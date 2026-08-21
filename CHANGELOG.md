@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.1.238
+
+### &nbsp;&nbsp;&nbsp;Bug Fixes
+
+- Update to parity with Claude Code v2.1.238 &nbsp;-&nbsp; by **Claude Sonnet 5** in https://github.com/sushichan044/cc-hooks-ts/issues/419 [<samp>(80cee)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/80cee4e)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sushichan044/cc-hooks-ts/compare/2.1.234...2.1.238)
+
 ## 2.1.234
 
 ### &nbsp;&nbsp;&nbsp;Bug Fixes
