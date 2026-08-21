@@ -158,6 +158,7 @@ export const HookInputSchemas = {
     error: v.picklist([
       "authentication_failed",
       "oauth_org_not_allowed",
+      "account_on_hold",
       "billing_error",
       "rate_limit",
       "overloaded",
