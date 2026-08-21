@@ -179,6 +179,11 @@ interface PostToolUseHookOutput extends CommonHookOutputs {
     additionalContext?: string;
 
     /**
+     * Host-asserted context shown to the auto-mode permission classifier alongside this tool call's result.
+     */
+    classifierContext?: string;
+
+    /**
      * Replaces the tool output before it is sent to the model.
      */
     updatedToolOutput?: unknown;
@@ -225,6 +230,11 @@ interface UserPromptExpansionHookOutput extends CommonHookOutputs {
      * Adds the string to the context.
      */
     additionalContext?: string;
+
+    /**
+     * When decision is "block", omit the original prompt from the block message.
+     */
+    suppressOriginalPrompt?: boolean;
   };
 }
 
