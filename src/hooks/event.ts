@@ -21,6 +21,8 @@ export const SUPPORTED_HOOK_EVENTS = [
   "SubagentStop",
   "PreCompact",
   "PostCompact",
+  "PreModelSwitch",
+  "PostModelSwitch",
   "PermissionRequest",
   "PermissionDenied",
   "Setup",

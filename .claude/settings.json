@@ -162,6 +162,26 @@
         ]
       }
     ],
+    "PreModelSwitch": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node scripts/log-hook-event.ts PreModelSwitch"
+          }
+        ]
+      }
+    ],
+    "PostModelSwitch": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node scripts/log-hook-event.ts PostModelSwitch"
+          }
+        ]
+      }
+    ],
     "PermissionRequest": [
       {
         "hooks": [

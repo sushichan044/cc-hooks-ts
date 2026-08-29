@@ -42,7 +42,9 @@ export type HookOutput = {
   ConfigChange: CommonHookOutputs;
   InstructionsLoaded: CommonHookOutputs;
   PostCompact: CommonHookOutputs;
+  PostModelSwitch: PostModelSwitchHookOutput;
   PreCompact: CommonHookOutputs;
+  PreModelSwitch: PreModelSwitchHookOutput;
   SessionEnd: CommonHookOutputs;
   TaskCompleted: CommonHookOutputs;
   TaskCreated: CommonHookOutputs;
@@ -214,6 +216,32 @@ interface PostToolBatchHookOutput extends CommonHookOutputs {
 
     /**
      * Adds context for Claude to consider.
+     */
+    additionalContext?: string;
+  };
+}
+
+interface PreModelSwitchHookOutput extends CommonHookOutputs {
+  hookSpecificOutput?: {
+    hookEventName: "PreModelSwitch";
+
+    /**
+     * - `allow` proceeds with the model switch (skipping the interactive cache-miss confirm).
+     * - `deny` cancels the switch.
+     * - `ask` asks the user to confirm (a headless session refuses instead).
+     */
+    permissionDecision?: "allow" | "ask" | "deny";
+
+    permissionDecisionReason?: string;
+  };
+}
+
+interface PostModelSwitchHookOutput extends CommonHookOutputs {
+  hookSpecificOutput?: {
+    hookEventName: "PostModelSwitch";
+
+    /**
+     * Reaches the model with the next request the new model serves.
      */
     additionalContext?: string;
   };
