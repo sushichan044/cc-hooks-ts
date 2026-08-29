@@ -192,9 +192,37 @@ export const HookInputSchemas = {
     trigger: v.picklist(["manual", "auto"]),
   }),
 
+  PreModelSwitch: buildHookInputSchema("PreModelSwitch", {
+    from_model: v.string(),
+    to_model: v.string(),
+    requested_model: v.nullable(v.string()),
+    source: v.picklist(["command", "picker", "sdk"]),
+    context_tokens: v.number(),
+    prompt_cache_warm: v.boolean(),
+    cache_ttl: v.picklist(["5m", "1h"]),
+    estimated_cache_write_usd: v.number(),
+    pricing: v.picklist(["configured", "catalog", "default"]),
+  }),
+
+  PostModelSwitch: buildHookInputSchema("PostModelSwitch", {
+    from_model: v.string(),
+    to_model: v.string(),
+    requested_model: v.nullable(v.string()),
+    source: v.picklist(["command", "picker", "sdk", "auto", "resume"]),
+    context_tokens: v.number(),
+    prompt_cache_warm: v.boolean(),
+    cache_ttl: v.picklist(["5m", "1h"]),
+    estimated_cache_write_usd: v.number(),
+    pricing: v.picklist(["configured", "catalog", "default"]),
+  }),
+
   SessionStart: buildHookInputSchema("SessionStart", {
     agent_type: v.exactOptional(v.string()),
+    context_tokens: v.exactOptional(v.number()),
+    estimated_cache_write_usd: v.exactOptional(v.number()),
     model: v.exactOptional(v.string()),
+    prompt_cache_likely_expired: v.exactOptional(v.boolean()),
+    seconds_since_last_response: v.exactOptional(v.number()),
     session_title: v.exactOptional(v.string()),
     source: v.picklist(["startup", "resume", "clear", "compact", "fork"]),
   }),
