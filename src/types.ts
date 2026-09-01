@@ -26,7 +26,9 @@ export type ExtractTriggeredHookInput<TTrigger extends HookTrigger> = {
       : TTrigger[EventKey] extends Record<PropertyKey, true>
         ? // subscribe to specific inputs for this event
           {
-            [SpecificKey in keyof TTrigger[EventKey]]: SpecificKey extends ExtractExtendedSpecificKeys<EventKey>
+            [
+              SpecificKey in keyof TTrigger[EventKey]
+            ]: SpecificKey extends ExtractExtendedSpecificKeys<EventKey>
               ? ExtractSpecificHookInputForEvent<EventKey, SpecificKey>
               : never;
           }[keyof TTrigger[EventKey]]
