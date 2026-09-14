@@ -1,5 +1,19 @@
 # Changelog
 
+## 2.1.170
+
+### &nbsp;&nbsp;&nbsp;Bug Fixes
+
+- Bump @anthropic-ai/claude-agent-sdk from 0.3.251 to 0.3.258 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/429 [<samp>(69dc5)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/69dc528)
+- Bump the dev group across 1 directory with 3 updates &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/427 [<samp>(eff43)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/eff4327)
+- Bump @anthropic-ai/claude-agent-sdk from 0.3.258 to 0.3.259 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/430 [<samp>(48a81)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/48a81d5)
+- Bump @anthropic-ai/claude-agent-sdk from 0.3.259 to 0.3.261 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/432 [<samp>(e8327)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/e8327ad)
+- Bump the dev group across 1 directory with 4 updates &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/434 [<samp>(d7a5d)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/d7a5d7e)
+- Bump @anthropic-ai/claude-agent-sdk from 0.3.261 to 0.3.263 &nbsp;-&nbsp; in https://github.com/sushichan044/cc-hooks-ts/issues/433 [<samp>(977d8)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/977d8b4)
+- Update to parity with Claude Code v2.1.270 &nbsp;-&nbsp; by **Claude Sonnet 5** in https://github.com/sushichan044/cc-hooks-ts/issues/441 [<samp>(33b64)</samp>](https://github.com/sushichan044/cc-hooks-ts/commit/33b648a)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sushichan044/cc-hooks-ts/compare/2.1.251...2.1.170)
+
 ## 2.1.251
 
 ### &nbsp;&nbsp;&nbsp;Bug Fixes
