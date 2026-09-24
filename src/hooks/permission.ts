@@ -55,3 +55,11 @@ export const permissionUpdateSchema = v.variant("type", [
 ]);
 
 export type PermissionUpdate = v.InferOutput<typeof permissionUpdateSchema>;
+
+/**
+ * @package
+ */
+export const mcpServerProvenanceSchema = v.object({
+  name: v.string(),
+  source: v.string(),
+});

@@ -4,7 +4,7 @@ import type { AutoComplete } from "../../utils/types.ts";
 import type { ValibotSchemaLike } from "../../utils/valibot.ts";
 import type { SupportedHookEvent } from "../event.ts";
 
-import { permissionUpdateSchema } from "../permission.ts";
+import { mcpServerProvenanceSchema, permissionUpdateSchema } from "../permission.ts";
 
 const baseHookInputSchema = v.object({
   agent_id: v.exactOptional(v.string()),
@@ -81,6 +81,7 @@ export const HookInputSchemas = {
 
     tool_input: v.unknown(),
     tool_use_id: v.string(),
+    mcp_server: v.exactOptional(mcpServerProvenanceSchema),
   }),
 
   PostToolUse: buildHookInputSchema("PostToolUse", {
@@ -94,6 +95,7 @@ export const HookInputSchemas = {
     tool_input: v.unknown(),
     tool_response: v.unknown(),
     tool_use_id: v.string(),
+    mcp_server: v.exactOptional(mcpServerProvenanceSchema),
   }),
 
   PostToolUseFailure: buildHookInputSchema("PostToolUseFailure", {
@@ -108,6 +110,7 @@ export const HookInputSchemas = {
     is_interrupt: v.exactOptional(v.boolean()),
     tool_input: v.unknown(),
     tool_use_id: v.string(),
+    mcp_server: v.exactOptional(mcpServerProvenanceSchema),
   }),
 
   PostToolBatch: buildHookInputSchema("PostToolBatch", {
@@ -237,6 +240,7 @@ export const HookInputSchemas = {
     permission_suggestions: v.exactOptional(v.array(permissionUpdateSchema)),
     tool_input: v.unknown(),
     tool_name: v.string(),
+    mcp_server: v.exactOptional(mcpServerProvenanceSchema),
   }),
 
   PermissionDenied: buildHookInputSchema("PermissionDenied", {
@@ -244,6 +248,7 @@ export const HookInputSchemas = {
     tool_input: v.unknown(),
     tool_name: v.string(),
     tool_use_id: v.string(),
+    mcp_server: v.exactOptional(mcpServerProvenanceSchema),
   }),
 
   Setup: buildHookInputSchema("Setup", {
