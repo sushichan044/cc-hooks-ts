@@ -59,8 +59,6 @@ import type {
   ReportFindingsInput,
   ReportFindingsOutput,
   RemoteTriggerOutput,
-  REPLInput,
-  REPLOutput,
   ScheduleWakeupInput,
   ScheduleWakeupOutput,
   SendFeedbackInput,
@@ -72,7 +70,7 @@ import type {
   TaskGetInput,
   TaskGetOutput,
   TaskListInput,
-  TaskOutputInput,
+  TaskListOutput,
   TaskStopInput,
   TaskStopOutput,
   TaskUpdateInput,
@@ -262,11 +260,6 @@ export interface ToolSchema {
     response: RemoteTriggerOutput;
   };
 
-  REPL: {
-    input: REPLInput;
-    response: REPLOutput;
-  };
-
   ReportFindings: {
     input: ReportFindingsInput;
     response: ReportFindingsOutput;
@@ -307,12 +300,7 @@ export interface ToolSchema {
 
   TaskList: {
     input: TaskListInput;
-    response: TaskOutputInput;
-  };
-
-  TaskOutput: {
-    input: TaskOutputInput;
-    response: unknown;
+    response: TaskListOutput;
   };
 
   TaskStop: {

@@ -37,6 +37,7 @@ describe("HookInputs", () => {
         cwd: string;
         effort?: { level: AutoComplete<"low" | "medium" | "high" | "xhigh" | "max"> };
         hook_event_name: "PreToolUse";
+        mcp_server?: { name: string; source: string };
         permission_mode?: string;
         prompt_id?: string;
         session_id: string;
@@ -67,6 +68,7 @@ describe("HookInputs", () => {
         duration_ms?: number;
         effort?: { level: AutoComplete<"low" | "medium" | "high" | "xhigh" | "max"> };
         hook_event_name: "PostToolUse";
+        mcp_server?: { name: string; source: string };
         permission_mode?: string;
         prompt_id?: string;
         session_id: string;
@@ -104,6 +106,7 @@ describe("HookInputs", () => {
         error: string;
         hook_event_name: "PostToolUseFailure";
         is_interrupt?: boolean;
+        mcp_server?: { name: string; source: string };
         permission_mode?: string;
         prompt_id?: string;
         session_id: string;
@@ -133,6 +136,7 @@ describe("HookInputs", () => {
         cwd: string;
         effort?: { level: AutoComplete<"low" | "medium" | "high" | "xhigh" | "max"> };
         hook_event_name: "PermissionRequest";
+        mcp_server?: { name: string; source: string };
         permission_mode?: string;
         permission_suggestions?: PermissionUpdate[];
         prompt_id?: string;
@@ -162,6 +166,7 @@ describe("HookInputs", () => {
         cwd: string;
         effort?: { level: AutoComplete<"low" | "medium" | "high" | "xhigh" | "max"> };
         hook_event_name: "PermissionDenied";
+        mcp_server?: { name: string; source: string };
         permission_mode?: string;
         prompt_id?: string;
         reason: string;
