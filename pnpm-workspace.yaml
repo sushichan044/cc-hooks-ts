@@ -1,5 +1,18 @@
-onlyBuiltDependencies:
-  - esbuild
+minimumReleaseAgeExclude:
+  - "@anthropic-ai/*"
 
 packages:
   - examples
+
+allowBuilds:
+  esbuild: true
+catalog:
+  vite: npm:@voidzero-dev/vite-plus-core@1.3.0
+  vite-plus: 1.3.0
+overrides:
+  vite@*: "catalog:"
+peerDependencyRules:
+  allowAny:
+    - vite
+  allowedVersions:
+    vite: "*"

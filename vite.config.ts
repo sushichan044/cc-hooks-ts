@@ -43,7 +43,7 @@ export default defineConfig({
     attw: { profile: "esm-only" },
     clean: true,
     dts: {
-      tsgo: true,
+      generator: "tsgo",
     },
     entry: ["./src/index.ts"],
     fixedExtension: true,
