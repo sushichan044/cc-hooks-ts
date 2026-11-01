@@ -48,7 +48,7 @@
   },
   "devDependencies": {
     "@arethetypeswrong/core": "0.18.5",
-    "@types/node": "26.6.5",
+    "@types/node": "26.6.6",
     "@virtual-live-lab/tsconfig": "2.1.23",
     "defu": "6.1.7",
     "eslint-plugin-perfectionist": "5.13.0",
