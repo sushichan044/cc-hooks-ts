@@ -18,6 +18,7 @@ See [examples](./examples) for more usage examples.
     - [Advanced JSON Output](#advanced-json-output)
     - [Async JSON Output (Experimental)](#async-json-output-experimental)
   - [Documentation](#documentation)
+  - [Agent Skill](#agent-skill)
   - [Development](#development)
     - [How to follow the upstream changes](#how-to-follow-the-upstream-changes)
       - [If a Dependabot PR already exists](#if-a-dependabot-pr-already-exists)
@@ -275,6 +276,16 @@ const hook = defineHook({
 ## Documentation
 
 For more detailed information about Claude Code hooks, visit the [official documentation](https://docs.anthropic.com/en/docs/claude-code/hooks).
+
+## Agent Skill
+
+Install the repository's `cc-hooks-ts` skill to give compatible coding agents concise guidance for defining typed hooks, tool-specific triggers, custom MCP tool schemas, and hook responses:
+
+```bash
+npx skills add https://github.com/sushichan044/cc-hooks-ts --skill cc-hooks-ts
+```
+
+The source is [`skills/cc-hooks-ts/SKILL.md`](./skills/cc-hooks-ts/SKILL.md).
 
 ## Development
 
