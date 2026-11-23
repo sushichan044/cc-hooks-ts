@@ -215,8 +215,8 @@ importers:
         specifier: 4.6.6
         version: 4.6.6(release-it@21.1.3(@types/node@26.6.6))
       type-fest:
-        specifier: 6.0.1
-        version: 6.0.1
+        specifier: 6.0.3
+        version: 6.0.3
       typescript:
         specifier: 7.0.2
         version: 7.0.2
@@ -2260,8 +2260,8 @@ packages:
     resolution: {integrity: sha512-T2UbfbBEF32wiepXIsMlTW9+dDYC6wMh/t/vYA4tuOMKqWz/n3vr1NFSxQiyP+zk2mXsoMA/i/7qV6LKut1t1A==}
     engines: {node: '>= 0.4'}
 
-  hono@4.13.20:
-    resolution: {integrity: sha512-xo6gecEJQ+CjTtOUUbcLHE8CdRKMeF4qITe+DT+OhFnSUmZR/ZBa9XavAfiGh4HlukmlaHFdaK4dz5tkTYFNmA==}
+  hono@4.13.19:
+    resolution: {integrity: sha512-KmXvQAXwcAHV+muzbIwoJ23niEB5nMoDVr9WcRkU8mvjUECm/1+7v4Jgp7P7a+H6MLFrh+vXrGonGrGS+RQfkA==}
     engines: {node: '>=16.9.0'}
 
   http-errors@2.0.1:
@@ -3113,8 +3113,8 @@ packages:
     resolution: {integrity: sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==}
     engines: {node: '>=12.20'}
 
-  type-fest@6.0.1:
-    resolution: {integrity: sha512-nnRRKEpyNxX4XkeR6dpMy27ZNT5/nE3D73fs5FcKW/+OtqwSmdshWUw5azvpsMzjst5rAUe61ZxilQ70YFS9yA==}
+  type-fest@6.0.3:
+    resolution: {integrity: sha512-MOJXegkac3h+sWdVb6VY/ACclsa71z3BprNpedGV8ljIzYCo+LRWgyIkWhidKNoiNJOb6kUds1pNCyzQ2p6hJQ==}
     engines: {node: '>=22'}
 
   type-is@2.1.0:
@@ -3494,9 +3494,9 @@ snapshots:
       '@eslint/core': 1.2.1
       levn: 0.4.1
 
-  '@hono/node-server@2.1.11(hono@4.13.20)':
+  '@hono/node-server@2.1.11(hono@4.13.19)':
     dependencies:
-      hono: 4.13.20
+      hono: 4.13.19
 
   '@humanfs/core@0.19.2':
     dependencies:
@@ -3665,7 +3665,7 @@ snapshots:
 
   '@modelcontextprotocol/sdk@1.32.2(zod@4.6.7)':
     dependencies:
-      '@hono/node-server': 2.1.11(hono@4.13.20)
+      '@hono/node-server': 2.1.11(hono@4.13.19)
       ajv: 8.20.0
       ajv-formats: 3.0.1
       content-type: 1.0.5
@@ -3675,7 +3675,7 @@ snapshots:
       eventsource-parser: 3.1.1
       express: 5.3.0
       express-rate-limit: 8.7.1(express@5.3.0)
-      hono: 4.13.20
+      hono: 4.13.19
       jose: 6.2.13
       json-schema-typed: 8.0.2
       pkce-challenge: 5.0.1
@@ -5106,7 +5106,7 @@ snapshots:
     dependencies:
       function-bind: 1.1.2
 
-  hono@4.13.20: {}
+  hono@4.13.19: {}
 
   http-errors@2.0.1:
     dependencies:
@@ -5988,7 +5988,7 @@ snapshots:
 
   type-fest@2.19.0: {}
 
-  type-fest@6.0.1:
+  type-fest@6.0.3:
     dependencies:
       tagged-tag: 1.0.0
 
