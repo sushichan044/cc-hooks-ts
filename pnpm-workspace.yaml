@@ -8,7 +8,7 @@ allowBuilds:
   esbuild: true
 catalog:
   vite: npm:@voidzero-dev/vite-plus-core@8.3.8000
-  vite-plus: 1.7.0
+  vite-plus: 1.8.0
 overrides:
   minimatch@>=7.0.0 <11.0.1: ^11.0.1
   tar@<=7.5.20: ^7.5.21
