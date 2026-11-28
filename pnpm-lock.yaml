@@ -191,8 +191,8 @@ importers:
         specifier: 0.18.5
         version: 0.18.5
       '@types/node':
-        specifier: 26.6.6
-        version: 26.6.6
+        specifier: 26.6.7
+        version: 26.6.7
       '@virtual-live-lab/tsconfig':
         specifier: 2.1.23
         version: 2.1.23(typescript@7.0.2)
@@ -210,22 +210,22 @@ importers:
         version: 0.3.25
       release-it:
         specifier: 21.1.3
-        version: 21.1.3(@types/node@26.6.6)
+        version: 21.1.3(@types/node@26.6.7)
       release-it-pnpm:
         specifier: 4.6.6
-        version: 4.6.6(release-it@21.1.3(@types/node@26.6.6))
+        version: 4.6.6(release-it@21.1.3(@types/node@26.6.7))
       type-fest:
-        specifier: 6.0.1
-        version: 6.0.1
+        specifier: 6.0.3
+        version: 6.0.3
       typescript:
         specifier: 7.0.2
         version: 7.0.2
       unplugin-unused:
         specifier: 0.6.0
-        version: 0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)
+        version: 0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)
       vite-plus:
         specifier: 'catalog:'
-        version: 1.7.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(@vitest/ui@5.1.0)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)
+        version: 1.7.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(@vitest/ui@5.1.0)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)
 
   examples:
     dependencies:
@@ -234,8 +234,8 @@ importers:
         version: link:..
     devDependencies:
       tinyexec:
-        specifier: 1.3.1
-        version: 1.3.1
+        specifier: 1.4.0
+        version: 1.4.0
 
 packages:
 
@@ -1254,8 +1254,8 @@ packages:
   '@types/node@22.20.5':
     resolution: {integrity: sha512-U2+DNr+wSjpsTS/wZGYHq7GcwfuSmKiKvoPvK22zwTlRhU91yOniN4qRR5KhIjvif7ysw/dz/hKmfDH0Ris4aA==}
 
-  '@types/node@26.6.6':
-    resolution: {integrity: sha512-MzQj+8Kx3XI40OmUAE6Qoh58ZMNstNNMwn2nfd3qWsfe7nDNSqJNzes4njhz6AHwrSHOffSLwXU6yb474Q4aog==}
+  '@types/node@26.6.7':
+    resolution: {integrity: sha512-tovuRfrUILu6v46bMG+BgXxMvsqPBx2WO2as8Rpln+JTff1dbexMtAM4KFTejmL0axsnSWViCW7MecUQpLuBRA==}
 
   '@types/parse-path@7.1.0':
     resolution: {integrity: sha512-EULJ8LApcVEPbrfND0cRQqutIOdiIgJ1Mgrhpy755r14xMohPTEpkV/k28SJvuOs9bHRFW8x+KeDAEPiGQPB9Q==}
@@ -3064,6 +3064,10 @@ packages:
     resolution: {integrity: sha512-GCvB3aoys96IuDFBMcTB46JOR6mdMtAToqwiW8JlWhsoh1mhHi/xn9ss/Dg7N555GiJyEt2qzoG/NHCwM6h1EA==}
     engines: {node: '>=18'}
 
+  tinyexec@1.4.0:
+    resolution: {integrity: sha512-PV6lIcJQh57aFeJDwx16JNHmgFRh5xguzallrDW1qe8nAghYgr5MKz2K5k7wEyV/ygZhdnIAP8+HZSarHPBCsg==}
+    engines: {node: '>=18'}
+
   tinyglobby@0.2.17:
     resolution: {integrity: sha512-wXR/dYpcqKmfWpEdZjiKJOwCNFndD0DMnrW/cYjVGttEkBfVgcLFHoNrlj47mjOVic9yyNu65alsgF4NQyTa2g==}
     engines: {node: '>=12.0.0'}
@@ -3113,8 +3117,8 @@ packages:
     resolution: {integrity: sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==}
     engines: {node: '>=12.20'}
 
-  type-fest@6.0.1:
-    resolution: {integrity: sha512-nnRRKEpyNxX4XkeR6dpMy27ZNT5/nE3D73fs5FcKW/+OtqwSmdshWUw5azvpsMzjst5rAUe61ZxilQ70YFS9yA==}
+  type-fest@6.0.3:
+    resolution: {integrity: sha512-MOJXegkac3h+sWdVb6VY/ACclsa71z3BprNpedGV8ljIzYCo+LRWgyIkWhidKNoiNJOb6kUds1pNCyzQ2p6hJQ==}
     engines: {node: '>=22'}
 
   type-is@2.1.0:
@@ -3516,123 +3520,123 @@ snapshots:
 
   '@inquirer/ansi@2.1.1': {}
 
-  '@inquirer/checkbox@5.3.1(@types/node@26.6.6)':
+  '@inquirer/checkbox@5.3.1(@types/node@26.6.7)':
     dependencies:
       '@inquirer/ansi': 2.1.1
-      '@inquirer/core': 12.1.1(@types/node@26.6.6)
+      '@inquirer/core': 12.1.1(@types/node@26.6.7)
       '@inquirer/figures': 2.1.1
-      '@inquirer/type': 4.3.1(@types/node@26.6.6)
+      '@inquirer/type': 4.3.1(@types/node@26.6.7)
     optionalDependencies:
-      '@types/node': 26.6.6
+      '@types/node': 26.6.7
 
-  '@inquirer/confirm@6.4.1(@types/node@26.6.6)':
+  '@inquirer/confirm@6.4.1(@types/node@26.6.7)':
     dependencies:
-      '@inquirer/core': 12.1.1(@types/node@26.6.6)
-      '@inquirer/type': 4.3.1(@types/node@26.6.6)
+      '@inquirer/core': 12.1.1(@types/node@26.6.7)
+      '@inquirer/type': 4.3.1(@types/node@26.6.7)
     optionalDependencies:
-      '@types/node': 26.6.6
+      '@types/node': 26.6.7
 
-  '@inquirer/core@12.1.1(@types/node@26.6.6)':
+  '@inquirer/core@12.1.1(@types/node@26.6.7)':
     dependencies:
       '@inquirer/ansi': 2.1.1
       '@inquirer/figures': 2.1.1
-      '@inquirer/type': 4.3.1(@types/node@26.6.6)
+      '@inquirer/type': 4.3.1(@types/node@26.6.7)
       cli-width: 4.1.0
       fast-string-width: 3.0.2
       fast-wrap-ansi: 0.2.2
       mute-stream: 3.0.0
       signal-exit: 4.1.0
     optionalDependencies:
-      '@types/node': 26.6.6
+      '@types/node': 26.6.7
 
-  '@inquirer/editor@5.5.0(@types/node@26.6.6)':
+  '@inquirer/editor@5.5.0(@types/node@26.6.7)':
     dependencies:
-      '@inquirer/core': 12.1.1(@types/node@26.6.6)
-      '@inquirer/external-editor': 3.1.1(@types/node@26.6.6)
-      '@inquirer/type': 4.3.1(@types/node@26.6.6)
+      '@inquirer/core': 12.1.1(@types/node@26.6.7)
+      '@inquirer/external-editor': 3.1.1(@types/node@26.6.7)
+      '@inquirer/type': 4.3.1(@types/node@26.6.7)
     optionalDependencies:
-      '@types/node': 26.6.6
+      '@types/node': 26.6.7
 
-  '@inquirer/expand@5.2.1(@types/node@26.6.6)':
+  '@inquirer/expand@5.2.1(@types/node@26.6.7)':
     dependencies:
-      '@inquirer/core': 12.1.1(@types/node@26.6.6)
-      '@inquirer/type': 4.3.1(@types/node@26.6.6)
+      '@inquirer/core': 12.1.1(@types/node@26.6.7)
+      '@inquirer/type': 4.3.1(@types/node@26.6.7)
     optionalDependencies:
-      '@types/node': 26.6.6
+      '@types/node': 26.6.7
 
-  '@inquirer/external-editor@3.1.1(@types/node@26.6.6)':
+  '@inquirer/external-editor@3.1.1(@types/node@26.6.7)':
     dependencies:
       chardet: 2.2.0
       iconv-lite: 0.7.3
     optionalDependencies:
-      '@types/node': 26.6.6
+      '@types/node': 26.6.7
 
   '@inquirer/figures@2.1.1': {}
 
-  '@inquirer/input@5.2.1(@types/node@26.6.6)':
+  '@inquirer/input@5.2.1(@types/node@26.6.7)':
     dependencies:
-      '@inquirer/core': 12.1.1(@types/node@26.6.6)
-      '@inquirer/type': 4.3.1(@types/node@26.6.6)
+      '@inquirer/core': 12.1.1(@types/node@26.6.7)
+      '@inquirer/type': 4.3.1(@types/node@26.6.7)
     optionalDependencies:
-      '@types/node': 26.6.6
+      '@types/node': 26.6.7
 
-  '@inquirer/number@4.3.1(@types/node@26.6.6)':
+  '@inquirer/number@4.3.1(@types/node@26.6.7)':
     dependencies:
-      '@inquirer/core': 12.1.1(@types/node@26.6.6)
-      '@inquirer/type': 4.3.1(@types/node@26.6.6)
+      '@inquirer/core': 12.1.1(@types/node@26.6.7)
+      '@inquirer/type': 4.3.1(@types/node@26.6.7)
     optionalDependencies:
-      '@types/node': 26.6.6
+      '@types/node': 26.6.7
 
-  '@inquirer/password@5.3.1(@types/node@26.6.6)':
-    dependencies:
-      '@inquirer/ansi': 2.1.1
-      '@inquirer/core': 12.1.1(@types/node@26.6.6)
-      '@inquirer/type': 4.3.1(@types/node@26.6.6)
-    optionalDependencies:
-      '@types/node': 26.6.6
-
-  '@inquirer/prompts@8.8.0(@types/node@26.6.6)':
-    dependencies:
-      '@inquirer/checkbox': 5.3.1(@types/node@26.6.6)
-      '@inquirer/confirm': 6.4.1(@types/node@26.6.6)
-      '@inquirer/editor': 5.5.0(@types/node@26.6.6)
-      '@inquirer/expand': 5.2.1(@types/node@26.6.6)
-      '@inquirer/input': 5.2.1(@types/node@26.6.6)
-      '@inquirer/number': 4.3.1(@types/node@26.6.6)
-      '@inquirer/password': 5.3.1(@types/node@26.6.6)
-      '@inquirer/rawlist': 5.4.1(@types/node@26.6.6)
-      '@inquirer/search': 4.4.1(@types/node@26.6.6)
-      '@inquirer/select': 5.3.1(@types/node@26.6.6)
-    optionalDependencies:
-      '@types/node': 26.6.6
-
-  '@inquirer/rawlist@5.4.1(@types/node@26.6.6)':
-    dependencies:
-      '@inquirer/core': 12.1.1(@types/node@26.6.6)
-      '@inquirer/type': 4.3.1(@types/node@26.6.6)
-    optionalDependencies:
-      '@types/node': 26.6.6
-
-  '@inquirer/search@4.4.1(@types/node@26.6.6)':
-    dependencies:
-      '@inquirer/core': 12.1.1(@types/node@26.6.6)
-      '@inquirer/figures': 2.1.1
-      '@inquirer/type': 4.3.1(@types/node@26.6.6)
-    optionalDependencies:
-      '@types/node': 26.6.6
-
-  '@inquirer/select@5.3.1(@types/node@26.6.6)':
+  '@inquirer/password@5.3.1(@types/node@26.6.7)':
     dependencies:
       '@inquirer/ansi': 2.1.1
-      '@inquirer/core': 12.1.1(@types/node@26.6.6)
-      '@inquirer/figures': 2.1.1
-      '@inquirer/type': 4.3.1(@types/node@26.6.6)
+      '@inquirer/core': 12.1.1(@types/node@26.6.7)
+      '@inquirer/type': 4.3.1(@types/node@26.6.7)
     optionalDependencies:
-      '@types/node': 26.6.6
+      '@types/node': 26.6.7
 
-  '@inquirer/type@4.3.1(@types/node@26.6.6)':
+  '@inquirer/prompts@8.8.0(@types/node@26.6.7)':
+    dependencies:
+      '@inquirer/checkbox': 5.3.1(@types/node@26.6.7)
+      '@inquirer/confirm': 6.4.1(@types/node@26.6.7)
+      '@inquirer/editor': 5.5.0(@types/node@26.6.7)
+      '@inquirer/expand': 5.2.1(@types/node@26.6.7)
+      '@inquirer/input': 5.2.1(@types/node@26.6.7)
+      '@inquirer/number': 4.3.1(@types/node@26.6.7)
+      '@inquirer/password': 5.3.1(@types/node@26.6.7)
+      '@inquirer/rawlist': 5.4.1(@types/node@26.6.7)
+      '@inquirer/search': 4.4.1(@types/node@26.6.7)
+      '@inquirer/select': 5.3.1(@types/node@26.6.7)
     optionalDependencies:
-      '@types/node': 26.6.6
+      '@types/node': 26.6.7
+
+  '@inquirer/rawlist@5.4.1(@types/node@26.6.7)':
+    dependencies:
+      '@inquirer/core': 12.1.1(@types/node@26.6.7)
+      '@inquirer/type': 4.3.1(@types/node@26.6.7)
+    optionalDependencies:
+      '@types/node': 26.6.7
+
+  '@inquirer/search@4.4.1(@types/node@26.6.7)':
+    dependencies:
+      '@inquirer/core': 12.1.1(@types/node@26.6.7)
+      '@inquirer/figures': 2.1.1
+      '@inquirer/type': 4.3.1(@types/node@26.6.7)
+    optionalDependencies:
+      '@types/node': 26.6.7
+
+  '@inquirer/select@5.3.1(@types/node@26.6.7)':
+    dependencies:
+      '@inquirer/ansi': 2.1.1
+      '@inquirer/core': 12.1.1(@types/node@26.6.7)
+      '@inquirer/figures': 2.1.1
+      '@inquirer/type': 4.3.1(@types/node@26.6.7)
+    optionalDependencies:
+      '@types/node': 26.6.7
+
+  '@inquirer/type@4.3.1(@types/node@26.6.7)':
+    optionalDependencies:
+      '@types/node': 26.6.7
 
   '@isaacs/fs-minipass@4.0.1':
     dependencies:
@@ -4102,7 +4106,7 @@ snapshots:
     dependencies:
       undici-types: 6.21.0
 
-  '@types/node@26.6.6':
+  '@types/node@26.6.7':
     dependencies:
       undici-types: 8.9.0
 
@@ -4226,12 +4230,12 @@ snapshots:
     dependencies:
       typescript: 7.0.2
 
-  '@vitest/browser-preview@5.1.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(vitest@5.1.0)(yaml@2.9.0)':
+  '@vitest/browser-preview@5.1.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(vitest@5.1.0)(yaml@2.9.0)':
     dependencies:
       '@testing-library/dom': 10.4.2
       '@testing-library/user-event': 14.6.8(@testing-library/dom@10.4.2)
-      '@vitest/browser': 5.1.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(vitest@5.1.0)(yaml@2.9.0)
-      vitest: 5.1.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(@vitest/browser-preview@5.1.0)(@vitest/ui@5.1.0)(@voidzero-dev/vite-plus-core@8.3.8000(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)
+      '@vitest/browser': 5.1.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(vitest@5.1.0)(yaml@2.9.0)
+      vitest: 5.1.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(@vitest/browser-preview@5.1.0)(@vitest/ui@5.1.0)(@voidzero-dev/vite-plus-core@8.3.8000(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)
     transitivePeerDependencies:
       - '@arethetypeswrong/core'
       - '@types/node'
@@ -4258,17 +4262,17 @@ snapshots:
       - vue-tsc
       - yaml
 
-  '@vitest/browser@5.1.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(vitest@5.1.0)(yaml@2.9.0)':
+  '@vitest/browser@5.1.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(vitest@5.1.0)(yaml@2.9.0)':
     dependencies:
       '@blazediff/core': 1.10.0
-      '@vitest/mocker': 5.1.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)
+      '@vitest/mocker': 5.1.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)
       '@vitest/ui': 5.1.0(vitest@5.1.0)
       '@vitest/utils': 5.1.0
       magic-string: 1.4.3
       pngjs: 7.0.0
       sirv: 3.0.2
       tinyrainbow: 3.2.0
-      vitest: 5.1.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(@vitest/browser-preview@5.1.0)(@vitest/ui@5.1.0)(@voidzero-dev/vite-plus-core@8.3.8000(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)
+      vitest: 5.1.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(@vitest/browser-preview@5.1.0)(@vitest/ui@5.1.0)(@voidzero-dev/vite-plus-core@8.3.8000(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)
       ws: 8.22.0
     transitivePeerDependencies:
       - '@arethetypeswrong/core'
@@ -4296,13 +4300,13 @@ snapshots:
       - vue-tsc
       - yaml
 
-  '@vitest/mocker@5.1.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)':
+  '@vitest/mocker@5.1.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)':
     dependencies:
       '@jridgewell/trace-mapping': 0.3.31
       '@vitest/spy': 5.1.0
       estree-walker: 3.0.3
       magic-string: 1.4.3
-      vite: '@voidzero-dev/vite-plus-core@8.3.8000(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)'
+      vite: '@voidzero-dev/vite-plus-core@8.3.8000(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)'
     transitivePeerDependencies:
       - '@arethetypeswrong/core'
       - '@types/node'
@@ -4347,7 +4351,7 @@ snapshots:
       pathe: 2.0.3
       sirv: 3.0.2
       tinyrainbow: 3.2.0
-      vitest: 5.1.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(@vitest/browser-preview@5.1.0)(@vitest/ui@5.1.0)(@voidzero-dev/vite-plus-core@8.3.8000(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)
+      vitest: 5.1.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(@vitest/browser-preview@5.1.0)(@vitest/ui@5.1.0)(@voidzero-dev/vite-plus-core@8.3.8000(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)
 
   '@vitest/utils@5.1.0':
     dependencies:
@@ -4355,7 +4359,7 @@ snapshots:
       convert-source-map: 2.0.0
       tinyrainbow: 3.2.0
 
-  '@voidzero-dev/vite-plus-core@8.3.8000(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)':
+  '@voidzero-dev/vite-plus-core@8.3.8000(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)':
     dependencies:
       '@oxc-project/runtime': 0.159.0
       '@oxc-project/types': 0.159.0
@@ -4364,7 +4368,7 @@ snapshots:
       yuku-parser: 0.19.0
     optionalDependencies:
       '@arethetypeswrong/core': 0.18.5
-      '@types/node': 26.6.6
+      '@types/node': 26.6.7
       '@voidzero-dev/vite-plus-darwin-arm64': 1.7.0
       '@voidzero-dev/vite-plus-darwin-x64': 1.7.0
       '@voidzero-dev/vite-plus-linux-arm64-gnu': 1.7.0
@@ -4377,7 +4381,7 @@ snapshots:
       jiti: 2.7.0
       publint: 0.3.25
       typescript: 7.0.2
-      unplugin-unused: 0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)
+      unplugin-unused: 0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)
       unrun: 0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12)
       yaml: 2.9.0
 
@@ -5467,7 +5471,7 @@ snapshots:
       macos-release: 3.5.1
       windows-release: 7.1.1
 
-  oxfmt@0.79.0(vite-plus@1.7.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(@vitest/ui@5.1.0)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)):
+  oxfmt@0.79.0(vite-plus@1.7.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(@vitest/ui@5.1.0)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)):
     dependencies:
       tinypool: 2.2.0
     optionalDependencies:
@@ -5490,9 +5494,9 @@ snapshots:
       '@oxfmt/binding-win32-arm64-msvc': 0.79.0
       '@oxfmt/binding-win32-ia32-msvc': 0.79.0
       '@oxfmt/binding-win32-x64-msvc': 0.79.0
-      vite-plus: 1.7.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(@vitest/ui@5.1.0)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)
+      vite-plus: 1.7.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(@vitest/ui@5.1.0)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)
 
-  oxlint@1.94.0(vite-plus@1.7.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(@vitest/ui@5.1.0)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)):
+  oxlint@1.94.0(vite-plus@1.7.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(@vitest/ui@5.1.0)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)):
     optionalDependencies:
       '@oxlint/binding-android-arm-eabi': 1.94.0
       '@oxlint/binding-android-arm64': 1.94.0
@@ -5513,7 +5517,7 @@ snapshots:
       '@oxlint/binding-win32-arm64-msvc': 1.94.0
       '@oxlint/binding-win32-ia32-msvc': 1.94.0
       '@oxlint/binding-win32-x64-msvc': 1.94.0
-      vite-plus: 1.7.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(@vitest/ui@5.1.0)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)
+      vite-plus: 1.7.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(@vitest/ui@5.1.0)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)
 
   p-limit@3.1.0:
     dependencies:
@@ -5686,21 +5690,21 @@ snapshots:
 
   readdirp@5.1.1: {}
 
-  release-it-pnpm@4.6.6(release-it@21.1.3(@types/node@26.6.6)):
+  release-it-pnpm@4.6.6(release-it@21.1.3(@types/node@26.6.7)):
     dependencies:
       bumpp: 10.2.3
       changelogithub: 13.16.0
       conventional-changelog-conventionalcommits: 9.1.0
       conventional-recommended-bump: 11.2.0
       kolorist: 1.8.0
-      release-it: 21.1.3(@types/node@26.6.6)
+      release-it: 21.1.3(@types/node@26.6.7)
       semver: 7.8.5
     transitivePeerDependencies:
       - magicast
 
-  release-it@21.1.3(@types/node@26.6.6):
+  release-it@21.1.3(@types/node@26.6.7):
     dependencies:
-      '@inquirer/prompts': 8.8.0(@types/node@26.6.6)
+      '@inquirer/prompts': 8.8.0(@types/node@26.6.7)
       '@octokit/rest': 22.0.1
       '@phun-ky/typeof': 2.0.3
       async-retry: 1.3.3
@@ -5946,6 +5950,8 @@ snapshots:
 
   tinyexec@1.3.1: {}
 
+  tinyexec@1.4.0: {}
+
   tinyglobby@0.2.17:
     dependencies:
       fdir: 6.5.0(picomatch@4.0.7)
@@ -5988,7 +5994,7 @@ snapshots:
 
   type-fest@2.19.0: {}
 
-  type-fest@6.0.1:
+  type-fest@6.0.3:
     dependencies:
       tagged-tag: 1.0.0
 
@@ -6037,12 +6043,12 @@ snapshots:
 
   unpipe@1.0.0: {}
 
-  unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0):
+  unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0):
     dependencies:
       empathic: 2.0.1
       escape-string-regexp: 5.0.0
       js-tokens: 10.0.0
-      unplugin: 3.3.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)
+      unplugin: 3.3.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)
     transitivePeerDependencies:
       - '@arethetypeswrong/core'
       - '@farmfe/core'
@@ -6072,11 +6078,11 @@ snapshots:
       - webpack
       - yaml
 
-  unplugin@3.3.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0):
+  unplugin@3.3.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0):
     dependencies:
       '@jridgewell/remapping': 2.3.5
       picomatch: 4.0.7
-      vite: '@voidzero-dev/vite-plus-core@8.3.8000(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)'
+      vite: '@voidzero-dev/vite-plus-core@8.3.8000(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)'
       webpack-virtual-modules: 0.6.2
     optionalDependencies:
       rollup: 4.65.0
@@ -6128,23 +6134,23 @@ snapshots:
 
   verkit@0.5.0: {}
 
-  vite-plus@1.7.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(@vitest/ui@5.1.0)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0):
+  vite-plus@1.7.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(@vitest/ui@5.1.0)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0):
     dependencies:
       '@oxc-project/runtime': 0.159.0
       '@oxc-project/types': 0.159.0
       '@oxlint/plugins': 1.94.0
-      '@vitest/browser': 5.1.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(vitest@5.1.0)(yaml@2.9.0)
-      '@vitest/browser-preview': 5.1.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(vitest@5.1.0)(yaml@2.9.0)
-      '@vitest/mocker': 5.1.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)
+      '@vitest/browser': 5.1.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(vitest@5.1.0)(yaml@2.9.0)
+      '@vitest/browser-preview': 5.1.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(vitest@5.1.0)(yaml@2.9.0)
+      '@vitest/mocker': 5.1.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)
       '@vitest/pretty-format': 5.1.0
       '@vitest/snapshot': 5.1.0
       '@vitest/spy': 5.1.0
       '@vitest/utils': 5.1.0
-      oxfmt: 0.79.0(vite-plus@1.7.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(@vitest/ui@5.1.0)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))
-      oxlint: 1.94.0(vite-plus@1.7.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(@vitest/ui@5.1.0)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))
+      oxfmt: 0.79.0(vite-plus@1.7.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(@vitest/ui@5.1.0)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))
+      oxlint: 1.94.0(vite-plus@1.7.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(@vitest/ui@5.1.0)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))
       tsrs: 7.1.0-beta.tsrs2
-      vite: '@voidzero-dev/vite-plus-core@8.3.8000(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)'
-      vitest: 5.1.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(@vitest/browser-preview@5.1.0)(@vitest/ui@5.1.0)(@voidzero-dev/vite-plus-core@8.3.8000(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)
+      vite: '@voidzero-dev/vite-plus-core@8.3.8000(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)'
+      vitest: 5.1.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(@vitest/browser-preview@5.1.0)(@vitest/ui@5.1.0)(@voidzero-dev/vite-plus-core@8.3.8000(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)
     optionalDependencies:
       '@voidzero-dev/vite-plus-darwin-arm64': 1.7.0
       '@voidzero-dev/vite-plus-darwin-x64': 1.7.0
@@ -6190,10 +6196,10 @@ snapshots:
       - vue-tsc
       - yaml
 
-  vitest@5.1.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(@vitest/browser-preview@5.1.0)(@vitest/ui@5.1.0)(@voidzero-dev/vite-plus-core@8.3.8000(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0):
+  vitest@5.1.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(@vitest/browser-preview@5.1.0)(@vitest/ui@5.1.0)(@voidzero-dev/vite-plus-core@8.3.8000(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0):
     dependencies:
       '@types/chai': 5.2.3
-      '@vitest/mocker': 5.1.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)
+      '@vitest/mocker': 5.1.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)
       chai: 6.3.0
       es-module-lexer: 2.3.2
       expect-type: 1.4.0
@@ -6204,11 +6210,11 @@ snapshots:
       tinybench: 6.2.2
       tinyexec: 1.3.1
       tinyglobby: 0.2.17
-      vite: '@voidzero-dev/vite-plus-core@8.3.8000(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)'
+      vite: '@voidzero-dev/vite-plus-core@8.3.8000(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0)'
       why-is-node-running: 3.2.1
     optionalDependencies:
-      '@types/node': 26.6.6
-      '@vitest/browser-preview': 5.1.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.6)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(vitest@5.1.0)(yaml@2.9.0)
+      '@types/node': 26.6.7
+      '@vitest/browser-preview': 5.1.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(unplugin-unused@0.6.0(@arethetypeswrong/core@0.18.5)(@types/node@26.6.7)(jiti@2.7.0)(publint@0.3.25)(rollup@4.65.0)(typescript@7.0.2)(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(yaml@2.9.0))(unrun@0.2.33(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(synckit@0.11.12))(vitest@5.1.0)(yaml@2.9.0)
       '@vitest/ui': 5.1.0(vitest@5.1.0)
     transitivePeerDependencies:
       - '@arethetypeswrong/core'
